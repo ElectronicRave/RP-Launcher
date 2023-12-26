@@ -57,11 +57,11 @@ In this list you can see all the games in the System selected in the Home Screen
 
 ### Search mode
 
-visible only on the current collection page!
+Visible only on the current collection page!
 
 Just click search in the current collection and write the name of the game or program.
 
 Note:
-- If you write the name of the game or program and press enter on the virtual keyboard it will show the corresponding items.
+- If you write the name of the game or program and press "enter" on the virtual keyboard it will show the corresponding items.
 - If you want to search the entire system, click (All) and search again.
 - If you press the back button you will return to the home screen.
