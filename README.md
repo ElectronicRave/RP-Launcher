@@ -37,7 +37,7 @@ In the home screen you can navigate your Systems using your D-pad or use the tou
 
 ### Theme Mode
 
-- Long press to profile icon on Swap Theme Light / Dark mode
+- Long press profile icon to change theme color to Light/Dark
 
 If you selected Dark Mode in the Home Page, the Game List will be presented in Dark Mode as well.
 
