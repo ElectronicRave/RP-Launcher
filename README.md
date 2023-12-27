@@ -13,8 +13,6 @@ For this theme you need the following media types from [skraper](http://skraper.
 
 ## Theme Installation
 
-- If you download the Pegasus 552 Metadata, this theme is included so you don't need to install anything else.
-
 1 Download in (https://github.com/ElectronicRave/RP-Launcher)
 
 2 Unzip the downloaded file.
