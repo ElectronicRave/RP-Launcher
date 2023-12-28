@@ -30,24 +30,21 @@ import QtQuick 2.12
                 delegate: systemsDelegate  
                 orientation: ListView.Horizontal
                 focus: currentPage === 'Home' ? true : false ;
+		spacing: 8
 
                 highlightRangeMode: ListView.StrictlyEnforceRange
                 preferredHighlightBegin: 230
                 preferredHighlightEnd: 1560
                 highlightMoveDuration: 200
                 highlightMoveVelocity: -1
-
-		spacing: 8
-
+		
 		anchors {
 	            left: parent.left;
                     right: parent.right;
                     top: parent.top; topMargin: 270
 		}
 
-                keyNavigationWraps: true
-
-                Keys.onLeftPressed: {  decrementCurrentIndex(); } 
+               Keys.onLeftPressed: {  decrementCurrentIndex(); } 
                 Keys.onRightPressed: {  incrementCurrentIndex(); }
 
                   Component {

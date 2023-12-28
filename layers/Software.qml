@@ -6,8 +6,7 @@ import QtQuick 2.12
     property var itemWidth : 380
     property var itemHeight : itemWidth
     
-
-    Keys.onPressed: {
+   Keys.onPressed: {
    
       //Back to Home. It's up here so when a list has no games you can still go back to the home           
       if (api.keys.isCancel(event)) {
@@ -124,7 +123,7 @@ import QtQuick 2.12
         Rectangle {
             id: games
             visible: true
-	    clip:true
+	    clip: true
             color: "transparent"
             width: parent.width
             height: parent.height
@@ -154,8 +153,8 @@ import QtQuick 2.12
                 snapMode: ListView.SnapOneItem
 
                 highlightRangeMode: ListView.StrictlyEnforceRange
-                preferredHighlightBegin: vpx(1*screenRatio)
-                preferredHighlightEnd: vpx(0*screenRatio)
+                preferredHighlightBegin: 1
+                preferredHighlightEnd: 0
 		
                 Keys.onUpPressed:       { moveCurrentIndexUp(); }
                 Keys.onDownPressed:     { moveCurrentIndexDown(); }
