@@ -6,7 +6,7 @@ import QtQuick 2.12
         property var buttonTextSize: aspectRatio === 43 ? 14 : 26*1.4
         property var buttonRoundSize: aspectRatio === 43 ? 20 : 42*1.4
         property var buttonRoundTextSize: aspectRatio === 43 ? 12 : 28*1.4
-	
+
         id: footer
         color: footerCSS.background
         width: footerCSS.width
@@ -14,110 +14,114 @@ import QtQuick 2.12
 
 	anchors {
 	    bottom: main.bottom; bottomMargin: -90;
- 	    right: main.right; rightMargin: 220;
+ 	    right: main.right; rightMargin: 225;
 	}
-        
+
 	//button A
 
-        Rectangle{
+        Rectangle {
               id: footer__legend_A
               width: buttonSize
-              height:parent.height
-              color:"transparent"
+              height: parent.height
+              color: "transparent"
 
               anchors {
-	          right: parent.right; rightMargin: aspectRatio === 43 ? -20 : 40;             
+	          right: parent.right; rightMargin: aspectRatio === 43 ? -20 : 40;
                   verticalCenter: parent.verticalCenter;
 	      }
 
-              Rectangle{
+              Rectangle {
                 id: footer__full_button_A
                 anchors.right: parent.right
                 height: width
-                width:100
-                color:"transparent"
-                
-                Rectangle{
+                width: 100
+                color: "transparent"
+
+                Rectangle {
                     id: footer__button_A
-                    height:buttonRoundSize
-                    width:buttonRoundSize
+                    height: buttonRoundSize
+                    width: buttonRoundSize
                     color: theme.text
-                    radius:buttonRoundSize
+                    radius: buttonRoundSize
                     anchors.verticalCenter: parent.verticalCenter
 
-                    Text{
+                    Text {
                          text:"A"
-                         color: theme.background                    
+                         color: theme.background
                          font.pixelSize: buttonRoundTextSize
 
                          anchors {
 			     verticalCenter: parent.verticalCenter
                              horizontalCenter: parent.horizontalCenter
 			 }
+
                     }                  
+
                 }
                 
-                Text{
+                Text {
                      text:"OK"
-                     color: theme.text                     
+                     color: theme.text
                      font.pixelSize: buttonTextSize
 
                      anchors {
 			 verticalCenter: parent.verticalCenter;
                          left: footer__button_A.right; leftMargin: 8
-                     }    
-                     
+                     }
+
                  }
-        
+
              }
-                            
+
           }
           
 	  //button B
-                    
-          Rectangle{
+
+          Rectangle {
             id: footer__legend_B
             width: buttonSize
-            height:parent.height
-            color:"transparent"
+            height: parent.height
+            color: "transparent"
 
             anchors {
 		verticalCenter: parent.verticalCenter
                 right: footer__legend_A.left
 	    }
-	                
+
             Rectangle {
             id: footer__full_button_B
             anchors.right: parent.right
             height: width
-            width:100
+            width: 100
             color:"transparent"
             anchors.centerIn:  aspectRatio = 43 ? none : parent
 
             Rectangle {
               id: footer__button_B
-              height:buttonRoundSize
-              width:buttonRoundSize
+              height: buttonRoundSize
+              width: buttonRoundSize
               color: theme.text
-              radius:buttonRoundSize
+              radius: buttonRoundSize
               anchors.verticalCenter: parent.verticalCenter
 	      visible: currentPage === 'Software' ? 1 : 0
 
               Text {
                  text:"B"
-                 color: theme.background                   
+                 color: theme.background
                  font.pixelSize: buttonRoundTextSize
 
                  anchors {
 		     verticalCenter: parent.verticalCenter
                      horizontalCenter: parent.horizontalCenter
 		 }
-              }                  
+
+              }
+
            }
             
-            Text{
+            Text {
                text:"Back"
-               color: theme.text                       
+               color: theme.text
                font.pixelSize: buttonTextSize
 	       visible: currentPage === 'Software' ? 1 : 0
 
@@ -125,11 +129,12 @@ import QtQuick 2.12
                    left: footer__button_B.right; leftMargin: 8
 		   verticalCenter: parent.verticalCenter;
                }
+
             }
 
-	    Text{
+	    Text {
           	id: footer__time
-          	text: Qt.formatTime(new Date(), "hh:mm")          
+          	text: Qt.formatTime(new Date(), "hh:mm")
 		color: theme.text
           	font.pixelSize: aspectRatio === 43 ? 18 : 42
 
@@ -138,10 +143,10 @@ import QtQuick 2.12
 		    verticalCenter: parent.verticalCenter
 		}
 
-            }      
-          
+            }
+
         }
-             
-    }          
-    
- } 
+
+    }
+
+ }

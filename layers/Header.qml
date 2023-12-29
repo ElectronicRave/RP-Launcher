@@ -5,12 +5,12 @@ import QtQuick 2.12
       color: headerCSS.background
       width: headerCSS.width
       height: headerCSS.height
-      anchors.top: parent.top      
+      anchors.top: parent.top
       property var percent:  api.device.batteryPercent*100
-      
+
       Rectangle {
         id: header__battery
-        width: vpx(84)
+        width: 130
         color: theme.background
 	visible: headerHeightCorrection === 0 ? 1 : 0;
 
@@ -21,25 +21,26 @@ import QtQuick 2.12
 
         Text {
             id: header__battery_number
-            text: Math.floor(api.device.batteryPercent*100)+"%"    
-            anchors.top: parent.top   
+            text: Math.floor(api.device.batteryPercent*100)+"%"
+            anchors.top: parent.top
             color: theme.text
             font.pixelSize: aspectRatio === 43 ? 18 : 36
-        }      
-        
+        }
+
         Image {
               id: header__battery_icon
-              height: aspectRatio === 43 ? 16 : 36                 
+              height: aspectRatio === 43 ? 16 : 36
               fillMode: Image.PreserveAspectFit
               source: api.memory.get('theme')  == "themeDark" ? "../assets/icons/battery_light.png" :  "../assets/icons/battery_dark.png"
               asynchronous: true
 	      z:3999
-     
+
               anchors {
 		  top: parent.top; topMargin: aspectRatio === 43 ? 3 : 4;
                   right: header__battery_number.left; rightMargin: 6
-              }    
-         }        
+              }
+
+         }
 
           Rectangle {
               id: header__battery_icon_fill
@@ -52,7 +53,9 @@ import QtQuick 2.12
                   top: header__battery_icon.top; topMargin: aspectRatio === 169 ? 3: 2;
                   left: header__battery_icon.left; leftMargin: aspectRatio === 169 ? 3: 2;
 	      }
+
            }
+
         }
 
 	  Image {
@@ -66,9 +69,10 @@ import QtQuick 2.12
                 anchors {
 		    top: parent.top; topMargin: 32;
 		    left: parent.left; leftMargin: 48;
-		}    
+		}
+
             }
-		
+
 	    MouseArea {
 	         anchors.fill: profileIcon
 		 hoverEnabled: true
@@ -78,6 +82,7 @@ import QtQuick 2.12
 	         onPressAndHold:{
 	           swapTheme();
  	        }
+
  	   }
 
 	      Text {
@@ -89,7 +94,8 @@ import QtQuick 2.12
                   anchors {
 		      top: parent.top; topMargin: 65;
 		      left: parent.left; leftMargin: 220;
-		  }    
+		  }
+
              }
 
 	    MouseArea {
@@ -101,8 +107,9 @@ import QtQuick 2.12
 	           currentCollectionIndex = 2;
  	           navigate('Software');
 	         }
+
 	    }
-  
+
               Text {
 		  id: favorite
                   text: "Favorite"
@@ -113,6 +120,7 @@ import QtQuick 2.12
 		      top: parent.top; topMargin: 65;
 		      left: parent.left; leftMargin: 300;
 		  }   
+
              }
 
 	    MouseArea {
@@ -124,8 +132,9 @@ import QtQuick 2.12
 	           currentCollectionIndex = 0;
 	           navigate('Software');
  	        }
+
  	   }
-                     
+
               Text {
 		  id: played
                   text: "Played"
@@ -136,6 +145,7 @@ import QtQuick 2.12
 		      top: parent.top; topMargin: 65;
 		      left: parent.left; leftMargin: 490
 		  }    
+
              }
 
 	    MouseArea {
@@ -147,6 +157,7 @@ import QtQuick 2.12
 	           currentCollectionIndex = 1;
 	           navigate('Software');
 	        }
+
 	    }
 
               Text {
@@ -160,6 +171,7 @@ import QtQuick 2.12
 		      top: parent.top; topMargin: 65;
 		      left: parent.left; leftMargin: 650;
 		  }    
+
 	     }
 
 	    MouseArea {
@@ -176,4 +188,4 @@ import QtQuick 2.12
 
  	   } 
 
- }
+     }

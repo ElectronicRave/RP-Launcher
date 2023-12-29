@@ -2,16 +2,16 @@ import QtQuick 2.12
 
 
   Item {
-    
-    id: home  
-  
+
+    id: home
+
     Rectangle {
         id: main
         color: "transparent"
         width: wrapperCSS.width
         height: mainCSS.height+115
         anchors.top: header.bottom
-	        
+
         Rectangle {
           id: systems
           color: "transparent"
@@ -22,12 +22,12 @@ import QtQuick 2.12
                 right: parent.right
                 top: parent.top; topMargin: headerHeightCorrection === 0 ? 0 : 24 ;
 	  }
-          
+
               ListView {
                 id: systemsListView
                 model: api.collections
 		snapMode: ListView.SnapOneItem
-                delegate: systemsDelegate  
+                delegate: systemsDelegate
                 orientation: ListView.Horizontal
                 focus: currentPage === 'Home' ? true : false ;
 		spacing: 8
@@ -37,7 +37,7 @@ import QtQuick 2.12
                 preferredHighlightEnd: 1560
                 highlightMoveDuration: 200
                 highlightMoveVelocity: -1
-		
+
 		anchors {
 	            left: parent.left;
                     right: parent.right;
@@ -49,18 +49,17 @@ import QtQuick 2.12
 
                   Component {
                       id: systemsDelegate
-                   
-                   
+                  
                       Item {
                           id: systems__item_container
 			  property bool selected: ListView.isCurrentItem
                           width: 380
                           height: width
-                            
+
                           Keys.onPressed: {
                             if (api.keys.isAccept(event)) {
                                 event.accepted = true;
-                                
+
                                 //We update the collection we want to browse
                                 currentCollectionIndex = systems__item_container.ListView.view.currentIndex+3;
                                 //We store the current collection so we go back there after playing
@@ -68,10 +67,10 @@ import QtQuick 2.12
                                 //We change Pages
                                 navigate('Software');
                                 return;
-                            }      
-                                                                
-                          }                          
-                          
+                            }
+
+                          }
+
                           Text {
                               id: systems__item_title
                               text: modelData.name
@@ -85,7 +84,7 @@ import QtQuick 2.12
                               elide: Text.ElideRight
                               opacity: systems__item_container.ListView.isCurrentItem ? 1 : 0
                           }
-                        
+
                           Rectangle {
                               id: systems__item
                               width: parent.width
@@ -104,15 +103,15 @@ import QtQuick 2.12
 				    top: systems__item.top; topMargin: 4;
                                     left: systems__item.left; leftMargin: 4;
 				}
-                                
+
                                 Image {
                                     id: systems__img_bg
-                                    height: parent.height      
-                                    width: parent.width      
+                                    height: parent.height
+                                    width: parent.width
                                     fillMode: Image.PreserveAspect
                                     source: "../assets/images/logos/"+modelData.shortName+".jpg"
-                                    asynchronous: true                                       
-                                }                                                     
+                                    asynchronous: true
+                                }
 
 			        MouseArea {
 			             anchors.fill: systems__img_bg
@@ -133,8 +132,9 @@ import QtQuick 2.12
 				    else
 		 		       systemsListView.currentIndex = index
 				    }
+
 	   		         }
-                                                                              
+
                               }
 
                               Rectangle {
@@ -142,25 +142,25 @@ import QtQuick 2.12
                                 width: parent.width
                                 height: parent.height
                                 border.color: systems__item_container.ListView.isCurrentItem ? theme.accent : wrapperCSS.background
-                                border.width: 8     
+                                border.width: 8
                                 color:"transparent"
-				anchors.centerIn: systems__img_bg                                                   
+				anchors.centerIn: systems__img_bg
                             }
 
                          }
-                                                            
+
                       }
 
-                  }      
-                  
+                  }
+
               }
 
          }
-                    
+
     }
 
     Header{}
 
-    Footer{}   
+    Footer{}
 
 }
