@@ -21,7 +21,7 @@ For this theme you need the following media types from [skraper](http://skraper.
 
 2 Unzip the downloaded file.
 
-1 Upload the folder to /pegasus-frontend/themes/RP-Launcher
+1 Upload the folder to /pegasus-frontend/themes/RP-Launcher-main
 
 4 Open Pegasus, go to Settings - General - Theme and select RP Launcher
 
