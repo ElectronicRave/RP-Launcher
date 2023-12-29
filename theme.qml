@@ -131,8 +131,7 @@ FocusScope {
         else{
             api.memory.set('theme', 'themeDark');
         }
-
- }
+  }
 
   function navigate(page){
     currentPage = page
