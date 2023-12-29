@@ -6,9 +6,8 @@ import QtQuick 2.12
     property var itemWidth : 380
     property var itemHeight : itemWidth
 
+   //Back to Home
    Keys.onPressed: {
-
-      //Back to Home
       if (api.keys.isCancel(event)) {
           event.accepted = true;
 	  api.memory.unset('currentCollectionIndex', currentCollectionIndex);
