@@ -130,7 +130,7 @@ import QtQuick 2.12
  				     return;
 				    }
 				    else
-		 		       systemsListView.currentIndex = index
+		 		       systemsListView.currentIndex = index;
 				    }
 
 	   		         }
