@@ -48,6 +48,9 @@ FocusScope {
   // We show the game list if we have stored the collection ID
   property var currentPage : currentCollectionIndexMemory ? 'Software' : 'Home';
 
+  //Memorizes the condition of the theme
+  property var theme : api.memory.get('theme') === 'themeDark' ? themeDark : themeLight ;
+
   property var themeLight : {
       "background": "#EBEBEB",
       "accent": "#FF0000",
@@ -64,8 +67,7 @@ FocusScope {
       "title": "#FFFFFF",
   }
 
-  property var theme : api.memory.get('theme') === 'themeDark' ? themeDark : themeLight ;
-
+  //Enable the search box feature
   property var searchValue: '';
 
   property var screenRatio: root.height < 481 ? 1.98 : 1.88;
@@ -123,6 +125,8 @@ FocusScope {
    }
 
  }
+
+  //Change the theme color
   
   function swapTheme(){
     if(theme === themeDark){
@@ -132,6 +136,8 @@ FocusScope {
             api.memory.set('theme', 'themeDark');
         }
   }
+
+  //Change pages
 
   function navigate(page){
     currentPage = page
@@ -183,7 +189,7 @@ FocusScope {
 
     }    
  
-  //screen boundaries, use it to trace a design
+  //Screen boundaries
   Rectangle {
       id: wrapper
       color: wrapperCSS.background
