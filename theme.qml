@@ -6,10 +6,10 @@ import "layers" as Layers
 
 
 FocusScope {
-    id: root  
+    id: root
 
   //Variables and functions
-   
+
   //System index from memory so we can remember the last system we were in
  property var currentCollectionIndexMemory : api.memory.get('currentCollectionIndex', currentCollectionIndex);
  property var currentCollectionIndex: {
@@ -20,7 +20,7 @@ FocusScope {
  }
 
   property var currentCollection: allCollections[currentCollectionIndex]
-  
+
   //Games index
   property var currentGameIndex: 0
 
@@ -33,7 +33,7 @@ FocusScope {
           return  currentCollection.games.get(searchGames.mapToSource(currentGameIndex))   
       return currentCollection.games.get(currentGameIndex)
   }
-   
+
   //We remove the favorite, lastplayed, etc collections so we can put them in another place   
   property var allCollections: {
       let collections = api.collections.toVarArray()
@@ -42,12 +42,12 @@ FocusScope {
       collections.unshift({"name": "Favorites", "shortName": "all-favorites", "games": allFavorites})
       return collections
   }  
-  
+
   FontLoader { id: titleFont; source: "assets/fonts/Nintendo_Switch_UI_Font.ttf" }
-  
+
   // We show the game list if we have stored the collection ID
   property var currentPage : currentCollectionIndexMemory ? 'Software' : 'Home';
-  
+
   property var themeLight : {
       "background": "#EBEBEB",
       "accent": "#FF0000",
@@ -55,7 +55,7 @@ FocusScope {
       "text": "#000000",
       "title": "#000000",
   }
-   
+
   property var themeDark : {
       "background": "#2C2C2C",
       "accent": "#10ADC5",
@@ -63,21 +63,20 @@ FocusScope {
       "text": "#FFFFFF",
       "title": "#FFFFFF",
   }
-    
+
   property var theme : api.memory.get('theme') === 'themeDark' ? themeDark : themeLight ;
-  
+
   property var searchValue: '';
 
   property var screenRatio: root.height < 481 ? 1.98 : 1.88;
 
   property var screenProportion: root.width / root.height;
 
-
   function calculateAspectRatio(screenProportion){
     if (screenProportion < 1.34){
       return 43;
     }
-      return 169;    
+      return 169;
  }
 
   property var aspectRatio : calculateAspectRatio(screenProportion)
@@ -89,29 +88,25 @@ FocusScope {
       "height": parent.height,
       "background": theme.background,      
   }
-  
-  
+
   property var headerCSS : {
       "width": wrapperCSS.width,
       "height": aspectRatio == 43 ? 90 : 135,
       "background": "transparent",
   }
-  
+
   property var mainCSS : {
       "width": wrapperCSS.width,
       "height": wrapperCSS.height - headerCSS.height - footerCSS.height,
       "background": "transparent",
-      
-  }     
-  
+  }
+
   property var footerCSS : {
       "width": wrapperCSS.width,
       "height": aspectRatio == 43 ? 74 : 90,
       "background": "transparent",
-      
-  }    
-  
-  
+  }
+
   //Percentage calculator
   function vw(pixel){
 
@@ -126,6 +121,7 @@ FocusScope {
       return vpx(pixel*12.8)
       break;
    }
+
  }
   
   function swapTheme(){
@@ -136,8 +132,7 @@ FocusScope {
             api.memory.set('theme', 'themeDark');
         }
   }
-  
- 
+
   function navigate(page){
     currentPage = page
     /*pageNames    
@@ -145,7 +140,7 @@ FocusScope {
     'Software'
     */
   }
-  
+
    property int maximumPlayedGames: {
         if (allLastPlayed.count >= 17) {
             return 17
@@ -177,8 +172,7 @@ FocusScope {
         sourceModel: currentCollection.games
         filters: ValueFilter { roleName: "favorite"; value: true; }
     }
-                            
-    
+   
     SortFilterProxyModel {
     id: searchGames
 
@@ -188,8 +182,7 @@ FocusScope {
         ]
 
     }    
-  
-  
+ 
   //screen boundaries, use it to trace a design
   Rectangle {
       id: wrapper
@@ -197,7 +190,6 @@ FocusScope {
       width: wrapperCSS.width
       height: wrapperCSS.height
       anchors.top: parent.top
-      
 
     Layers.Home {
       visible: currentPage === 'Home' ? 1 : 0 ;
@@ -205,8 +197,8 @@ FocusScope {
     
     Layers.Software {
       visible: currentPage === 'Software' ? 1 : 0 ;
-    }  
-  
-  }   
-  
+    }
+
+  }
+
 }
