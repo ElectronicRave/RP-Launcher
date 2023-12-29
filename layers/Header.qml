@@ -8,6 +8,8 @@ import QtQuick 2.12
       anchors.top: parent.top
       property var percent:  api.device.batteryPercent*100
 
+      //Battery status
+
       Rectangle {
         id: header__battery
         width: 130
@@ -58,6 +60,8 @@ import QtQuick 2.12
 
         }
 
+	  //Profile icon
+
 	  Image {
                 id: profileIcon
                 width: vpx(36*screenRatio)
@@ -82,6 +86,8 @@ import QtQuick 2.12
 
  	   }
 
+	      //All games
+
 	      Text {
 		  id: all
                   text: "All"
@@ -103,6 +109,8 @@ import QtQuick 2.12
 	         }
 
 	    }
+
+	      //Favorite games
 
               Text {
 		  id: favorite
@@ -126,6 +134,8 @@ import QtQuick 2.12
 
  	   }
 
+	      //Played games
+
               Text {
 		  id: played
                   text: "Played"
@@ -147,6 +157,8 @@ import QtQuick 2.12
 	        }
 
 	    }
+
+	     //Search games
 
               Text {
 		  id: search

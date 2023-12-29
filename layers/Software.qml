@@ -276,6 +276,7 @@ import QtQuick 2.12
 				   gameView.currentIndex = index;
 				}
 				onPressAndHold: {
+				  //Add to Favorites
 				  currentGameIndex = index;
 		                  currentGame.favorite = !currentGame.favorite;
 				}

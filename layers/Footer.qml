@@ -132,7 +132,7 @@ import QtQuick 2.12
 
             }
 
-	    //Time
+	    //Time status
 
 	    Text {
           	id: footer__time
