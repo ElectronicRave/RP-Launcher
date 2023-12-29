@@ -79,18 +79,6 @@ import QtQuick 2.12
                           gameView.model = searchGames;
                       }
 
-                        Keys.onPressed: {
-                          if (api.keys.isAccept(event)) {
-                              navigate('Software');
-                              return;
-                          }
-                          if (event.key == Qt.Key_Down) {
-                              navigate('Software');
-                              return;
-                          }
-
-                      }
-
                  }
 
             }
