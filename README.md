@@ -1,6 +1,6 @@
 # Retroid Pocket Launcher Theme
 
-![RP Launcher Pegasus theme](assets/images/screenshots/main_light.png)
+![RP Launcher Pegasus theme](assets/images/screenshots/main_light.png);
 
 ![RP Launcher Pegasus theme](assets/images/screenshots/Software_light.png)
 
