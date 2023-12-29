@@ -41,7 +41,7 @@ If you selected Dark Mode in the Home Page, the Game List will be presented in D
 
 ## Game List Screen
 
-In this list you can see all the games in the System selected in the Home Screen, in this screen you can do several things by pressing different buttons:
+In this list you can see all the games or software in the System, in this screen you can do several things by pressing different buttons:
 
 - A  - Launch the Game
 - B  - Goes back to the Home Page
