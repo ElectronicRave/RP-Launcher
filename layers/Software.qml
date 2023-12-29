@@ -201,7 +201,6 @@ import QtQuick 2.12
                       }
 
                       Rectangle {
-                        color: "transparent"
                         width: parent.width-8
                         height: parent.height-8
                         clip: true
@@ -283,7 +282,7 @@ import QtQuick 2.12
 
 			     }
 
-                        Rectangle{
+                        Rectangle {
                           id: game__is_selected
                           width: parent.width
                           height: parent.height
