@@ -46,7 +46,7 @@ In this list you can see all the games or software in the System, in this screen
 - B  - Goes back to the Home Page
 - L1 - Changes the Game List to the previous System
 - R1 - Changes the Game List to the next System
-- Access to search Games (touch only)
+- TOUCH - Access to search Games
  
 ### Favorite mode
 
