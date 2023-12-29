@@ -138,14 +138,6 @@ import QtQuick 2.12
                 height: parent.height
 		cellWidth: itemWidth
                 cellHeight: itemHeight
-
-            anchors {
-                left: parent.left; leftMargin: 200
-                top: parent.top; topMargin: 72
-                right: parent.right;
-                bottom: parent.bottom;
-            }
-
                 model: currentCollection.games
                 delegate: gameViewDelegate
                 focus: currentPage === 'Software' ? true : false ;
@@ -154,6 +146,13 @@ import QtQuick 2.12
                 highlightRangeMode: ListView.StrictlyEnforceRange
                 preferredHighlightBegin: 1
                 preferredHighlightEnd: 0
+
+            anchors {
+                left: parent.left; leftMargin: 200
+                top: parent.top; topMargin: 72
+                right: parent.right;
+                bottom: parent.bottom;
+            }
 
                 Keys.onUpPressed:       { moveCurrentIndexUp(); }
                 Keys.onDownPressed:     { moveCurrentIndexDown(); }
