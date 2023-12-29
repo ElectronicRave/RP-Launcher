@@ -2,6 +2,8 @@
 
 ![RP Launcher Pegasus theme](assets/images/screenshots/main_light.png)
 
+![RP Launcher Pegasus theme](assets/images/screenshots/software_light.png)
+
 Pegasus Frontend Theme optimized for Handheld. You need to have Pegasus installed in your handheld
 
 **It's also compatible with 16:9 and 4:3 handhelds**
