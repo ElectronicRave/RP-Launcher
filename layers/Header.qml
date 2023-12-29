@@ -75,9 +75,6 @@ import QtQuick 2.12
 
 	    MouseArea {
 	         anchors.fill: profileIcon
-		 hoverEnabled: true
-	         onEntered: {}
-	         onExited: {}
 		 onClicked:{}
 	         onPressAndHold:{
 	           swapTheme();
@@ -100,9 +97,6 @@ import QtQuick 2.12
 
 	    MouseArea {
 	         anchors.fill: all
-		 hoverEnabled: true
-	         onEntered: {}
-	         onExited: {}
 	         onClicked: {
 	           currentCollectionIndex = 2;
  	           navigate('Software');
@@ -125,9 +119,6 @@ import QtQuick 2.12
 
 	    MouseArea {
 	         anchors.fill: favorite
-		 hoverEnabled: true
-	         onEntered: {}
-	         onExited: {}
 	         onClicked: {
 	           currentCollectionIndex = 0;
 	           navigate('Software');
@@ -150,9 +141,6 @@ import QtQuick 2.12
 
 	    MouseArea {
 	         anchors.fill: played
-		 hoverEnabled: true
-	         onEntered: {}
-	         onExited: {}
 	         onClicked: {
 	           currentCollectionIndex = 1;
 	           navigate('Software');
@@ -176,9 +164,6 @@ import QtQuick 2.12
 
 	    MouseArea {
 	         anchors.fill: search
-		 hoverEnabled: true
-	         onEntered: {}
-	         onExited: {}
 	         onClicked: {
 		     searchValue = ''
 	             header__search_input.clear();           

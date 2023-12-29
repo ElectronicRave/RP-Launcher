@@ -8,7 +8,7 @@ import QtQuick 2.12
 
    Keys.onPressed: {
 
-      //Back to Home. It's up here so when a list has no games you can still go back to the home
+      //Back to Home
       if (api.keys.isCancel(event)) {
           event.accepted = true;
 	  api.memory.unset('currentCollectionIndex', currentCollectionIndex);
@@ -79,11 +79,23 @@ import QtQuick 2.12
                           gameView.model = searchGames;
                       }
 
-                 }
+                        Keys.onPressed: {
+                          if (api.keys.isAccept(event)) {
+                              navigate('Software');
+                              return;
+                          }  
+                          if (event.key == Qt.Key_Down) {
+                              navigate('Software');  
+                              return;
+                          }
+
+                   }
 
             }
  
       }
+
+}
 
           Rectangle {
             id: header__border
@@ -158,8 +170,8 @@ import QtQuick 2.12
                       width: itemWidth
                       height: itemHeight
 
+                      //Launch game
                       Keys.onPressed: {
-                        //Launch game
                       if (api.keys.isAccept(event)) {
                           event.accepted = true;
                           currentGameIndex = index;
@@ -255,9 +267,6 @@ import QtQuick 2.12
  
 		           MouseArea {
 		                anchors.fill: game_screenshot
-				hoverEnabled: true
-		                onEntered: {}
-		                onExited: {}
 				onClicked: {
 				    if (selected)
 				{
@@ -287,15 +296,12 @@ import QtQuick 2.12
 
                         Canvas {
                             id: game__is_fav
+                            visible: modelData.favorite && currentCollection.shortName !== "all-favorites"
 
                             anchors {
                                 right: parent.right; rightMargin: 8;
                                 top: parent.top; topMargin: 8;
                             }
-
-                            visible: modelData.favorite && currentCollection.shortName !== "all-favorites"
-
-                            // handler to override for drawing
 
                             Image {
                                 width: 56
@@ -319,7 +325,6 @@ import QtQuick 2.12
                         color: "#2C2C2C"
                         width: gameTitle.contentWidth
                         height: 60
-                        //visible: selected ? 1 : 0
 
                         anchors {
                             bottom: parent.bottom; bottomMargin: 15

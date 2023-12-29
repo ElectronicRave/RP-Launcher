@@ -56,15 +56,12 @@ import QtQuick 2.12
                           width: 380
                           height: width
 
+			  //Browse the collection and return to the same place after playing
                           Keys.onPressed: {
                             if (api.keys.isAccept(event)) {
                                 event.accepted = true;
-
-                                //We update the collection we want to browse
                                 currentCollectionIndex = systems__item_container.ListView.view.currentIndex+3;
-                                //We store the current collection so we go back there after playing
                                 api.memory.set('currentCollectionIndex', currentCollectionIndex);
-                                //We change Pages
                                 navigate('Software');
                                 return;
                             }
@@ -115,17 +112,12 @@ import QtQuick 2.12
 
 			        MouseArea {
 			             anchors.fill: systems__img_bg
-		 	   	     hoverEnabled: true
- 		 	             onEntered: {}
- 			             onExited: {}
 				     onClicked: {
 					  if (selected)
 				    {
-				     //We update the collection we want to browse
+ 				     //Browse the collection and return to the same place after playing
 				     currentCollectionIndex = systems__item_container.ListView.view.currentIndex+3;
-				     //We store the current collection so we go back there after playing
    				     api.memory.set('currentCollectionIndex', currentCollectionIndex);
-				     //We change Pages
   				     navigate('Software');
  				     return;
 				    }

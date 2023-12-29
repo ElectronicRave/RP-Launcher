@@ -17,7 +17,7 @@ import QtQuick 2.12
  	    right: main.right; rightMargin: 225;
 	}
 
-	//button A
+	//Button A
 
         Rectangle {
               id: footer__legend_A
@@ -75,7 +75,7 @@ import QtQuick 2.12
 
           }
           
-	  //button B
+	  //Button B
 
           Rectangle {
             id: footer__legend_B
@@ -131,6 +131,8 @@ import QtQuick 2.12
                }
 
             }
+
+	    //Time
 
 	    Text {
           	id: footer__time
