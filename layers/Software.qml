@@ -298,8 +298,8 @@ import QtQuick 2.12
                             visible: modelData.favorite && currentCollection.shortName !== "all-favorites"
 
                             anchors {
-                                right: parent.right; rightMargin: 8;
-                                top: parent.top; topMargin: 8;
+                                right: parent.right; rightMargin: 12;
+                                top: parent.top; topMargin: 12;
                             }
 
                             Image {
