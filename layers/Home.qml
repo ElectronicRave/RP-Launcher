@@ -90,15 +90,13 @@ import QtQuick 2.12
   
                               Rectangle{
                                 id: systems__item_inner
-                                width: parent.width-8
-                                height: parent.width-8
-                                border.color: "transparent"
-                                border.width: 8
+                                width: parent.width
+                                height: parent.width
                                 color: theme.buttons
 
                                 anchors {
-				    top: systems__item.top; topMargin: 4;
-                                    left: systems__item.left; leftMargin: 4;
+				    top: systems__item.top;
+                                    left: systems__item.left;
 				}
 
                                 Image {
