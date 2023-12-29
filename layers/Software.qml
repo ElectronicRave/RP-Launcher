@@ -139,9 +139,9 @@ import QtQuick 2.12
 		cellWidth: itemWidth
                 cellHeight: itemHeight
                 model: currentCollection.games
+                snapMode: ListView.SnapOneItem
                 delegate: gameViewDelegate
                 focus: currentPage === 'Software' ? true : false ;
-                snapMode: ListView.SnapOneItem
 
                 highlightRangeMode: ListView.StrictlyEnforceRange
                 preferredHighlightBegin: 1
