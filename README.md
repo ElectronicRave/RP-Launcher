@@ -30,7 +30,6 @@ In the home screen you can navigate your Systems using your D-pad or use the tou
 - Access all games
 - Access to favorited games
 - Access your latest played games
-- Access to search Games ( on collection page only ) !
 - Change theme color
 
 ### Theme Mode
@@ -47,7 +46,8 @@ In this list you can see all the games or software in the System, in this screen
 - B  - Goes back to the Home Page
 - L1 - Changes the Game List to the previous System
 - R1 - Changes the Game List to the next System
-
+- Access to search Games (touch only)
+ 
 ### Favorite mode
 
 - Press and hold on the image of the game or software to add it to favorites.
