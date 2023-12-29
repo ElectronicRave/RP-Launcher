@@ -14,6 +14,8 @@ For this theme you need the following media types from [skraper](http://skraper.
 ## Theme Installation
 
 1 Download in (https://github.com/ElectronicRave/RP-Launcher)
+or
+https://pegasus-frontend.org/tools/themes/
 
 2 Unzip the downloaded file.
 
