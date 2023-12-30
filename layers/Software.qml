@@ -323,6 +323,9 @@ import QtQuick 2.12
                         color: "#2C2C2C"
                         width: gameTitle.contentWidth
                         height: 60
+                        y: xpos
+                        z: 10 * index
+                        opacity: 0.8
 
                         anchors {
                             bottom: parent.bottom; bottomMargin: 15
@@ -331,11 +334,7 @@ import QtQuick 2.12
 			    horizontalCenter: parent.horizontalCenter
                         }
 
-                        y: xpos
-                        z: 10 * index
-                        opacity: 0.8
-
-                        Text{
+                       Text{
                           id: game__title_name
                           text: modelData.title
                           color: "#FFFFFF"
@@ -347,8 +346,8 @@ import QtQuick 2.12
 
 			  anchors { 
                                 bottom: parent.bottom; bottomMargin: 12;
-                                left: parent.left; leftMargin: 0;
-				right: parent.right; rightMargin: 0;
+                                left: parent.left;
+				right: parent.right;
                             }
 
                          }
