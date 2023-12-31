@@ -73,7 +73,7 @@ import QtGraphicalEffects 1.12
               	    asynchronous: true
 	     	    smooth: true
 	     	    antialiasing: true
-		    visible: chargingStatus && chargingPercent < 99
+		    visible: chargingStatus && chargingPercent < 100
                     
               anchors {
 		  top: parent.top; topMargin: aspectRatio === 43 ? 3 : 4;
