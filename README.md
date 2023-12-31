@@ -27,7 +27,7 @@ For this theme you need the following media types from [skraper](http://skraper.
 
 ## Home Screen
 
-In the home screen you will find information about the battery level and current time
+In the home screen you will find information about the battery level, charging status and current time
 
 In the home screen you can navigate your Systems using your D-pad or use the touchscreen to:
 
