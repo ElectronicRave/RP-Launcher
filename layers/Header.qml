@@ -1,4 +1,6 @@
 import QtQuick 2.12
+import QtGraphicalEffects 1.12
+
 
   Rectangle {
       id: header
@@ -6,7 +8,8 @@ import QtQuick 2.12
       width: headerCSS.width
       height: headerCSS.height
       anchors.top: parent.top
-      property var percent:  api.device.batteryPercent*100
+      property var chargingPercent: api.device.batteryPercent*100
+      property bool chargingStatus: api.device.batteryCharging
 
       //Battery status
 
@@ -35,7 +38,8 @@ import QtQuick 2.12
               fillMode: Image.PreserveAspectFit
               source: api.memory.get('theme')  == "themeDark" ? "../assets/icons/battery_light.png" :  "../assets/icons/battery_dark.png"
               asynchronous: true
-	      z:3999
+	      smooth: true
+	      antialiasing: true
 
               anchors {
 		  top: parent.top; topMargin: aspectRatio === 43 ? 3 : 4;
@@ -48,7 +52,7 @@ import QtQuick 2.12
               id: header__battery_icon_fill
               color: theme.text
               radius: 2
-              width: aspectRatio === 169 ? Math.floor(percent*0.56) : Math.floor(percent*0.22)
+              width: aspectRatio === 169 ? Math.floor(chargingPercent*0.56) : Math.floor(chargingPercent*0.22)
               height: aspectRatio === 169 ? 30 : 10
 
               anchors {
@@ -58,7 +62,27 @@ import QtQuick 2.12
 
            }
 
-        }
+                Image {
+                    id: header__battery_charging_icon
+                    width: aspectRatio === 43 ? 16 : 36
+                    height: width
+                    fillMode: Image.PreserveAspectFit
+                    source: "../assets/icons/charging.png"
+                    sourceSize.width: vpx(10)
+                    sourceSize.height: vpx(15)
+              	    asynchronous: true
+	     	    smooth: true
+	     	    antialiasing: true
+		    visible: chargingStatus && chargingPercent < 99
+                    
+              anchors {
+		  top: parent.top; topMargin: aspectRatio === 43 ? 3 : 4;
+                  right: header__battery_icon.right; rightMargin: 22
+              }
+
+	    }
+
+	  }
 
 	  //Profile icon
 
@@ -69,6 +93,8 @@ import QtQuick 2.12
 		fillMode: Image.PreserveAspectFit
 		source: "../assets/icons/profile.png"
 		asynchronous: true
+		smooth: true
+	     	antialiasing: true
 
                 anchors {
 		    top: parent.top; topMargin: 32;

@@ -42,6 +42,7 @@ import QtQuick 2.12
 	            left: parent.left;
                     right: parent.right;
                     top: parent.top; topMargin: 270
+		    bottom: parent.bottom
 		}
 
                Keys.onLeftPressed: {  decrementCurrentIndex(); } 
@@ -106,6 +107,7 @@ import QtQuick 2.12
                                     fillMode: Image.PreserveAspect
                                     source: "../assets/images/logos/"+modelData.shortName+".jpg"
                                     asynchronous: true
+				    smooth: true
                                 }
 
 			        MouseArea {

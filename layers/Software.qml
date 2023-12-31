@@ -222,6 +222,8 @@ import QtQuick 2.12
                             height: parent.height
                             fillMode: Image.PreserveAspect
                             asynchronous: true
+			    smooth: true
+	     	   	    antialiasing: true
 
                             source: {
                                 if (currentCollection.shortName !== "android") {
@@ -240,6 +242,8 @@ import QtQuick 2.12
                             width: parent.width
                             height: parent.height
 			    asynchronous: true
+			    smooth: true
+	     	    	    antialiasing: true
 
                             anchors {
                                 fill: parent
@@ -306,6 +310,8 @@ import QtQuick 2.12
                                 fillMode: Image.PreserveAspectFit
                                 source: focus ? "../assets/icons/favorite.png" : "../assets/icons/favorite.png"
                                 asynchronous: true
+				smooth: true
+	     	    		antialiasing: true
 
                                 anchors {
                                     right: parent.right; rightMargin: 8;
