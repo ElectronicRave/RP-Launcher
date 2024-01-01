@@ -56,7 +56,7 @@ FocusScope {
       "accent": "#FF0000",
       "buttons": "#FFBD88",
       "text": "#000000",
-      "title": "#000000",
+      "title": "#2C2C2C",
   }
 
   property var themeDark : {
@@ -64,7 +64,7 @@ FocusScope {
       "accent": "#10ADC5",
       "buttons": "#B06500",
       "text": "#FFFFFF",
-      "title": "#FFFFFF",
+      "title": "#EBEBEB",
   }
 
   //Enable the search box feature
