@@ -50,7 +50,7 @@ import QtGraphicalEffects 1.12
 
           Rectangle {
               id: header__battery_icon_fill
-              color: theme.text
+              color: theme.title
               radius: 2
               width: aspectRatio === 169 ? Math.floor(chargingPercent*0.56) : Math.floor(chargingPercent*0.22)
               height: aspectRatio === 169 ? 30 : 10

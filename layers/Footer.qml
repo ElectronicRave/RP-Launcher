@@ -41,7 +41,7 @@ import QtQuick 2.12
                     id: footer__button_A
                     height: buttonRoundSize
                     width: buttonRoundSize
-                    color: theme.text
+                    color: theme.title
                     radius: buttonRoundSize
                     anchors.verticalCenter: parent.verticalCenter
 
@@ -100,7 +100,7 @@ import QtQuick 2.12
               id: footer__button_B
               height: buttonRoundSize
               width: buttonRoundSize
-              color: theme.text
+              color: theme.title
               radius: buttonRoundSize
               anchors.verticalCenter: parent.verticalCenter
 	      visible: currentPage === 'Software' ? 1 : 0
