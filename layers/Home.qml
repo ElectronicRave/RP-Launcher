@@ -92,7 +92,7 @@ import QtQuick 2.12
                               Rectangle{
                                 id: systems__item_inner
                                 width: parent.width
-                                height: parent.width
+                                height: parent.height
                                 color: theme.buttons
 
                                 anchors {
