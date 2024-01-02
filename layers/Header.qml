@@ -118,7 +118,8 @@ import QtGraphicalEffects 1.12
 	      Text {
 		  id: all
                   text: "All"
-                  color: theme.text
+                  color: theme.accent
+		  font.bold: true
                   font.pixelSize: vpx(16*screenRatio)
 
                   anchors {
