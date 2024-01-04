@@ -7,29 +7,24 @@ import QtGraphicalEffects 1.12
       color: headerCSS.background
       width: headerCSS.width
       height: headerCSS.height
-      anchors.top: parent.top
       property var chargingPercent: api.device.batteryPercent*100
       property bool chargingStatus: api.device.batteryCharging
+
+      anchors {
+	  top: parent.top
+      }
 
       //Battery status
 
       Rectangle {
         id: header__battery
         width: 130
-        color: theme.background
-	visible: headerHeightCorrection === 0 ? 1 : 0;
+        color: "transparent"
+	visible: headerHeightCorrection === 0 ? 1 : 0
 
         anchors {
-	    right: parent.right; rightMargin: aspectRatio === 43 ? 16 : 24;
-            top: parent.top; topMargin: 46;
-        }
-
-        Text {
-            id: header__battery_number
-            text: Math.floor(api.device.batteryPercent*100)+"%"
-            anchors.top: parent.top
-            color: theme.text
-            font.pixelSize: aspectRatio === 43 ? 18 : 36
+	    right: parent.right; rightMargin: aspectRatio === 43 ? 16 : 24
+            top: parent.top; topMargin: 46
         }
 
         Image {
@@ -43,13 +38,25 @@ import QtGraphicalEffects 1.12
 	      visible: chargingPercent
 
               anchors {
-		  top: parent.top; topMargin: aspectRatio === 43 ? 3 : 4;
+		  top: parent.top; topMargin: aspectRatio === 43 ? 3 : 4
                   right: header__battery_number.left; rightMargin: 6
               }
 
          }
 
-          Rectangle {
+        Text {
+            id: header__battery_number
+            text: Math.floor(api.device.batteryPercent*100)+"%"
+            color: theme.text
+            font.pixelSize: aspectRatio === 43 ? 18 : 36
+
+	    anchors {
+		top: parent.top
+	    }
+
+        }
+
+         Rectangle {
               id: header__battery_icon_fill
               color: theme.title
               radius: 2
@@ -57,8 +64,8 @@ import QtGraphicalEffects 1.12
               height: aspectRatio === 169 ? 30 : 10
 
               anchors {
-                  top: header__battery_icon.top; topMargin: aspectRatio === 169 ? 3: 2;
-                  left: header__battery_icon.left; leftMargin: aspectRatio === 169 ? 3: 2;
+                  top: header__battery_icon.top; topMargin: aspectRatio === 169 ? 3: 2
+                  left: header__battery_icon.left; leftMargin: aspectRatio === 169 ? 3: 2
 	      }
 
            }
@@ -75,9 +82,9 @@ import QtGraphicalEffects 1.12
 	     	    smooth: true
 	     	    antialiasing: true
 		    visible: chargingStatus && chargingPercent < 100
-                    
+                   
               anchors {
-		  top: parent.top; topMargin: aspectRatio === 43 ? 3 : 4;
+		  top: parent.top; topMargin: aspectRatio === 43 ? 3 : 4
                   right: header__battery_icon.right; rightMargin: 22
               }
 
@@ -98,20 +105,19 @@ import QtGraphicalEffects 1.12
 	     	antialiasing: true
 
                 anchors {
-		    top: parent.top; topMargin: 32;
-		    left: parent.left; leftMargin: 48;
+		    top: parent.top; topMargin: 32
+		    left: parent.left; leftMargin: 48
 		}
 
             }
 
 	    MouseArea {
 	         anchors.fill: profileIcon
-		 onClicked:{}
 	         onPressAndHold:{
 	           swapTheme();
- 	        }
+ 	         }
 
- 	   }
+ 	    }
 
 	      //All games
 
@@ -123,8 +129,8 @@ import QtGraphicalEffects 1.12
                   font.pixelSize: vpx(16*screenRatio)
 
                   anchors {
-		      top: parent.top; topMargin: 65;
-		      left: parent.left; leftMargin: 220;
+		      top: parent.top; topMargin: 65
+		      left: parent.left; leftMargin: 220
 		  }
 
              }
@@ -147,8 +153,8 @@ import QtGraphicalEffects 1.12
                   font.pixelSize: vpx(16*screenRatio)
 
                   anchors {
-		      top: parent.top; topMargin: 65;
-		      left: parent.left; leftMargin: 300;
+		      top: parent.top; topMargin: 65
+		      left: parent.left; leftMargin: 300
 		  }   
 
              }
@@ -171,7 +177,7 @@ import QtGraphicalEffects 1.12
                   font.pixelSize: vpx(16*screenRatio)
 
                   anchors {
-		      top: parent.top; topMargin: 65;
+		      top: parent.top; topMargin: 65
 		      left: parent.left; leftMargin: 490
 		  }    
 
@@ -182,7 +188,7 @@ import QtGraphicalEffects 1.12
 	         onClicked: {
 	           currentCollectionIndex = 1;
 	           navigate('Software');
-	        }
+	         }
 
 	    }
 
@@ -196,8 +202,8 @@ import QtGraphicalEffects 1.12
 		  visible: currentPage === 'Software' ? 1 : 0
 
                   anchors {
-		      top: parent.top; topMargin: 65;
-		      left: parent.left; leftMargin: 650;
+		      top: parent.top; topMargin: 65
+		      left: parent.left; leftMargin: 650
 		  }    
 
 	     }
@@ -209,7 +215,7 @@ import QtGraphicalEffects 1.12
 	             header__search_input.clear();           
 	             header__search_input.focus = true;
 	             return;
-	        }
+	         }
 
  	   } 
 

@@ -24,7 +24,7 @@ import QtQuick 2.12
         color: "transparent"
         width: headerCSS.width
         height: header_inner.height+header__border.height+aspectRatio === 43 ? 40 : 120
-	clip:true
+	clip: true
 
         anchors {
 	    top: parent.top; topMargin: 15
@@ -32,8 +32,8 @@ import QtQuick 2.12
 
         Rectangle {
           id: header_inner
-          color:"transparent"
-          width:parent.width-60
+          color: "transparent"
+          width: parent.width-60
           height: aspectRatio === 43 ? 40 : 110
 
           anchors {
@@ -68,12 +68,12 @@ import QtQuick 2.12
 			   top: parent.top
                            left: parent.left
                            leftMargin: aspectRatio === 43 ? 6  : 24
-                           topMargin:  aspectRatio === 43 ? 8 : 44
+                           topMargin: aspectRatio === 43 ? 8 : 44
 			   verticalCenter: parent.verticalCenter
 		      }
 
                      onTextEdited: {
-                          gameView.currentIndex = 0; //We move the highlight to the first item
+                          gameView.currentIndex = 0;
                           searchValue = header__search_input.text;
                           gameView.model = searchGames;
                       }
@@ -98,7 +98,7 @@ import QtQuick 2.12
 
           Rectangle {
             id: header__border
-	    width: parent.width-40;
+	    width: parent.width-40
             height: 0
             color: "transparent"
 
@@ -150,8 +150,8 @@ import QtQuick 2.12
             anchors {
                 left: parent.left; leftMargin: 200
                 top: parent.top; topMargin: 72
-                right: parent.right;
-                bottom: parent.bottom;
+                right: parent.right
+                bottom: parent.bottom
             }
 
                 Keys.onUpPressed:       { moveCurrentIndexUp(); }
@@ -199,8 +199,8 @@ import QtQuick 2.12
                       }
 
                       Rectangle {
-                        width: parent.width-8
-                        height: parent.height-8
+                        width: itemWidth-8
+                        height: itemHeight-8
                         clip: true
 
                         Rectangle {
@@ -218,8 +218,8 @@ import QtQuick 2.12
 
                         Image {
                             id: game_screenshot
-                            width: parent.width
-                            height: parent.height
+                            width: itemWidth
+                            height: itemHeight
                             fillMode: Image.PreserveAspect
                             asynchronous: true
 			    smooth: true
@@ -301,8 +301,8 @@ import QtQuick 2.12
                             visible: modelData.favorite && currentCollection.shortName !== "all-favorites"
 
                             anchors {
-                                right: parent.right; rightMargin: 12;
-                                top: parent.top; topMargin: 12;
+                                right: parent.right; rightMargin: 12
+                                top: parent.top; topMargin: 12
                             }
 
                             Image {
@@ -314,8 +314,8 @@ import QtQuick 2.12
 	     	    		antialiasing: true
 
                                 anchors {
-                                    right: parent.right; rightMargin: 8;
-                                    top: parent.top; topMargin: 8;
+                                    right: parent.right; rightMargin: 8
+                                    top: parent.top; topMargin: 8
                                 }
 
                             }
@@ -324,7 +324,7 @@ import QtQuick 2.12
 
                       }
 
-                      Rectangle{
+                      Rectangle {
                         id: game__title
                         color: "#2C2C2C"
                         width: gameTitle.contentWidth
@@ -340,7 +340,7 @@ import QtQuick 2.12
 			    horizontalCenter: parent.horizontalCenter
                         }
 
-                       Text{
+                       Text {
                           id: game__title_name
                           text: modelData.title
                           color: "#EBEBEB"
@@ -351,9 +351,9 @@ import QtQuick 2.12
                           horizontalAlignment: Text.AlignHCenter
 
 			  anchors { 
-                                bottom: parent.bottom; bottomMargin: 12;
-                                left: parent.left;
-				right: parent.right;
+                                bottom: parent.bottom; bottomMargin: 12
+                                left: parent.left
+				right: parent.right
                             }
 
                          }
@@ -371,8 +371,8 @@ import QtQuick 2.12
         
     }
 
-    Header{}
+    Header {}
 
-    Footer{}
+    Footer {}
 
 }

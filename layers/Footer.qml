@@ -13,8 +13,8 @@ import QtQuick 2.12
         height: footerCSS.height
 
 	anchors {
-	    bottom: main.bottom; bottomMargin: -90;
- 	    right: main.right; rightMargin: 225;
+	    bottom: main.bottom; bottomMargin: -90
+ 	    right: main.right; rightMargin: 225
 	}
 
 	//Button A
@@ -26,8 +26,8 @@ import QtQuick 2.12
               color: "transparent"
 
               anchors {
-	          right: parent.right; rightMargin: aspectRatio === 43 ? -20 : 40;
-                  verticalCenter: parent.verticalCenter;
+	          right: parent.right; rightMargin: aspectRatio === 43 ? -20 : 40
+                  verticalCenter: parent.verticalCenter
 	      }
 
               Rectangle {
@@ -43,10 +43,13 @@ import QtQuick 2.12
                     width: buttonRoundSize
                     color: theme.title
                     radius: buttonRoundSize
-                    anchors.verticalCenter: parent.verticalCenter
+
+                    anchors {
+			verticalCenter: parent.verticalCenter
+		    }
 
                     Text {
-                         text:"A"
+                         text: "A"
                          color: theme.background
                          font.pixelSize: buttonRoundTextSize
 
@@ -60,12 +63,12 @@ import QtQuick 2.12
                 }
                 
                 Text {
-                     text:"OK"
+                     text: "OK"
                      color: theme.text
                      font.pixelSize: buttonTextSize
 
                      anchors {
-			 verticalCenter: parent.verticalCenter;
+			 verticalCenter: parent.verticalCenter
                          left: footer__button_A.right; leftMargin: 8
                      }
 
@@ -90,11 +93,14 @@ import QtQuick 2.12
 
             Rectangle {
             id: footer__full_button_B
-            anchors.right: parent.right
-            height: width
+           height: width
             width: 100
-            color:"transparent"
-            anchors.centerIn:  aspectRatio = 43 ? none : parent
+            color: "transparent"
+
+            anchors {
+		right: parent.right
+                centerIn:  aspectRatio = 43 ? none : parent
+	    }
 
             Rectangle {
               id: footer__button_B
@@ -106,7 +112,7 @@ import QtQuick 2.12
 	      visible: currentPage === 'Software' ? 1 : 0
 
               Text {
-                 text:"B"
+                 text: "B"
                  color: theme.background
                  font.pixelSize: buttonRoundTextSize
 
@@ -120,14 +126,14 @@ import QtQuick 2.12
            }
             
             Text {
-               text:"Back"
+               text: "Back"
                color: theme.text
                font.pixelSize: buttonTextSize
 	       visible: currentPage === 'Software' ? 1 : 0
 
                anchors {
                    left: footer__button_B.right; leftMargin: 8
-		   verticalCenter: parent.verticalCenter;
+		   verticalCenter: parent.verticalCenter
                }
 
             }
@@ -145,9 +151,14 @@ import QtQuick 2.12
 		    verticalCenter: parent.verticalCenter
 		}
 
+	    Timer {
+	        interval: 500; running: true; repeat: true
+  	        onTriggered: footer__time.text = Qt.formatTime(new Date(), "hh:mm")
             }
 
-        }
+          }
+
+       }
 
     }
 

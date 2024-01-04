@@ -10,7 +10,10 @@ import QtQuick 2.12
         color: "transparent"
         width: wrapperCSS.width
         height: mainCSS.height+115
-        anchors.top: header.bottom
+
+        anchors {
+	    top: header.bottom
+	}
 
         Rectangle {
           id: systems
@@ -18,9 +21,9 @@ import QtQuick 2.12
 	  height: main.height-options.height-anchors.topMargin
 
           anchors {
-		left: parent.left; leftMargin: 64;
+		left: parent.left; leftMargin: 64
                 right: parent.right
-                top: parent.top; topMargin: headerHeightCorrection === 0 ? 0 : 24 ;
+                top: parent.top; topMargin: headerHeightCorrection === 0 ? 0 : 24
 	  }
 
               ListView {
@@ -29,7 +32,7 @@ import QtQuick 2.12
 		snapMode: ListView.SnapOneItem
                 delegate: systemsDelegate
                 orientation: ListView.Horizontal
-                focus: currentPage === 'Home' ? true : false ;
+                focus: currentPage === 'Home' ? true : false
 		spacing: 8
 
                 highlightRangeMode: ListView.StrictlyEnforceRange
@@ -39,8 +42,8 @@ import QtQuick 2.12
                 highlightMoveVelocity: -1
 
 		anchors {
-	            left: parent.left;
-                    right: parent.right;
+	            left: parent.left
+                    right: parent.right
                     top: parent.top; topMargin: 270
 		    bottom: parent.bottom
 		}
@@ -72,7 +75,6 @@ import QtQuick 2.12
                           Text {
                               id: systems__item_title
                               text: modelData.name
-                              anchors.horizontalCenter: systems__item_container.horizontalCenter
                               color: theme.accent
                               font.pixelSize: vpx(15*screenRatio)
                               font.bold: true
@@ -81,23 +83,31 @@ import QtQuick 2.12
                               verticalAlignment: Text.AlignVCenter
                               elide: Text.ElideRight
                               opacity: systems__item_container.ListView.isCurrentItem ? 1 : 0
+
+			      anchors {
+			          horizontalCenter: systems__item_container.horizontalCenter
+			      }
+
                           }
 
                           Rectangle {
                               id: systems__item
                               width: parent.width
                               height: parent.height
-                              anchors.top : systems__item_title.bottom
+
+                              anchors {
+				  top : systems__item_title.bottom
+			      }
   
-                              Rectangle{
+                              Rectangle {
                                 id: systems__item_inner
                                 width: parent.width
                                 height: parent.height
                                 color: theme.buttons
 
                                 anchors {
-				    top: systems__item.top;
-                                    left: systems__item.left;
+				    top: systems__item.top
+                                    left: systems__item.left
 				}
 
                                 Image {
@@ -135,8 +145,12 @@ import QtQuick 2.12
                                 height: parent.height
                                 border.color: systems__item_container.ListView.isCurrentItem ? theme.accent : wrapperCSS.background
                                 border.width: 8
-                                color:"transparent"
-				anchors.centerIn: systems__img_bg
+                                color: "transparent"
+
+				anchors {
+				    centerIn: systems__img_bg
+				}
+
                             }
 
                          }
@@ -151,8 +165,8 @@ import QtQuick 2.12
 
     }
 
-    Header{}
+    Header {}
 
-    Footer{}
+    Footer {}
 
 }
