@@ -220,19 +220,15 @@ import QtQuick 2.12
                             id: game_screenshot
                             width: itemWidth
                             height: itemHeight
+                            source: modelData.assets.screenshots[0]
                             fillMode: Image.PreserveAspect
                             asynchronous: true
 			    smooth: true
 	     	   	    antialiasing: true
+			    z: 1
 
-                            source: {
-                                if (currentCollection.shortName !== "android") {
-                                    if (modelData.assets.screenshots[0]) {
-                                        return modelData.assets.screenshots[0]
-                                    }
-                                    return ""
-                                }
-                                return ""
+                            anchors {
+                                fill: parent
                             }
 
                         }
@@ -241,6 +237,8 @@ import QtQuick 2.12
                             id: gamelogo
                             width: parent.width
                             height: parent.height
+                            source: modelData.assets.boxFront ? modelData.assets.boxFront : modelData.assets.logo
+                            fillMode: Image.PreserveAspect
 			    asynchronous: true
 			    smooth: true
 	     	    	    antialiasing: true
@@ -250,20 +248,6 @@ import QtQuick 2.12
                                 margins: 72
                             }
 
-                           source: {
-                                if (currentCollection.shortName == "android") {
-                                    if (modelData.assets.boxFront) {
-                                        return modelData.assets.boxFront
-                                    }
-                                    return ""
-                                }
-                                if (modelData.assets.logo) {
-                                    return modelData.assets.logo
-                                }
-                                return ""
-                            }
-                            sourceSize { width: 256; height: 256 }
-                            fillMode: Image.PreserveAspect
                         }
  
 		           MouseArea {
@@ -299,6 +283,7 @@ import QtQuick 2.12
                         Canvas {
                             id: game__is_fav
                             visible: modelData.favorite && currentCollection.shortName !== "all-favorites"
+			    z: 1
 
                             anchors {
                                 right: parent.right; rightMargin: 12
@@ -329,8 +314,6 @@ import QtQuick 2.12
                         color: "#2C2C2C"
                         width: gameTitle.contentWidth
                         height: 60
-                        y: xpos
-                        z: 10 * index
                         opacity: 0.8
 
                         anchors {
