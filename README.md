@@ -38,7 +38,7 @@ In the home screen you can navigate your Systems using your D-pad or use the tou
 
 ### Theme Mode
 
-- Long press profile icon to change theme color to Light/Dark
+- Press and hold profile icon to change theme color to Light/Dark
 
 If you selected Dark Mode in the Home Page, the Game List will be presented in Dark Mode as well.
 
@@ -66,4 +66,4 @@ Just click search in the current collection and write the name of the game or pr
 Note:
 - If you write the name of the game or program and press "enter" on the virtual keyboard it will show the corresponding items.
 - If you want to search the entire system, click (All) and search again.
-- If you press the back button you will return to the home screen.
+- If you press the back button "B" you will return to the home screen.
