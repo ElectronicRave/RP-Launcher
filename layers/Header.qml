@@ -32,9 +32,6 @@ import QtGraphicalEffects 1.12
               height: aspectRatio === 43 ? 16 : 36
               fillMode: Image.PreserveAspectFit
               source: api.memory.get('theme')  == "themeDark" ? "../assets/icons/battery_light.png" :  "../assets/icons/battery_dark.png"
-              asynchronous: true
-	      smooth: true
-	      antialiasing: true
 	      visible: chargingPercent
 
               anchors {
@@ -59,36 +56,32 @@ import QtGraphicalEffects 1.12
          Rectangle {
               id: header__battery_icon_fill
               color: theme.title
-              radius: 2
-              width: aspectRatio === 169 ? Math.floor(chargingPercent*0.56) : Math.floor(chargingPercent*0.22)
-              height: aspectRatio === 169 ? 30 : 10
+              width: aspectRatio === 169 ? Math.floor(chargingPercent*0.50) : Math.floor(chargingPercent*0.22)
+              height: aspectRatio === 169 ? 18 : 10
 
               anchors {
-                  top: header__battery_icon.top; topMargin: aspectRatio === 169 ? 3: 2
-                  left: header__battery_icon.left; leftMargin: aspectRatio === 169 ? 3: 2
+                  top: header__battery_icon.top; topMargin: aspectRatio === 169 ? 9: 2
+                  left: header__battery_icon.left; leftMargin: aspectRatio === 169 ? 9: 2
 	      }
 
            }
 
                 Image {
-                    id: header__battery_charging_icon
-                    width: aspectRatio === 43 ? 16 : 36
+                    id: header__battery_icon_charging
+                    width: aspectRatio === 43 ? 16 : 34
                     height: width
                     fillMode: Image.PreserveAspectFit
                     source: "../assets/icons/charging.png"
                     sourceSize.width: vpx(10)
                     sourceSize.height: vpx(15)
-              	    asynchronous: true
-	     	    smooth: true
-	     	    antialiasing: true
 		    visible: chargingStatus && chargingPercent < 100
                    
-              anchors {
-		  top: parent.top; topMargin: aspectRatio === 43 ? 3 : 4
-                  right: header__battery_icon.right; rightMargin: 22
-              }
+                anchors {
+		    top: parent.top; topMargin: aspectRatio === 43 ? 3 : 5
+                    right: header__battery_icon.right; rightMargin: 20
+                }
 
-	    }
+	     }
 
 	  }
 
@@ -100,9 +93,7 @@ import QtGraphicalEffects 1.12
                 height: width
 		fillMode: Image.PreserveAspectFit
 		source: "../assets/icons/profile.png"
-		asynchronous: true
 		smooth: true
-	     	antialiasing: true
 
                 anchors {
 		    top: parent.top; topMargin: 32
