@@ -85,6 +85,7 @@ FocusScope {
 
   //Used to hide or show the header
   property var headerHeightCorrection: api.memory.get('headerHeightCorrection') === headerCSS.height ? headerCSS.height : 0;
+
   property var wrapperCSS : {
       "width": parent.width,
       "height": parent.height,
