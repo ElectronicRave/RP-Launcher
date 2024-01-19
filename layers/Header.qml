@@ -31,7 +31,7 @@ import QtGraphicalEffects 1.12
               id: header__battery_icon
               height: aspectRatio === 43 ? 16 : 36
               fillMode: Image.PreserveAspectFit
-              source: api.memory.get('theme')  == "themeDark" ? "../assets/icons/battery_light.png" :  "../assets/icons/battery_dark.png"
+              source: api.memory.get('theme')  == "themeDark" ? "../assets/icons/battery_light.png" : "../assets/icons/battery_dark.png"
 	      visible: chargingPercent
 
               anchors {
@@ -56,12 +56,12 @@ import QtGraphicalEffects 1.12
          Rectangle {
               id: header__battery_icon_fill
               color: theme.title
-              width: aspectRatio === 169 ? Math.floor(chargingPercent*0.50) : Math.floor(chargingPercent*0.22)
+              width: aspectRatio === 169 ? Math.floor(chargingPercent*0.49) : Math.floor(chargingPercent*0.22)
               height: aspectRatio === 169 ? 18 : 10
 
               anchors {
-                  top: header__battery_icon.top; topMargin: aspectRatio === 169 ? 9: 2
-                  left: header__battery_icon.left; leftMargin: aspectRatio === 169 ? 9: 2
+                  top: header__battery_icon.top; topMargin: aspectRatio === 169 ? 9 : 2
+                  left: header__battery_icon.left; leftMargin: aspectRatio === 169 ? 10 : 2
 	      }
 
            }
