@@ -76,9 +76,8 @@ import QtQuick 2.12
                               id: systems__item_title
                               text: modelData.name
                               color: theme.accent
-                              font.pixelSize: vpx(15*screenRatio)
+                              font.pixelSize: vpx(17*screenRatio)
                               font.bold: true
-                              font.family: titleFont.name
                               height: vpx(30*screenRatio)
                               verticalAlignment: Text.AlignVCenter
                               elide: Text.ElideRight
