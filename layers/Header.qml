@@ -78,7 +78,7 @@ import QtGraphicalEffects 1.12
                    
                 anchors {
 		    top: parent.top; topMargin: aspectRatio === 43 ? 3 : 5
-                    right: header__battery_icon.right; rightMargin: 20
+                    right: header__battery_icon.right; rightMargin: 26
                 }
 
 	     }
