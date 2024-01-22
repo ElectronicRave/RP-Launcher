@@ -12,7 +12,7 @@ import QtQuick 2.12
           event.accepted = true;
 	  api.memory.unset('currentCollectionIndex', currentCollectionIndex);
           searchValue='';
-          header__search_input.text='Search...';
+          header__search_input.text='';
           navigate('Home');
           return;
       }
@@ -27,7 +27,7 @@ import QtQuick 2.12
 	clip: true
 
         anchors {
-	    top: parent.top; topMargin: 15
+	    top: parent.top; topMargin: aspectRatio === 43 ? 3 : 15
         }
 
         Rectangle {
@@ -37,22 +37,22 @@ import QtQuick 2.12
           height: aspectRatio === 43 ? 40 : 110
 
           anchors {
-		top: parent.top; topMargin: 5;
-                left: parent.left; leftMargin: 30;
+		top: parent.top; topMargin: aspectRatio === 43 ? 3 : 5;
+                left: parent.left; leftMargin: aspectRatio === 43 ? 3 : 30
 	  }         
 
             Rectangle {
               id: header__search
               color: theme.background
-              width: aspectRatio === 43 ? 200 : 400
+              width: aspectRatio === 43 ? 200 : 300
               height: aspectRatio === 43 ? 30 : 60
               border.color: theme.text
-              border.width: 1
-              visible: false
+              border.width: 3
+              visible: searchValue
 
               anchors {
-		  top: parent.top; topMargin: 25;
-                  right: parent.right
+		  top: parent.top; topMargin: aspectRatio === 43 ? 3 : 26;
+                  right: parent.right; rightMargin: aspectRatio === 43 ? 3 : 500
 	      }
 
                   TextInput {
@@ -62,13 +62,11 @@ import QtQuick 2.12
                       width: parent.width-marginRight
                       height: parent.height
 		      color: theme.text
-                      font.pixelSize: aspectRatio === 43 ? 14 : 28
+                      font.pixelSize: vpx(10*screenRatio)
 
                       anchors {
-			   top: parent.top
-                           left: parent.left
-                           leftMargin: aspectRatio === 43 ? 6  : 24
-                           topMargin: aspectRatio === 43 ? 8 : 44
+			   top: parent.top; topMargin: aspectRatio === 43 ? 8 : 44;
+                           left: parent.left; leftMargin: aspectRatio === 43 ? 6  : 24;
 			   verticalCenter: parent.verticalCenter
 		      }
 
@@ -103,8 +101,8 @@ import QtQuick 2.12
             color: "transparent"
 
             anchors {
-		top: header_inner.bottom; topMargin: 8
-                left: parent.left; leftMargin: 20
+		top: header_inner.bottom; topMargin: aspectRatio === 43 ? 3 : 8
+                left: parent.left; leftMargin: aspectRatio === 43 ? 3 : 20
 	    }
 
         }
@@ -141,15 +139,15 @@ import QtQuick 2.12
                 model: currentCollection.games
                 snapMode: ListView.SnapOneItem
                 delegate: gameViewDelegate
-                focus: currentPage === 'Software' ? true : false ;
+                focus: currentPage === 'Software' ? true : false
 
                 highlightRangeMode: ListView.StrictlyEnforceRange
                 preferredHighlightBegin: 1
                 preferredHighlightEnd: 0
 
             anchors {
-                left: parent.left; leftMargin: 200
-                top: parent.top; topMargin: 72
+                left: parent.left; leftMargin: aspectRatio === 43 ? 3 : 200
+                top: parent.top; topMargin: aspectRatio === 43 ? 3 : 72
                 right: parent.right
                 bottom: parent.bottom
             }
@@ -224,7 +222,6 @@ import QtQuick 2.12
                             fillMode: Image.PreserveAspect
                             asynchronous: true
 			    smooth: true
-	     	   	    antialiasing: true
 			    z: 1
 
                             anchors {
@@ -241,7 +238,6 @@ import QtQuick 2.12
                             fillMode: Image.PreserveAspect
 			    asynchronous: true
 			    smooth: true
-	     	    	    antialiasing: true
 
                             anchors {
                                 fill: parent
@@ -286,8 +282,8 @@ import QtQuick 2.12
 			    z: 1
 
                             anchors {
-                                right: parent.right; rightMargin: 12
-                                top: parent.top; topMargin: 12
+                                right: parent.right; rightMargin: aspectRatio === 43 ? 3 : 12
+                                top: parent.top; topMargin: aspectRatio === 43 ? 3 : 12
                             }
 
                             Image {
@@ -299,8 +295,8 @@ import QtQuick 2.12
 	     	    		antialiasing: true
 
                                 anchors {
-                                    right: parent.right; rightMargin: 8
-                                    top: parent.top; topMargin: 8
+                                    right: parent.right; rightMargin: aspectRatio === 43 ? 3 : 8
+                                    top: parent.top; topMargin: aspectRatio === 43 ? 3 : 8
                                 }
 
                             }
@@ -317,9 +313,9 @@ import QtQuick 2.12
                         opacity: 0.8
 
                         anchors {
-                            bottom: parent.bottom; bottomMargin: 15
-                            left: parent.left; leftMargin: 8
-			    right: parent.right; rightMargin: 16
+                            bottom: parent.bottom; bottomMargin: aspectRatio === 43 ? 3 : 15
+                            left: parent.left; leftMargin: aspectRatio === 43 ? 3 : 8
+			    right: parent.right; rightMargin: aspectRatio === 43 ? 3 : 16
 			    horizontalCenter: parent.horizontalCenter
                         }
 
@@ -334,7 +330,7 @@ import QtQuick 2.12
                           horizontalAlignment: Text.AlignHCenter
 
 			  anchors { 
-                                bottom: parent.bottom; bottomMargin: 12
+                                bottom: parent.bottom; bottomMargin: aspectRatio === 43 ? 3 : 12
                                 left: parent.left
 				right: parent.right
                             }

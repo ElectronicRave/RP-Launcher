@@ -3,7 +3,7 @@ import QtQuick 2.12
 
     Rectangle {
         property var buttonSize: aspectRatio === 43 ? 85 : 130*1.4
-        property var buttonTextSize: aspectRatio === 43 ? 14 : 26*1.4
+        property var buttonTextSize: aspectRatio === 43 ? 14 : 28*1.4
         property var buttonRoundSize: aspectRatio === 43 ? 20 : 42*1.4
         property var buttonRoundTextSize: aspectRatio === 43 ? 12 : 28*1.4
 
@@ -13,8 +13,8 @@ import QtQuick 2.12
         height: footerCSS.height
 
 	anchors {
-	    bottom: main.bottom; bottomMargin: -90
- 	    right: main.right; rightMargin: 225
+	    bottom: main.bottom; bottomMargin: aspectRatio === 43 ? 12: -90
+ 	    right: main.right; rightMargin: aspectRatio === 43 ? 12: 225
 	}
 
 	//Button A
@@ -69,7 +69,7 @@ import QtQuick 2.12
 
                      anchors {
 			 verticalCenter: parent.verticalCenter
-                         left: footer__button_A.right; leftMargin: 8
+                         left: footer__button_A.right; leftMargin: aspectRatio === 43 ? 12: 8
                      }
 
                  }
@@ -109,7 +109,7 @@ import QtQuick 2.12
               color: theme.title
               radius: buttonRoundSize
               anchors.verticalCenter: parent.verticalCenter
-	      visible: currentPage === 'Software' ? 1 : 0
+	      visible: currentPage === 'Software' ? true : false
 
               Text {
                  text: "B"
@@ -132,7 +132,7 @@ import QtQuick 2.12
 	       visible: currentPage === 'Software' ? 1 : 0
 
                anchors {
-                   left: footer__button_B.right; leftMargin: 8
+                   left: footer__button_B.right; leftMargin: aspectRatio === 43 ? 12: 8
 		   verticalCenter: parent.verticalCenter
                }
 
@@ -144,7 +144,7 @@ import QtQuick 2.12
           	id: footer__time
           	text: Qt.formatTime(new Date(), "hh:mm")
 		color: theme.text
-          	font.pixelSize: aspectRatio === 43 ? 18 : 42
+          	font.pixelSize: buttonTextSize
 
  		anchors {
 		    right: parent.right; rightMargin: aspectRatio === 43 ? 12 : -380

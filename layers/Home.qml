@@ -21,7 +21,7 @@ import QtQuick 2.12
 	  height: main.height-options.height-anchors.topMargin
 
           anchors {
-		left: parent.left; leftMargin: 64
+		left: parent.left; leftMargin: aspectRatio === 43 ? 12: 64
                 right: parent.right
                 top: parent.top; topMargin: headerHeightCorrection === 0 ? 0 : 24
 	  }
