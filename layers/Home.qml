@@ -77,7 +77,7 @@ import QtQuick 2.12
 		color: theme.accent
 		font.pixelSize: vpx(18*screenRatio)
 		font.bold: true
-		height: vpx(34*screenRatio)
+		height: vpx(32*screenRatio)
 		verticalAlignment: Text.AlignVCenter
 		elide: Text.ElideRight
 		opacity: systems__item_container.ListView.isCurrentItem ? 1 : 0
