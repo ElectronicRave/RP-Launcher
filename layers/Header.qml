@@ -45,22 +45,22 @@ import QtGraphicalEffects 1.12
 	property var level // 0-100 levels
 
 	function getBatteryIcon() {
-		if (level >= 0 && level <= 20)
-		return "../assets/icons/battery_empty.svg"
+			if (level >= 0 && level <= 20)
+			return "../assets/icons/battery_empty.svg"
 		else
-		if (level >= 21 && level <= 40)
-		return "../assets/icons/battery_quarter.svg"
+			if (level >= 20 && level <= 40)
+			return "../assets/icons/battery_quarter.svg"
 		else
-		if (level >= 41 && level <= 60)
-		return "../assets/icons/battery_half.svg"
+			if (level >= 40 && level <= 60)
+			return "../assets/icons/battery_half.svg"
 		else
-		if (level >= 61 && level <= 80)
-		return "../assets/icons/battery_three_quarters.svg"
+			if (level >= 60 && level <= 80)
+			return "../assets/icons/battery_three_quarters.svg"
 		else
-		if (level >= 81 && level <= 100)
-		return "../assets/icons/battery_full.svg"
+			if (level >= 80 && level <= 100)
+			return "../assets/icons/battery_full.svg"
 		else
-		return "../assets/icons/battery_empty.svg"
+			return "../assets/icons/battery_empty.svg"
 	}
 
 	function set() {
@@ -128,9 +128,9 @@ import QtGraphicalEffects 1.12
 }
 
 	MouseArea {
-	anchors.fill: profileIcon
-	onPressAndHold:{
-		swapTheme();
+		anchors.fill: profileIcon
+		onPressAndHold:{
+			swapTheme();
 	}
 
 }
@@ -152,10 +152,10 @@ import QtGraphicalEffects 1.12
 }
 
 	MouseArea {
-	anchors.fill: all
-	onClicked: {
-		currentCollectionIndex = 2;
-		navigate('Software');
+		anchors.fill: all
+		onClicked: {
+			currentCollectionIndex = 2;
+			navigate('Software');
 	}
 
 }
@@ -176,10 +176,10 @@ import QtGraphicalEffects 1.12
 }
 
 	MouseArea {
-	anchors.fill: favorite
-	onClicked: {
-		currentCollectionIndex = 0;
-		navigate('Software');
+		anchors.fill: favorite
+		onClicked: {
+			currentCollectionIndex = 0;
+			navigate('Software');
 	}
 
 }
@@ -200,10 +200,10 @@ import QtGraphicalEffects 1.12
 }
 
 	MouseArea {
-	anchors.fill: played
-	onClicked: {
-		currentCollectionIndex = 1;
-		navigate('Software');
+		anchors.fill: played
+		onClicked: {
+			currentCollectionIndex = 1;
+			navigate('Software');
 	}
 
 }
@@ -227,10 +227,10 @@ import QtGraphicalEffects 1.12
 	MouseArea {
 		anchors.fill: search
 		onClicked: {
-		searchValue = ''
-		header__search_input.clear();           
-		header__search_input.focus = true;
-		return;
+			searchValue = ''
+			header__search_input.clear();           
+			header__search_input.focus = true;
+			return;
 	}
 
 } 

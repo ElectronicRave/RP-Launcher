@@ -121,17 +121,16 @@ import QtQuick 2.12
 	MouseArea {
 		anchors.fill: systems__img_bg
 		onClicked: {
-			if (selected)
-		{
-			//Browse the collection and return to the same place after playing
-			currentCollectionIndex = systems__item_container.ListView.view.currentIndex+3;
-			api.memory.set('currentCollectionIndex', currentCollectionIndex);
-			navigate('Software');
-			return;
-		}
+			if (selected) {
+				//Browse the collection and return to the same place after playing
+				currentCollectionIndex = systems__item_container.ListView.view.currentIndex+3;
+				api.memory.set('currentCollectionIndex', currentCollectionIndex);
+				navigate('Software');
+				return;
+	}
 			else
-			systemsListView.currentIndex = index;
-		}
+				systemsListView.currentIndex = index;
+	}
 
 }
 

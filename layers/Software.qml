@@ -254,19 +254,18 @@ import QtQuick 2.12
 	MouseArea {
 		anchors.fill: game_screenshot
 		onClicked: {
-			if (selected)
-		{
-			currentGameIndex = index;
-			currentGame.launch();
-		}
+			if (selected) {
+				currentGameIndex = index;
+				currentGame.launch();
+	}
 			else
-			gameView.currentIndex = index;
-		}
+				gameView.currentIndex = index;
+	}
 		onPressAndHold: {
 			//Add to Favorites
 			currentGameIndex = index;
 			currentGame.favorite = !currentGame.favorite;
-		}
+	}
 
 }
 
