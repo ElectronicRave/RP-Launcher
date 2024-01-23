@@ -39,7 +39,7 @@ import QtGraphicalEffects 1.12
 
 	anchors {
 		top: parent.top; topMargin: aspectRatio === 43 ? 3 : 6
-		right: header__battery_number.left; rightMargin: aspectRatio === 43 ? 3 : 8
+		right: header__battery_level.left; rightMargin: aspectRatio === 43 ? 3 : 8
 	}
 
 	property var level // 0-100 levels
@@ -78,7 +78,7 @@ import QtGraphicalEffects 1.12
 }
 
 	Text {
-		id: header__battery_number
+		id: header__battery_level
 		text: Math.floor(api.device.batteryPercent*100)+"%"
 		color: theme.text
 		font.pixelSize: aspectRatio === 43 ? 18 : 33
