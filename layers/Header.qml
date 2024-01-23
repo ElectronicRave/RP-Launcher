@@ -68,7 +68,7 @@ import QtGraphicalEffects 1.12
 	}
 
 	Timer {
-		interval: 10000 // Run the timer every minute
+		interval: 10000 // Run the timer every 10 seconds
 		repeat: true
 		running: true
 		triggeredOnStart: true
@@ -98,8 +98,7 @@ import QtGraphicalEffects 1.12
 			source: "../assets/icons/charge.png"
 			sourceSize.width: vpx(10)
 			sourceSize.height: vpx(15)
-			visible: chargingStatus && chargingPercent < 100
-			z:1
+			visible: chargingStatus && header__battery_icon.level < 100
                    
 		anchors {
 			top: parent.top; topMargin: aspectRatio === 43 ? 3 : 9
