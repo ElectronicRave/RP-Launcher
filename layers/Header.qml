@@ -85,7 +85,7 @@ import QtGraphicalEffects 1.12
 		font.bold: true
 
 		anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? 3 : 5
+			top: parent.top; topMargin: aspectRatio === 43 ? 3 : 5
 		}
 
 }
