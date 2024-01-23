@@ -68,7 +68,7 @@ import QtGraphicalEffects 1.12
 	}
 
 	Timer {
-		interval: 60000 // Run the timer every minute
+		interval: 10000 // Run the timer every minute
 		repeat: true
 		running: true
 		triggeredOnStart: true
