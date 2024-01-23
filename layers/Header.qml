@@ -91,7 +91,7 @@ import QtGraphicalEffects 1.12
 			width: aspectRatio === 43 ? 16 : 33
 			height: width
 			fillMode: Image.PreserveAspectFit
-			source: "../assets/icons/charging.png"
+			source: "../assets/icons/charge.png"
 			sourceSize.width: vpx(10)
 			sourceSize.height: vpx(15)
 			visible: chargingStatus && chargingPercent < 100
