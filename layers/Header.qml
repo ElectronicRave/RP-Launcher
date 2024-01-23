@@ -106,7 +106,7 @@ import QtGraphicalEffects 1.12
 			right: header__battery_icon.right; rightMargin: aspectRatio === 43 ? 3 : 28
 		}
 
-	}
+}
 
 }
 
