@@ -39,7 +39,7 @@ import QtGraphicalEffects 1.12
 
 	anchors {
 		top: parent.top; topMargin: aspectRatio === 43 ? 3 : 6
-		right: header__battery_number.left; rightMargin: aspectRatio === 43 ? 3 : 5
+		right: header__battery_number.left; rightMargin: aspectRatio === 43 ? 3 : 8
 	}
 
 	property var level // 0-100 levels
