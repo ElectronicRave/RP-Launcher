@@ -42,7 +42,7 @@ import QtGraphicalEffects 1.12
 		right: header__battery_level.left; rightMargin: aspectRatio === 43 ? 3 : 8
 	}
 
-	property var level // 0-100 levels
+	property var level // Battery levels
 
 	function getBatteryIcon() {
 			if (level >= 0 && level <= 20)
