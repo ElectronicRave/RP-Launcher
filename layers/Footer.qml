@@ -151,7 +151,7 @@ import QtQuick 2.12
 	}
 
 	Timer {
-		interval: 500
+		interval: 1000
 		running: true
 		repeat: true
 		onTriggered: footer__time.text = Qt.formatTime(new Date(), "hh:mm")
