@@ -63,6 +63,7 @@ import QtQuick 2.12
 		width: parent.width-marginRight
 		height: parent.height
 		color: theme.text
+		font.bold: true
 		font.pixelSize: vpx(10*screenRatio)
 
 	anchors {

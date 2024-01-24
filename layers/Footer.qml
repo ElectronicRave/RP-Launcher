@@ -151,7 +151,7 @@ import QtQuick 2.12
 	}
 
 	Timer {
-		interval: 1000
+		interval: 1000 // Run the timer every 1 second
 		running: true
 		repeat: true
 		triggeredOnStart: true
