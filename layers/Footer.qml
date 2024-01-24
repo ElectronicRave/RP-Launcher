@@ -2,7 +2,7 @@ import QtQuick 2.12
 
 
 	Rectangle {
-	id: footer
+		id: footer
 		property var buttonSize: aspectRatio === 43 ? 85 : 130*1.4
 		property var buttonTextSize: aspectRatio === 43 ? 14 : 28*1.4
 		property var buttonRoundSize: aspectRatio === 43 ? 20 : 42*1.4
