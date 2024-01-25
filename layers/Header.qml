@@ -34,6 +34,7 @@ import QtGraphicalEffects 1.12
 		source: getBatteryIcon()
 		layer.enabled: true
 		layer.effect: ColorOverlay { color: theme.title }
+		smooth: true
 		visible: chargingPercent
 
 	anchors {
@@ -99,6 +100,7 @@ import QtGraphicalEffects 1.12
 			source: "../assets/icons/charge.png"
 			sourceSize.width: vpx(10)
 			sourceSize.height: vpx(15)
+			smooth: true
 			visible: chargingStatus && header__battery_icon.level < 100
                    
 		anchors {
@@ -118,6 +120,7 @@ import QtGraphicalEffects 1.12
 		height: width
 		fillMode: Image.PreserveAspectFit
 		source: "../assets/icons/profile.png"
+		smooth: true
 
 	anchors {
 		top: parent.top; topMargin: aspectRatio === 43 ? 3 : 32

@@ -295,6 +295,7 @@ import QtQuick 2.12
 		fillMode: Image.PreserveAspectFit
 		source: focus ? "../assets/icons/favorite.png" : "../assets/icons/favorite.png"
 		asynchronous: true
+		smooth: true
 
 	anchors {
 		right: parent.right; rightMargin: aspectRatio === 43 ? 3 : 8
