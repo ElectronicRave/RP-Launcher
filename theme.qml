@@ -11,6 +11,8 @@ import "layers" as Layers
 	//Variables and functions
 
 	//System index from memory so we can remember the last system we were in
+
+		property var currentCollection: allCollections[currentCollectionIndex]
 		property var currentCollectionIndexMemory : api.memory.get('currentCollectionIndex', currentCollectionIndex);
 		property var currentCollectionIndex: {
 		if(currentCollectionIndexMemory)
@@ -19,9 +21,8 @@ import "layers" as Layers
 		return 0
 	}
 
-	property var currentCollection: allCollections[currentCollectionIndex]
+	//Game index
 
-	//Games index
 	property var currentGameIndex: 0
 
 	property var currentGame: {
@@ -34,7 +35,8 @@ import "layers" as Layers
 		return currentCollection.games.get(currentGameIndex)
 	}
 
-	//We remove the favorite, lastplayed, etc collections so we can put them in another place   
+	//We remove the favorite, lastplayed, etc collections so we can put them in another place
+
 	property var allCollections: {
 		let collections = api.collections.toVarArray()
 		collections.unshift({"name": "All Games", "shortName": "all-allgames", "games": api.allGames})      
@@ -45,10 +47,12 @@ import "layers" as Layers
 
 	FontLoader { id: titleFont; source: "assets/fonts/Nintendo_Switch_UI_Font.ttf" }
 
-	// We show the game list if we have stored the collection ID
+	//We show the game list if we have stored the collection ID
+
 	property var currentPage : currentCollectionIndexMemory ? 'Software' : 'Home';
 
 	//Memorizes the condition of the theme
+
 	property var theme : api.memory.get('theme') === 'themeDark' ? themeDark : themeLight ;
 
 	property var themeLight : {
@@ -67,12 +71,33 @@ import "layers" as Layers
 		"title": "#EBEBEB",
 	}
 
-	//Enable the search box feature
-	property var searchValue: '';
+	//Change the theme color
+
+	function swapTheme(){
+		if(theme === themeDark){
+		api.memory.set('theme', 'themeLight');
+	}
+		else
+	{
+		api.memory.set('theme', 'themeDark');
+	}
+}
+
+	//Calculates the number of items and columns to be displayed
+
+	property var numcolumns: aspectRatio === 43 ? 3 : 4;
+
+	//Calculates screen ratio
 
 	property var screenRatio: root.height < 481 ? 1.98 : 1.88;
 
+	//calculates screen proportion
+
 	property var screenProportion: root.width / root.height;
+
+	//calculates screen aspect
+
+	property var aspectRatio : calculateAspectRatio(screenProportion)
 
 	function calculateAspectRatio(screenProportion){
 		if (screenProportion < 1.34){
@@ -81,9 +106,25 @@ import "layers" as Layers
 		return 169;
 }
 
-	property var aspectRatio : calculateAspectRatio(screenProportion)
+	//Percentage calculator
+
+	function vw(pixel){
+		switch (aspectRatio) {
+		case 43:
+		return vpx(pixel*12.8)
+		break;
+		case 169:
+		return vpx(pixel*12.8)
+		break;
+		default:
+		return vpx(pixel*12.8)
+		break;
+	}
+
+}
 
 	//Used to hide or show the header
+
 	property var headerHeightCorrection: api.memory.get('headerHeightCorrection') === headerCSS.height ? headerCSS.height : 0;
 
 	property var wrapperCSS : {
@@ -110,33 +151,9 @@ import "layers" as Layers
 		"background": "transparent",
 	}
 
-	//Percentage calculator
-	function vw(pixel){
-		switch (aspectRatio) {
-		case 43:
-		return vpx(pixel*12.8)
-		break;
-		case 169:
-		return vpx(pixel*12.8)
-		break;
-		default:
-		return vpx(pixel*12.8)
-		break;
-	}
+	//Enable the search box feature
 
-}
-
-	//Change the theme color
-  
-	function swapTheme(){
-		if(theme === themeDark){
-		api.memory.set('theme', 'themeLight');
-	}
-		else
-	{
-		api.memory.set('theme', 'themeDark');
-	}
-}
+	property var searchValue: '';
 
 	//Change pages
 
@@ -191,6 +208,7 @@ import "layers" as Layers
 }    
  
 	//Screen boundaries
+
 	Rectangle {
 		id: wrapper
 		color: wrapperCSS.background
