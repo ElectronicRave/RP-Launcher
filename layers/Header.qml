@@ -35,7 +35,6 @@ import QtGraphicalEffects 1.12
 		layer.enabled: true
 		layer.effect: ColorOverlay { color: theme.title }
 		smooth: true
-		visible: chargingStatus && header__battery_icon.level
 
 	anchors {
 		top: parent.top; topMargin: aspectRatio === 43 ? 3 : 6
@@ -85,7 +84,6 @@ import QtGraphicalEffects 1.12
 		color: theme.text
 		font.pixelSize: aspectRatio === 43 ? 18 : 33
 		font.bold: true
-		visible: chargingStatus && header__battery_icon.level
 
 		anchors {
 			top: parent.top; topMargin: aspectRatio === 43 ? 3 : 5
