@@ -13,7 +13,7 @@ import QtQuick 2.12
 		searchValue='';
 		header__search_input.text='';
 		navigate('Home');
-		return;
+		return
 	}
 
 }
@@ -36,7 +36,7 @@ import QtQuick 2.12
 		height: aspectRatio === 43 ? 40 : 110
 
 	anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? 3 : 5;
+		top: parent.top; topMargin: aspectRatio === 43 ? 3 : 5
 		left: parent.left; leftMargin: aspectRatio === 43 ? 3 : 30
 	}         
 
@@ -52,7 +52,7 @@ import QtQuick 2.12
 		visible: searchValue
 
 	anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? 3 : 26;
+		top: parent.top; topMargin: aspectRatio === 43 ? 3 : 26
 		right: parent.right; rightMargin: aspectRatio === 43 ? 3 : 500
 	}
 
@@ -68,25 +68,25 @@ import QtQuick 2.12
 		font.pixelSize: vpx(10*screenRatio)
 
 	anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? 8 : 44;
-		left: parent.left; leftMargin: aspectRatio === 43 ? 6  : 24;
+		top: parent.top; topMargin: aspectRatio === 43 ? 8 : 44
+		left: parent.left; leftMargin: aspectRatio === 43 ? 6  : 24
 		verticalCenter: parent.verticalCenter
 	}
 
 	onTextEdited: {
 		gameView.currentIndex = 0;
 		searchValue = header__search_input.text;
-		gameView.model = searchGames;
+		gameView.model = searchGames
 	}
 
 	Keys.onPressed: {
 		if (api.keys.isAccept(event)) {
 		navigate('Software');
-		return;
+		return
 	}  
 		if (event.key == Qt.Key_Down) {
 		navigate('Software');  
-		return;
+		return
 	}
 
 }
@@ -151,16 +151,16 @@ import QtQuick 2.12
 		preferredHighlightEnd: Math.round(0*screenRatio)
 
 	anchors {
-		left: parent.left; leftMargin: aspectRatio === 43 ? 3 : 180;
-		top: parent.top; topMargin: aspectRatio === 43 ? 3 : 60;
-		right: parent.right; rightMargin: aspectRatio === 43 ? 3 : 160;
+		left: parent.left; leftMargin: aspectRatio === 43 ? 3 : 180
+		top: parent.top; topMargin: aspectRatio === 43 ? 3 : 60
+		right: parent.right; rightMargin: aspectRatio === 43 ? 3 : 160
 		bottom: parent.bottom; bottomMargin: aspectRatio === 43 ? 3 : -20
 	}
 
-		Keys.onUpPressed:       { moveCurrentIndexUp(); }
-		Keys.onDownPressed:     { moveCurrentIndexDown(); }
-		Keys.onLeftPressed:     { moveCurrentIndexLeft(); }
-		Keys.onRightPressed:    { moveCurrentIndexRight(); }
+		Keys.onUpPressed:       { moveCurrentIndexUp() }
+		Keys.onDownPressed:     { moveCurrentIndexDown() }
+		Keys.onLeftPressed:     { moveCurrentIndexLeft() }
+		Keys.onRightPressed:    { moveCurrentIndexRight() }
 
 	Component {
 		id: gameViewDelegate
@@ -178,14 +178,14 @@ import QtQuick 2.12
 		event.accepted = true;
 		currentGameIndex = index;
 		currentGame.launch();
-		return;
+		return
 }
 
 	//We reset collection when going home
 
 	if (api.keys.isCancel(event)) {
 	api.memory.unset('currentCollectionIndex', currentCollectionIndex);
-	return;
+	return
 }
 
 	//Next collection
@@ -193,7 +193,7 @@ import QtQuick 2.12
 	if (api.keys.isNextPage(event)) {
 	event.accepted = true;
 	currentCollectionIndex = currentCollectionIndex+1;
-	return;
+	return
 }
 
 	//Prev collection
@@ -201,7 +201,7 @@ import QtQuick 2.12
 	if (api.keys.isPrevPage(event)) {
 	event.accepted = true;
 	currentCollectionIndex = currentCollectionIndex-1;
-	return;
+	return
 }
 
 }
@@ -250,14 +250,14 @@ import QtQuick 2.12
 		onClicked: {
 			if (selected) {
 				currentGameIndex = index;
-				currentGame.launch();
+				currentGame.launch()
 	}
 			else
-				gameView.currentIndex = index;
+				gameView.currentIndex = index
 	}
 		onPressAndHold: {
 			currentGameIndex = index;
-			currentGame.favorite = !currentGame.favorite;
+			currentGame.favorite = !currentGame.favorite
 	}
 
 }
@@ -295,8 +295,6 @@ import QtQuick 2.12
 		fillMode: Image.PreserveAspectFit
 		source: focus ? "../assets/icons/favorite.png" : "../assets/icons/favorite.png"
 		asynchronous: true
-		smooth: true
-		antialiasing: true
 
 	anchors {
 		right: parent.right; rightMargin: aspectRatio === 43 ? 3 : 8
@@ -316,9 +314,9 @@ import QtQuick 2.12
 		z: 1
 
 	anchors {
-		bottom: parent.bottom;
-		left: parent.left;
-		right: parent.right;
+		bottom: parent.bottom
+		left: parent.left
+		right: parent.right
 		horizontalCenter: parent.horizontalCenter
 	}
 
@@ -333,8 +331,8 @@ import QtQuick 2.12
 		horizontalAlignment: Text.AlignHCenter
 
 	anchors { 
-		bottom: parent.bottom; bottomMargin: aspectRatio === 43 ? 3 : 12;
-		left: parent.left;
+		bottom: parent.bottom; bottomMargin: aspectRatio === 43 ? 3 : 12
+		left: parent.left
 		right: parent.right
 	}
 

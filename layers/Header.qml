@@ -34,7 +34,6 @@ import QtGraphicalEffects 1.12
 		source: getBatteryIcon()
 		layer.enabled: true
 		layer.effect: ColorOverlay { color: theme.title }
-		smooth: true
 		visible: chargingPercent
 
 	anchors {
@@ -66,7 +65,7 @@ import QtGraphicalEffects 1.12
 	}
 
 	function set() {
-		header__battery_icon.level = header__battery.chargingPercent;
+		header__battery_icon.level = header__battery.chargingPercent
 	}
 
 	Timer {
@@ -119,7 +118,6 @@ import QtGraphicalEffects 1.12
 		height: width
 		fillMode: Image.PreserveAspectFit
 		source: "../assets/icons/profile.png"
-		smooth: true
 
 	anchors {
 		top: parent.top; topMargin: aspectRatio === 43 ? 3 : 32
@@ -131,7 +129,7 @@ import QtGraphicalEffects 1.12
 	MouseArea {
 		anchors.fill: profileIcon
 		onPressAndHold:{
-			swapTheme();
+			swapTheme()
 	}
 
 }
@@ -156,7 +154,7 @@ import QtGraphicalEffects 1.12
 		anchors.fill: all
 		onClicked: {
 			currentCollectionIndex = 2;
-			navigate('Software');
+			navigate('Software')
 	}
 
 }
@@ -180,7 +178,7 @@ import QtGraphicalEffects 1.12
 		anchors.fill: favorite
 		onClicked: {
 			currentCollectionIndex = 0;
-			navigate('Software');
+			navigate('Software')
 	}
 
 }
@@ -228,10 +226,10 @@ import QtGraphicalEffects 1.12
 	MouseArea {
 		anchors.fill: search
 		onClicked: {
-			searchValue = ''
+			searchValue = '';
 			header__search_input.clear();           
 			header__search_input.focus = true;
-			return;
+			return
 	}
 
 } 

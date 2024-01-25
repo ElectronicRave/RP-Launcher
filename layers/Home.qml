@@ -47,8 +47,8 @@ import QtQuick 2.12
 		bottom: parent.bottom
 	}
 
-		Keys.onLeftPressed: {  decrementCurrentIndex(); } 
-		Keys.onRightPressed: {  incrementCurrentIndex(); }
+		Keys.onLeftPressed: { decrementCurrentIndex() } 
+		Keys.onRightPressed: { incrementCurrentIndex() }
 
 	Component {
 		id: systemDelegate
@@ -67,7 +67,7 @@ import QtQuick 2.12
 		currentCollectionIndex = system__item_container.ListView.view.currentIndex+3;
 		api.memory.set('currentCollectionIndex', currentCollectionIndex);
 		navigate('Software');
-		return;
+		return
 	}
 
 }
@@ -123,10 +123,10 @@ import QtQuick 2.12
 				currentCollectionIndex = system__item_container.ListView.view.currentIndex+3;
 				api.memory.set('currentCollectionIndex', currentCollectionIndex);
 				navigate('Software');
-				return;
+				return
 	}
 			else
-				systemListView.currentIndex = index;
+				systemListView.currentIndex = index
 	}
 
 }

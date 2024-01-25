@@ -31,10 +31,13 @@ import QtQuick 2.12
 
 	Rectangle {
 		id: footer__full_button_A
-		anchors.right: parent.right
 		height: width
 		width: 100
 		color: "transparent"
+
+	anchors {
+		right: parent.right
+	}
 
 	Rectangle {
 		id: footer__button_A
@@ -107,8 +110,11 @@ import QtQuick 2.12
 		width: buttonRoundSize
 		color: theme.title
 		radius: buttonRoundSize
-		anchors.verticalCenter: parent.verticalCenter
 		visible: currentPage === 'Software' ? true : false
+
+	anchors {
+		verticalCenter: parent.verticalCenter
+	}
 
 	Text {
 		text: "B"
