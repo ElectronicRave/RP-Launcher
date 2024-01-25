@@ -3,10 +3,9 @@ import QtQuick 2.12
 
 	Item {
 		id: software
-		property var itemWidth : 380
-		property var itemHeight : itemWidth
 
 	//Back to Home
+
 	Keys.onPressed: {
 		if (api.keys.isCancel(event)) {
 		event.accepted = true;
@@ -40,6 +39,8 @@ import QtQuick 2.12
 		top: parent.top; topMargin: aspectRatio === 43 ? 3 : 5;
 		left: parent.left; leftMargin: aspectRatio === 43 ? 3 : 30
 	}         
+
+	//Search games and softwares
 
 	Rectangle {
 		id: header__search
@@ -122,7 +123,7 @@ import QtQuick 2.12
 	}
 
 	Rectangle {
-		id: games
+		id: game
 		visible: true
 		clip: true
 		color: "transparent"
@@ -131,30 +132,29 @@ import QtQuick 2.12
 
 	anchors {
 		left: parent.left
+		right: parent.right
 		top: parent.top
 		bottom: parent.bottom
 	}
 
 	GridView {
 		id: gameView
-		width: parent.width
-		height: parent.height
-		cellWidth: itemWidth
-		cellHeight: itemHeight
+		cellWidth: width / numcolumns
+		cellHeight: cellWidth
 		model: currentCollection.games
 		snapMode: ListView.SnapOneItem
 		delegate: gameViewDelegate
 		focus: currentPage === 'Software' ? true : false
 
 		highlightRangeMode: ListView.StrictlyEnforceRange
-		preferredHighlightBegin: 1
-		preferredHighlightEnd: 0
+		preferredHighlightBegin: Math.round(1*screenRatio)
+		preferredHighlightEnd: Math.round(0*screenRatio)
 
 	anchors {
-		left: parent.left; leftMargin: aspectRatio === 43 ? 3 : 200
-		top: parent.top; topMargin: aspectRatio === 43 ? 3 : 72
-		right: parent.right
-		bottom: parent.bottom
+		left: parent.left; leftMargin: aspectRatio === 43 ? 3 : 180;
+		top: parent.top; topMargin: aspectRatio === 43 ? 3 : 60;
+		right: parent.right; rightMargin: aspectRatio === 43 ? 3 : 160;
+		bottom: parent.bottom; bottomMargin: aspectRatio === 43 ? 3 : -20
 	}
 
 		Keys.onUpPressed:       { moveCurrentIndexUp(); }
@@ -166,12 +166,13 @@ import QtQuick 2.12
 		id: gameViewDelegate
 
 	Item {
-		id: delegateContainer
+		id: game__item_container
 		property bool selected: GridView.isCurrentItem
-		width: itemWidth
-		height: itemHeight
+		width: gameView.cellWidth -23
+		height: width
 
 	//Launch game
+
 	Keys.onPressed: {
 		if (api.keys.isAccept(event)) {
 		event.accepted = true;
@@ -181,51 +182,43 @@ import QtQuick 2.12
 }
 
 	//We reset collection when going home
-		if (api.keys.isCancel(event)) {
-		api.memory.unset('currentCollectionIndex', currentCollectionIndex);
-		return;
-	}
+
+	if (api.keys.isCancel(event)) {
+	api.memory.unset('currentCollectionIndex', currentCollectionIndex);
+	return;
+}
 
 	//Next collection
-		if (api.keys.isNextPage(event)) {
-		event.accepted = true;
-		currentCollectionIndex = currentCollectionIndex+1;
-		return;
-	}
+
+	if (api.keys.isNextPage(event)) {
+	event.accepted = true;
+	currentCollectionIndex = currentCollectionIndex+1;
+	return;
+}
 
 	//Prev collection
-		if (api.keys.isPrevPage(event)) {
-		event.accepted = true;
-		currentCollectionIndex = currentCollectionIndex-1;
-		return;
-	}
+
+	if (api.keys.isPrevPage(event)) {
+	event.accepted = true;
+	currentCollectionIndex = currentCollectionIndex-1;
+	return;
+}
 
 }
 
 	Rectangle {
-		width: itemWidth-8
-		height: itemHeight-8
-		clip: true
-
-	Rectangle {
-		id:game__inner_border
+		id: game__item
 		width: parent.width
 		height: parent.height
 		color: theme.buttons
-
-	anchors {
-		horizontalCenter: parent.horizontalCenter
-		verticalCenter: parent.verticalCenter
-	}
-
 }
 
 	Image {
-		id: game_screenshot
-		width: itemWidth
-		height: itemHeight
-		source: modelData.assets.screenshots[0]
+		id: game__screenshot
+		width: parent.width
+		height: parent.height
 		fillMode: Image.PreserveAspect
+		source: modelData.assets.screenshots[0]
 		asynchronous: true
 		smooth: true
 		z: 1
@@ -237,7 +230,7 @@ import QtQuick 2.12
 }
 
 	Image {
-		id: gamelogo
+		id: game__logo
 		width: parent.width
 		height: parent.height
 		source: modelData.assets.boxFront ? modelData.assets.boxFront : modelData.assets.logo
@@ -247,13 +240,13 @@ import QtQuick 2.12
 
 	anchors {
 		fill: parent
-		margins: 72
+		margins: 68
 	}
 
 }
  
 	MouseArea {
-		anchors.fill: game_screenshot
+		anchors.fill: game__screenshot && game__logo
 		onClicked: {
 			if (selected) {
 				currentGameIndex = index;
@@ -263,7 +256,6 @@ import QtQuick 2.12
 				gameView.currentIndex = index;
 	}
 		onPressAndHold: {
-			//Add to Favorites
 			currentGameIndex = index;
 			currentGame.favorite = !currentGame.favorite;
 	}
@@ -271,22 +263,25 @@ import QtQuick 2.12
 }
 
 	Rectangle {
-		id: game__is_selected
+		id: game__item_border
 		width: parent.width
 		height: parent.height
 		color: "transparent"
-		border.color: selected ? theme.accent : wrapperCSS.background
-		border.width: 8
+		border.color: theme.accent
+		border.width: 10
+		opacity: selected ? 1 : 0
 		z: 7
 
 	anchors {
-		centerIn: screenshot
+		centerIn: game__screenshot && game__logo
 	}
 
 }
 
+	//Favorite
+
 	Canvas {
-		id: game__is_fav
+		id: game__favorite
 		visible: modelData.favorite && currentCollection.shortName !== "all-favorites"
 		z: 1
 
@@ -312,19 +307,18 @@ import QtQuick 2.12
 
 }
 
-}
-
 	Rectangle {
 		id: game__title
 		color: "#2C2C2C"
-		width: gameTitle.contentWidth
+		width: parent.width
 		height: 60
 		opacity: 0.8
+		z: 1
 
 	anchors {
-		bottom: parent.bottom; bottomMargin: aspectRatio === 43 ? 3 : 15
-		left: parent.left; leftMargin: aspectRatio === 43 ? 3 : 8
-		right: parent.right; rightMargin: aspectRatio === 43 ? 3 : 16
+		bottom: parent.bottom;
+		left: parent.left;
+		right: parent.right;
 		horizontalCenter: parent.horizontalCenter
 	}
 
@@ -339,8 +333,8 @@ import QtQuick 2.12
 		horizontalAlignment: Text.AlignHCenter
 
 	anchors { 
-		bottom: parent.bottom; bottomMargin: aspectRatio === 43 ? 3 : 12
-		left: parent.left
+		bottom: parent.bottom; bottomMargin: aspectRatio === 43 ? 3 : 12;
+		left: parent.left;
 		right: parent.right
 	}
 

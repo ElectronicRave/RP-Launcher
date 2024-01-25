@@ -15,7 +15,7 @@ import QtQuick 2.12
 	}
 
 	Rectangle {
-		id: systems
+		id: system
 		color: "transparent"
 		height: main.height-options.height-anchors.topMargin
 
@@ -26,13 +26,13 @@ import QtQuick 2.12
 	}
 
 	ListView {
-		id: systemsListView
+		id: systemListView
 		model: api.collections
 		snapMode: ListView.SnapOneItem
-		delegate: systemsDelegate
+		delegate: systemDelegate
 		orientation: ListView.Horizontal
 		focus: currentPage === 'Home' ? true : false
-		spacing: 8
+		spacing: 22
 
 		highlightRangeMode: ListView.StrictlyEnforceRange
 		preferredHighlightBegin: 230
@@ -43,7 +43,7 @@ import QtQuick 2.12
 	anchors {
 		left: parent.left
 		right: parent.right
-		top: parent.top; topMargin: 270
+		top: parent.top; topMargin: aspectRatio === 43 ? 3 : 270
 		bottom: parent.bottom
 	}
 
@@ -51,19 +51,20 @@ import QtQuick 2.12
 		Keys.onRightPressed: {  incrementCurrentIndex(); }
 
 	Component {
-		id: systemsDelegate
+		id: systemDelegate
                   
 	Item {
-		id: systems__item_container
+		id: system__item_container
 		property bool selected: ListView.isCurrentItem
 		width: 380
 		height: width
 
 	//Browse the collection and return to the same place after playing
+
 	Keys.onPressed: {
 		if (api.keys.isAccept(event)) {
 		event.accepted = true;
-		currentCollectionIndex = systems__item_container.ListView.view.currentIndex+3;
+		currentCollectionIndex = system__item_container.ListView.view.currentIndex+3;
 		api.memory.set('currentCollectionIndex', currentCollectionIndex);
 		navigate('Software');
 		return;
@@ -72,7 +73,7 @@ import QtQuick 2.12
 }
 
 	Text {
-		id: systems__item_title
+		id: system__item_title
 		text: modelData.name
 		color: theme.accent
 		font.pixelSize: vpx(18*screenRatio)
@@ -80,72 +81,67 @@ import QtQuick 2.12
 		height: vpx(32*screenRatio)
 		verticalAlignment: Text.AlignVCenter
 		elide: Text.ElideRight
-		opacity: systems__item_container.ListView.isCurrentItem ? 1 : 0
+		opacity: selected ? 1 : 0
 
 	anchors {
-		horizontalCenter: systems__item_container.horizontalCenter
+		horizontalCenter: system__item_container.horizontalCenter
 	}
 
 }
 
 	Rectangle {
-		id: systems__item
-		width: parent.width
-		height: parent.height
-
-	anchors {
-		top : systems__item_title.bottom
-	}
-  
-	Rectangle {
-		id: systems__item_inner
+		id: system__item
 		width: parent.width
 		height: parent.height
 		color: theme.buttons
 
 	anchors {
-		top: systems__item.top
-		left: systems__item.left
+		top : system__item_title.bottom
 	}
+  
+
 
 	Image {
-		id: systems__img_bg
+		id: system__logo
 		height: parent.height
 		width: parent.width
 		fillMode: Image.PreserveAspect
 		source: "../assets/images/logos/"+modelData.shortName+".jpg"
 		asynchronous: true
 		smooth: true
+
+	anchors {
+		fill: parent
+	}
+
 }
 
 	MouseArea {
-		anchors.fill: systems__img_bg
+		anchors.fill: system__logo
 		onClicked: {
 			if (selected) {
-				//Browse the collection and return to the same place after playing
-				currentCollectionIndex = systems__item_container.ListView.view.currentIndex+3;
+				currentCollectionIndex = system__item_container.ListView.view.currentIndex+3;
 				api.memory.set('currentCollectionIndex', currentCollectionIndex);
 				navigate('Software');
 				return;
 	}
 			else
-				systemsListView.currentIndex = index;
+				systemListView.currentIndex = index;
 	}
 
 }
 
-}
-
 	Rectangle {
-		id: systems__item_border
+		id: system__item_border
 		width: parent.width
 		height: parent.height
-		border.color: systems__item_container.ListView.isCurrentItem ? theme.accent : wrapperCSS.background
-		border.width: 8
 		color: "transparent"
+		border.color: theme.accent
+		border.width: 10
+		opacity: selected ? 1 : 0
 
 	anchors {
-		centerIn: systems__img_bg
+		centerIn: system__logo
 	}
 
 }
