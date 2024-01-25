@@ -8,11 +8,11 @@ import QtQuick 2.12
 
 	Keys.onPressed: {
 		if (api.keys.isCancel(event)) {
-		event.accepted = true;
-		api.memory.unset('currentCollectionIndex', currentCollectionIndex);
-		searchValue='';
-		header__search_input.text='';
-		navigate('Home');
+		event.accepted = true
+		api.memory.unset('currentCollectionIndex', currentCollectionIndex)
+		searchValue=''
+		header__search_input.text=''
+		navigate('Home')
 		return
 	}
 
@@ -74,18 +74,18 @@ import QtQuick 2.12
 	}
 
 	onTextEdited: {
-		gameView.currentIndex = 0;
-		searchValue = header__search_input.text;
+		gameView.currentIndex = 0
+		searchValue = header__search_input.text
 		gameView.model = searchGames
 	}
 
 	Keys.onPressed: {
 		if (api.keys.isAccept(event)) {
-		navigate('Software');
+		navigate('Software')
 		return
 	}  
 		if (event.key == Qt.Key_Down) {
-		navigate('Software');  
+		navigate('Software')
 		return
 	}
 
@@ -175,32 +175,32 @@ import QtQuick 2.12
 
 	Keys.onPressed: {
 		if (api.keys.isAccept(event)) {
-		event.accepted = true;
-		currentGameIndex = index;
-		currentGame.launch();
+		event.accepted = true
+		currentGameIndex = index
+		currentGame.launch()
 		return
 }
 
 	//We reset collection when going home
 
 	if (api.keys.isCancel(event)) {
-	api.memory.unset('currentCollectionIndex', currentCollectionIndex);
+	api.memory.unset('currentCollectionIndex', currentCollectionIndex)
 	return
 }
 
 	//Next collection
 
 	if (api.keys.isNextPage(event)) {
-	event.accepted = true;
-	currentCollectionIndex = currentCollectionIndex+1;
+	event.accepted = true
+	currentCollectionIndex = currentCollectionIndex+1
 	return
 }
 
 	//Prev collection
 
 	if (api.keys.isPrevPage(event)) {
-	event.accepted = true;
-	currentCollectionIndex = currentCollectionIndex-1;
+	event.accepted = true
+	currentCollectionIndex = currentCollectionIndex-1
 	return
 }
 
@@ -249,14 +249,14 @@ import QtQuick 2.12
 		anchors.fill: game__screenshot && game__logo
 		onClicked: {
 			if (selected) {
-				currentGameIndex = index;
+				currentGameIndex = index
 				currentGame.launch()
 	}
 			else
 				gameView.currentIndex = index
 	}
 		onPressAndHold: {
-			currentGameIndex = index;
+			currentGameIndex = index
 			currentGame.favorite = !currentGame.favorite
 	}
 

@@ -63,10 +63,10 @@ import QtQuick 2.12
 
 	Keys.onPressed: {
 		if (api.keys.isAccept(event)) {
-		event.accepted = true;
-		currentCollectionIndex = system__item_container.ListView.view.currentIndex+3;
-		api.memory.set('currentCollectionIndex', currentCollectionIndex);
-		navigate('Software');
+		event.accepted = true
+		currentCollectionIndex = system__item_container.ListView.view.currentIndex+3
+		api.memory.set('currentCollectionIndex', currentCollectionIndex)
+		navigate('Software')
 		return
 	}
 
@@ -120,9 +120,9 @@ import QtQuick 2.12
 		anchors.fill: system__logo
 		onClicked: {
 			if (selected) {
-				currentCollectionIndex = system__item_container.ListView.view.currentIndex+3;
-				api.memory.set('currentCollectionIndex', currentCollectionIndex);
-				navigate('Software');
+				currentCollectionIndex = system__item_container.ListView.view.currentIndex+3
+				api.memory.set('currentCollectionIndex', currentCollectionIndex)
+				navigate('Software')
 				return
 	}
 			else

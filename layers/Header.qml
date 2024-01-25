@@ -156,7 +156,7 @@ import QtGraphicalEffects 1.12
 	MouseArea {
 		anchors.fill: all
 		onClicked: {
-			currentCollectionIndex = 2;
+			currentCollectionIndex = 2
 			navigate('Software')
 	}
 
@@ -180,7 +180,7 @@ import QtGraphicalEffects 1.12
 	MouseArea {
 		anchors.fill: favorite
 		onClicked: {
-			currentCollectionIndex = 0;
+			currentCollectionIndex = 0
 			navigate('Software')
 	}
 
@@ -204,8 +204,8 @@ import QtGraphicalEffects 1.12
 	MouseArea {
 		anchors.fill: played
 		onClicked: {
-			currentCollectionIndex = 1;
-			navigate('Software');
+			currentCollectionIndex = 1
+			navigate('Software')
 	}
 
 }
@@ -229,9 +229,9 @@ import QtGraphicalEffects 1.12
 	MouseArea {
 		anchors.fill: search
 		onClicked: {
-			searchValue = '';
-			header__search_input.clear();           
-			header__search_input.focus = true;
+			searchValue = ''
+			header__search_input.clear()         
+			header__search_input.focus = true
 			return
 	}
 
