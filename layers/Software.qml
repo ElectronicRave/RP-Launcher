@@ -57,7 +57,7 @@ import QtQuick 2.12
 	}
 
 	TextInput {
-		property var marginRight: aspectRatio === 43 ? 40 : 100
+		property var marginRight: aspectRatio === 43 ? 40 : 50
 
 		id: header__search_input
 		clip: true
