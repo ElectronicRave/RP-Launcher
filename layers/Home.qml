@@ -35,8 +35,8 @@ import QtQuick 2.12
 		spacing: 22
 
 		highlightRangeMode: ListView.StrictlyEnforceRange
-		preferredHighlightBegin: screenRatio === 43 ? 12: 230
-		preferredHighlightEnd: screenRatio === 43 ? 12: 1560
+		preferredHighlightBegin: screenRatio === 43 ? 12: 220
+		preferredHighlightEnd: screenRatio === 43 ? 12: 1570
 		highlightMoveDuration: 200
 		highlightMoveVelocity: -1
 

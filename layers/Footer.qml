@@ -13,7 +13,7 @@ import QtQuick 2.12
 
 	anchors {
 		bottom: main.bottom; bottomMargin: aspectRatio === 43 ? 12: -90
-		right: main.right; rightMargin: aspectRatio === 43 ? 12: 225
+		right: main.right; rightMargin: aspectRatio === 43 ? 12: 270
 	}
 
 	//Button A
@@ -25,7 +25,7 @@ import QtQuick 2.12
 		color: "transparent"
 
 	anchors {
-		right: parent.right; rightMargin: aspectRatio === 43 ? -20 : 40
+		right: parent.right
 		verticalCenter: parent.verticalCenter
 	}
 
@@ -154,7 +154,7 @@ import QtQuick 2.12
 
 	anchors {
 		verticalCenter: parent.verticalCenter
-		left: parent.right; leftMargin: aspectRatio === 43 ? 12: 280
+		left: parent.right; leftMargin: aspectRatio === 43 ? 12: 290
 	}
 
 	Timer {

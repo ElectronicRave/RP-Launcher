@@ -23,7 +23,7 @@ import QtGraphicalEffects 1.12
 		visible: headerHeightCorrection === 0 ? 1 : 0
 
 	anchors {
-		right: parent.right; rightMargin: aspectRatio === 43 ? 16 : 22
+		right: parent.right; rightMargin: aspectRatio === 43 ? 16 : 16
 		top: parent.top; topMargin: aspectRatio === 43 ? 3 : 46
 	}
 
@@ -123,7 +123,7 @@ import QtGraphicalEffects 1.12
 
 	anchors {
 		top: parent.top; topMargin: aspectRatio === 43 ? 3 : 32
-		left: parent.left; leftMargin: aspectRatio === 43 ? 3 : 48
+		left: parent.left; leftMargin: aspectRatio === 43 ? 3 : 42
 	}
 
 }

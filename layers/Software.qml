@@ -52,7 +52,7 @@ import QtQuick 2.12
 		visible: searchValue
 
 	anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? 3 : 26
+		top: parent.top; topMargin: aspectRatio === 43 ? 3 : 48
 		right: parent.right; rightMargin: aspectRatio === 43 ? 3 : 470
 	}
 
