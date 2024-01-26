@@ -6,7 +6,7 @@ import QtQuick 2.12
 		property var buttonSize: aspectRatio === 43 ? 85 : 180
 		property var buttonTextSize: screenRatio === 43 ? 14 : 42
 		property var buttonRoundSize: aspectRatio === 43 ? 20 : 60
-		property var buttonRoundTextSize: screenRatio === 43 ? 12 : 44
+		property var buttonRoundTextSize: screenRatio === 43 ? 12 : 42
 		color: footerCSS.background
 		width: footerCSS.width
 		height: footerCSS.height
