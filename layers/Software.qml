@@ -144,6 +144,7 @@ import QtQuick 2.12
 		snapMode: ListView.SnapOneItem
 		delegate: gameViewDelegate
 		focus: currentPage === 'Software' ? true : false
+		clip: true
 
 		highlightRangeMode: ListView.StrictlyEnforceRange
 		preferredHighlightBegin: screenRatio === 43 ? 12: 1
