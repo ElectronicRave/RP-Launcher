@@ -68,7 +68,7 @@ import QtQuick 2.12
 
 	anchors {
 		top: parent.top; topMargin: aspectRatio === 43 ? 8 : 52
-		left: parent.left; leftMargin: aspectRatio === 43 ? 6 : 28
+		left: parent.left; leftMargin: aspectRatio === 43 ? 6 : 29
 		verticalCenter: parent.verticalCenter
 	}
 
