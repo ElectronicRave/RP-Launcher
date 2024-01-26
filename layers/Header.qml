@@ -18,7 +18,7 @@ import QtGraphicalEffects 1.12
 	Rectangle {
 		id: header__battery
 		property var chargingPercent: api.device.batteryPercent*100
-		width: 130
+		width: aspectRatio === 43 ? 3 : 130
 		color: "transparent"
 		visible: headerHeightCorrection === 0 ? 1 : 0
 
@@ -29,7 +29,7 @@ import QtGraphicalEffects 1.12
 
 	Image {
 		id: header__battery_icon
-		height: aspectRatio === 43 ? 16 : 38
+		height: aspectRatio === 43 ? 16 : 40
 		fillMode: Image.PreserveAspectFit
 		source: getBatteryIcon()
 		layer.enabled: true
@@ -82,7 +82,7 @@ import QtGraphicalEffects 1.12
 		id: header__battery_level
 		text: Math.floor(api.device.batteryPercent*100)+"%"
 		color: theme.text
-		font.pixelSize: aspectRatio === 43 ? 18 : 33
+		font.pixelSize: screenRatio === 43 ? 18 : 36
 		font.bold: true
 
 		anchors {
@@ -93,18 +93,18 @@ import QtGraphicalEffects 1.12
 
 		Image {
 			id: header__battery_icon_charging
-			width: aspectRatio === 43 ? 16 : 33
+			width: aspectRatio === 43 ? 16 : 35
 			height: width
 			fillMode: Image.PreserveAspectFit
 			source: "../assets/icons/charge.png"
-			sourceSize.width: vpx(10)
-			sourceSize.height: vpx(15)
+			sourceSize.width: aspectRatio === 43 ? 12 : 10
+			sourceSize.height: aspectRatio === 43 ? 12 : 15
 			smooth: true
 			visible: chargingStatus && header__battery_icon.level < 100
                    
 		anchors {
 			top: parent.top; topMargin: aspectRatio === 43 ? 3 : 9
-			right: header__battery_icon.right; rightMargin: aspectRatio === 43 ? 3 : 28
+			right: header__battery_icon.right; rightMargin: aspectRatio === 43 ? 3 : 30
 		}
 
 }
@@ -115,7 +115,7 @@ import QtGraphicalEffects 1.12
 
 	Image {
 		id: profileIcon
-		width: vpx(36*screenRatio)
+		width: aspectRatio === 43 ? 3 : 96
 		height: width
 		fillMode: Image.PreserveAspectFit
 		source: "../assets/icons/profile.png"
@@ -143,7 +143,7 @@ import QtGraphicalEffects 1.12
 		text: "All"
 		color: theme.accent
 		font.bold: true
-		font.pixelSize: vpx(16*screenRatio)
+		font.pixelSize: screenRatio === 43 ? 3 : 46
 
 	anchors {
 		top: parent.top; topMargin: aspectRatio === 43 ? 3 : 65
@@ -167,7 +167,7 @@ import QtGraphicalEffects 1.12
 		id: favorite
 		text: "Favorite"
 		color: theme.text
-		font.pixelSize: vpx(16*screenRatio)
+		font.pixelSize: screenRatio === 43 ? 3 : 46
 
 	anchors {
 		top: parent.top; topMargin: aspectRatio === 43 ? 3 : 65
@@ -191,11 +191,11 @@ import QtGraphicalEffects 1.12
 		id: played
 		text: "Played"
 		color: theme.text
-		font.pixelSize: vpx(16*screenRatio)
+		font.pixelSize: screenRatio === 43 ? 3 : 46
 
 	anchors {
 		top: parent.top; topMargin: aspectRatio === 43 ? 3 : 65
-		left: parent.left; leftMargin: aspectRatio === 43 ? 3 : 520
+		left: parent.left; leftMargin: aspectRatio === 43 ? 3 : 530
 	}    
 
 }
@@ -215,12 +215,12 @@ import QtGraphicalEffects 1.12
 		id: search
 		text: "Search"
 		color: theme.text
-		font.pixelSize: vpx(16*screenRatio)
+		font.pixelSize: screenRatio === 43 ? 3 : 46
 		visible: currentPage === 'Software' ? true : false
 
 	anchors {
 		top: parent.top; topMargin: aspectRatio === 43 ? 3 : 65
-		left: parent.left; leftMargin: aspectRatio === 43 ? 3 : 690
+		left: parent.left; leftMargin: aspectRatio === 43 ? 3 : 710
 	}    
 
 }

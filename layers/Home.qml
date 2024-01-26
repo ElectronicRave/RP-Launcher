@@ -35,15 +35,15 @@ import QtQuick 2.12
 		spacing: 22
 
 		highlightRangeMode: ListView.StrictlyEnforceRange
-		preferredHighlightBegin: 230
-		preferredHighlightEnd: 1560
+		preferredHighlightBegin: screenRatio === 43 ? 12: 230
+		preferredHighlightEnd: screenRatio === 43 ? 12: 1560
 		highlightMoveDuration: 200
 		highlightMoveVelocity: -1
 
 	anchors {
 		left: parent.left
 		right: parent.right
-		top: parent.top; topMargin: aspectRatio === 43 ? 3 : 270
+		top: parent.top; topMargin: aspectRatio === 43 ? 3 : 265
 		bottom: parent.bottom
 	}
 
@@ -56,7 +56,7 @@ import QtQuick 2.12
 	Item {
 		id: system__item_container
 		property bool selected: ListView.isCurrentItem
-		width: 380
+		width: aspectRatio === 43 ? 3 : 370
 		height: width
 
 	//Browse the collection and return to the same place after playing
@@ -76,9 +76,9 @@ import QtQuick 2.12
 		id: system__item_title
 		text: modelData.name
 		color: theme.accent
-		font.pixelSize: vpx(18*screenRatio)
+		font.pixelSize: screenRatio === 43 ? 14 : 52
 		font.bold: true
-		height: vpx(32*screenRatio)
+		height: aspectRatio === 43 ? 3 : 92
 		verticalAlignment: Text.AlignVCenter
 		elide: Text.ElideRight
 		opacity: selected ? 1 : 0
@@ -137,7 +137,7 @@ import QtQuick 2.12
 		height: parent.height
 		color: "transparent"
 		border.color: theme.accent
-		border.width: 10
+		border.width: screenRatio === 43 ? 3 : 10
 		opacity: selected ? 1 : 0
 
 	anchors {

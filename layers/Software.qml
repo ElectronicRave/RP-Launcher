@@ -53,7 +53,7 @@ import QtQuick 2.12
 
 	anchors {
 		top: parent.top; topMargin: aspectRatio === 43 ? 3 : 26
-		right: parent.right; rightMargin: aspectRatio === 43 ? 3 : 500
+		right: parent.right; rightMargin: aspectRatio === 43 ? 3 : 470
 	}
 
 	TextInput {
@@ -64,12 +64,11 @@ import QtQuick 2.12
 		width: parent.width-marginRight
 		height: parent.height
 		color: theme.text
-		font.bold: true
-		font.pixelSize: vpx(10*screenRatio)
+		font.pixelSize: screenRatio === 43 ? 14 : 36
 
 	anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? 8 : 44
-		left: parent.left; leftMargin: aspectRatio === 43 ? 6  : 24
+		top: parent.top; topMargin: aspectRatio === 43 ? 8 : 52
+		left: parent.left; leftMargin: aspectRatio === 43 ? 6 : 28
 		verticalCenter: parent.verticalCenter
 	}
 
@@ -100,7 +99,7 @@ import QtQuick 2.12
 	Rectangle {
 		id: header__border
 		width: parent.width-40
-		height: 0
+		height: aspectRatio === 43 ? 0 : 0
 		color: "transparent"
 
 	anchors {
@@ -147,8 +146,8 @@ import QtQuick 2.12
 		focus: currentPage === 'Software' ? true : false
 
 		highlightRangeMode: ListView.StrictlyEnforceRange
-		preferredHighlightBegin: Math.round(1*screenRatio)
-		preferredHighlightEnd: Math.round(0*screenRatio)
+		preferredHighlightBegin: screenRatio === 43 ? 12: 1
+		preferredHighlightEnd: screenRatio === 43 ? 12: 0
 
 	anchors {
 		left: parent.left; leftMargin: aspectRatio === 43 ? 3 : 180
@@ -268,7 +267,7 @@ import QtQuick 2.12
 		height: parent.height
 		color: "transparent"
 		border.color: theme.accent
-		border.width: 10
+		border.width: screenRatio === 43 ? 3 : 10
 		opacity: selected ? 1 : 0
 		z: 7
 
@@ -310,7 +309,7 @@ import QtQuick 2.12
 		id: game__title
 		color: "#2C2C2C"
 		width: parent.width
-		height: 60
+		height: screenRatio === 43 ? 3 : 60
 		opacity: 0.8
 		z: 1
 
@@ -327,7 +326,7 @@ import QtQuick 2.12
 		color: "#EBEBEB"
 		font.family: titleFont.name
 		font.bold: true
-		font.pixelSize: vpx(12*screenRatio)
+		font.pixelSize: screenRatio === 43 ? 14 : 34
 		elide: Text.ElideRight
 		horizontalAlignment: Text.AlignHCenter
 
