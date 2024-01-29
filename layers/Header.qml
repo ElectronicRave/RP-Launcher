@@ -46,19 +46,19 @@ import QtGraphicalEffects 1.12
 	property var level
 
 	function getBatteryIcon() {
-			if (level >= 0 && level <= 20)
+			if (level >= 0 && level <= 19)
 			return "../assets/icons/battery_empty.svg"
 		else
-			if (level >= 21 && level <= 40)
+			if (level >= 20 && level <= 39)
 			return "../assets/icons/battery_quarter.svg"
 		else
-			if (level >= 41 && level <= 60)
+			if (level >= 40 && level <= 59)
 			return "../assets/icons/battery_half.svg"
 		else
-			if (level >= 61 && level <= 80)
+			if (level >= 60 && level <= 79)
 			return "../assets/icons/battery_three_quarters.svg"
 		else
-			if (level >= 81 && level <= 100)
+			if (level >= 80 && level <= 100)
 			return "../assets/icons/battery_full.svg"
 		else
 			return "../assets/icons/battery_empty.svg"

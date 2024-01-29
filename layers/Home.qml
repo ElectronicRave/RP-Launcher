@@ -8,21 +8,10 @@ import QtQuick 2.12
 		id: main
 		color: "transparent"
 		width: wrapperCSS.width
-		height: mainCSS.height+115
+		height: mainCSS.height+140
 
 	anchors {
 		top: header.bottom
-	}
-
-	Rectangle {
-		id: system
-		color: "transparent"
-		height: main.height-options.height-anchors.topMargin
-
-	anchors {
-		left: parent.left; leftMargin: aspectRatio === 43 ? 12: 64
-		right: parent.right
-		top: parent.top; topMargin: headerHeightCorrection === 0 ? 0 : 24
 	}
 
 	ListView {
@@ -35,8 +24,8 @@ import QtQuick 2.12
 		spacing: 22
 
 		highlightRangeMode: ListView.StrictlyEnforceRange
-		preferredHighlightBegin: screenRatio === 43 ? 12: 220
-		preferredHighlightEnd: screenRatio === 43 ? 12: 1570
+		preferredHighlightBegin: screenRatio === 43 ? 12: 290
+		preferredHighlightEnd: screenRatio === 43 ? 12: 1630
 		highlightMoveDuration: 200
 		highlightMoveVelocity: -1
 
@@ -143,8 +132,6 @@ import QtQuick 2.12
 	anchors {
 		centerIn: system__logo
 	}
-
-}
 
 }
 

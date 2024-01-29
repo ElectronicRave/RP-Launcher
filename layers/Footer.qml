@@ -12,7 +12,7 @@ import QtQuick 2.12
 		height: footerCSS.height
 
 	anchors {
-		bottom: main.bottom; bottomMargin: aspectRatio === 43 ? 12: -90
+		bottom: main.bottom; bottomMargin: aspectRatio === 43 ? 12: -110
 		right: main.right; rightMargin: aspectRatio === 43 ? 12: 270
 	}
 

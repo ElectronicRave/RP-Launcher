@@ -22,23 +22,18 @@ import QtQuick 2.12
 		id: header
 		color: "transparent"
 		width: headerCSS.width
-		height: header_inner.height+header__border.height+aspectRatio === 43 ? 40 : 120
+		height: header_inner.height+header__border.height+aspectRatio === 43 ? 40 : 140
 		clip: true
 
 	anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? 3 : 15
+		top: parent.top;
 	}
 
 	Rectangle {
 		id: header_inner
 		color: "transparent"
-		width: parent.width-60
-		height: aspectRatio === 43 ? 40 : 110
-
-	anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? 3 : 5
-		left: parent.left; leftMargin: aspectRatio === 43 ? 3 : 30
-	}         
+		width: parent.width
+		height: parent.height
 
 	//Search games and softwares
 
@@ -52,8 +47,8 @@ import QtQuick 2.12
 		visible: searchValue
 
 	anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? 3 : 48
-		right: parent.right; rightMargin: aspectRatio === 43 ? 3 : 470
+		top: parent.top; topMargin: aspectRatio === 43 ? 3 : 65
+		right: parent.right; rightMargin: aspectRatio === 43 ? 3 : 505
 	}
 
 	TextInput {
@@ -115,7 +110,7 @@ import QtQuick 2.12
 		id: main
 		color: "transparent"
 		width: wrapperCSS.width
-		height: mainCSS.height-20
+		height: mainCSS.height
 
 	anchors {
 		top: header.bottom
@@ -152,9 +147,9 @@ import QtQuick 2.12
 
 	anchors {
 		left: parent.left; leftMargin: aspectRatio === 43 ? 3 : 180
-		top: parent.top; topMargin: aspectRatio === 43 ? 3 : 60
+		top: parent.top; topMargin: aspectRatio === 43 ? 3 : 50
 		right: parent.right; rightMargin: aspectRatio === 43 ? 3 : 160
-		bottom: parent.bottom; bottomMargin: aspectRatio === 43 ? 3 : -20
+		bottom: parent.bottom; bottomMargin: aspectRatio === 43 ? 3 : -10
 	}
 
 		Keys.onUpPressed:       { moveCurrentIndexUp() }
