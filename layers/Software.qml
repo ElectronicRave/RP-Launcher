@@ -281,8 +281,8 @@ import QtQuick 2.12
 		z: 1
 
 	anchors {
-		right: parent.right; rightMargin: aspectRatio === 43 ? 3 : 12
 		top: parent.top; topMargin: aspectRatio === 43 ? 3 : 12
+		right: parent.right; rightMargin: aspectRatio === 43 ? 3 : 14
 	}
 
 	Image {
