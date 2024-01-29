@@ -69,7 +69,7 @@ import QtGraphicalEffects 1.12
 	}
 
 	Timer {
-		interval: 10000 // Run the timer every 10 seconds
+		interval: 10000 //Run the timer every 10 seconds
 		repeat: true
 		running: true
 		triggeredOnStart: true
