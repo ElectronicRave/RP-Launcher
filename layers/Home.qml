@@ -8,7 +8,7 @@ import QtQuick 2.12
 		id: main
 		color: "transparent"
 		width: wrapperCSS.width
-		height: mainCSS.height+140
+		height: mainCSS.height + aspectRatio === 43 ? 3 : 970
 
 	anchors {
 		top: header.bottom

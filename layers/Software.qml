@@ -22,7 +22,7 @@ import QtQuick 2.12
 		id: header
 		color: "transparent"
 		width: headerCSS.width
-		height: header_inner.height+header__border.height+aspectRatio === 43 ? 40 : 140
+		height: header_inner.height+header__border.height + aspectRatio === 43 ? 40 : 140
 		clip: true
 
 	anchors {
@@ -56,7 +56,7 @@ import QtQuick 2.12
 
 		id: header__search_input
 		clip: true
-		width: parent.width-marginRight
+		width: parent.width - marginRight
 		height: parent.height
 		color: theme.text
 		font.pixelSize: screenRatio === 43 ? 14 : 36
@@ -93,7 +93,7 @@ import QtQuick 2.12
 
 	Rectangle {
 		id: header__border
-		width: parent.width-40
+		width: parent.width - 40
 		height: aspectRatio === 43 ? 0 : 0
 		color: "transparent"
 
