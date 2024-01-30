@@ -47,7 +47,7 @@ import QtQuick 2.12
 		visible: searchValue
 
 	anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? 3 : vpx(25*screenRatio)
+		top: parent.top; topMargin: aspectRatio === 43 ? 3 : vpx(24*screenRatio)
 		right: parent.right; rightMargin: aspectRatio === 43 ? 3 : vpx(165*screenRatio)
 	}
 
@@ -149,7 +149,7 @@ import QtQuick 2.12
 		left: parent.left; leftMargin: aspectRatio === 43 ? 3 : vpx(70*screenRatio)
 		top: parent.top; topMargin: aspectRatio === 43 ? 3 : vpx(13*screenRatio)
 		right: parent.right; rightMargin: aspectRatio === 43 ? 3 : vpx(60*screenRatio)
-		bottom: parent.bottom; bottomMargin: aspectRatio === 43 ? 3 : vpx(-10*screenRatio)
+		bottom: parent.bottom; bottomMargin: aspectRatio === 43 ? 3 : vpx(-6*screenRatio)
 	}
 
 		Keys.onUpPressed:       { moveCurrentIndexUp() }
