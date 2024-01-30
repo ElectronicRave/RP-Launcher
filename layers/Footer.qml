@@ -3,16 +3,16 @@ import QtQuick 2.12
 
 	Rectangle {
 		id: footer
-		property var buttonSize: aspectRatio === 43 ? 85 : 130
-		property var buttonTextSize: screenRatio === 43 ? 14 : 28
-		property var buttonRoundSize: aspectRatio === 43 ? 20 : 42
-		property var buttonRoundTextSize: screenRatio === 43 ? 12 : 28
+		property var buttonSize: aspectRatio === 43 ? 85 : vpx(65*screenRatio)
+		property var buttonTextSize: aspectRatio === 43 ? 14 : vpx(14*screenRatio)
+		property var buttonRoundSize: aspectRatio === 43 ? 20 : vpx(21*screenRatio)
+		property var buttonRoundTextSize: aspectRatio === 43 ? 12 : vpx(14*screenRatio)
 		color: footerCSS.background
 		width: footerCSS.width
 		height: footerCSS.height
 
 	anchors {
-		bottom: main.bottom; bottomMargin: aspectRatio === 43 ? 12: -80
+		bottom: main.bottom; bottomMargin: aspectRatio === 43 ? 12: vpx(-42*screenRatio)
 		right: main.right
 	}
 
@@ -25,19 +25,19 @@ import QtQuick 2.12
 		color: "transparent"
 
 	anchors {
-		right: parent.right; rightMargin: aspectRatio === 43 ? 12: 170
+		right: parent.right; rightMargin: aspectRatio === 43 ? 12: vpx(85*screenRatio)
 		verticalCenter: parent.verticalCenter
 	}
 
 	Rectangle {
 		id: footer__full_button_A
 		height: width
-		width: 100
+		width: vpx(50*screenRatio)
 		color: "transparent"
 
 	anchors {
 		right: parent.right
-		centerIn:  aspectRatio = 43 ? none : parent
+		centerIn:  aspectRatio = 43 ? none : vpx(parent*screenRatio)
 	}
 
 	Rectangle {
@@ -72,7 +72,7 @@ import QtQuick 2.12
 
 			anchors {
 				verticalCenter: parent.verticalCenter
-				left: footer__button_A.right; leftMargin: aspectRatio === 43 ? 12: 8
+				left: footer__button_A.right; leftMargin: aspectRatio === 43 ? 12: vpx(4*screenRatio)
 			}
 
 		}
@@ -97,12 +97,12 @@ import QtQuick 2.12
 	Rectangle {
 		id: footer__full_button_B
 		height: width
-		width: 100
+		width: vpx(50*screenRatio)
 		color: "transparent"
 
 	anchors {
 		right: parent.right
-		centerIn:  aspectRatio = 43 ? none : parent
+		centerIn:  aspectRatio = 43 ? none : vpx(parent*screenRatio)
 	}
 
 	Rectangle {
@@ -138,7 +138,7 @@ import QtQuick 2.12
 		visible: currentPage === 'Software' ? 1 : 0
 
 	anchors {
-		left: footer__button_B.right; leftMargin: aspectRatio === 43 ? 12: 8
+		left: footer__button_B.right; leftMargin: aspectRatio === 43 ? 12: vpx(4*screenRatio)
 		verticalCenter: parent.verticalCenter
 	}
 
@@ -150,11 +150,11 @@ import QtQuick 2.12
 		id: footer__time
 		text: Qt.formatTime(new Date(), "hh:mm")
 		color: theme.text
-		font.pixelSize: screenRatio === 43 ? 12 : 32
+		font.pixelSize: aspectRatio === 43 ? 12 : vpx(16*screenRatio)
 
 	anchors {
 		verticalCenter: parent.verticalCenter
-		left: parent.right; leftMargin: aspectRatio === 43 ? 12: 170
+		left: parent.right; leftMargin: aspectRatio === 43 ? 12: vpx(85*screenRatio)
 	}
 
 	Timer {

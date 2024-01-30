@@ -8,7 +8,7 @@ import QtQuick 2.12
 		id: header
 		color: "transparent"
 		width: headerCSS.width
-		height: header_inner.height+header__border.height + aspectRatio === 43 ? 40 : 120
+		height: header_inner.height+header__border.height + aspectRatio === 43 ? 40 : vpx(60*screenRatio)
 		clip: true
 
 	anchors {
@@ -26,13 +26,13 @@ import QtQuick 2.12
 
 	Rectangle {
 		id: header__border
-		width: parent.width - 40
-		height: aspectRatio === 43 ? 0 : 0
+		width: parent.width
+		height: aspectRatio === 43 ? 0 : vpx(0*screenRatio)
 		color: "transparent"
 
 	anchors {
-		top: header_inner.bottom; topMargin: aspectRatio === 43 ? 3 : 8
-		left: parent.left; leftMargin: aspectRatio === 43 ? 3 : 20
+		top: header_inner.bottom; topMargin: aspectRatio === 43 ? 3 : vpx(4*screenRatio)
+		left: parent.left; leftMargin: aspectRatio === 43 ? 3 : vpx(10*screenRatio)
 	}
 
 }
@@ -54,18 +54,18 @@ import QtQuick 2.12
 		delegate: systemDelegate
 		orientation: ListView.Horizontal
 		focus: currentPage === 'Home' ? true : false
-		spacing: 22
+		spacing: vpx(11*screenRatio)
 
 		highlightRangeMode: ListView.StrictlyEnforceRange
-		preferredHighlightBegin: screenRatio === 43 ? 12: 200
-		preferredHighlightEnd: screenRatio === 43 ? 12: 1135
+		preferredHighlightBegin: screenRatio === 43 ? 12: vpx(100*screenRatio)
+		preferredHighlightEnd: screenRatio === 43 ? 12: vpx(580*screenRatio)
 		highlightMoveDuration: 200
 		highlightMoveVelocity: -1
 
 	anchors {
 		left: parent.left
 		right: parent.right
-		top: parent.top; topMargin: aspectRatio === 43 ? 3 : 60
+		top: parent.top; topMargin: aspectRatio === 43 ? 3 : vpx(32*screenRatio)
 		bottom: parent.bottom
 	}
 
@@ -78,7 +78,7 @@ import QtQuick 2.12
 	Item {
 		id: system__item_container
 		property bool selected: ListView.isCurrentItem
-		width: aspectRatio === 43 ? 3 : 260
+		width: aspectRatio === 43 ? 3 : vpx(135*screenRatio)
 		height: width
 
 	//Browse the collection and return to the same place after playing
@@ -98,9 +98,9 @@ import QtQuick 2.12
 		id: system__item_title
 		text: modelData.name
 		color: theme.accent
-		font.pixelSize: screenRatio === 43 ? 14 : 38
+		font.pixelSize: aspectRatio === 43 ? 14 : vpx(19*screenRatio)
 		font.bold: true
-		height: aspectRatio === 43 ? 3 : 68
+		height: aspectRatio === 43 ? 3 : vpx(34*screenRatio)
 		verticalAlignment: Text.AlignVCenter
 		elide: Text.ElideRight
 		opacity: selected ? 1 : 0
@@ -159,7 +159,7 @@ import QtQuick 2.12
 		height: parent.height
 		color: "transparent"
 		border.color: theme.accent
-		border.width: screenRatio === 43 ? 3 : 6
+		border.width: screenRatio === 43 ? 3 : vpx(3*screenRatio)
 		opacity: selected ? 1 : 0
 
 	anchors {
