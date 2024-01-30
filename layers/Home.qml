@@ -5,10 +5,43 @@ import QtQuick 2.12
 		id: home
 
 	Rectangle {
+		id: header
+		color: "transparent"
+		width: headerCSS.width
+		height: header_inner.height+header__border.height + aspectRatio === 43 ? 40 : 120
+		clip: true
+
+	anchors {
+		top: parent.top;
+	}
+
+	Rectangle {
+		id: header_inner
+		color: "transparent"
+		width: parent.width
+		height: parent.height
+}
+
+}
+
+	Rectangle {
+		id: header__border
+		width: parent.width - 40
+		height: aspectRatio === 43 ? 0 : 0
+		color: "transparent"
+
+	anchors {
+		top: header_inner.bottom; topMargin: aspectRatio === 43 ? 3 : 8
+		left: parent.left; leftMargin: aspectRatio === 43 ? 3 : 20
+	}
+
+}
+
+	Rectangle {
 		id: main
 		color: "transparent"
 		width: wrapperCSS.width
-		height: mainCSS.height + aspectRatio === 43 ? 3 : 970
+		height: mainCSS.height
 
 	anchors {
 		top: header.bottom
@@ -24,15 +57,15 @@ import QtQuick 2.12
 		spacing: 22
 
 		highlightRangeMode: ListView.StrictlyEnforceRange
-		preferredHighlightBegin: screenRatio === 43 ? 12: 290
-		preferredHighlightEnd: screenRatio === 43 ? 12: 1630
+		preferredHighlightBegin: screenRatio === 43 ? 12: 200
+		preferredHighlightEnd: screenRatio === 43 ? 12: 1135
 		highlightMoveDuration: 200
 		highlightMoveVelocity: -1
 
 	anchors {
 		left: parent.left
 		right: parent.right
-		top: parent.top; topMargin: aspectRatio === 43 ? 3 : 265
+		top: parent.top; topMargin: aspectRatio === 43 ? 3 : 60
 		bottom: parent.bottom
 	}
 
@@ -45,7 +78,7 @@ import QtQuick 2.12
 	Item {
 		id: system__item_container
 		property bool selected: ListView.isCurrentItem
-		width: aspectRatio === 43 ? 3 : 370
+		width: aspectRatio === 43 ? 3 : 260
 		height: width
 
 	//Browse the collection and return to the same place after playing
@@ -65,9 +98,9 @@ import QtQuick 2.12
 		id: system__item_title
 		text: modelData.name
 		color: theme.accent
-		font.pixelSize: screenRatio === 43 ? 14 : 52
+		font.pixelSize: screenRatio === 43 ? 14 : 38
 		font.bold: true
-		height: aspectRatio === 43 ? 3 : 92
+		height: aspectRatio === 43 ? 3 : 68
 		verticalAlignment: Text.AlignVCenter
 		elide: Text.ElideRight
 		opacity: selected ? 1 : 0
@@ -126,7 +159,7 @@ import QtQuick 2.12
 		height: parent.height
 		color: "transparent"
 		border.color: theme.accent
-		border.width: screenRatio === 43 ? 3 : 10
+		border.width: screenRatio === 43 ? 3 : 6
 		opacity: selected ? 1 : 0
 
 	anchors {

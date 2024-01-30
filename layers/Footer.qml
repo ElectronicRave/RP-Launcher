@@ -3,17 +3,17 @@ import QtQuick 2.12
 
 	Rectangle {
 		id: footer
-		property var buttonSize: aspectRatio === 43 ? 85 : 180
-		property var buttonTextSize: screenRatio === 43 ? 14 : 40
-		property var buttonRoundSize: aspectRatio === 43 ? 20 : 60
-		property var buttonRoundTextSize: screenRatio === 43 ? 12 : 42
+		property var buttonSize: aspectRatio === 43 ? 85 : 130
+		property var buttonTextSize: screenRatio === 43 ? 14 : 28
+		property var buttonRoundSize: aspectRatio === 43 ? 20 : 42
+		property var buttonRoundTextSize: screenRatio === 43 ? 12 : 28
 		color: footerCSS.background
 		width: footerCSS.width
 		height: footerCSS.height
 
 	anchors {
-		bottom: main.bottom; bottomMargin: aspectRatio === 43 ? 12: -110
-		right: main.right; rightMargin: aspectRatio === 43 ? 12: 270
+		bottom: main.bottom; bottomMargin: aspectRatio === 43 ? 12: -80
+		right: main.right
 	}
 
 	//Button A
@@ -25,7 +25,7 @@ import QtQuick 2.12
 		color: "transparent"
 
 	anchors {
-		right: parent.right
+		right: parent.right; rightMargin: aspectRatio === 43 ? 12: 170
 		verticalCenter: parent.verticalCenter
 	}
 
@@ -150,11 +150,11 @@ import QtQuick 2.12
 		id: footer__time
 		text: Qt.formatTime(new Date(), "hh:mm")
 		color: theme.text
-		font.pixelSize: screenRatio === 43 ? 12 : 42
+		font.pixelSize: screenRatio === 43 ? 12 : 32
 
 	anchors {
 		verticalCenter: parent.verticalCenter
-		left: parent.right; leftMargin: aspectRatio === 43 ? 12: 290
+		left: parent.right; leftMargin: aspectRatio === 43 ? 12: 170
 	}
 
 	Timer {

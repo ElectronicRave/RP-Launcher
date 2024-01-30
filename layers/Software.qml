@@ -22,7 +22,7 @@ import QtQuick 2.12
 		id: header
 		color: "transparent"
 		width: headerCSS.width
-		height: header_inner.height+header__border.height + aspectRatio === 43 ? 40 : 140
+		height: header_inner.height+header__border.height + aspectRatio === 43 ? 40 : 120
 		clip: true
 
 	anchors {
@@ -40,15 +40,15 @@ import QtQuick 2.12
 	Rectangle {
 		id: header__search
 		color: theme.background
-		width: aspectRatio === 43 ? 200 : 300
-		height: aspectRatio === 43 ? 30 : 60
+		width: aspectRatio === 43 ? 200 : 200
+		height: aspectRatio === 43 ? 30 : 50
 		border.color: theme.text
 		border.width: 3
 		visible: searchValue
 
 	anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? 3 : 65
-		right: parent.right; rightMargin: aspectRatio === 43 ? 3 : 505
+		top: parent.top; topMargin: aspectRatio === 43 ? 3 : 50
+		right: parent.right; rightMargin: aspectRatio === 43 ? 3 : 330
 	}
 
 	TextInput {
@@ -59,11 +59,11 @@ import QtQuick 2.12
 		width: parent.width - marginRight
 		height: parent.height
 		color: theme.text
-		font.pixelSize: screenRatio === 43 ? 14 : 36
+		font.pixelSize: screenRatio === 43 ? 14 : 30
 
 	anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? 8 : 52
-		left: parent.left; leftMargin: aspectRatio === 43 ? 6 : 29
+		top: parent.top; topMargin: aspectRatio === 43 ? 8 : 43
+		left: parent.left; leftMargin: aspectRatio === 43 ? 6 : 24
 		verticalCenter: parent.verticalCenter
 	}
 
@@ -146,10 +146,10 @@ import QtQuick 2.12
 		preferredHighlightEnd: screenRatio === 43 ? 12: 0
 
 	anchors {
-		left: parent.left; leftMargin: aspectRatio === 43 ? 3 : 180
-		top: parent.top; topMargin: aspectRatio === 43 ? 3 : 50
-		right: parent.right; rightMargin: aspectRatio === 43 ? 3 : 160
-		bottom: parent.bottom; bottomMargin: aspectRatio === 43 ? 3 : -10
+		left: parent.left; leftMargin: aspectRatio === 43 ? 3 : 140
+		top: parent.top; topMargin: aspectRatio === 43 ? 3 : 30
+		right: parent.right; rightMargin: aspectRatio === 43 ? 3 : 120
+		bottom: parent.bottom; bottomMargin: aspectRatio === 43 ? 3 : -25
 	}
 
 		Keys.onUpPressed:       { moveCurrentIndexUp() }
@@ -163,7 +163,7 @@ import QtQuick 2.12
 	Item {
 		id: game__item_container
 		property bool selected: GridView.isCurrentItem
-		width: gameView.cellWidth -23
+		width: gameView.cellWidth -22
 		height: width
 
 	//Launch game
@@ -235,7 +235,7 @@ import QtQuick 2.12
 
 	anchors {
 		fill: parent
-		margins: 68
+		margins: aspectRatio === 43 ? 3 : 42
 	}
 
 }
@@ -263,7 +263,7 @@ import QtQuick 2.12
 		height: parent.height
 		color: "transparent"
 		border.color: theme.accent
-		border.width: screenRatio === 43 ? 3 : 10
+		border.width: screenRatio === 43 ? 3 : 6
 		opacity: selected ? 1 : 0
 		z: 7
 
@@ -281,12 +281,12 @@ import QtQuick 2.12
 		z: 1
 
 	anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? 3 : 12
-		right: parent.right; rightMargin: aspectRatio === 43 ? 3 : 14
+		top: parent.top; topMargin: aspectRatio === 43 ? 3 : 8
+		right: parent.right; rightMargin: aspectRatio === 43 ? 3 : 10
 	}
 
 	Image {
-		width: 56
+		width: screenRatio === 43 ? 3 : 42
 		fillMode: Image.PreserveAspectFit
 		source: focus ? "../assets/icons/favorite.png" : "../assets/icons/favorite.png"
 		asynchronous: true
@@ -305,7 +305,7 @@ import QtQuick 2.12
 		id: game__title
 		color: "#2C2C2C"
 		width: parent.width
-		height: screenRatio === 43 ? 3 : 60
+		height: aspectRatio === 43 ? 3 : 40
 		opacity: 0.8
 		z: 1
 
@@ -322,12 +322,12 @@ import QtQuick 2.12
 		color: "#EBEBEB"
 		font.family: titleFont.name
 		font.bold: true
-		font.pixelSize: screenRatio === 43 ? 14 : 34
+		font.pixelSize: screenRatio === 43 ? 14 : 26
 		elide: Text.ElideRight
 		horizontalAlignment: Text.AlignHCenter
 
 	anchors { 
-		bottom: parent.bottom; bottomMargin: aspectRatio === 43 ? 3 : 12
+		bottom: parent.bottom; bottomMargin: aspectRatio === 43 ? 3 : 8
 		left: parent.left
 		right: parent.right
 	}
