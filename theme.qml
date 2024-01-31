@@ -135,7 +135,7 @@ import "layers" as Layers
 
 	property var headerCSS : {
 		"width": wrapperCSS.width,
-		"height": aspectRatio == 43 ? 90 : vpx(60*screenRatio),
+		"height": aspectRatio == 43 ? vpx(70*screenRatio) : vpx(60*screenRatio),
 		"background": "transparent",
 	}
 
@@ -147,7 +147,7 @@ import "layers" as Layers
 
 	property var footerCSS : {
 		"width": wrapperCSS.width,
-		"height": aspectRatio == 43 ? 74 : vpx(40*screenRatio),
+		"height": aspectRatio == 43 ? vpx(40*screenRatio) : vpx(40*screenRatio),
 		"background": "transparent",
 	}
 
