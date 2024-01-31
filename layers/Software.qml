@@ -322,7 +322,7 @@ import QtQuick 2.12
 		color: "#EBEBEB"
 		font.family: titleFont.name
 		font.bold: true
-		font.pixelSize: aspectRatio === 43 ? 14 : vpx(13*screenRatio)
+		font.pixelSize: aspectRatio === 43 ? 14 : vpx(12*screenRatio)
 		elide: Text.ElideRight
 		horizontalAlignment: Text.AlignHCenter
 
