@@ -8,7 +8,7 @@ import QtQuick 2.12
 		id: header
 		color: "transparent"
 		width: headerCSS.width
-		height: header_inner.height+header__border.height + aspectRatio === 43 ? 40 : vpx(60*screenRatio)
+		height: header_inner.height+header__border.height + aspectRatio === 43 ? vpx(70*screenRatio) : vpx(60*screenRatio)
 		clip: true
 
 	anchors {
@@ -27,12 +27,12 @@ import QtQuick 2.12
 	Rectangle {
 		id: header__border
 		width: parent.width
-		height: aspectRatio === 43 ? 0 : vpx(0*screenRatio)
+		height: aspectRatio === 43 ? vpx(10*screenRatio) : vpx(0*screenRatio)
 		color: "transparent"
 
 	anchors {
-		top: header_inner.bottom; topMargin: aspectRatio === 43 ? 3 : vpx(4*screenRatio)
-		left: parent.left; leftMargin: aspectRatio === 43 ? 3 : vpx(10*screenRatio)
+		top: header_inner.bottom; topMargin: aspectRatio === 43 ? vpx(4*screenRatio) : vpx(4*screenRatio)
+		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(10*screenRatio) : vpx(10*screenRatio)
 	}
 
 }
@@ -54,18 +54,18 @@ import QtQuick 2.12
 		delegate: systemDelegate
 		orientation: ListView.Horizontal
 		focus: currentPage === 'Home' ? true : false
-		spacing: vpx(10*screenRatio)
+		spacing: aspectRatio === 43 ? vpx(10*screenRatio) : vpx(10*screenRatio)
 
 		highlightRangeMode: ListView.StrictlyEnforceRange
-		preferredHighlightBegin: screenRatio === 43 ? 12: vpx(100*screenRatio)
-		preferredHighlightEnd: screenRatio === 43 ? 12: vpx(580*screenRatio)
+		preferredHighlightBegin: aspectRatio === 43 ? vpx(135*screenRatio) : vpx(100*screenRatio)
+		preferredHighlightEnd: aspectRatio === 43 ? vpx(510*screenRatio) : vpx(580*screenRatio)
 		highlightMoveDuration: 200
 		highlightMoveVelocity: -1
 
 	anchors {
 		left: parent.left
 		right: parent.right
-		top: parent.top; topMargin: aspectRatio === 43 ? 3 : vpx(32*screenRatio)
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(65*screenRatio) : vpx(38*screenRatio)
 		bottom: parent.bottom
 	}
 
@@ -78,7 +78,7 @@ import QtQuick 2.12
 	Item {
 		id: system__item_container
 		property bool selected: ListView.isCurrentItem
-		width: aspectRatio === 43 ? 3 : vpx(135*screenRatio)
+		width: aspectRatio === 43 ? vpx(180*screenRatio) : vpx(135*screenRatio)
 		height: width
 
 	//Browse the collection and return to the same place after playing
@@ -98,9 +98,9 @@ import QtQuick 2.12
 		id: system__item_title
 		text: modelData.name
 		color: theme.accent
-		font.pixelSize: aspectRatio === 43 ? 14 : vpx(19*screenRatio)
+		font.pixelSize: aspectRatio === 43 ? vpx(26*screenRatio) : vpx(19*screenRatio)
 		font.bold: true
-		height: aspectRatio === 43 ? 3 : vpx(34*screenRatio)
+		height: aspectRatio === 43 ? vpx(44*screenRatio) : vpx(34*screenRatio)
 		verticalAlignment: Text.AlignVCenter
 		elide: Text.ElideRight
 		opacity: selected ? 1 : 0
@@ -159,7 +159,7 @@ import QtQuick 2.12
 		height: parent.height
 		color: "transparent"
 		border.color: theme.accent
-		border.width: screenRatio === 43 ? 3 : vpx(3*screenRatio)
+		border.width: aspectRatio === 43 ? vpx(3*screenRatio) : vpx(3*screenRatio)
 		opacity: selected ? 1 : 0
 
 	anchors {

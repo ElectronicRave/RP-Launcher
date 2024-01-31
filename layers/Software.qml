@@ -22,7 +22,7 @@ import QtQuick 2.12
 		id: header
 		color: "transparent"
 		width: headerCSS.width
-		height: header_inner.height+header__border.height + aspectRatio === 43 ? 40 : vpx(60*screenRatio)
+		height: header_inner.height+header__border.height + aspectRatio === 43 ? vpx(70*screenRatio) : vpx(60*screenRatio)
 		clip: true
 
 	anchors {
@@ -40,30 +40,30 @@ import QtQuick 2.12
 	Rectangle {
 		id: header__search
 		color: theme.background
-		width: aspectRatio === 43 ? 200 : vpx(100*screenRatio)
-		height: aspectRatio === 43 ? 30 : vpx(26*screenRatio)
+		width: aspectRatio === 43 ? vpx(100*screenRatio) : vpx(100*screenRatio)
+		height: aspectRatio === 43 ? vpx(26*screenRatio) : vpx(26*screenRatio)
 		border.color: theme.text
-		border.width: vpx(1*screenRatio)
+		border.width: aspectRatio === 43 ? vpx(2*screenRatio) : vpx(1*screenRatio)
 		visible: searchValue
 
 	anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? 3 : vpx(24*screenRatio)
-		right: parent.right; rightMargin: aspectRatio === 43 ? 3 : vpx(165*screenRatio)
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(28*screenRatio) : vpx(24*screenRatio)
+		right: parent.right; rightMargin: aspectRatio === 43 ? vpx(145*screenRatio) : vpx(165*screenRatio)
 	}
 
 	TextInput {
-		property var marginRight: aspectRatio === 43 ? 40 : vpx(22*screenRatio)
+		property var marginRight: aspectRatio === 43 ? vpx(22*screenRatio) : vpx(22*screenRatio)
 
 		id: header__search_input
 		clip: true
 		width: parent.width - marginRight
 		height: parent.height
 		color: theme.text
-		font.pixelSize: aspectRatio === 43 ? 14 : vpx(15*screenRatio)
+		font.pixelSize: aspectRatio === 43 ? vpx(15*screenRatio) : vpx(15*screenRatio)
 
 	anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? 8 : vpx(22*screenRatio)
-		left: parent.left; leftMargin: aspectRatio === 43 ? 6 : vpx(12*screenRatio)
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(22*screenRatio) : vpx(22*screenRatio)
+		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(12*screenRatio) : vpx(12*screenRatio)
 		verticalCenter: parent.verticalCenter
 	}
 
@@ -94,12 +94,12 @@ import QtQuick 2.12
 	Rectangle {
 		id: header__border
 		width: parent.width
-		height: aspectRatio === 43 ? 0 : vpx(0*screenRatio)
+		height: aspectRatio === 43 ? vpx(0*screenRatio) : vpx(0*screenRatio)
 		color: "transparent"
 
 	anchors {
-		top: header_inner.bottom; topMargin: aspectRatio === 43 ? 3 : vpx(4*screenRatio)
-		left: parent.left; leftMargin: aspectRatio === 43 ? 3 : vpx(10*screenRatio)
+		top: header_inner.bottom; topMargin: aspectRatio === 43 ? vpx(4*screenRatio) : vpx(4*screenRatio)
+		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(10*screenRatio) : vpx(10*screenRatio)
 	}
 
 }
@@ -142,14 +142,14 @@ import QtQuick 2.12
 		clip: true
 
 		highlightRangeMode: ListView.StrictlyEnforceRange
-		preferredHighlightBegin: aspectRatio === 43 ? 12: vpx(1*screenRatio)
-		preferredHighlightEnd: aspectRatio === 43 ? 12: vpx(0*screenRatio)
+		preferredHighlightBegin: aspectRatio === 43 ? vpx(1*screenRatio) : vpx(1*screenRatio)
+		preferredHighlightEnd: aspectRatio === 43 ? vpx(0*screenRatio) : vpx(0*screenRatio)
 
 	anchors {
-		left: parent.left; leftMargin: aspectRatio === 43 ? 3 : vpx(70*screenRatio)
-		top: parent.top; topMargin: aspectRatio === 43 ? 3 : vpx(13*screenRatio)
-		right: parent.right; rightMargin: aspectRatio === 43 ? 3 : vpx(60*screenRatio)
-		bottom: parent.bottom; bottomMargin: aspectRatio === 43 ? 3 : vpx(-6*screenRatio)
+		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(70*screenRatio) : vpx(70*screenRatio)
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(36*screenRatio) : vpx(13*screenRatio)
+		right: parent.right; rightMargin: aspectRatio === 43 ? vpx(60*screenRatio) : vpx(60*screenRatio)
+		bottom: parent.bottom; bottomMargin: aspectRatio === 43 ? vpx(-6*screenRatio) : vpx(-6*screenRatio)
 	}
 
 		Keys.onUpPressed:       { moveCurrentIndexUp() }
@@ -235,7 +235,7 @@ import QtQuick 2.12
 
 	anchors {
 		fill: parent
-		margins: aspectRatio === 43 ? 3 : vpx(21*screenRatio)
+		margins: aspectRatio === 43 ? vpx(28*screenRatio) : vpx(21*screenRatio)
 	}
 
 }
@@ -263,7 +263,7 @@ import QtQuick 2.12
 		height: parent.height
 		color: "transparent"
 		border.color: theme.accent
-		border.width: aspectRatio === 43 ? 3 : vpx(3*screenRatio)
+		border.width: aspectRatio === 43 ? vpx(3*screenRatio) : vpx(3*screenRatio)
 		opacity: selected ? 1 : 0
 		z: 7
 
@@ -281,20 +281,20 @@ import QtQuick 2.12
 		z: 1
 
 	anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? 3 : vpx(4*screenRatio)
-		right: parent.right; rightMargin: aspectRatio === 43 ? 3 : vpx(5*screenRatio)
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(4*screenRatio) : vpx(4*screenRatio)
+		right: parent.right; rightMargin: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(5*screenRatio)
 	}
 
 	Image {
-		width: aspectRatio === 43 ? 3 : vpx(21*screenRatio)
+		width: aspectRatio === 43 ? vpx(28*screenRatio) : vpx(22*screenRatio)
 		fillMode: Image.PreserveAspectFit
 		source: focus ? "../assets/icons/favorite.png" : "../assets/icons/favorite.png"
 		asynchronous: true
 		smooth: true
 
 	anchors {
-		right: parent.right; rightMargin: aspectRatio === 43 ? 3 : vpx(4*screenRatio)
-		top: parent.top; topMargin: aspectRatio === 43 ? 3 : vpx(4*screenRatio)
+		right: parent.right; rightMargin: aspectRatio === 43 ? vpx(4*screenRatio) : vpx(4*screenRatio)
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(4*screenRatio) : vpx(4*screenRatio)
 	}
 
 }
@@ -305,7 +305,7 @@ import QtQuick 2.12
 		id: game__title
 		color: "#2C2C2C"
 		width: parent.width
-		height: aspectRatio === 43 ? 3 : vpx(20*screenRatio)
+		height: aspectRatio === 43 ? vpx(26*screenRatio) : vpx(20*screenRatio)
 		opacity: 0.8
 		z: 1
 
@@ -322,12 +322,12 @@ import QtQuick 2.12
 		color: "#EBEBEB"
 		font.family: titleFont.name
 		font.bold: true
-		font.pixelSize: aspectRatio === 43 ? 14 : vpx(12*screenRatio)
+		font.pixelSize: aspectRatio === 43 ? vpx(16*screenRatio) : vpx(12*screenRatio)
 		elide: Text.ElideRight
 		horizontalAlignment: Text.AlignHCenter
 
 	anchors { 
-		bottom: parent.bottom; bottomMargin: aspectRatio === 43 ? 3 : vpx(4*screenRatio)
+		bottom: parent.bottom; bottomMargin: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(4*screenRatio)
 		left: parent.left
 		right: parent.right
 	}
