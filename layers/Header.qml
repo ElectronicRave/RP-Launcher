@@ -104,7 +104,7 @@ import QtGraphicalEffects 1.12
                    
 		anchors {
 			top: parent.top; topMargin: aspectRatio === 43 ? vpx(3*screenRatio) : vpx(4*screenRatio)
-			right: header__battery_icon.right; rightMargin: aspectRatio === 43 ? vpx(15*screenRatio) : vpx(12*screenRatio)
+			right: header__battery_icon.right; rightMargin: aspectRatio === 43 ? vpx(15*screenRatio) : vpx(11*screenRatio)
 		}
 
 }
