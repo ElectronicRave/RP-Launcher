@@ -29,7 +29,7 @@ import QtGraphicalEffects 1.12
 
 	Image {
 		id: header__battery_icon
-		height: aspectRatio === 43 ? 16 : vpx(16*screenRatio)
+		height: aspectRatio === 43 ? 16 : vpx(15*screenRatio)
 		fillMode: Image.PreserveAspectFit
 		source: getBatteryIcon()
 		layer.enabled: true
@@ -93,7 +93,7 @@ import QtGraphicalEffects 1.12
 
 		Image {
 			id: header__battery_icon_charging
-			width: aspectRatio === 43 ? 16 : vpx(14*screenRatio)
+			width: aspectRatio === 43 ? 16 : vpx(13*screenRatio)
 			height: width
 			fillMode: Image.PreserveAspectFit
 			source: "../assets/icons/charge.png"
