@@ -5,14 +5,14 @@ import QtQuick 2.12
 		id: footer
 		property var buttonSize: aspectRatio === 43 ? 85 : vpx(65*screenRatio)
 		property var buttonTextSize: aspectRatio === 43 ? 14 : vpx(14*screenRatio)
-		property var buttonRoundSize: aspectRatio === 43 ? 20 : vpx(21*screenRatio)
-		property var buttonRoundTextSize: aspectRatio === 43 ? 12 : vpx(14*screenRatio)
+		property var buttonRoundSize: aspectRatio === 43 ? 20 : vpx(22*screenRatio)
+		property var buttonRoundTextSize: aspectRatio === 43 ? 12 : vpx(16*screenRatio)
 		color: footerCSS.background
 		width: footerCSS.width
 		height: footerCSS.height
 
 	anchors {
-		bottom: main.bottom; bottomMargin: aspectRatio === 43 ? 12: vpx(-34*screenRatio)
+		bottom: main.bottom; bottomMargin: aspectRatio === 43 ? 12: vpx(-33*screenRatio)
 		right: main.right
 	}
 
