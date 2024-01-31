@@ -123,7 +123,7 @@ import QtGraphicalEffects 1.12
 
 	anchors {
 		top: parent.top; topMargin: aspectRatio === 43 ? 3 : vpx(16*screenRatio)
-		left: parent.left; leftMargin: aspectRatio === 43 ? 3 : vpx(17*screenRatio)
+		left: parent.left; leftMargin: aspectRatio === 43 ? 3 : vpx(15*screenRatio)
 	}
 
 }
