@@ -163,7 +163,7 @@ import QtQuick 2.12
 	Item {
 		id: game__item_container
 		property bool selected: GridView.isCurrentItem
-		width: gameView.cellWidth -22
+		width: gameView.cellWidth - vpx(10*screenRatio)
 		height: width
 
 	//Launch game

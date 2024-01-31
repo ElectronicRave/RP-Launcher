@@ -54,7 +54,7 @@ import QtQuick 2.12
 		delegate: systemDelegate
 		orientation: ListView.Horizontal
 		focus: currentPage === 'Home' ? true : false
-		spacing: vpx(9*screenRatio)
+		spacing: vpx(10*screenRatio)
 
 		highlightRangeMode: ListView.StrictlyEnforceRange
 		preferredHighlightBegin: screenRatio === 43 ? 12: vpx(100*screenRatio)
