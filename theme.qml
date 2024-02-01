@@ -57,7 +57,7 @@ import "layers" as Layers
 
 	property var themeLight : {
 		"background": "#EBEBEB",
-		"accent": "#FF0000",
+		"accent": "#FF3800",
 		"buttons": "#FFBD88",
 		"text": "#000000",
 		"title": "#2C2C2C",
@@ -65,8 +65,8 @@ import "layers" as Layers
 
 	property var themeDark : {
 		"background": "#2C2C2C",
-		"accent": "#10ADC5",
-		"buttons": "#B06500",
+		"accent": "#00FFFF",
+		"buttons": "#CD7F32",
 		"text": "#FFFFFF",
 		"title": "#EBEBEB",
 	}
