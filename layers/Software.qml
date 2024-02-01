@@ -319,7 +319,7 @@ import QtQuick 2.12
 	Text {
 		id: game__title_name
 		text: modelData.title
-		color: "#EBEBEB"
+		color: "#FFFFFF"
 		font.family: titleFont.name
 		font.bold: true
 		font.pixelSize: aspectRatio === 43 ? vpx(16*screenRatio) : vpx(12*screenRatio)
