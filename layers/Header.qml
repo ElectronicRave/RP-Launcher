@@ -37,7 +37,7 @@ import QtGraphicalEffects 1.12
 		smooth: true
 
 	anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? vpx(1*screenRatio) : vpx(3*screenRatio)
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(3*screenRatio) : vpx(3*screenRatio)
 		right: header__battery_level.left; rightMargin: aspectRatio === 43 ? vpx(4*screenRatio) : vpx(4*screenRatio)
 	}
 
@@ -86,7 +86,7 @@ import QtGraphicalEffects 1.12
 		font.bold: true
 
 		anchors {
-			top: parent.top; topMargin: aspectRatio === 43 ? vpx(2*screenRatio) : vpx(2*screenRatio)
+			top: parent.top; topMargin: aspectRatio === 43 ? vpx(3*screenRatio) : vpx(2*screenRatio)
 		}
 
 }
@@ -103,7 +103,7 @@ import QtGraphicalEffects 1.12
 			visible: chargingStatus && header__battery_icon.level < 100
                    
 		anchors {
-			top: parent.top; topMargin: aspectRatio === 43 ? vpx(3*screenRatio) : vpx(4*screenRatio)
+			top: parent.top; topMargin: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(4*screenRatio)
 			right: header__battery_icon.right; rightMargin: aspectRatio === 43 ? vpx(15*screenRatio) : vpx(11*screenRatio)
 		}
 
@@ -147,7 +147,7 @@ import QtGraphicalEffects 1.12
 
 	anchors {
 		top: parent.top; topMargin: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(26*screenRatio)
-		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(83*screenRatio) : vpx(83*screenRatio)
+		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(93*screenRatio) : vpx(83*screenRatio)
 	}
 
 }
@@ -171,7 +171,7 @@ import QtGraphicalEffects 1.12
 
 	anchors {
 		top: parent.top; topMargin: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(26*screenRatio)
-		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(125*screenRatio) : vpx(125*screenRatio)
+		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(135*screenRatio) : vpx(125*screenRatio)
 	}   
 
 }
@@ -195,7 +195,7 @@ import QtGraphicalEffects 1.12
 
 	anchors {
 		top: parent.top; topMargin: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(26*screenRatio)
-		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(215*screenRatio) : vpx(205*screenRatio)
+		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(225*screenRatio) : vpx(205*screenRatio)
 	}    
 
 }
@@ -220,7 +220,7 @@ import QtGraphicalEffects 1.12
 
 	anchors {
 		top: parent.top; topMargin: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(26*screenRatio)
-		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(295*screenRatio) : vpx(275*screenRatio)
+		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(305*screenRatio) : vpx(275*screenRatio)
 	}    
 
 }

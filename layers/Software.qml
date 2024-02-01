@@ -41,29 +41,29 @@ import QtQuick 2.12
 		id: header__search
 		color: theme.background
 		width: aspectRatio === 43 ? vpx(100*screenRatio) : vpx(100*screenRatio)
-		height: aspectRatio === 43 ? vpx(26*screenRatio) : vpx(26*screenRatio)
+		height: aspectRatio === 43 ? vpx(28*screenRatio) : vpx(26*screenRatio)
 		border.color: theme.text
 		border.width: aspectRatio === 43 ? vpx(2*screenRatio) : vpx(1*screenRatio)
 		visible: searchValue
 
 	anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? vpx(28*screenRatio) : vpx(24*screenRatio)
-		right: parent.right; rightMargin: aspectRatio === 43 ? vpx(145*screenRatio) : vpx(165*screenRatio)
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(24*screenRatio)
+		right: parent.right; rightMargin: aspectRatio === 43 ? vpx(140*screenRatio) : vpx(165*screenRatio)
 	}
 
 	TextInput {
-		property var marginRight: aspectRatio === 43 ? vpx(22*screenRatio) : vpx(22*screenRatio)
+		property var marginRight: aspectRatio === 43 ? vpx(23*screenRatio) : vpx(22*screenRatio)
 
 		id: header__search_input
 		clip: true
 		width: parent.width - marginRight
 		height: parent.height
 		color: theme.text
-		font.pixelSize: aspectRatio === 43 ? vpx(15*screenRatio) : vpx(15*screenRatio)
+		font.pixelSize: aspectRatio === 43 ? vpx(16*screenRatio) : vpx(15*screenRatio)
 
 	anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? vpx(22*screenRatio) : vpx(22*screenRatio)
-		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(12*screenRatio) : vpx(12*screenRatio)
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(24*screenRatio) : vpx(22*screenRatio)
+		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(13*screenRatio) : vpx(12*screenRatio)
 		verticalCenter: parent.verticalCenter
 	}
 
@@ -146,9 +146,9 @@ import QtQuick 2.12
 		preferredHighlightEnd: aspectRatio === 43 ? vpx(0*screenRatio) : vpx(0*screenRatio)
 
 	anchors {
-		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(70*screenRatio) : vpx(70*screenRatio)
-		top: parent.top; topMargin: aspectRatio === 43 ? vpx(36*screenRatio) : vpx(13*screenRatio)
-		right: parent.right; rightMargin: aspectRatio === 43 ? vpx(60*screenRatio) : vpx(60*screenRatio)
+		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(75*screenRatio) : vpx(70*screenRatio)
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(38*screenRatio) : vpx(13*screenRatio)
+		right: parent.right; rightMargin: aspectRatio === 43 ? vpx(65*screenRatio) : vpx(60*screenRatio)
 		bottom: parent.bottom; bottomMargin: aspectRatio === 43 ? vpx(-6*screenRatio) : vpx(-6*screenRatio)
 	}
 

@@ -25,7 +25,7 @@ import QtQuick 2.12
 		color: "transparent"
 
 	anchors {
-		right: parent.right; rightMargin: aspectRatio === 43 ? vpx(85*screenRatio) : vpx(85*screenRatio)
+		right: parent.right; rightMargin: aspectRatio === 43 ? vpx(105*screenRatio) : vpx(85*screenRatio)
 		verticalCenter: parent.verticalCenter
 	}
 
@@ -166,7 +166,7 @@ import QtQuick 2.12
 
 	anchors {
 		verticalCenter: parent.verticalCenter
-		left: parent.right; leftMargin: aspectRatio === 43 ? vpx(95*screenRatio) : vpx(85*screenRatio)
+		left: parent.right; leftMargin: aspectRatio === 43 ? vpx(115*screenRatio) : vpx(85*screenRatio)
 	}
 
 	Timer {
