@@ -44,6 +44,7 @@ import QtQuick 2.12
 		height: aspectRatio === 43 ? vpx(28*screenRatio) : vpx(26*screenRatio)
 		border.color: theme.text
 		border.width: aspectRatio === 43 ? vpx(2*screenRatio) : vpx(1*screenRatio)
+		radius: 100
 		visible: searchValue
 
 	anchors {
