@@ -40,7 +40,7 @@ import QtQuick 2.12
 	Rectangle {
 		id: header__search
 		color: theme.background
-		width: aspectRatio === 43 ? vpx(100*screenRatio) : vpx(100*screenRatio)
+		width: aspectRatio === 43 ? vpx(100*screenRatio) : vpx(120*screenRatio)
 		height: aspectRatio === 43 ? vpx(28*screenRatio) : vpx(26*screenRatio)
 		border.color: theme.text
 		border.width: aspectRatio === 43 ? vpx(2*screenRatio) : vpx(1*screenRatio)
@@ -49,7 +49,7 @@ import QtQuick 2.12
 
 	anchors {
 		top: parent.top; topMargin: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(24*screenRatio)
-		right: parent.right; rightMargin: aspectRatio === 43 ? vpx(140*screenRatio) : vpx(165*screenRatio)
+		right: parent.right; rightMargin: aspectRatio === 43 ? vpx(140*screenRatio) : vpx(160*screenRatio)
 	}
 
 	TextInput {
@@ -63,8 +63,9 @@ import QtQuick 2.12
 		font.pixelSize: aspectRatio === 43 ? vpx(16*screenRatio) : vpx(15*screenRatio)
 
 	anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? vpx(24*screenRatio) : vpx(22*screenRatio)
-		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(13*screenRatio) : vpx(12*screenRatio)
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(23*screenRatio) : vpx(22*screenRatio)
+		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(13*screenRatio) : vpx(14*screenRatio)
+		right: parent.right; rightMargin: aspectRatio === 43 ? vpx(13*screenRatio) : vpx(14*screenRatio)
 		verticalCenter: parent.verticalCenter
 	}
 
