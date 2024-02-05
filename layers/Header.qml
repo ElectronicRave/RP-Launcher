@@ -19,6 +19,7 @@ import QtGraphicalEffects 1.12
 		id: header__battery
 		property var chargingPercent: api.device.batteryPercent*100
 		width: aspectRatio === 43 ? vpx(65*screenRatio) : vpx(65*screenRatio)
+		height: parent
 		color: "transparent"
 		visible: headerHeightCorrection === 0 ? 1 : 0
 
@@ -29,7 +30,7 @@ import QtGraphicalEffects 1.12
 
 	Image {
 		id: header__battery_icon
-		width: aspectRatio === 43 ? vpx(35*screenRatio) : vpx(30*screenRatio)
+		width: aspectRatio === 43 ? vpx(41*screenRatio) : vpx(31*screenRatio)
 		height: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(15*screenRatio)
 		fillMode: Image.PreserveAspectFit
 		source: getBatteryIcon()
@@ -95,14 +96,15 @@ import QtGraphicalEffects 1.12
 		Image {
 			id: header__battery_icon_charging
 			width: aspectRatio === 43 ? vpx(18*screenRatio) : vpx(13*screenRatio)
-			height: aspectRatio === 43 ? vpx(21*screenRatio) : vpx(16*screenRatio)
+			height: width
 			fillMode: Image.PreserveAspectFit
 			source: "../assets/icons/charge.png"
+			smooth: true
 			visible: chargingStatus && header__battery_icon.level < 100
                    
 		anchors {
-			top: parent.top; topMargin: aspectRatio === 43 ? vpx(3.5*screenRatio) : vpx(2.5*screenRatio)
-			right: header__battery_icon.right; rightMargin: aspectRatio === 43 ? vpx(14.5*screenRatio) : vpx(10.5*screenRatio)
+			top: parent.top; topMargin: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(4*screenRatio)
+			right: header__battery_icon.right; rightMargin: aspectRatio === 43 ? vpx(15*screenRatio) : vpx(11*screenRatio)
 		}
 
 }
