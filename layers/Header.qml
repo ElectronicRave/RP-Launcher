@@ -221,7 +221,7 @@ import QtGraphicalEffects 1.12
 	anchors {
 		top: parent.top; topMargin: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(26*screenRatio)
 		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(305*screenRatio) : vpx(275*screenRatio)
-	}    
+	}
 
 }
 
@@ -234,6 +234,6 @@ import QtGraphicalEffects 1.12
 			return
 	}
 
-} 
+}
 
 }
