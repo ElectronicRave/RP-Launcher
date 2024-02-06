@@ -208,7 +208,7 @@ import QtGraphicalEffects 1.12
 		width: parent.width
 		height: parent.height
 		color: modelData.assets.boxFront ? theme.buttons : theme.background
-		radius: 10
+		radius: 12
 		z: -2
 }
 
