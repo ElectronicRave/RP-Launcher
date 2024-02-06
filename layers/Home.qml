@@ -1,5 +1,5 @@
 import QtQuick 2.12
-
+import QtGraphicalEffects 1.12
 
 	Item {
 		id: home
@@ -115,7 +115,7 @@ import QtQuick 2.12
 		id: system__item
 		width: parent.width
 		height: parent.height
-		color: theme.buttons
+		color: theme.background
 
 	anchors {
 		top : system__item_title.bottom
@@ -131,9 +131,19 @@ import QtQuick 2.12
 		source: "../assets/images/logos/"+modelData.shortName+".jpg"
 		asynchronous: true
 		smooth: true
+		visible: false
+}
 
-	anchors {
-		fill: parent
+	OpacityMask {
+		anchors.fill: system__logo
+		source: system__logo
+		maskSource:
+
+	Rectangle {
+		width: system__logo.width
+		height: system__logo.height
+		radius: 20
+		visible: true
 	}
 
 }
@@ -160,6 +170,7 @@ import QtQuick 2.12
 		color: "transparent"
 		border.color: theme.accent
 		border.width: aspectRatio === 43 ? vpx(3*screenRatio) : vpx(3*screenRatio)
+		radius: 20
 		opacity: selected ? 1 : 0
 
 	anchors {

@@ -1,5 +1,5 @@
 import QtQuick 2.12
-
+import QtGraphicalEffects 1.12
 
 	Item {
 		id: software
@@ -207,7 +207,9 @@ import QtQuick 2.12
 		id: game__item
 		width: parent.width
 		height: parent.height
-		color: theme.buttons
+		color: modelData.assets.boxFront ? theme.buttons : theme.background
+		radius: 20
+		z: -2
 }
 
 	Image {
@@ -218,10 +220,25 @@ import QtQuick 2.12
 		source: modelData.assets.screenshots[0]
 		asynchronous: true
 		smooth: true
-		z: 1
+		visible: false
 
 	anchors {
-		fill: parent
+		fill: game__item
+	}
+
+}
+
+
+	OpacityMask {
+		anchors.fill: game__screenshot
+		source: game__screenshot
+		maskSource:
+
+	Rectangle {
+		width: game__screenshot.width
+		height: game__screenshot.height
+		radius: 20
+		visible: true
 	}
 
 }
@@ -234,6 +251,8 @@ import QtQuick 2.12
 		fillMode: Image.PreserveAspect
 		asynchronous: true
 		smooth: true
+		z: -1
+		visible: true
 
 	anchors {
 		fill: parent
@@ -267,39 +286,12 @@ import QtQuick 2.12
 		border.color: theme.accent
 		border.width: aspectRatio === 43 ? vpx(3*screenRatio) : vpx(3*screenRatio)
 		opacity: selected ? 1 : 0
-		z: 7
+		radius: 20
+		z: 1
 
 	anchors {
 		centerIn: game__screenshot && game__logo
 	}
-
-}
-
-	//Favorite
-
-	Canvas {
-		id: game__favorite
-		visible: modelData.favorite && currentCollection.shortName !== "all-favorites"
-		z: 1
-
-	anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? vpx(4*screenRatio) : vpx(4*screenRatio)
-		right: parent.right; rightMargin: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(5*screenRatio)
-	}
-
-	Image {
-		width: aspectRatio === 43 ? vpx(28*screenRatio) : vpx(22*screenRatio)
-		fillMode: Image.PreserveAspectFit
-		source: focus ? "../assets/icons/favorite.png" : "../assets/icons/favorite.png"
-		asynchronous: true
-		smooth: true
-
-	anchors {
-		right: parent.right; rightMargin: aspectRatio === 43 ? vpx(4*screenRatio) : vpx(4*screenRatio)
-		top: parent.top; topMargin: aspectRatio === 43 ? vpx(4*screenRatio) : vpx(4*screenRatio)
-	}
-
-}
 
 }
 
@@ -308,8 +300,8 @@ import QtQuick 2.12
 		color: "#2C2C2C"
 		width: parent.width
 		height: aspectRatio === 43 ? vpx(26*screenRatio) : vpx(20*screenRatio)
+		radius: 20
 		opacity: 0.8
-		z: 1
 
 	anchors {
 		bottom: parent.bottom
@@ -332,6 +324,33 @@ import QtQuick 2.12
 		bottom: parent.bottom; bottomMargin: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(4*screenRatio)
 		left: parent.left
 		right: parent.right
+	}
+
+}
+
+}
+
+	//Favorite
+
+	Canvas {
+		id: game__favorite
+		visible: modelData.favorite && currentCollection.shortName !== "all-favorites"
+
+	anchors {
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(4*screenRatio) : vpx(4*screenRatio)
+		right: parent.right; rightMargin: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(5*screenRatio)
+	}
+
+	Image {
+		width: aspectRatio === 43 ? vpx(28*screenRatio) : vpx(22*screenRatio)
+		fillMode: Image.PreserveAspectFit
+		source: focus ? "../assets/icons/favorite.png" : "../assets/icons/favorite.png"
+		asynchronous: true
+		smooth: true
+
+	anchors {
+		right: parent.right; rightMargin: aspectRatio === 43 ? vpx(4*screenRatio) : vpx(4*screenRatio)
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(4*screenRatio) : vpx(4*screenRatio)
 	}
 
 }
