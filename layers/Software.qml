@@ -279,35 +279,27 @@ import QtGraphicalEffects 1.12
 }
 
 	Rectangle {
-		id: game__item_border
-		width: parent.width
-		height: parent.height
-		color: "transparent"
-		border.color: theme.accent
-		border.width: aspectRatio === 43 ? vpx(3*screenRatio) : vpx(3*screenRatio)
-		opacity: selected ? 1 : 0
-		radius: 20
-		z: 1
-
-	anchors {
-		centerIn: game__screenshot && game__logo
-	}
-
-}
-
-	Rectangle {
 		id: game__title
-		color: "#2C2C2C"
 		width: parent.width
 		height: aspectRatio === 43 ? vpx(26*screenRatio) : vpx(20*screenRatio)
+		color: "transparent"
 		radius: 20
+		clip: true
+
+	anchors {
+		bottom: parent.bottom
+	}
+
+	Rectangle {
+		id: game__title_clipped
+		width: parent.width
+		height: parent.height + radius
+		radius: game__title.radius
+		color: "#2C2C2C"
 		opacity: 0.8
 
 	anchors {
 		bottom: parent.bottom
-		left: parent.left
-		right: parent.right
-		horizontalCenter: parent.horizontalCenter
 	}
 
 	Text {
@@ -327,6 +319,25 @@ import QtGraphicalEffects 1.12
 	}
 
 }
+
+}
+
+}
+
+	Rectangle {
+		id: game__item_border
+		width: parent.width
+		height: parent.height
+		color: "transparent"
+		border.color: theme.accent
+		border.width: aspectRatio === 43 ? vpx(3*screenRatio) : vpx(3*screenRatio)
+		opacity: selected ? 1 : 0
+		radius: 20
+		z: 1
+
+	anchors {
+		centerIn: game__screenshot && game__logo
+	}
 
 }
 
