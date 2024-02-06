@@ -208,7 +208,7 @@ import QtGraphicalEffects 1.12
 		width: parent.width
 		height: parent.height
 		color: modelData.assets.boxFront ? theme.buttons : theme.background
-		radius: 20
+		radius: 10
 		z: -2
 }
 
@@ -237,7 +237,7 @@ import QtGraphicalEffects 1.12
 	Rectangle {
 		width: game__screenshot.width
 		height: game__screenshot.height
-		radius: 20
+		radius: 10
 		visible: true
 	}
 
@@ -283,7 +283,7 @@ import QtGraphicalEffects 1.12
 		width: parent.width
 		height: aspectRatio === 43 ? vpx(26*screenRatio) : vpx(20*screenRatio)
 		color: "transparent"
-		radius: 20
+		radius: 10
 		clip: true
 
 	anchors {
@@ -332,7 +332,7 @@ import QtGraphicalEffects 1.12
 		border.color: theme.accent
 		border.width: aspectRatio === 43 ? vpx(3*screenRatio) : vpx(3*screenRatio)
 		opacity: selected ? 1 : 0
-		radius: 20
+		radius: 10
 		z: 1
 
 	anchors {
