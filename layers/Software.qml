@@ -313,9 +313,9 @@ import QtGraphicalEffects 1.12
 		horizontalAlignment: Text.AlignHCenter
 
 	anchors { 
-		bottom: parent.bottom; bottomMargin: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(4*screenRatio)
 		left: parent.left
 		right: parent.right
+		bottom: parent.bottom; bottomMargin: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(4*screenRatio)
 	}
 
 }
@@ -336,7 +336,7 @@ import QtGraphicalEffects 1.12
 		z: 1
 
 	anchors {
-		centerIn: game__screenshot && game__logo
+		centerIn: parent
 	}
 
 }
