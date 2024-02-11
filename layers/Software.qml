@@ -324,7 +324,7 @@ import QtGraphicalEffects 1.12
 }
 
 	Item {
-		id: game__title_name_animation
+		id: game__title_name_item
 		property string text: modelData.title
 		property string spacing: "     "
 		property string combined: spacing + text + spacing
@@ -332,7 +332,8 @@ import QtGraphicalEffects 1.12
 		property int step: 0
 
 	Text {
-		text: parent.display
+		id: game__title_name_animation
+		text: game__title_name_item.display
 		width: parent.width
 		height: game__title
 		color: "#FFFFFF"
