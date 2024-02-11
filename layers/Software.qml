@@ -293,7 +293,7 @@ import QtGraphicalEffects 1.12
 	Rectangle {
 		id: game__title_clipped
 		width: parent.width
-		height: parent.height + radius
+		height: game__title.height + radius
 		radius: game__title.radius
 		color: "#2C2C2C"
 		opacity: 0.8
@@ -304,6 +304,8 @@ import QtGraphicalEffects 1.12
 
 	Text {
 		id: game__title_name
+		width: parent.width
+		height: game__title
 		text: modelData.title
 		color: "#FFFFFF"
 		font.family: titleFont.name
@@ -311,11 +313,47 @@ import QtGraphicalEffects 1.12
 		font.pixelSize: aspectRatio === 43 ? vpx(16*screenRatio) : vpx(12*screenRatio)
 		elide: Text.ElideRight
 		horizontalAlignment: Text.AlignHCenter
+		visible: selected ? 0 : 1
 
-	anchors { 
+	anchors {
 		left: parent.left
 		right: parent.right
 		bottom: parent.bottom; bottomMargin: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(4*screenRatio)
+	}
+
+}
+
+	Item {
+		id: game__title_name_animation
+		property string text: modelData.title
+		property string spacing: "     "
+		property string combined: spacing + text + spacing
+		property string display: combined.substring(step) + combined.substring(0, step)
+		property int step: 0
+
+	Text {
+		text: parent.display
+		width: parent.width
+		height: game__title
+		color: "#FFFFFF"
+		font.family: titleFont.name
+		font.bold: true
+		font.pixelSize: aspectRatio === 43 ? vpx(16*screenRatio) : vpx(12*screenRatio)
+		horizontalAlignment: Text.AlignHCenter
+		visible: selected ? 1 : 0
+	}
+
+	anchors {
+		left: parent.left
+		right: parent.right
+		bottom: parent.bottom; bottomMargin: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(16.4*screenRatio)
+	}
+
+	Timer {
+		interval: 300
+		running: selected ? game__title_name.truncated : 0
+		repeat: true
+		onTriggered: parent.step = (parent.step + 1) % parent.combined.length
 	}
 
 }
