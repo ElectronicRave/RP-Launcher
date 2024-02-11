@@ -333,9 +333,9 @@ import QtGraphicalEffects 1.12
 
 	Text {
 		id: game__title_name_animation
-		text: game__title_name_item.display
 		width: parent.width
 		height: game__title
+		text: game__title_name_item.display
 		color: "#FFFFFF"
 		font.family: titleFont.name
 		font.bold: true
