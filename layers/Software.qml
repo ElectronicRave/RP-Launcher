@@ -347,7 +347,7 @@ import QtGraphicalEffects 1.12
 	anchors {
 		left: parent.left
 		right: parent.right
-		bottom: parent.bottom; bottomMargin: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(16.4*screenRatio)
+		bottom: parent.bottom; bottomMargin: aspectRatio === 43 ? vpx(16.5*screenRatio) : vpx(16.4*screenRatio)
 	}
 
 	Timer {
