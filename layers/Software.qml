@@ -351,6 +351,7 @@ import QtGraphicalEffects 1.12
 	}
 
 	Timer {
+		id: game__title_name_animation_timer
 		interval: 300
 		running: selected ? game__title_name.truncated : 0
 		repeat: true
