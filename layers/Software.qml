@@ -189,7 +189,7 @@ import QtGraphicalEffects 1.12
 
 	if (api.keys.isNextPage(event)) {
 	event.accepted = true
-	gameView.currentIndex = Math.min(gameView.currentIndex + 12, currentCollection.games.count - 1)
+	aspectRatio === 43 ? gameView.currentIndex = Math.min(gameView.currentIndex + 9, currentCollection.games.count - 1) : gameView.currentIndex = Math.min(gameView.currentIndex + 12, currentCollection.games.count - 1)
 	return
 
 }
@@ -198,7 +198,7 @@ import QtGraphicalEffects 1.12
 
 	if (api.keys.isPrevPage(event)) {
 	event.accepted = true
-	gameView.currentIndex = Math.max(gameView.currentIndex - 12, 0)
+	aspectRatio === 43 ? gameView.currentIndex = Math.max(gameView.currentIndex - 9, 0) : gameView.currentIndex = Math.max(gameView.currentIndex - 12, 0)
 	return
 
 }
