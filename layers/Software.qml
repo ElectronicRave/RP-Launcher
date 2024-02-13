@@ -185,20 +185,39 @@ import QtGraphicalEffects 1.12
 	return
 }
 
-	//Next collection
+	//Next page
 
 	if (api.keys.isNextPage(event)) {
 	event.accepted = true
-	currentCollectionIndex = currentCollectionIndex+1
+	gameView.currentIndex = Math.min(gameView.currentIndex + 12, currentCollection.games.count - 1)
+	return
+
+}
+
+	//Prev page
+
+	if (api.keys.isPrevPage(event)) {
+	event.accepted = true
+	gameView.currentIndex = Math.max(gameView.currentIndex - 12, 0)
+	return
+
+}
+
+	//Next collection
+
+	if (api.keys.isPageDown(event)) {
+	event.accepted = true
+	currentCollectionIndex = currentCollectionIndex + 1
 	return
 }
 
 	//Prev collection
 
-	if (api.keys.isPrevPage(event)) {
+	if (api.keys.isPageUp(event)) {
 	event.accepted = true
-	currentCollectionIndex = currentCollectionIndex-1
+	currentCollectionIndex = currentCollectionIndex - 1
 	return
+
 }
 
 }
