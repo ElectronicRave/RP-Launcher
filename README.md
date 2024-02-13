@@ -56,16 +56,16 @@ In this list you can see all the games or software in the System, in this screen
  
 ### Favorite mode
 
-- Press and hold on the image of the game or software to add it to favorites.
+- Press and hold on the image of the content to add it to favorites.
 - press and hold again to remove from favorites
 
 ### Search mode
 
 Visible only on the current collection page!
 
-Just click search in the current collection and write the name of the game or program.
+Just click search in the current collection and write the name of the content.
 
 Note:
-- If you write the name of the game or program and press "enter" on the virtual keyboard it will show the corresponding items.
+- If you write the name of the content and press "enter" on the virtual keyboard it will show the corresponding items.
 - If you want to search the entire system, click (All) and search again.
 - If you press the back button "B" you will return to the home screen.
