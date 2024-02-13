@@ -1,6 +1,5 @@
 import QtQuick 2.12
 
-
 	Rectangle {
 		id: footer
 		property var buttonSize: aspectRatio === 43 ? vpx(75*screenRatio) : vpx(65*screenRatio)

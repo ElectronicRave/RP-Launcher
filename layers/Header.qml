@@ -1,7 +1,6 @@
 import QtQuick 2.12
 import QtGraphicalEffects 1.12
 
-
 	Rectangle {
 		id: header
 		property bool chargingStatus: api.device.batteryCharging
