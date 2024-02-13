@@ -35,7 +35,7 @@ import QtGraphicalEffects 1.12
 		width: parent.width
 		height: parent.height
 
-	//Search games and softwares
+	//Search content
 
 	Rectangle {
 		id: header__search
