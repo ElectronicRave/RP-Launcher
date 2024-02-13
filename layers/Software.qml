@@ -53,14 +53,13 @@ import QtGraphicalEffects 1.12
 	}
 
 	TextInput {
-		property var marginRight: aspectRatio === 43 ? vpx(23*screenRatio) : vpx(22*screenRatio)
-
 		id: header__search_input
-		clip: true
+		property var marginRight: aspectRatio === 43 ? vpx(23*screenRatio) : vpx(22*screenRatio)
 		width: parent.width - marginRight
 		height: parent.height
 		color: theme.text
 		font.pixelSize: aspectRatio === 43 ? vpx(16*screenRatio) : vpx(15*screenRatio)
+		clip: true
 
 	anchors {
 		top: parent.top; topMargin: aspectRatio === 43 ? vpx(23*screenRatio) : vpx(22*screenRatio)
@@ -120,11 +119,11 @@ import QtGraphicalEffects 1.12
 
 	Rectangle {
 		id: game
-		visible: true
-		clip: true
 		color: "transparent"
 		width: parent.width
 		height: parent.height
+		visible: true
+		clip: true
 
 	anchors {
 		left: parent.left

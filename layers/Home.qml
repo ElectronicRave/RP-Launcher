@@ -63,9 +63,9 @@ import QtGraphicalEffects 1.12
 		highlightMoveVelocity: -1
 
 	anchors {
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(73*screenRatio) : vpx(46*screenRatio)
 		left: parent.left
 		right: parent.right
-		top: parent.top; topMargin: aspectRatio === 43 ? vpx(73*screenRatio) : vpx(46*screenRatio)
 		bottom: parent.bottom
 	}
 

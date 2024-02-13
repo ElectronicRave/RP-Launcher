@@ -11,8 +11,8 @@ import QtQuick 2.12
 		height: footerCSS.height
 
 	anchors {
-		bottom: main.bottom; bottomMargin: aspectRatio === 43 ? vpx(-38*screenRatio) : vpx(-33*screenRatio)
 		right: main.right
+		bottom: main.bottom; bottomMargin: aspectRatio === 43 ? vpx(-38*screenRatio) : vpx(-33*screenRatio)
 	}
 
 	//Button A
@@ -70,8 +70,9 @@ import QtQuick 2.12
 		font.pixelSize: buttonTextSize
 
 			anchors {
-				verticalCenter: parent.verticalCenter
 				left: footer__button_A.right; leftMargin: aspectRatio === 43 ? vpx(4*screenRatio) : vpx(4*screenRatio)
+				verticalCenter: parent.verticalCenter
+
 			}
 
 		}
@@ -164,8 +165,9 @@ import QtQuick 2.12
 		font.pixelSize: aspectRatio === 43 ? vpx(18*screenRatio) : vpx(16*screenRatio)
 
 	anchors {
-		verticalCenter: parent.verticalCenter
 		left: parent.right; leftMargin: aspectRatio === 43 ? vpx(115*screenRatio) : vpx(85*screenRatio)
+		verticalCenter: parent.verticalCenter
+
 	}
 
 	Timer {
