@@ -42,7 +42,7 @@ In the home screen you can navigate your Systems using your D-pad or use the tou
 
 If you selected Dark Mode in the Home Page, the Game List will be presented in Dark Mode as well.
 
-## Software Screen
+## Content Screen
 
 In this list you can see all contents in the System, in this screen you can do several things by pressing different buttons:
 
