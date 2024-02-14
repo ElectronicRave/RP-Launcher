@@ -46,12 +46,12 @@ If you selected Dark Mode in the Home Page, the Game List will be presented in D
 
 In this list you can see all contents in the System, in this screen you can do several things by pressing different buttons:
 
-- A  - Launch the contents
+- A  - Launch content
 - B  - Goes back to the Home Page
-- L1 - Previnious Page
-- R1 - Next Page
-- L2 - Previous System
-- R2 - Next System
+- L1 - Previnious page
+- R1 - Next page
+- L2 - Previous system
+- R2 - Next system
 - TOUCH - Access to All, Favorite, Played and Search
  
 ### Favorite mode
