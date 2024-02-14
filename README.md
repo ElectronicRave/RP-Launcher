@@ -31,9 +31,9 @@ In the home screen you will find information about the battery level, charging s
 
 In the home screen you can navigate your Systems using your D-pad or use the touchscreen to:
 
-- Access all games
-- Access to favorited games
-- Access your latest played games
+- Access all contents
+- Access to favorited contents
+- Access your latest played contents
 - Change theme color
 
 ### Theme Mode
@@ -44,9 +44,9 @@ If you selected Dark Mode in the Home Page, the Game List will be presented in D
 
 ## Software Screen
 
-In this list you can see all the games or software in the System, in this screen you can do several things by pressing different buttons:
+In this list you can see all contents in the System, in this screen you can do several things by pressing different buttons:
 
-- A  - Launch the Game
+- A  - Launch the contents
 - B  - Goes back to the Home Page
 - L1 - Previnious Page
 - R1 - Next Page
