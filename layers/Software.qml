@@ -280,7 +280,8 @@ import QtGraphicalEffects 1.12
 }
  
 	MouseArea {
-		anchors.fill: game__screenshot && game__logo
+		id: game__item__mouse
+		anchors.fill: game__item
 		onClicked: {
 			if (selected) {
 				currentGameIndex = index

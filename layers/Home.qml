@@ -149,6 +149,7 @@ import QtGraphicalEffects 1.12
 }
 
 	MouseArea {
+		id: system__logo_mouse
 		anchors.fill: system__logo
 		onClicked: {
 			if (selected) {

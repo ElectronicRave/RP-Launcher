@@ -130,9 +130,11 @@ import QtGraphicalEffects 1.12
 }
 
 	MouseArea {
+		id: profileIcon__mouse
 		anchors.fill: profileIcon
 		onPressAndHold:{
 			swapTheme()
+			return;
 	}
 
 }
@@ -154,10 +156,12 @@ import QtGraphicalEffects 1.12
 }
 
 	MouseArea {
+		id: all__mouse
 		anchors.fill: all
 		onClicked: {
 			currentCollectionIndex = 2
 			navigate('Software')
+			return;
 	}
 
 }
@@ -178,10 +182,12 @@ import QtGraphicalEffects 1.12
 }
 
 	MouseArea {
+		id: favorite__mouse
 		anchors.fill: favorite
 		onClicked: {
 			currentCollectionIndex = 0
 			navigate('Software')
+			return;
 	}
 
 }
@@ -202,10 +208,12 @@ import QtGraphicalEffects 1.12
 }
 
 	MouseArea {
+		id: played__mouse
 		anchors.fill: played
 		onClicked: {
 			currentCollectionIndex = 1
 			navigate('Software')
+			return;
 	}
 
 }
@@ -227,12 +235,13 @@ import QtGraphicalEffects 1.12
 }
 
 	MouseArea {
+		id: search__mouse
 		anchors.fill: search
 		onClicked: {
 			searchValue = ''
 			header__search_input.clear()         
 			header__search_input.focus = true
-			return
+			return;
 	}
 
 }

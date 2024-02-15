@@ -145,7 +145,8 @@ import QtQuick 2.12
 }
 
 	MouseArea {
-		anchors.fill: parent
+		id: footer__full_button_B_mouse
+		anchors.fill: footer__full_button_B
 		onClicked: {
 			api.memory.unset('currentCollectionIndex', currentCollectionIndex)
 			searchValue=''
