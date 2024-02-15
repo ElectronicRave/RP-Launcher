@@ -97,7 +97,8 @@ import QtGraphicalEffects 1.12
 			width: aspectRatio === 43 ? vpx(18*screenRatio) : vpx(13*screenRatio)
 			height: width
 			fillMode: Image.PreserveAspectFit
-			source: "../assets/icons/charge.png"
+			source: "../assets/icons/charge.svg"
+			antialiasing: true
 			smooth: true
 			visible: chargingStatus && header__battery_icon.level < 100
                    
@@ -117,7 +118,8 @@ import QtGraphicalEffects 1.12
 		width: aspectRatio === 43 ? vpx(48*screenRatio) : vpx(36*screenRatio)
 		height: width
 		fillMode: Image.PreserveAspectFit
-		source: "../assets/icons/profile.png"
+		source: "../assets/icons/profile.svg"
+		antialiasing: true
 		smooth: true
 
 	anchors {
