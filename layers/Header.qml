@@ -150,7 +150,7 @@ import QtGraphicalEffects 1.12
 
 	anchors {
 		top: parent.top; topMargin: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(26*screenRatio)
-		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(93*screenRatio) : vpx(83*screenRatio)
+		left: profileIcon.right; leftMargin: aspectRatio === 43 ? vpx(42*screenRatio) : vpx(32*screenRatio)
 	}
 
 }
@@ -176,7 +176,7 @@ import QtGraphicalEffects 1.12
 
 	anchors {
 		top: parent.top; topMargin: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(26*screenRatio)
-		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(135*screenRatio) : vpx(125*screenRatio)
+		left: all.right; leftMargin: aspectRatio === 43 ? vpx(30*screenRatio) : vpx(20*screenRatio)
 	}   
 
 }
@@ -202,7 +202,7 @@ import QtGraphicalEffects 1.12
 
 	anchors {
 		top: parent.top; topMargin: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(26*screenRatio)
-		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(225*screenRatio) : vpx(205*screenRatio)
+		left: favorite.right; leftMargin: aspectRatio === 43 ? vpx(25*screenRatio) : vpx(15*screenRatio)
 	}    
 
 }
@@ -229,7 +229,7 @@ import QtGraphicalEffects 1.12
 
 	anchors {
 		top: parent.top; topMargin: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(26*screenRatio)
-		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(305*screenRatio) : vpx(275*screenRatio)
+		left: played.right; leftMargin: aspectRatio === 43 ? vpx(25*screenRatio) : vpx(15*screenRatio)
 	}
 
 }
