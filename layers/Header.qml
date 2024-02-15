@@ -31,7 +31,7 @@ import QtGraphicalEffects 1.12
 		id: header__battery_icon
 		width: aspectRatio === 43 ? vpx(41*screenRatio) : vpx(31*screenRatio)
 		height: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(15*screenRatio)
-		fillMode: Image.PreserveAspectFit
+		fillMode: Image.PreserveAspectCrop
 		source: getBatteryIcon()
 		layer.enabled: true
 		layer.effect: ColorOverlay { color: theme.title }
