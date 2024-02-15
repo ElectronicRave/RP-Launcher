@@ -280,7 +280,7 @@ import QtGraphicalEffects 1.12
 }
  
 	MouseArea {
-		id: game__item__mouse
+		id: game__item_mouse
 		anchors.fill: game__item
 		onClicked: {
 			if (selected) {

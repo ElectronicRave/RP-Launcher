@@ -130,7 +130,7 @@ import QtGraphicalEffects 1.12
 }
 
 	MouseArea {
-		id: profileIcon__mouse
+		id: profileIcon_mouse
 		anchors.fill: profileIcon
 		onPressAndHold:{
 			swapTheme()
@@ -156,7 +156,7 @@ import QtGraphicalEffects 1.12
 }
 
 	MouseArea {
-		id: all__mouse
+		id: all_mouse
 		anchors.fill: all
 		onClicked: {
 			currentCollectionIndex = 2
@@ -182,7 +182,7 @@ import QtGraphicalEffects 1.12
 }
 
 	MouseArea {
-		id: favorite__mouse
+		id: favorite_mouse
 		anchors.fill: favorite
 		onClicked: {
 			currentCollectionIndex = 0
@@ -208,7 +208,7 @@ import QtGraphicalEffects 1.12
 }
 
 	MouseArea {
-		id: played__mouse
+		id: played_mouse
 		anchors.fill: played
 		onClicked: {
 			currentCollectionIndex = 1
@@ -235,7 +235,7 @@ import QtGraphicalEffects 1.12
 }
 
 	MouseArea {
-		id: search__mouse
+		id: search_mouse
 		anchors.fill: search
 		onClicked: {
 			searchValue = ''
