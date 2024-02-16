@@ -23,8 +23,8 @@ import QtGraphicalEffects 1.12
 		visible: headerHeightCorrection === 0 ? 1 : 0
 
 	anchors {
-		right: parent.right; rightMargin: aspectRatio === 43 ? vpx(-9*screenRatio) : vpx(-9*screenRatio)
 		top: parent.top; topMargin: aspectRatio === 43 ? vpx(18*screenRatio) : vpx(18*screenRatio)
+		right: parent.right; rightMargin: aspectRatio === 43 ? vpx(-9*screenRatio) : vpx(-9*screenRatio)
 	}
 
 	Image {
@@ -104,7 +104,7 @@ import QtGraphicalEffects 1.12
                    
 		anchors {
 			top: parent.top; topMargin: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(4*screenRatio)
-			right: header__battery_icon.right; rightMargin: aspectRatio === 43 ? vpx(15*screenRatio) : vpx(11*screenRatio)
+			right: header__battery_icon.right; rightMargin: aspectRatio === 43 ? vpx(15.5*screenRatio) : vpx(11.5*screenRatio)
 		}
 
 }
