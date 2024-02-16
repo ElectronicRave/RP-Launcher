@@ -205,7 +205,7 @@ import "layers" as Layers
 			RegExpFilter { roleName: "title"; pattern: searchValue; caseSensitivity: Qt.CaseInsensitive; enabled: searchValue != "" }                       
 		]
 
-}    
+}
  
 	//Screen boundaries
 
