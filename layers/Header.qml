@@ -29,7 +29,7 @@ import QtGraphicalEffects 1.12
 
 	Image {
 		id: header__battery_icon
-		width: aspectRatio === 43 ? vpx(42*screenRatio) : vpx(32*screenRatio)
+		width: aspectRatio === 43 ? vpx(42.5*screenRatio) : vpx(32.5*screenRatio)
 		height: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(15*screenRatio)
 		fillMode: Image.PreserveAspectCrop
 		source: getBatteryIcon()
@@ -104,7 +104,7 @@ import QtGraphicalEffects 1.12
                    
 		anchors {
 			top: parent.top; topMargin: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(4*screenRatio)
-			right: header__battery_icon.right; rightMargin: aspectRatio === 43 ? vpx(15.5*screenRatio) : vpx(11.5*screenRatio)
+			right: header__battery_icon.right; rightMargin: aspectRatio === 43 ? vpx(16*screenRatio) : vpx(12*screenRatio)
 		}
 
 }
