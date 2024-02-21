@@ -6,9 +6,9 @@ import QtQuick 2.12
 		property var buttonTextSize: aspectRatio === 43 ? vpx(16*screenRatio) : vpx(14*screenRatio)
 		property var buttonRoundSize: aspectRatio === 43 ? vpx(26*screenRatio) : vpx(22*screenRatio)
 		property var buttonRoundTextSize: aspectRatio === 43 ? vpx(18*screenRatio) : vpx(16*screenRatio)
-		color: footerCSS.background
 		width: footerCSS.width
 		height: footerCSS.height
+		color: footerCSS.background
 
 	anchors {
 		right: main.right
