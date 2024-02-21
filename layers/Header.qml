@@ -29,9 +29,8 @@ import QtGraphicalEffects 1.12
 
 	Image {
 		id: header__battery_icon
-		width: aspectRatio === 43 ? vpx(42.5*screenRatio) : vpx(32.5*screenRatio)
-		height: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(15*screenRatio)
-		fillMode: Image.PreserveAspectCrop
+		sourceSize.width: aspectRatio === 43 ? vpx(42.5*screenRatio) : vpx(32.5*screenRatio)
+		fillMode: Image.PreserveAspectFit
 		source: getBatteryIcon()
 		layer.enabled: true
 		layer.effect: ColorOverlay { color: theme.title }
@@ -94,8 +93,7 @@ import QtGraphicalEffects 1.12
 
 		Image {
 			id: header__battery_icon_charging
-			width: aspectRatio === 43 ? vpx(18*screenRatio) : vpx(13*screenRatio)
-			height: width
+			sourceSize.width: aspectRatio === 43 ? vpx(18*screenRatio) : vpx(13*screenRatio)
 			fillMode: Image.PreserveAspectFit
 			source: "../assets/icons/charge.svg"
 			antialiasing: true
@@ -103,7 +101,7 @@ import QtGraphicalEffects 1.12
 			visible: chargingStatus && header__battery_icon.level < 100
                    
 		anchors {
-			top: parent.top; topMargin: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(4*screenRatio)
+			top: parent.top; topMargin: aspectRatio === 43 ? vpx(7*screenRatio) : vpx(6*screenRatio)
 			right: header__battery_icon.right; rightMargin: aspectRatio === 43 ? vpx(16*screenRatio) : vpx(12*screenRatio)
 		}
 
@@ -115,8 +113,7 @@ import QtGraphicalEffects 1.12
 
 	Image {
 		id: profileIcon
-		width: aspectRatio === 43 ? vpx(48*screenRatio) : vpx(36*screenRatio)
-		height: width
+		sourceSize.width: aspectRatio === 43 ? vpx(48*screenRatio) : vpx(36*screenRatio)
 		fillMode: Image.PreserveAspectFit
 		source: "../assets/icons/profile.svg"
 		antialiasing: true

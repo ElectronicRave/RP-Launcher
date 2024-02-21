@@ -412,7 +412,7 @@ import QtGraphicalEffects 1.12
 	}
 
 	Image {
-		width: aspectRatio === 43 ? vpx(28*screenRatio) : vpx(22*screenRatio)
+		sourceSize.width: aspectRatio === 43 ? vpx(28*screenRatio) : vpx(22*screenRatio)
 		fillMode: Image.PreserveAspectFit
 		source: focus ? "../assets/icons/favorite.svg" : "../assets/icons/favorite.svg"
 		antialiasing: true
