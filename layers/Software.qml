@@ -44,13 +44,42 @@ import QtGraphicalEffects 1.12
 		height: aspectRatio === 43 ? vpx(28*screenRatio) : vpx(26*screenRatio)
 		border.color: theme.text
 		border.width: aspectRatio === 43 ? vpx(2*screenRatio) : vpx(1*screenRatio)
-		radius: 100
+		radius: 15
 		visible: searchValue
 
 	anchors {
 		top: parent.top; topMargin: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(24*screenRatio)
-		right: parent.right; rightMargin: aspectRatio === 43 ? vpx(140*screenRatio) : vpx(160*screenRatio)
+		right: parent.right; rightMargin: aspectRatio === 43 ? vpx(145*screenRatio) : vpx(165*screenRatio)
 	}
+
+	Rectangle {
+		id: header__search_icon
+		height:aspectRatio === 43 ? 16 : 32
+		width:aspectRatio === 43 ? 16 : 32
+		color: "transparent"
+
+	anchors {
+		left: parent.left; leftMargin: 10
+		verticalCenter: parent.verticalCenter
+	}
+
+	Image {
+		sourceSize.width: aspectRatio === 43 ? vpx(16*screenRatio) : vpx(20*screenRatio)
+		fillMode: Image.PreserveAspectFit
+		source: "../assets/icons/search.svg"
+		layer.enabled: true
+		layer.effect: ColorOverlay { color: theme.text }
+		antialiasing: true
+		smooth: true
+
+	anchors {
+		verticalCenter: parent.verticalCenter
+		horizontalCenter: parent.horizontalCenter
+	}
+
+}
+
+}              
 
 	TextInput {
 		id: header__search_input
@@ -63,8 +92,8 @@ import QtGraphicalEffects 1.12
 
 	anchors {
 		top: parent.top; topMargin: aspectRatio === 43 ? vpx(23*screenRatio) : vpx(22*screenRatio)
-		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(13*screenRatio) : vpx(14*screenRatio)
-		right: parent.right; rightMargin: aspectRatio === 43 ? vpx(13*screenRatio) : vpx(14*screenRatio)
+		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(25*screenRatio) : vpx(26*screenRatio)
+		right: parent.right; rightMargin: aspectRatio === 43 ? vpx(12*screenRatio) : vpx(12*screenRatio)
 		verticalCenter: parent.verticalCenter
 	}
 
@@ -335,8 +364,8 @@ import QtGraphicalEffects 1.12
 		visible: selected ? 0 : 1
 
 	anchors {
-		left: parent.left
-		right: parent.right
+		left: parent.left; leftMargin: 15
+		right: parent.right; rightMargin: 15
 		bottom: parent.bottom; bottomMargin: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(4*screenRatio)
 	}
 
@@ -364,9 +393,9 @@ import QtGraphicalEffects 1.12
 	}
 
 	anchors {
-		left: parent.left
-		right: parent.right
-		bottom: parent.bottom; bottomMargin: aspectRatio === 43 ? vpx(16.5*screenRatio) : vpx(16.4*screenRatio)
+		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(15*screenRatio) : vpx(15*screenRatio)
+		right: parent.right; rightMargin: aspectRatio === 43 ? vpx(15*screenRatio) : vpx(15*screenRatio)
+		bottom: parent.bottom; bottomMargin: aspectRatio === 43 ? vpx(16.7*screenRatio) : vpx(16.7*screenRatio)
 	}
 
 	Timer {
@@ -385,6 +414,23 @@ import QtGraphicalEffects 1.12
 
 	Rectangle {
 		id: game__item_border
+		width: parent.width
+		height: parent.height
+		color: "transparent"
+		border.color: theme.title
+		border.width: aspectRatio === 43 ? vpx(0.8*screenRatio) : vpx(0.8*screenRatio)
+		visible: modelData.assets.screenshots[0] ? 1 : 0
+		radius: 12
+		z: 1
+
+	anchors {
+		centerIn: parent
+	}
+
+}
+
+	Rectangle {
+		id: game__item_highlight
 		width: parent.width
 		height: parent.height
 		color: "transparent"

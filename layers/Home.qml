@@ -63,7 +63,7 @@ import QtGraphicalEffects 1.12
 		highlightMoveVelocity: -1
 
 	anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? vpx(73*screenRatio) : vpx(46*screenRatio)
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(73*screenRatio) : vpx(36*screenRatio)
 		left: parent.left
 		right: parent.right
 		bottom: parent.bottom
@@ -165,7 +165,7 @@ import QtGraphicalEffects 1.12
 }
 
 	Rectangle {
-		id: system__item_border
+		id: system__item_highlight
 		width: parent.width
 		height: parent.height
 		color: "transparent"
