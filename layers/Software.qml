@@ -364,8 +364,8 @@ import QtGraphicalEffects 1.12
 		visible: selected ? 0 : 1
 
 	anchors {
-		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(8*screenRatio) : vpx(15*screenRatio)
-		right: parent.right; rightMargin: aspectRatio === 43 ? vpx(8*screenRatio) : vpx(15*screenRatio)
+		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(5*screenRatio)
+		right: parent.right; rightMargin: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(5*screenRatio)
 		bottom: parent.bottom; bottomMargin: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(4*screenRatio)
 	}
 
@@ -393,8 +393,8 @@ import QtGraphicalEffects 1.12
 	}
 
 	anchors {
-		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(8*screenRatio) : vpx(15*screenRatio)
-		right: parent.right; rightMargin: aspectRatio === 43 ? vpx(8*screenRatio) : vpx(15*screenRatio)
+		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(5*screenRatio)
+		right: parent.right; rightMargin: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(5*screenRatio)
 		bottom: parent.bottom; bottomMargin: aspectRatio === 43 ? vpx(22.2*screenRatio) : vpx(16.7*screenRatio)
 	}
 
