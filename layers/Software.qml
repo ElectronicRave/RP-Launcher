@@ -44,7 +44,7 @@ import QtGraphicalEffects 1.12
 		height: aspectRatio === 43 ? vpx(28*screenRatio) : vpx(26*screenRatio)
 		border.color: theme.text
 		border.width: aspectRatio === 43 ? vpx(2*screenRatio) : vpx(1*screenRatio)
-		radius: aspectRatio === 43 ? vpx(8*screenRatio) : vpx(15*screenRatio)
+		radius: aspectRatio === 43 ? vpx(6*screenRatio) : vpx(5*screenRatio)
 		visible: searchValue
 
 	anchors {
@@ -255,7 +255,7 @@ import QtGraphicalEffects 1.12
 		width: parent.width
 		height: parent.height
 		color: modelData.assets.boxFront ? theme.buttons : theme.background
-		radius: aspectRatio === 43 ? vpx(8*screenRatio) : vpx(12*screenRatio)
+		radius: aspectRatio === 43 ? vpx(6*screenRatio) : vpx(5*screenRatio)
 		z: -2
 }
 
@@ -284,7 +284,7 @@ import QtGraphicalEffects 1.12
 	Rectangle {
 		width: game__screenshot.width
 		height: game__screenshot.height
-		radius: aspectRatio === 43 ? vpx(8*screenRatio) : vpx(12*screenRatio)
+		radius: aspectRatio === 43 ? vpx(6*screenRatio) : vpx(5*screenRatio)
 		visible: true
 	}
 
@@ -331,7 +331,7 @@ import QtGraphicalEffects 1.12
 		width: parent.width
 		height: aspectRatio === 43 ? vpx(26*screenRatio) : vpx(20*screenRatio)
 		color: "transparent"
-		radius: aspectRatio === 43 ? vpx(8*screenRatio) : vpx(12*screenRatio)
+		radius: aspectRatio === 43 ? vpx(6*screenRatio) : vpx(5*screenRatio)
 		clip: true
 
 	anchors {
@@ -420,7 +420,7 @@ import QtGraphicalEffects 1.12
 		border.color: theme.title
 		border.width: aspectRatio === 43 ? vpx(0.8*screenRatio) : vpx(0.8*screenRatio)
 		visible: modelData.assets.screenshots[0] ? 1 : 0
-		radius: aspectRatio === 43 ? vpx(8*screenRatio) : vpx(12*screenRatio)
+		radius: aspectRatio === 43 ? vpx(6*screenRatio) : vpx(5*screenRatio)
 		z: 1
 
 	anchors {
@@ -437,7 +437,7 @@ import QtGraphicalEffects 1.12
 		border.color: theme.accent
 		border.width: aspectRatio === 43 ? vpx(4*screenRatio) : vpx(3*screenRatio)
 		opacity: selected ? 1 : 0
-		radius: aspectRatio === 43 ? vpx(8*screenRatio) : vpx(12*screenRatio)
+		radius: aspectRatio === 43 ? vpx(6*screenRatio) : vpx(5*screenRatio)
 		z: 1
 
 	anchors {

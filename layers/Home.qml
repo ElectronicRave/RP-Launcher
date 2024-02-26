@@ -142,7 +142,7 @@ import QtGraphicalEffects 1.12
 	Rectangle {
 		width: system__logo.width
 		height: system__logo.height
-		radius: aspectRatio === 43 ? vpx(8*screenRatio) : vpx(12*screenRatio)
+		radius: aspectRatio === 43 ? vpx(6*screenRatio) : vpx(5*screenRatio)
 		visible: true
 	}
 
@@ -171,7 +171,7 @@ import QtGraphicalEffects 1.12
 		color: "transparent"
 		border.color: theme.accent
 		border.width: aspectRatio === 43 ? vpx(4*screenRatio) : vpx(3*screenRatio)
-		radius: aspectRatio === 43 ? vpx(8*screenRatio) : vpx(12*screenRatio)
+		radius: aspectRatio === 43 ? vpx(6*screenRatio) : vpx(5*screenRatio)
 		opacity: selected ? 1 : 0
 
 	anchors {
