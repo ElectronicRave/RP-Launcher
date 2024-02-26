@@ -294,7 +294,7 @@ import QtGraphicalEffects 1.12
 		id: game__logo
 		width: parent.width
 		height: parent.height
-		source: modelData.assets.boxFront ? modelData.assets.boxFront : modelData.assets.logo
+		source: modelData.assets.boxFront || modelData.assets.logo
 		fillMode: Image.PreserveAspect
 		asynchronous: true
 		smooth: true
