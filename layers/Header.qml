@@ -86,7 +86,7 @@ import QtGraphicalEffects 1.12
 		font.bold: true
 
 		anchors {
-			top: parent.top; topMargin: aspectRatio === 43 ? vpx(3*screenRatio) : vpx(2*screenRatio)
+			top: parent.top; topMargin: aspectRatio === 43 ? vpx(4*screenRatio) : vpx(2*screenRatio)
 		}
 
 }
@@ -102,7 +102,7 @@ import QtGraphicalEffects 1.12
                    
 		anchors {
 			top: parent.top; topMargin: aspectRatio === 43 ? vpx(7*screenRatio) : vpx(6*screenRatio)
-			right: header__battery_icon.right; rightMargin: aspectRatio === 43 ? vpx(16*screenRatio) : vpx(12*screenRatio)
+			right: header__battery_icon.right; rightMargin: aspectRatio === 43 ? vpx(14*screenRatio) : vpx(12*screenRatio)
 		}
 
 }
@@ -147,7 +147,7 @@ import QtGraphicalEffects 1.12
 
 	anchors {
 		top: parent.top; topMargin: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(26*screenRatio)
-		left: profileIcon.right; leftMargin: aspectRatio === 43 ? vpx(42*screenRatio) : vpx(32*screenRatio)
+		left: profileIcon.right; leftMargin: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(32*screenRatio)
 	}
 
 }
@@ -173,7 +173,7 @@ import QtGraphicalEffects 1.12
 
 	anchors {
 		top: parent.top; topMargin: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(26*screenRatio)
-		left: all.right; leftMargin: aspectRatio === 43 ? vpx(30*screenRatio) : vpx(20*screenRatio)
+		left: all.right; leftMargin: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(20*screenRatio)
 	}   
 
 }
@@ -199,7 +199,7 @@ import QtGraphicalEffects 1.12
 
 	anchors {
 		top: parent.top; topMargin: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(26*screenRatio)
-		left: favorite.right; leftMargin: aspectRatio === 43 ? vpx(25*screenRatio) : vpx(15*screenRatio)
+		left: favorite.right; leftMargin: aspectRatio === 43 ? vpx(15*screenRatio) : vpx(15*screenRatio)
 	}    
 
 }
@@ -226,7 +226,7 @@ import QtGraphicalEffects 1.12
 
 	anchors {
 		top: parent.top; topMargin: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(26*screenRatio)
-		left: played.right; leftMargin: aspectRatio === 43 ? vpx(25*screenRatio) : vpx(15*screenRatio)
+		left: played.right; leftMargin: aspectRatio === 43 ? vpx(15*screenRatio) : vpx(15*screenRatio)
 	}
 
 }
