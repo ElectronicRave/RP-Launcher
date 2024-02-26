@@ -59,7 +59,7 @@ import QtGraphicalEffects 1.12
 		color: "transparent"
 
 	anchors {
-		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(10*screenRatio)
+		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(5*screenRatio)
 		verticalCenter: parent.verticalCenter
 	}
 
