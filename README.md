@@ -50,7 +50,7 @@ In this list you can see all contents in the System, in this screen you can do s
 - B  - Goes back to the Home Page
 - L1 - Previnious page
 - R1 - Next page
-- L2 - Previous system
+- L2 - Previnious system
 - R2 - Next system
 - TOUCH - Access to All, Favorite, Played and Search
  
