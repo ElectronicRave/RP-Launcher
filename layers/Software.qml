@@ -435,7 +435,7 @@ import QtGraphicalEffects 1.12
 		height: parent.height
 		color: "transparent"
 		border.color: theme.accent
-		border.width: aspectRatio === 43 ? vpx(3*screenRatio) : vpx(2*screenRatio)
+		border.width: aspectRatio === 43 ? vpx(3.5*screenRatio) : vpx(2.5*screenRatio)
 		opacity: selected ? 1 : 0
 		radius: vpx(5*screenRatio)
 		z: 1
