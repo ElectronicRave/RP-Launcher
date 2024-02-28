@@ -100,7 +100,7 @@ import QtGraphicalEffects 1.12
 		color: theme.accent
 		font.pixelSize: aspectRatio === 43 ? vpx(26*screenRatio) : vpx(19*screenRatio)
 		font.bold: true
-		height: aspectRatio === 43 ? vpx(48*screenRatio) : vpx(34*screenRatio)
+		height: aspectRatio === 43 ? vpx(46*screenRatio) : vpx(32*screenRatio)
 		verticalAlignment: Text.AlignVCenter
 		elide: Text.ElideRight
 		opacity: selected ? 1 : 0
@@ -170,7 +170,7 @@ import QtGraphicalEffects 1.12
 		height: parent.height
 		color: "transparent"
 		border.color: theme.accent
-		border.width: aspectRatio === 43 ? vpx(4*screenRatio) : vpx(3*screenRatio)
+		border.width: aspectRatio === 43 ? vpx(3*screenRatio) : vpx(2*screenRatio)
 		radius: vpx(5*screenRatio)
 		opacity: selected ? 1 : 0
 
