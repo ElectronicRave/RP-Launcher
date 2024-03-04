@@ -254,9 +254,9 @@ import QtGraphicalEffects 1.12
 		id: game__item
 		width: parent.width
 		height: parent.height
-		color: modelData.assets.boxFront ? theme.buttons : theme.background
+		color: theme.buttons
 		radius: vpx(5*screenRatio)
-		z: -2
+		z: -1
 }
 
 	Image {
