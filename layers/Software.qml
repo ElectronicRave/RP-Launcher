@@ -13,7 +13,7 @@ import QtGraphicalEffects 1.12
 		searchValue=''
 		header__search_input.text=''
 		navigate('Home')
-		return
+		return;
 	}
 
 }
