@@ -215,7 +215,7 @@ import QtGraphicalEffects 1.12
 
 }
 
-	//Search games
+	//Search content
 
 	Text {
 		id: search
