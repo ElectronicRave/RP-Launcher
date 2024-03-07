@@ -43,8 +43,6 @@ import "layers" as Layers
 		return collections
 	}  
 
-	FontLoader { id: titleFont; source: "assets/fonts/Nintendo_Switch_UI_Font.ttf" }
-
 	//We show the game list if we have stored the collection ID
 
 	property var currentPage : currentCollectionIndexMemory ? 'Software' : 'Home';
