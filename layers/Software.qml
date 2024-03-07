@@ -396,7 +396,7 @@ import QtGraphicalEffects 1.12
 	}
 
 	anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? vpx(4*screenRatio) : vpx(4*screenRatio)
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(6*screenRatio) : vpx(4*screenRatio)
 		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(5*screenRatio)
 		right: parent.right; rightMargin: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(5*screenRatio)
 	}
