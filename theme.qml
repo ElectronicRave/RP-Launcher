@@ -23,7 +23,7 @@ import "layers" as Layers
 
 	//Game index
 
-	property var currentGameIndex: 0
+    property int currentGameIndex: 0
 
 	property var currentGame: {
 		if (currentCollection.shortName === "all-favorites")
@@ -93,7 +93,7 @@ import "layers" as Layers
 
 	//calculates screen proportion
 
-	property var screenProportion: root.width / root.height;
+    property real screenProportion: root.width / root.height;
 
 	//calculates screen aspect
 
@@ -135,7 +135,7 @@ import "layers" as Layers
 
 	property var headerCSS : {
 		"width": wrapperCSS.width,
-		"height": aspectRatio == 43 ? vpx(70*screenRatio) : vpx(60*screenRatio),
+        "height": aspectRatio === 43 ? vpx(70*screenRatio) : vpx(60*screenRatio),
 		"background": "transparent",
 	}
 
@@ -147,13 +147,13 @@ import "layers" as Layers
 
 	property var footerCSS : {
 		"width": wrapperCSS.width,
-		"height": aspectRatio == 43 ? vpx(40*screenRatio) : vpx(40*screenRatio),
+        "height": aspectRatio === 43 ? vpx(40*screenRatio) : vpx(40*screenRatio),
 		"background": "transparent",
 	}
 
 	//Enable the search box feature
 
-	property var searchValue: '';
+    property string searchValue: '';
 
 	//Change pages
 
