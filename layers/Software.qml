@@ -108,7 +108,7 @@ import QtGraphicalEffects 1.12
 		navigate('Software')
 		return
 	}  
-		if (event.key == Qt.Key_Down) {
+        if (event.key === Qt.Key_Down) {
 		navigate('Software')
 		return
 	}

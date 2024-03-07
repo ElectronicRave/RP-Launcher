@@ -16,7 +16,7 @@ import QtGraphicalEffects 1.12
 
 	Rectangle {
 		id: header__battery
-		property var chargingPercent: api.device.batteryPercent*100
+        property real chargingPercent: api.device.batteryPercent*100
 		width: aspectRatio === 43 ? vpx(65*screenRatio) : vpx(65*screenRatio)
 		height: parent
 		color: "transparent"
