@@ -1,6 +1,4 @@
 import QtQuick 2.15
-import QtGraphicalEffects 1.12
-import QtMultimedia 5.9
 import SortFilterProxyModel 0.2
 import "layers" as Layers
 
