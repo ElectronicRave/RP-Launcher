@@ -350,6 +350,16 @@ import QtGraphicalEffects 1.12
 		bottom: parent.bottom
 	}
 
+}
+
+	Item {
+		id: game__title_name_item
+		property string text: modelData.title
+		property string spacing: "     "
+		property string combined: spacing + text + spacing
+		property string display: combined.substring(step) + combined.substring(0, step)
+		property int step: 0
+
 	Text {
 		id: game__title_name
 		width: parent.width
@@ -362,22 +372,7 @@ import QtGraphicalEffects 1.12
 		elide: Text.ElideRight
 		horizontalAlignment: Text.AlignHCenter
 		visible: selected ? 0 : 1
-
-	anchors {
-		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(5*screenRatio)
-		right: parent.right; rightMargin: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(5*screenRatio)
-		bottom: parent.bottom; bottomMargin: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(4*screenRatio)
-	}
-
 }
-
-	Item {
-		id: game__title_name_item
-		property string text: modelData.title
-		property string spacing: "     "
-		property string combined: spacing + text + spacing
-		property string display: combined.substring(step) + combined.substring(0, step)
-		property int step: 0
 
 	Text {
 		id: game__title_name_animation
@@ -390,13 +385,7 @@ import QtGraphicalEffects 1.12
 		font.pixelSize: aspectRatio === 43 ? vpx(16*screenRatio) : vpx(12*screenRatio)
 		horizontalAlignment: Text.AlignHCenter
 		visible: selected ? 1 : 0
-	}
-
-	anchors {
-		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(5*screenRatio)
-		right: parent.right; rightMargin: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(5*screenRatio)
-		bottom: parent.bottom; bottomMargin: aspectRatio === 43 ? vpx(22.2*screenRatio) : vpx(16.7*screenRatio)
-	}
+}
 
 	Timer {
 		id: game__title_name_animation_timer
@@ -406,7 +395,11 @@ import QtGraphicalEffects 1.12
 		onTriggered: parent.step = (parent.step + 1) % parent.combined.length
 	}
 
-}
+	anchors {
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(4*screenRatio) : vpx(4*screenRatio)
+		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(5*screenRatio)
+		right: parent.right; rightMargin: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(5*screenRatio)
+	}
 
 }
 
