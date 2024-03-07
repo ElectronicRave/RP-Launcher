@@ -155,9 +155,9 @@ import QtGraphicalEffects 1.12
 		clip: true
 
 	anchors {
+		top: parent.top
 		left: parent.left
 		right: parent.right
-		top: parent.top
 		bottom: parent.bottom
 	}
 
@@ -176,8 +176,8 @@ import QtGraphicalEffects 1.12
 		preferredHighlightEnd: aspectRatio === 43 ? vpx(0*screenRatio) : vpx(0*screenRatio)
 
 	anchors {
-		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(75*screenRatio) : vpx(70*screenRatio)
 		top: parent.top; topMargin: aspectRatio === 43 ? vpx(38*screenRatio) : vpx(13*screenRatio)
+		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(75*screenRatio) : vpx(70*screenRatio)
 		right: parent.right; rightMargin: aspectRatio === 43 ? vpx(65*screenRatio) : vpx(60*screenRatio)
 		bottom: parent.bottom; bottomMargin: aspectRatio === 43 ? vpx(-6*screenRatio) : vpx(-6*screenRatio)
 	}
@@ -270,7 +270,7 @@ import QtGraphicalEffects 1.12
 		visible: false
 
 	anchors {
-		fill: game__item
+		fill: parent
 	}
 
 }
@@ -366,9 +366,7 @@ import QtGraphicalEffects 1.12
 		height: game__title
 		text: modelData.title
 		color: "#FFFFFF"
-		font.family: titleFont.name
-		font.bold: true
-		font.pixelSize: aspectRatio === 43 ? vpx(16*screenRatio) : vpx(12*screenRatio)
+		font.pixelSize: aspectRatio === 43 ? vpx(19*screenRatio) : vpx(15*screenRatio)
 		elide: Text.ElideRight
 		horizontalAlignment: Text.AlignHCenter
 		visible: selected ? 0 : 1
@@ -380,9 +378,7 @@ import QtGraphicalEffects 1.12
 		height: game__title
 		text: game__title_name_item.display
 		color: "#FFFFFF"
-		font.family: titleFont.name
-		font.bold: true
-		font.pixelSize: aspectRatio === 43 ? vpx(16*screenRatio) : vpx(12*screenRatio)
+		font.pixelSize: aspectRatio === 43 ? vpx(19*screenRatio) : vpx(15*screenRatio)
 		horizontalAlignment: Text.AlignHCenter
 		visible: selected ? 1 : 0
 }
@@ -396,8 +392,8 @@ import QtGraphicalEffects 1.12
 	}
 
 	anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(3*screenRatio)
-		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(5*screenRatio)
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(2*screenRatio) : vpx(1*screenRatio)
+		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(4*screenRatio) : vpx(4*screenRatio)
 		right: parent.right; rightMargin: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(5*screenRatio)
 	}
 
@@ -458,8 +454,8 @@ import QtGraphicalEffects 1.12
 		smooth: true
 
 	anchors {
-		right: parent.right; rightMargin: aspectRatio === 43 ? vpx(8*screenRatio) : vpx(4*screenRatio)
 		top: parent.top; topMargin: aspectRatio === 43 ? vpx(8*screenRatio) : vpx(4*screenRatio)
+		right: parent.right; rightMargin: aspectRatio === 43 ? vpx(8*screenRatio) : vpx(4*screenRatio)
 	}
 
 }
