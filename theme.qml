@@ -112,13 +112,10 @@ import "layers" as Layers
 		switch (aspectRatio) {
 		case 43:
 		return vpx(pixel*12.8)
-		break;
 		case 169:
 		return vpx(pixel*12.8)
-		break;
 		default:
 		return vpx(pixel*12.8)
-		break;
 	}
 
 }
