@@ -410,7 +410,6 @@ import QtGraphicalEffects 1.12
 		border.width: aspectRatio === 43 ? vpx(0.8*screenRatio) : vpx(0.8*screenRatio)
 		visible: modelData.assets.screenshots[0] ? 1 : 0
 		radius: vpx(5*screenRatio)
-		z: 1
 
 	anchors {
 		centerIn: parent
@@ -427,7 +426,6 @@ import QtGraphicalEffects 1.12
 		border.width: aspectRatio === 43 ? vpx(3.5*screenRatio) : vpx(2.5*screenRatio)
 		opacity: selected ? 1 : 0
 		radius: vpx(5*screenRatio)
-		z: 1
 
 	anchors {
 		centerIn: parent
