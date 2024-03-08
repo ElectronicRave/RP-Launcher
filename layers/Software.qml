@@ -327,7 +327,7 @@ import QtGraphicalEffects 1.12
 }
 
 	Rectangle {
-		id: game__title
+		id: game__title_bar
 		width: parent.width
 		height: aspectRatio === 43 ? vpx(26*screenRatio) : vpx(20*screenRatio)
 		color: "transparent"
@@ -339,10 +339,10 @@ import QtGraphicalEffects 1.12
 	}
 
 	Rectangle {
-		id: game__title_clipped
+		id: game__title_bar_clipped
 		width: parent.width
-		height: game__title.height + radius
-		radius: game__title.radius
+		height: game__title_bar.height + radius
+		radius: game__title_bar.radius
 		color: "#2C2C2C"
 		opacity: 0.8
 
@@ -353,7 +353,7 @@ import QtGraphicalEffects 1.12
 }
 
 	Item {
-		id: game__title_name_item
+		id: game__title_item
 		property string text: modelData.title
 		property string spacing: "     "
 		property string combined: spacing + text + spacing
@@ -363,7 +363,7 @@ import QtGraphicalEffects 1.12
 	Text {
 		id: game__title_name
 		width: parent.width
-		height: game__title
+		height: game__title_bar
 		text: modelData.title
 		color: "#FFFFFF"
 		font.pixelSize: aspectRatio === 43 ? vpx(19*screenRatio) : vpx(15*screenRatio)
@@ -375,8 +375,8 @@ import QtGraphicalEffects 1.12
 	Text {
 		id: game__title_name_animation
 		width: parent.width
-		height: game__title
-		text: game__title_name_item.display
+		height: game__title_bar
+		text: game__title_item.display
 		color: "#FFFFFF"
 		font.pixelSize: aspectRatio === 43 ? vpx(19*screenRatio) : vpx(15*screenRatio)
 		horizontalAlignment: Text.AlignHCenter
