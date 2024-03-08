@@ -352,7 +352,7 @@ import QtGraphicalEffects 1.12
 
 }
 
-	Item {
+	Rectangle {
 		id: game__title_item
 		property string text: modelData.title
 		property string spacing: "     "
