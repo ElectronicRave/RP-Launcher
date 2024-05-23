@@ -10,137 +10,31 @@ import QtGraphicalEffects 1.12
 		if (api.keys.isCancel(event)) {
 		event.accepted = true
 		api.memory.unset('currentCollectionIndex', currentCollectionIndex)
-		searchValue=''
-		header__search_input.text=''
+		searchValue = ""
 		navigate('Home')
-		return;
+		return
 	}
 
 }
 
 	Rectangle {
 		id: header
-		color: "transparent"
 		width: headerCSS.width
-		height: header_inner.height+header__border.height + aspectRatio === 43 ? vpx(70*screenRatio) : vpx(60*screenRatio)
+		height: headerCSS.height
+		color: headerCSS.background
 		clip: true
 
 	anchors {
 		top: parent.top;
 	}
 
-	Rectangle {
-		id: header_inner
-		color: "transparent"
-		width: parent.width
-		height: parent.height
-
-	//Search content
-
-	Rectangle {
-		id: header__search
-		color: theme.background
-		width: aspectRatio === 43 ? vpx(100*screenRatio) : vpx(120*screenRatio)
-		height: aspectRatio === 43 ? vpx(28*screenRatio) : vpx(26*screenRatio)
-		border.color: theme.text
-		border.width: aspectRatio === 43 ? vpx(2*screenRatio) : vpx(1*screenRatio)
-		radius: vpx(5*screenRatio)
-		visible: searchValue
-
-	anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(24*screenRatio)
-		right: parent.right; rightMargin: aspectRatio === 43 ? vpx(140*screenRatio) : vpx(165*screenRatio)
-	}
-
-	Rectangle {
-		id: header__search_icon
-		height:aspectRatio === 43 ? 16 : 32
-		width:aspectRatio === 43 ? 16 : 32
-		color: "transparent"
-
-	anchors {
-		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(6*screenRatio) : vpx(5*screenRatio)
-		verticalCenter: parent.verticalCenter
-	}
-
-	Image {
-		sourceSize.width: aspectRatio === 43 ? vpx(18*screenRatio) : vpx(20*screenRatio)
-		fillMode: Image.PreserveAspectFit
-		source: "../assets/icons/search.svg"
-		layer.enabled: true
-		layer.effect: ColorOverlay { color: theme.text }
-		antialiasing: true
-		smooth: true
-
-	anchors {
-		verticalCenter: parent.verticalCenter
-		horizontalCenter: parent.horizontalCenter
-	}
-
-}
-
-}              
-
-	TextInput {
-		id: header__search_input
-		property var marginRight: aspectRatio === 43 ? vpx(23*screenRatio) : vpx(22*screenRatio)
-		width: parent.width - marginRight
-		height: parent.height
-		color: theme.text
-		font.pixelSize: aspectRatio === 43 ? vpx(16*screenRatio) : vpx(15*screenRatio)
-		clip: true
-
-	anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? vpx(24*screenRatio) : vpx(22*screenRatio)
-		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(26*screenRatio) : vpx(26*screenRatio)
-		right: parent.right; rightMargin: aspectRatio === 43 ? vpx(12*screenRatio) : vpx(12*screenRatio)
-		verticalCenter: parent.verticalCenter
-	}
-
-	onTextEdited: {
-		gameView.currentIndex = 0
-		searchValue = header__search_input.text
-		gameView.model = searchGames
-	}
-
-	Keys.onPressed: {
-		if (api.keys.isAccept(event)) {
-		navigate('Software')
-		return
-	}  
-        if (event.key === Qt.Key_Down) {
-		navigate('Software')
-		return
-	}
-
-}
-
-}
- 
-}
-
-}
-
-	Rectangle {
-		id: header__border
-		width: parent.width
-		height: aspectRatio === 43 ? vpx(0*screenRatio) : vpx(0*screenRatio)
-		color: "transparent"
-
-	anchors {
-		top: header_inner.bottom; topMargin: aspectRatio === 43 ? vpx(4*screenRatio) : vpx(4*screenRatio)
-		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(10*screenRatio) : vpx(10*screenRatio)
-	}
-
-}
-
 }
 
 	Rectangle {
 		id: main
-		color: "transparent"
 		width: wrapperCSS.width
 		height: mainCSS.height
+		color: mainCSS.background
 
 	anchors {
 		top: header.bottom
@@ -148,18 +42,11 @@ import QtGraphicalEffects 1.12
 
 	Rectangle {
 		id: game
-		color: "transparent"
 		width: parent.width
 		height: parent.height
+		color: "transparent"
 		visible: true
 		clip: true
-
-	anchors {
-		top: parent.top
-		left: parent.left
-		right: parent.right
-		bottom: parent.bottom
-	}
 
 	GridView {
 		id: gameView
@@ -176,10 +63,10 @@ import QtGraphicalEffects 1.12
 		preferredHighlightEnd: aspectRatio === 43 ? vpx(0*screenRatio) : vpx(0*screenRatio)
 
 	anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? vpx(38*screenRatio) : vpx(13*screenRatio)
-		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(75*screenRatio) : vpx(70*screenRatio)
-		right: parent.right; rightMargin: aspectRatio === 43 ? vpx(65*screenRatio) : vpx(60*screenRatio)
-		bottom: parent.bottom; bottomMargin: aspectRatio === 43 ? vpx(-6*screenRatio) : vpx(-6*screenRatio)
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(10*screenRatio)
+		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(80*screenRatio) : vpx(100*screenRatio)
+		right: parent.right; rightMargin: aspectRatio === 43 ? vpx(70*screenRatio) : vpx(90*screenRatio)
+		bottom: parent.bottom; bottomMargin: aspectRatio === 43 ? vpx(-5*screenRatio) : vpx(-5*screenRatio)
 	}
 
 		Keys.onUpPressed:       { moveCurrentIndexUp() }
@@ -275,7 +162,6 @@ import QtGraphicalEffects 1.12
 
 }
 
-
 	OpacityMask {
 		anchors.fill: game__screenshot
 		source: game__screenshot
@@ -303,7 +189,7 @@ import QtGraphicalEffects 1.12
 
 	anchors {
 		fill: parent
-		margins: aspectRatio === 43 ? vpx(28*screenRatio) : vpx(21*screenRatio)
+		margins: aspectRatio === 43 ? vpx(27*screenRatio) : vpx(19*screenRatio)
 	}
 
 }
@@ -329,7 +215,7 @@ import QtGraphicalEffects 1.12
 	Rectangle {
 		id: game__title_bar
 		width: parent.width
-		height: aspectRatio === 43 ? vpx(26*screenRatio) : vpx(20*screenRatio)
+		height: aspectRatio === 43 ? vpx(24*screenRatio) : vpx(18*screenRatio)
 		color: "transparent"
 		radius: vpx(5*screenRatio)
 		clip: true
@@ -352,50 +238,61 @@ import QtGraphicalEffects 1.12
 
 }
 
-	Rectangle {
-		id: game__title_item
-		property string text: modelData.title
-		property string spacing: "     "
-		property string combined: spacing + text + spacing
-		property string display: combined.substring(step) + combined.substring(0, step)
-		property int step: 0
-
 	Text {
 		id: game__title_name
-		width: parent.width
-		height: game__title_bar
 		text: modelData.title
 		color: "#FFFFFF"
-		font.pixelSize: aspectRatio === 43 ? vpx(19*screenRatio) : vpx(15*screenRatio)
+		font.pixelSize: aspectRatio === 43 ? vpx(18*screenRatio) : vpx(13*screenRatio)
 		elide: Text.ElideRight
 		horizontalAlignment: Text.AlignHCenter
-		visible: selected ? 0 : 1
+		visible: game__title_name_animation.visible ? 0 : 1
+
+	anchors {
+		fill: game__title_bar
+	}
+
 }
+
+	Item {
+		id: game__title_name_animation_item
+		property alias text: game__title_name_animation.text
+		property int spacing: aspectRatio === 43 ? vpx(60*screenRatio) : vpx(40*screenRatio)
+  		width: game__title_name_animation.width + spacing
+   		height: game__title_name_animation.height
+  		clip: true
 
 	Text {
 		id: game__title_name_animation
-		width: parent.width
-		height: game__title_bar
-		text: game__title_item.display
+		text: modelData.title
 		color: "#FFFFFF"
-		font.pixelSize: aspectRatio === 43 ? vpx(19*screenRatio) : vpx(15*screenRatio)
-		horizontalAlignment: Text.AlignHCenter
-		visible: selected ? 1 : 0
+		font.pixelSize: aspectRatio === 43 ? vpx(18*screenRatio) : vpx(13*screenRatio)
+		visible: selected ? game__title_name.truncated : 0
+
+	SequentialAnimation on x {
+		running: selected ? game__title_name.truncated : 0
+		loops: Animation.Infinite
+
+	NumberAnimation {
+		from: 0;
+		to: - game__title_name_animation_item.width
+		duration: 18 * Math.abs (to - from) //Speed at which text moves
+	}
+
+	PauseAnimation {
+		duration: 1000 //Wait 1 second to continue
+	}
+
 }
 
-	Timer {
-		id: game__title_name_animation_timer
-		interval: 300
-		running: selected ? game__title_name.truncated : 0
-		repeat: true
-		onTriggered: parent.step = (parent.step + 1) % parent.combined.length
-	}
+	Text {
+		id: game__title_name_animation_sequence
+		x: game__title_name_animation_item.width
+		text: game__title_name_animation.text
+		color: game__title_name_animation.color
+		font.pixelSize: game__title_name_animation.font.pixelSize
+}
 
-	anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? vpx(2*screenRatio) : vpx(1*screenRatio)
-		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(4*screenRatio) : vpx(4*screenRatio)
-		right: parent.right; rightMargin: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(5*screenRatio)
-	}
+}
 
 }
 
@@ -412,7 +309,7 @@ import QtGraphicalEffects 1.12
 		radius: vpx(5*screenRatio)
 
 	anchors {
-		centerIn: parent
+		fill: parent
 	}
 
 }
@@ -428,7 +325,7 @@ import QtGraphicalEffects 1.12
 		radius: vpx(5*screenRatio)
 
 	anchors {
-		centerIn: parent
+		fill: parent
 	}
 
 }
@@ -440,8 +337,8 @@ import QtGraphicalEffects 1.12
 		visible: modelData.favorite && currentCollection.shortName !== "all-favorites"
 
 	anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? vpx(4*screenRatio) : vpx(4*screenRatio)
-		right: parent.right; rightMargin: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(5*screenRatio)
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(2*screenRatio) : vpx(4*screenRatio)
+		right: parent.right; rightMargin: aspectRatio === 43 ? vpx(2*screenRatio) : vpx(4*screenRatio)
 	}
 
 	Image {

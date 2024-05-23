@@ -4,27 +4,24 @@ import QtGraphicalEffects 1.12
 	Rectangle {
 		id: header
 		property bool chargingStatus: api.device.batteryCharging
-		color: headerCSS.background
 		width: headerCSS.width
 		height: headerCSS.height
+		color: headerCSS.background
+		clip: true
 
 	anchors {
-		 top: parent.top
+		top: parent.top;
 	}
 
 	//Battery status
 
 	Rectangle {
 		id: header__battery
-        property real chargingPercent: api.device.batteryPercent*100
-		width: aspectRatio === 43 ? vpx(65*screenRatio) : vpx(65*screenRatio)
-		height: parent
-		color: "transparent"
-		visible: headerHeightCorrection === 0 ? 1 : 0
+        	property real chargingPercent: api.device.batteryPercent*100
 
 	anchors {
 		top: parent.top; topMargin: aspectRatio === 43 ? vpx(18*screenRatio) : vpx(18*screenRatio)
-		right: parent.right; rightMargin: aspectRatio === 43 ? vpx(-9*screenRatio) : vpx(-9*screenRatio)
+		right: parent.right
 	}
 
 	Image {
@@ -38,7 +35,7 @@ import QtGraphicalEffects 1.12
 
 	anchors {
 		top: parent.top; topMargin: aspectRatio === 43 ? vpx(3*screenRatio) : vpx(3*screenRatio)
-		right: header__battery_level.left; rightMargin: aspectRatio === 43 ? vpx(4*screenRatio) : vpx(4*screenRatio)
+		right: parent.right; rightMargin: aspectRatio === 43 ? vpx(62*screenRatio) : vpx(62*screenRatio)
 	}
 
 	//Battery levels
@@ -69,25 +66,13 @@ import QtGraphicalEffects 1.12
 	}
 
 	Timer {
+		id: header__battery_icon_update
 		interval: 10000 //Run the timer every 10 seconds
 		repeat: true
 		running: true
 		triggeredOnStart: true
 		onTriggered: header__battery_icon.set()
 	}
-
-}
-
-	Text {
-		id: header__battery_level
-		text: Math.floor(api.device.batteryPercent*100)+"%"
-		color: theme.text
-		font.pixelSize: aspectRatio === 43 ? vpx(16*screenRatio) : vpx(14*screenRatio)
-		font.bold: true
-
-		anchors {
-			top: parent.top; topMargin: aspectRatio === 43 ? vpx(4*screenRatio) : vpx(2*screenRatio)
-		}
 
 }
 
@@ -101,8 +86,21 @@ import QtGraphicalEffects 1.12
 			visible: chargingStatus && header__battery_icon.level < 100
                    
 		anchors {
-			top: parent.top; topMargin: aspectRatio === 43 ? vpx(7*screenRatio) : vpx(6*screenRatio)
-			right: header__battery_icon.right; rightMargin: aspectRatio === 43 ? vpx(14*screenRatio) : vpx(12*screenRatio)
+			centerIn: header__battery_icon
+		}
+
+}
+
+	Text {
+		id: header__battery_level
+		text: Math.floor(api.device.batteryPercent*100)+"%"
+		color: theme.text
+		font.pixelSize: aspectRatio === 43 ? vpx(16*screenRatio) : vpx(14*screenRatio)
+		font.bold: true
+
+		anchors {
+			top: parent.top; topMargin: aspectRatio === 43 ? vpx(4*screenRatio) : vpx(2*screenRatio)
+			left: header__battery_icon.right; leftMargin: aspectRatio === 43 ? vpx(4*screenRatio) : vpx(4*screenRatio)
 		}
 
 }
@@ -131,7 +129,7 @@ import QtGraphicalEffects 1.12
 		anchors.fill: profileIcon
 		onPressAndHold:{
 			swapTheme()
-			return;
+			return
 	}
 
 }
@@ -147,7 +145,7 @@ import QtGraphicalEffects 1.12
 
 	anchors {
 		top: parent.top; topMargin: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(26*screenRatio)
-		left: profileIcon.right; leftMargin: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(32*screenRatio)
+		left: profileIcon.right; leftMargin: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(50*screenRatio)
 	}
 
 }
@@ -156,9 +154,11 @@ import QtGraphicalEffects 1.12
 		id: all_mouse
 		anchors.fill: all
 		onClicked: {
+			searchValue = ""
+			header__search_input.clear()
 			currentCollectionIndex = 2
 			navigate('Software')
-			return;
+			return
 	}
 
 }
@@ -182,9 +182,11 @@ import QtGraphicalEffects 1.12
 		id: favorite_mouse
 		anchors.fill: favorite
 		onClicked: {
+			searchValue = ""
+			header__search_input.clear()
 			currentCollectionIndex = 0
 			navigate('Software')
-			return;
+			return
 	}
 
 }
@@ -208,9 +210,11 @@ import QtGraphicalEffects 1.12
 		id: played_mouse
 		anchors.fill: played
 		onClicked: {
+			searchValue = ""
+			header__search_input.clear()
 			currentCollectionIndex = 1
 			navigate('Software')
-			return;
+			return
 	}
 
 }
@@ -222,7 +226,7 @@ import QtGraphicalEffects 1.12
 		text: "Search"
 		color: theme.text
 		font.pixelSize: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(18*screenRatio)
-		visible: currentPage === 'Software' ? true : false
+		visible: currentPage === 'Software' ? 1 : 0 ;
 
 	anchors {
 		top: parent.top; topMargin: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(26*screenRatio)
@@ -231,14 +235,81 @@ import QtGraphicalEffects 1.12
 
 }
 
+	Rectangle {
+		id: header__search
+		color: theme.background
+		width: aspectRatio === 43 ? vpx(100*screenRatio) : vpx(120*screenRatio)
+		height: aspectRatio === 43 ? vpx(28*screenRatio) : vpx(26*screenRatio)
+		border.color: theme.text
+		border.width: aspectRatio === 43 ? vpx(2*screenRatio) : vpx(1*screenRatio)
+		radius: vpx(5*screenRatio)
+		visible: searchValue
+
+	anchors {
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(24*screenRatio)
+		left: search.right; leftMargin: aspectRatio === 43 ? vpx(42*screenRatio) : vpx(63*screenRatio)
+	}
+
+
+	Image {
+		id: header__search_icon
+		sourceSize.width: aspectRatio === 43 ? vpx(18*screenRatio) : vpx(20*screenRatio)
+		fillMode: Image.PreserveAspectFit
+		source: "../assets/icons/search.svg"
+		layer.enabled: true
+		layer.effect: ColorOverlay { color: theme.text }
+		antialiasing: true
+		smooth: true
+
+	anchors {
+		left: header__search.left; leftMargin: aspectRatio === 43 ? vpx(4*screenRatio) : vpx(3*screenRatio)
+		verticalCenter: header__search.verticalCenter
+	}
+
+}              
+
+	TextInput {
+		id: header__search_input
+		color: theme.text
+		font.pixelSize: aspectRatio === 43 ? vpx(16*screenRatio) : vpx(15*screenRatio)
+		clip: true
+
+	anchors {
+		left: header__search_icon.right; leftMargin: aspectRatio === 43 ? vpx(4*screenRatio) : vpx(3*screenRatio)
+		right: header__search.right; rightMargin: aspectRatio === 43 ? vpx(12*screenRatio) : vpx(12*screenRatio)
+		verticalCenter: header__search.verticalCenter
+	}
+
+	onTextEdited: {
+		gameView.currentIndex = 0
+		searchValue = header__search_input.text
+		gameView.model = searchGames
+	}
+
+	Keys.onPressed: {
+		if (api.keys.isAccept(event)) {
+		navigate('Software')
+		return
+	}  
+        if (event.key === Qt.Key_Down) {
+		navigate('Software')
+		return
+	}
+
+}
+
+}
+ 
+}
+
 	MouseArea {
 		id: search_mouse
 		anchors.fill: search
 		onClicked: {
-			searchValue = ''
-			header__search_input.clear()         
+			searchValue = ""
+			header__search_input.clear()
 			header__search_input.focus = true
-			return;
+			return
 	}
 
 }

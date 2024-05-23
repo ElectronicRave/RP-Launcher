@@ -6,42 +6,22 @@ import QtGraphicalEffects 1.12
 
 	Rectangle {
 		id: header
-		color: "transparent"
 		width: headerCSS.width
-		height: header_inner.height+header__border.height + aspectRatio === 43 ? vpx(70*screenRatio) : vpx(60*screenRatio)
+		height: headerCSS.height
+		color: headerCSS.background
 		clip: true
 
 	anchors {
 		top: parent.top;
 	}
 
-	Rectangle {
-		id: header_inner
-		color: "transparent"
-		width: parent.width
-		height: parent.height
-}
-
-}
-
-	Rectangle {
-		id: header__border
-		width: parent.width
-		height: aspectRatio === 43 ? vpx(10*screenRatio) : vpx(0*screenRatio)
-		color: "transparent"
-
-	anchors {
-		top: header_inner.bottom; topMargin: aspectRatio === 43 ? vpx(4*screenRatio) : vpx(4*screenRatio)
-		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(10*screenRatio) : vpx(10*screenRatio)
-	}
-
 }
 
 	Rectangle {
 		id: main
-		color: "transparent"
 		width: wrapperCSS.width
 		height: mainCSS.height
+		color: mainCSS.background
 
 	anchors {
 		top: header.bottom
@@ -57,13 +37,13 @@ import QtGraphicalEffects 1.12
 		spacing: aspectRatio === 43 ? vpx(10*screenRatio) : vpx(10*screenRatio)
 
 		highlightRangeMode: ListView.StrictlyEnforceRange
-		preferredHighlightBegin: aspectRatio === 43 ? vpx(135*screenRatio) : vpx(100*screenRatio)
-		preferredHighlightEnd: aspectRatio === 43 ? vpx(510*screenRatio) : vpx(580*screenRatio)
+		preferredHighlightBegin: aspectRatio === 43 ? vpx(135*screenRatio) : vpx(95*screenRatio)
+		preferredHighlightEnd: aspectRatio === 43 ? vpx(510*screenRatio) : vpx(590*screenRatio)
 		highlightMoveDuration: 200
 		highlightMoveVelocity: -1
 
 	anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? vpx(63*screenRatio) : vpx(36*screenRatio)
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(63*screenRatio) : vpx(48*screenRatio)
 		left: parent.left
 		right: parent.right
 		bottom: parent.bottom
@@ -78,7 +58,7 @@ import QtGraphicalEffects 1.12
 	Item {
 		id: system__item_container
 		property bool selected: ListView.isCurrentItem
-		width: aspectRatio === 43 ? vpx(180*screenRatio) : vpx(135*screenRatio)
+		width: aspectRatio === 43 ? vpx(175*screenRatio) : vpx(122*screenRatio)
 		height: width
 
 	//Browse the collection and return to the same place after playing
@@ -98,9 +78,9 @@ import QtGraphicalEffects 1.12
 		id: system__item_title
 		text: modelData.name
 		color: theme.accent
-		font.pixelSize: aspectRatio === 43 ? vpx(26*screenRatio) : vpx(19*screenRatio)
+		font.pixelSize: aspectRatio === 43 ? vpx(24*screenRatio) : vpx(17*screenRatio)
 		font.bold: true
-		height: aspectRatio === 43 ? vpx(46*screenRatio) : vpx(32*screenRatio)
+		height: aspectRatio === 43 ? vpx(42*screenRatio) : vpx(28*screenRatio)
 		verticalAlignment: Text.AlignVCenter
 		elide: Text.ElideRight
 		opacity: selected ? 1 : 0
@@ -142,7 +122,7 @@ import QtGraphicalEffects 1.12
 	Rectangle {
 		width: system__logo.width
 		height: system__logo.height
-		radius: vpx(5*screenRatio)
+		radius: vpx(4*screenRatio)
 		visible: true
 	}
 
@@ -171,7 +151,7 @@ import QtGraphicalEffects 1.12
 		color: "transparent"
 		border.color: theme.accent
 		border.width: aspectRatio === 43 ? vpx(3.5*screenRatio) : vpx(2.5*screenRatio)
-		radius: vpx(5*screenRatio)
+		radius: vpx(4*screenRatio)
 		opacity: selected ? 1 : 0
 
 	anchors {
