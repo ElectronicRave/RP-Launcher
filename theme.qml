@@ -21,14 +21,14 @@ import "layers" as Layers
 
 	//Game index
 
-    property int currentGameIndex: 0
+	property int currentGameIndex: 0
 
 	property var currentGame: {
 		if (currentCollection.shortName === "all-favorites")
 		return api.allGames.get(allFavorites.mapToSource(currentGameIndex))
 		if (currentCollection.shortName === "all-lastplayed")
 		return api.allGames.get(allLastPlayed.mapToSource(currentGameIndex))
-		if (searchValue !== '')
+		if (searchValue !== "")
 		return  currentCollection.games.get(searchGames.mapToSource(currentGameIndex))   
 		return currentCollection.games.get(currentGameIndex)
 	}
@@ -41,7 +41,7 @@ import "layers" as Layers
 		collections.unshift({"name": "Last Played", "shortName": "all-lastplayed", "games": filterLastPlayed})
 		collections.unshift({"name": "Favorites", "shortName": "all-favorites", "games": allFavorites})
 		return collections
-	}  
+	}
 
 	//We show the game list if we have stored the collection ID
 
@@ -89,7 +89,7 @@ import "layers" as Layers
 
 	//calculates screen proportion
 
-    property real screenProportion: root.width / root.height;
+	property real screenProportion: root.width / root.height;
 
 	//calculates screen aspect
 
@@ -118,8 +118,6 @@ import "layers" as Layers
 
 	//Used to hide or show the header
 
-	property var headerHeightCorrection: api.memory.get('headerHeightCorrection') === headerCSS.height ? headerCSS.height : 0;
-
 	property var wrapperCSS : {
 		"width": parent.width,
 		"height": parent.height,
@@ -128,7 +126,7 @@ import "layers" as Layers
 
 	property var headerCSS : {
 		"width": wrapperCSS.width,
-        "height": aspectRatio === 43 ? vpx(70*screenRatio) : vpx(60*screenRatio),
+	        "height": aspectRatio === 43 ? vpx(70*screenRatio) : vpx(60*screenRatio),
 		"background": "transparent",
 	}
 
@@ -140,13 +138,13 @@ import "layers" as Layers
 
 	property var footerCSS : {
 		"width": wrapperCSS.width,
-        "height": aspectRatio === 43 ? vpx(40*screenRatio) : vpx(40*screenRatio),
+		"height": aspectRatio === 43 ? vpx(65*screenRatio) : vpx(70*screenRatio),
 		"background": "transparent",
 	}
 
 	//Enable the search box feature
 
-    property string searchValue: '';
+	property string searchValue: "";
 
 	//Change pages
 
@@ -204,12 +202,13 @@ import "layers" as Layers
 
 	Rectangle {
 		id: wrapper
-		color: wrapperCSS.background
 		width: wrapperCSS.width
 		height: wrapperCSS.height
+		color: wrapperCSS.background
+}
 
 	anchors {
-		top: parent.top
+		top: parent.top;
 	}
 
 	Layers.Home {
@@ -219,7 +218,5 @@ import "layers" as Layers
 	Layers.Software {
 		visible: currentPage === 'Software' ? 1 : 0 ;
 	}
-
-}
 
 }
