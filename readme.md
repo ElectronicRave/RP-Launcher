@@ -25,11 +25,11 @@ For this theme you need the following media types from [skraper](http://skraper.
 
 ## Theme Installation
 
-1 Download in (https://github.com/ElectronicRave/RP-Launcher/releases) or (https://pegasus-frontend.org/tools/themes/)
+1 Download in (https://github.com/ElectronicRave/rp-launcher/releases) or (https://pegasus-frontend.org/tools/themes/)
 
 2 Unzip the downloaded file.
 
-1 Upload the folder to /pegasus-frontend/themes/RP-Launcher-main
+1 Upload the folder to /pegasus-frontend/themes/rp-launcher-main
 
 4 Open Pegasus, go to Settings - General - Theme and select RP Launcher
 
