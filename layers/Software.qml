@@ -90,8 +90,8 @@ import QtGraphicalEffects 1.12
 
 	Rectangle {
 		id: all_button
-		width: aspectRatio === 43 ? vpx(48*screenRatio) : vpx(30*screenRatio)
-		height: aspectRatio === 43 ? vpx(48*screenRatio) : vpx(32*screenRatio)
+		width: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(30*screenRatio)
+		height: aspectRatio === 43 ? vpx(34*screenRatio) : vpx(32*screenRatio)
 		color: focus ? theme.select : theme.background
                 border.color: focus ? theme.accent : theme.background
                 border.width: 1
@@ -109,7 +109,7 @@ import QtGraphicalEffects 1.12
 }
 
 	anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(18*screenRatio)
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(26*screenRatio) : vpx(18*screenRatio)
 		left: profile_button.right; leftMargin: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(48*screenRatio)
 	}
 
@@ -161,8 +161,8 @@ import QtGraphicalEffects 1.12
 
 	Rectangle {
 		id: favorite_button
-		width: aspectRatio === 43 ? vpx(48*screenRatio) : vpx(65*screenRatio)
-		height: aspectRatio === 43 ? vpx(48*screenRatio) : vpx(32*screenRatio)
+		width: aspectRatio === 43 ? vpx(72*screenRatio) : vpx(65*screenRatio)
+		height: aspectRatio === 43 ? vpx(34*screenRatio) : vpx(32*screenRatio)
 		color: focus ? theme.select : theme.background
                 border.color: focus ? theme.accent : theme.background
                 border.width: 1
@@ -180,7 +180,7 @@ import QtGraphicalEffects 1.12
 }
 
 	anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(18*screenRatio)
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(26*screenRatio) : vpx(18*screenRatio)
 		left: all_button.right; leftMargin: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(20*screenRatio)
 	}
 
@@ -231,8 +231,8 @@ import QtGraphicalEffects 1.12
 
 	Rectangle {
 		id: played_button
-		width: aspectRatio === 43 ? vpx(48*screenRatio) : vpx(53*screenRatio)
-		height: aspectRatio === 43 ? vpx(48*screenRatio) : vpx(32*screenRatio)
+		width: aspectRatio === 43 ? vpx(62*screenRatio) : vpx(53*screenRatio)
+		height: aspectRatio === 43 ? vpx(34*screenRatio) : vpx(32*screenRatio)
 		color: focus ? theme.select : theme.background
                 border.color: focus ? theme.accent : theme.background
                 border.width: 1
@@ -251,7 +251,7 @@ import QtGraphicalEffects 1.12
 }
 
 	anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(18*screenRatio)
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(26*screenRatio) : vpx(18*screenRatio)
 		left: favorite_button.right; leftMargin: aspectRatio === 43 ? vpx(15*screenRatio) : vpx(15*screenRatio)
 	}
 
@@ -301,8 +301,8 @@ import QtGraphicalEffects 1.12
 
 	Rectangle {
 		id: search_button
-		width: aspectRatio === 43 ? vpx(48*screenRatio) : vpx(55*screenRatio)
-		height: aspectRatio === 43 ? vpx(48*screenRatio) : vpx(32*screenRatio)
+		width: aspectRatio === 43 ? vpx(64*screenRatio) : vpx(55*screenRatio)
+		height: aspectRatio === 43 ? vpx(34*screenRatio) : vpx(32*screenRatio)
 		color: focus ? theme.select : theme.background
                 border.color: focus ? theme.accent : theme.background
                 border.width: 1
@@ -322,7 +322,7 @@ import QtGraphicalEffects 1.12
 }
 
 	anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(18*screenRatio)
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(26*screenRatio) : vpx(18*screenRatio)
 		left: played_button.right; leftMargin: aspectRatio === 43 ? vpx(15*screenRatio) : vpx(15*screenRatio)
 	}
 
@@ -377,8 +377,8 @@ import QtGraphicalEffects 1.12
 		visible: searchValue || header__search_input.focus
 
 	anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(22*screenRatio)
-		left: search_button.right; leftMargin: aspectRatio === 43 ? vpx(42*screenRatio) : vpx(56*screenRatio)
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(30*screenRatio) : vpx(22*screenRatio)
+		left: search_button.right; leftMargin: aspectRatio === 43 ? vpx(34*screenRatio) : vpx(56*screenRatio)
 	}
 
 
