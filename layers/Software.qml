@@ -44,7 +44,7 @@ import QtGraphicalEffects 1.12
 		height: width
 		color: "#2C2C2C"
                 border.color: focus ? theme.accent : theme.title
-		border.width: 3
+		border.width: aspectRatio === 43 ? vpx(2*screenRatio) : vpx(3*screenRatio)
 		radius: 100
 
 	Image {
