@@ -57,6 +57,7 @@ import "layers" as Layers
 		"buttons": "#FFBD88",
 		"text": "#000000",
 		"title": "#2C2C2C",
+		"select": "#A9A9A9",
 	}
 
 	property var themeDark : {
@@ -65,6 +66,7 @@ import "layers" as Layers
 		"buttons": "#CD7F32",
 		"text": "#FFFFFF",
 		"title": "#EBEBEB",
+		"select": "#4C4C4C",
 	}
 
 	//Change the theme color
