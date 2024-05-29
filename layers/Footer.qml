@@ -90,6 +90,14 @@ import QtGraphicalEffects 1.12
 
 	//Time status
 
+	Rectangle {
+		id: time_button
+		width: aspectRatio === 43 ? vpx(48*screenRatio) : vpx(45*screenRatio)
+		height: aspectRatio === 43 ? vpx(48*screenRatio) : vpx(28*screenRatio)
+		color: focus ? theme.select : theme.background
+                border.color: focus ? theme.accent : theme.background
+                border.width: 1
+
 	Text {
 		id: footer__time
 		text: Qt.formatTime(new Date(), "hh:mm")
@@ -97,10 +105,18 @@ import QtGraphicalEffects 1.12
 		font.pixelSize: aspectRatio === 43 ? vpx(18*screenRatio) : vpx(16*screenRatio)
 
 	anchors {
+		centerIn: parent
+	}
+
+}
+
+	anchors {
 		left: footer__button_a_legend.right; leftMargin: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(26*screenRatio)
 		verticalCenter: parent.verticalCenter
 
 	}
+
+	KeyNavigation.up: gameView || systemListView
 
 	Timer {
 		id: footer__time_update

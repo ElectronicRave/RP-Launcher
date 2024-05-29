@@ -1,4 +1,4 @@
-import QtQuick 2.12
+import QtQuick 2.15
 import QtGraphicalEffects 1.12
 
 	Item {
@@ -14,6 +14,214 @@ import QtGraphicalEffects 1.12
 	anchors {
 		top: parent.top;
 	}
+
+	//Profile icon
+
+	Rectangle {
+		id: profile_button
+		width: aspectRatio === 43 ? vpx(48*screenRatio) : vpx(36*screenRatio)
+		height: width
+		color: "#2C2C2C"
+                border.color: focus ? theme.accent : theme.title
+		border.width: 3
+		radius: 100
+
+	Image {
+		id: profile_icon
+		sourceSize.width: aspectRatio === 43 ? vpx(48*screenRatio) : vpx(35*screenRatio)
+		fillMode: Image.PreserveAspectFit
+		source: "../assets/icons/profile.svg"
+		antialiasing: true
+		smooth: true
+
+	anchors {
+		centerIn: profile_button
+	}
+
+}
+
+	anchors {
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(16*screenRatio) : vpx(16*screenRatio)
+		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(15*screenRatio) : vpx(16*screenRatio)
+	}
+              
+	KeyNavigation.right: all_button;
+	KeyNavigation.down: systemListView
+              
+	Keys.onPressed: {
+		if (api.keys.isAccept(event)) {
+			swapTheme()
+	}
+}
+
+	MouseArea {
+		id: profile_icon_mouse
+		anchors.fill: profile_button
+		onPressAndHold:{
+			swapTheme()
+	}
+
+}
+
+}
+
+	//All games
+
+	Rectangle {
+		id: all_button
+		width: aspectRatio === 43 ? vpx(48*screenRatio) : vpx(30*screenRatio)
+		height: aspectRatio === 43 ? vpx(48*screenRatio) : vpx(32*screenRatio)
+		color: focus ? theme.select : theme.background
+                border.color: focus ? theme.accent : theme.background
+                border.width: 1
+
+	Text {
+		id: all_label
+		text: "All"
+		color: theme.accent
+		font.bold: true
+		font.pixelSize: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(18*screenRatio)
+
+	anchors {
+		centerIn: parent
+	}
+}
+
+	anchors {
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(18*screenRatio)
+		left: profile_button.right; leftMargin: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(48*screenRatio)
+	}
+
+	KeyNavigation.left: profile_button;
+	KeyNavigation.right: favorite_button;
+	KeyNavigation.down: systemListView
+
+	Keys.onPressed: {
+		if (api.keys.isAccept(event)) {
+			searchValue = ""
+			currentCollectionIndex = 2
+			navigate('Software')
+	}
+
+}
+
+	MouseArea {
+		id: all_mouse
+		anchors.fill: all_button
+		onClicked: {
+			searchValue = ""
+			currentCollectionIndex = 2
+			navigate('Software')
+	}
+
+}
+
+}
+
+	//Favorite games
+
+	Rectangle {
+		id: favorite_button
+		width: aspectRatio === 43 ? vpx(48*screenRatio) : vpx(65*screenRatio)
+		height: aspectRatio === 43 ? vpx(48*screenRatio) : vpx(32*screenRatio)
+		color: focus ? theme.select : theme.background
+                border.color: focus ? theme.accent : theme.background
+                border.width: 1
+
+	Text {
+		id: favorite_label
+		text: "Favorite"
+		color: theme.text
+		font.pixelSize: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(18*screenRatio)
+
+	anchors {
+		centerIn: parent
+	}
+
+}
+
+	anchors {
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(18*screenRatio)
+		left: all_button.right; leftMargin: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(20*screenRatio)
+	}
+
+	KeyNavigation.left: all_button;
+	KeyNavigation.right: played_button;
+	KeyNavigation.down: systemListView
+
+	Keys.onPressed: {
+		if (api.keys.isAccept(event)) {
+			searchValue = ""
+			currentCollectionIndex = 0
+			navigate('Software')
+	}
+}
+
+	MouseArea {
+		id: favorite_mouse
+		anchors.fill: favorite_button
+		onClicked: {
+			searchValue = ""
+			currentCollectionIndex = 0
+			navigate('Software')
+	}
+
+}
+
+}
+
+	//Played games
+
+	Rectangle {
+		id: played_button
+		width: aspectRatio === 43 ? vpx(48*screenRatio) : vpx(53*screenRatio)
+		height: aspectRatio === 43 ? vpx(48*screenRatio) : vpx(32*screenRatio)
+		color: focus ? theme.select : theme.background
+                border.color: focus ? theme.accent : theme.background
+                border.width: 1
+
+
+	Text {
+		id: played_label
+		text: "Played"
+		color: theme.text
+		font.pixelSize: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(18*screenRatio)
+
+	anchors {
+		centerIn: parent
+	}
+
+}
+
+	anchors {
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(18*screenRatio)
+		left: favorite_button.right; leftMargin: aspectRatio === 43 ? vpx(15*screenRatio) : vpx(15*screenRatio)
+	}
+
+	KeyNavigation.left: favorite_button;
+	KeyNavigation.right: search_button;
+	KeyNavigation.down: systemListView
+
+	Keys.onPressed: {
+		if (api.keys.isAccept(event)) {
+			searchValue = ""
+			currentCollectionIndex = 1
+			navigate('Software')
+	}
+}
+
+	MouseArea {
+		id: played_mouse
+		anchors.fill: played_button
+		onClicked: {
+			searchValue = ""
+			currentCollectionIndex = 1
+			navigate('Software')
+	}
+
+}
+
+}
 
 }
 
@@ -49,8 +257,8 @@ import QtGraphicalEffects 1.12
 		bottom: parent.bottom
 	}
 
-		Keys.onLeftPressed: { decrementCurrentIndex() } 
-		Keys.onRightPressed: { incrementCurrentIndex() }
+	KeyNavigation.up: favorite_button;
+	KeyNavigation.down: time_button
 
 	Component {
 		id: systemDelegate
@@ -69,7 +277,6 @@ import QtGraphicalEffects 1.12
 		currentCollectionIndex = system__item_container.ListView.view.currentIndex+3
 		api.memory.set('currentCollectionIndex', currentCollectionIndex)
 		navigate('Software')
-		return
 	}
 
 }
@@ -136,7 +343,6 @@ import QtGraphicalEffects 1.12
 				currentCollectionIndex = system__item_container.ListView.view.currentIndex+3
 				api.memory.set('currentCollectionIndex', currentCollectionIndex)
 				navigate('Software')
-				return
 	}
 			else
 				systemListView.currentIndex = index
@@ -169,7 +375,6 @@ import QtGraphicalEffects 1.12
 }
 
 }
-
 	Header {}
 
 	Footer {}

@@ -1,4 +1,4 @@
-import QtQuick 2.12
+import QtQuick 2.15
 import QtGraphicalEffects 1.12
 
 	Item {
@@ -9,10 +9,18 @@ import QtGraphicalEffects 1.12
 	Keys.onPressed: {
 		if (api.keys.isCancel(event)) {
 		event.accepted = true
+		all_label.color = theme.accent
+		all_label.font.bold = true
+		favorite_label.color = theme.text
+		favorite_label.font.bold = false
+		played_label.color = theme.text
+		played_label.font.bold = false
+		search_label.color = theme.text
+		search_label.font.bold = false
 		api.memory.unset('currentCollectionIndex', currentCollectionIndex)
 		searchValue = ""
+		header__search_input.clear()
 		navigate('Home')
-		return
 	}
 
 }
@@ -27,6 +35,401 @@ import QtGraphicalEffects 1.12
 	anchors {
 		top: parent.top;
 	}
+
+	//Profile icon
+
+	Rectangle {
+		id: profile_button
+		width: aspectRatio === 43 ? vpx(48*screenRatio) : vpx(36*screenRatio)
+		height: width
+		color: "#2C2C2C"
+                border.color: focus ? theme.accent : theme.title
+		border.width: 3
+		radius: 100
+
+	Image {
+		id: profile_icon
+		sourceSize.width: aspectRatio === 43 ? vpx(48*screenRatio) : vpx(35*screenRatio)
+		fillMode: Image.PreserveAspectFit
+		source: "../assets/icons/profile.svg"
+		antialiasing: true
+		smooth: true
+
+	anchors {
+		centerIn: profile_button
+	}
+
+}
+
+	anchors {
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(16*screenRatio) : vpx(16*screenRatio)
+		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(15*screenRatio) : vpx(16*screenRatio)
+	}
+              
+	KeyNavigation.right: all_button;
+	KeyNavigation.down: gameView
+              
+	Keys.onPressed: {
+		if (api.keys.isAccept(event)) {
+			swapTheme()
+	}
+}
+
+	MouseArea {
+		id: profile_icon_mouse
+		anchors.fill: profile_button
+		onPressAndHold:{
+			swapTheme()
+	}
+
+}
+
+}
+
+	//All games
+
+	Rectangle {
+		id: all_button
+		width: aspectRatio === 43 ? vpx(48*screenRatio) : vpx(30*screenRatio)
+		height: aspectRatio === 43 ? vpx(48*screenRatio) : vpx(32*screenRatio)
+		color: focus ? theme.select : theme.background
+                border.color: focus ? theme.accent : theme.background
+                border.width: 1
+
+	Text {
+		id: all_label
+		text: "All"
+		color: theme.accent
+		font.bold: true
+		font.pixelSize: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(18*screenRatio)
+
+	anchors {
+		centerIn: parent
+	}
+}
+
+	anchors {
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(18*screenRatio)
+		left: profile_button.right; leftMargin: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(48*screenRatio)
+	}
+
+	KeyNavigation.left: profile_button;
+	KeyNavigation.right: favorite_button;
+	KeyNavigation.down: gameView
+
+	Keys.onPressed: {
+		if (api.keys.isAccept(event)) {
+			all_label.color = theme.accent
+			all_label.font.bold = true
+			favorite_label.color = theme.text
+			favorite_label.font.bold = false
+			played_label.color = theme.text
+			played_label.font.bold = false
+			search_label.color = theme.text
+			search_label.font.bold = false
+			searchValue = ""
+			header__search_input.clear()
+			currentCollectionIndex = 2
+			navigate('Software')
+	}
+
+}
+
+	MouseArea {
+		id: all_mouse
+		anchors.fill: all_button
+		onClicked: {
+			all_label.color = theme.accent
+			all_label.font.bold = true
+			favorite_label.color = theme.text
+			favorite_label.font.bold = false
+			played_label.color = theme.text
+			played_label.font.bold = false
+			search_label.color = theme.text
+			search_label.font.bold = false
+			searchValue = ""
+			header__search_input.clear()
+			currentCollectionIndex = 2
+			navigate('Software')
+	}
+
+}
+
+}
+
+	//Favorite games
+
+	Rectangle {
+		id: favorite_button
+		width: aspectRatio === 43 ? vpx(48*screenRatio) : vpx(65*screenRatio)
+		height: aspectRatio === 43 ? vpx(48*screenRatio) : vpx(32*screenRatio)
+		color: focus ? theme.select : theme.background
+                border.color: focus ? theme.accent : theme.background
+                border.width: 1
+
+	Text {
+		id: favorite_label
+		text: "Favorite"
+		color: theme.text
+		font.pixelSize: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(18*screenRatio)
+
+	anchors {
+		centerIn: parent
+	}
+
+}
+
+	anchors {
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(18*screenRatio)
+		left: all_button.right; leftMargin: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(20*screenRatio)
+	}
+
+	KeyNavigation.left: all_button;
+	KeyNavigation.right: played_button;
+	KeyNavigation.down: gameView
+
+	Keys.onPressed: {
+		if (api.keys.isAccept(event)) {
+			all_label.color = theme.text
+			all_label.font.bold = false
+			favorite_label.color = theme.accent
+			favorite_label.font.bold = true
+			played_label.color = theme.text
+			played_label.font.bold = false
+			search_label.color = theme.text
+			search_label.font.bold = false
+			searchValue = ""
+			header__search_input.clear()
+			currentCollectionIndex = 0
+			navigate('Software')
+	}
+}
+
+	MouseArea {
+		id: favorite_mouse
+		anchors.fill: favorite_button
+		onClicked: {
+			all_label.color = theme.text
+			all_label.font.bold = false
+			favorite_label.color = theme.accent
+			favorite_label.font.bold = true
+			played_label.color = theme.text
+			played_label.font.bold = false
+			search_label.color = theme.text
+			search_label.font.bold = false
+			searchValue = ""
+			header__search_input.clear()
+			currentCollectionIndex = 0
+			navigate('Software')
+	}
+
+}
+
+}
+
+	//Played games
+
+	Rectangle {
+		id: played_button
+		width: aspectRatio === 43 ? vpx(48*screenRatio) : vpx(53*screenRatio)
+		height: aspectRatio === 43 ? vpx(48*screenRatio) : vpx(32*screenRatio)
+		color: focus ? theme.select : theme.background
+                border.color: focus ? theme.accent : theme.background
+                border.width: 1
+
+
+	Text {
+		id: played_label
+		text: "Played"
+		color: theme.text
+		font.pixelSize: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(18*screenRatio)
+
+	anchors {
+		centerIn: parent
+	}
+
+}
+
+	anchors {
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(18*screenRatio)
+		left: favorite_button.right; leftMargin: aspectRatio === 43 ? vpx(15*screenRatio) : vpx(15*screenRatio)
+	}
+
+	KeyNavigation.left: favorite_button;
+	KeyNavigation.right: search_button;
+	KeyNavigation.down: gameView
+
+	Keys.onPressed: {
+		if (api.keys.isAccept(event)) {
+			all_label.color = theme.text
+			all_label.font.bold = false
+			favorite_label.color = theme.text
+			favorite_label.font.bold = false
+			played_label.color = theme.accent
+			played_label.font.bold = true
+			search_label.color = theme.text
+			search_label.font.bold = false
+			searchValue = ""
+			header__search_input.clear()
+			currentCollectionIndex = 1
+			navigate('Software')
+	}
+}
+
+	MouseArea {
+		id: played_mouse
+		anchors.fill: played_button
+		onClicked: {
+			all_label.color = theme.text
+			all_label.font.bold = false
+			favorite_label.color = theme.text
+			favorite_label.font.bold = false
+			played_label.color = theme.accent
+			played_label.font.bold = true
+			search_label.color = theme.text
+			search_label.font.bold = false
+			searchValue = ""
+			header__search_input.clear()
+			currentCollectionIndex = 1
+			navigate('Software')
+	}
+
+}
+
+}
+	//Search content
+
+	Rectangle {
+		id: search_button
+		width: aspectRatio === 43 ? vpx(48*screenRatio) : vpx(55*screenRatio)
+		height: aspectRatio === 43 ? vpx(48*screenRatio) : vpx(32*screenRatio)
+		color: focus ? theme.select : theme.background
+                border.color: focus ? theme.accent : theme.background
+                border.width: 1
+		visible: currentPage === 'Software' ? 1 : 0 ;
+
+	Text {
+		id: search_label
+		text: "Search"
+		color: theme.text
+		font.pixelSize: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(18*screenRatio)
+		visible: currentPage === 'Software' ? 1 : 0 ;
+
+	anchors {
+		centerIn: parent
+	}
+
+}
+
+	anchors {
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(18*screenRatio)
+		left: played_button.right; leftMargin: aspectRatio === 43 ? vpx(15*screenRatio) : vpx(15*screenRatio)
+	}
+
+	KeyNavigation.left: played_button;
+	KeyNavigation.down: gameView
+
+	Keys.onPressed: {
+		if (api.keys.isAccept(event)) {
+			all_label.color = theme.text
+			all_label.font.bold = false
+			favorite_label.color = theme.text
+			favorite_label.font.bold = false
+			played_label.color = theme.text
+			played_label.font.bold = false
+			search_label.color = theme.accent
+			search_label.font.bold = true
+			searchValue = ""
+			header__search_input.clear()
+			header__search_input.focus = true
+	}
+}
+
+	MouseArea {
+		id: search_mouse
+		anchors.fill: search_button
+		onClicked: {
+			all_label.color = theme.text
+			all_label.font.bold = false
+			favorite_label.color = theme.text
+			favorite_label.font.bold = false
+			played_label.color = theme.text
+			played_label.font.bold = false
+			search_label.color = theme.accent
+			search_label.font.bold = true
+			searchValue = ""
+			header__search_input.clear()
+			header__search_input.focus = true
+	}
+
+}
+
+}
+
+	Rectangle {
+		id: header__search
+		color: theme.background
+		width: aspectRatio === 43 ? vpx(100*screenRatio) : vpx(120*screenRatio)
+		height: aspectRatio === 43 ? vpx(28*screenRatio) : vpx(26*screenRatio)
+		border.color: theme.text
+		border.width: aspectRatio === 43 ? vpx(2*screenRatio) : vpx(1*screenRatio)
+		radius: vpx(5*screenRatio)
+		visible: searchValue || header__search_input.focus
+
+	anchors {
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(22*screenRatio)
+		left: search_button.right; leftMargin: aspectRatio === 43 ? vpx(42*screenRatio) : vpx(56*screenRatio)
+	}
+
+
+	Image {
+		id: header__search_icon
+		sourceSize.width: aspectRatio === 43 ? vpx(18*screenRatio) : vpx(20*screenRatio)
+		fillMode: Image.PreserveAspectFit
+		source: "../assets/icons/search.svg"
+		layer.enabled: true
+		layer.effect: ColorOverlay { color: theme.text }
+		antialiasing: true
+		smooth: true
+
+	anchors {
+		left: header__search.left; leftMargin: aspectRatio === 43 ? vpx(4*screenRatio) : vpx(3*screenRatio)
+		verticalCenter: header__search.verticalCenter
+	}
+
+}              
+
+	TextInput {
+		id: header__search_input
+		color: theme.text
+		font.pixelSize: aspectRatio === 43 ? vpx(16*screenRatio) : vpx(15*screenRatio)
+		clip: true
+
+	anchors {
+		left: header__search_icon.right; leftMargin: aspectRatio === 43 ? vpx(4*screenRatio) : vpx(3*screenRatio)
+		right: header__search.right; rightMargin: aspectRatio === 43 ? vpx(12*screenRatio) : vpx(12*screenRatio)
+		verticalCenter: header__search.verticalCenter
+	}
+
+	onTextEdited: {
+		searchValue = header__search_input.text
+		gameView.model = searchGames
+		gameView.currentIndex = 0
+	}
+
+	Keys.onPressed: {
+		if (api.keys.isAccept(event)) {
+		navigate('Software')
+	}  
+        if (event.key === Qt.Key_Down) {
+		navigate('Software')
+	}
+
+}
+
+}
+ 
+}
 
 }
 
@@ -69,10 +472,8 @@ import QtGraphicalEffects 1.12
 		bottom: parent.bottom; bottomMargin: aspectRatio === 43 ? vpx(-5*screenRatio) : vpx(-5*screenRatio)
 	}
 
-		Keys.onUpPressed:       { moveCurrentIndexUp() }
-		Keys.onDownPressed:     { moveCurrentIndexDown() }
-		Keys.onLeftPressed:     { moveCurrentIndexLeft() }
-		Keys.onRightPressed:    { moveCurrentIndexRight() }
+	KeyNavigation.up: profile_button;
+	KeyNavigation.down: time_button
 
 	Component {
 		id: gameViewDelegate
@@ -90,14 +491,12 @@ import QtGraphicalEffects 1.12
 		event.accepted = true
 		currentGameIndex = index
 		currentGame.launch()
-		return
 }
 
 	//We reset collection when going home
 
 	if (api.keys.isCancel(event)) {
 	api.memory.unset('currentCollectionIndex', currentCollectionIndex)
-	return
 }
 
 	//Next page
@@ -105,7 +504,6 @@ import QtGraphicalEffects 1.12
 	if (api.keys.isNextPage(event)) {
 	event.accepted = true
 	aspectRatio === 43 ? gameView.currentIndex = Math.min(gameView.currentIndex + 9, currentCollection.games.count - 1) : gameView.currentIndex = Math.min(gameView.currentIndex + 12, currentCollection.games.count - 1)
-	return
 
 }
 
@@ -114,7 +512,6 @@ import QtGraphicalEffects 1.12
 	if (api.keys.isPrevPage(event)) {
 	event.accepted = true
 	aspectRatio === 43 ? gameView.currentIndex = Math.max(gameView.currentIndex - 9, 0) : gameView.currentIndex = Math.max(gameView.currentIndex - 12, 0)
-	return
 
 }
 
@@ -123,7 +520,6 @@ import QtGraphicalEffects 1.12
 	if (api.keys.isPageDown(event)) {
 	event.accepted = true
 	currentCollectionIndex = currentCollectionIndex + 1
-	return
 }
 
 	//Prev collection
@@ -131,7 +527,6 @@ import QtGraphicalEffects 1.12
 	if (api.keys.isPageUp(event)) {
 	event.accepted = true
 	currentCollectionIndex = currentCollectionIndex - 1
-	return
 
 }
 
@@ -366,7 +761,6 @@ import QtGraphicalEffects 1.12
 }
        
 }
-
 	Header {}
 
 	Footer {}
