@@ -16,7 +16,7 @@ import "layers" as Layers
 		if(currentCollectionIndexMemory)
 		return currentCollectionIndexMemory;
 		if(!currentCollectionIndexMemory)
-		return 0
+		return currentItem
 	}
 
 	//Game index
@@ -128,7 +128,7 @@ import "layers" as Layers
 
 	property var headerCSS : {
 		"width": wrapperCSS.width,
-	        "height": aspectRatio === 43 ? vpx(70*screenRatio) : vpx(60*screenRatio),
+	        "height": aspectRatio === 43 ? vpx(75*screenRatio) : vpx(60*screenRatio),
 		"background": "transparent",
 	}
 
@@ -140,7 +140,7 @@ import "layers" as Layers
 
 	property var footerCSS : {
 		"width": wrapperCSS.width,
-		"height": aspectRatio === 43 ? vpx(65*screenRatio) : vpx(70*screenRatio),
+		"height": aspectRatio === 43 ? vpx(65*screenRatio) : vpx(60*screenRatio),
 		"background": "transparent",
 	}
 
