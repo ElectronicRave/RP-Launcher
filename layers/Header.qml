@@ -19,6 +19,7 @@ import SortFilterProxyModel 0.2
 	Rectangle {
 		id: header__battery
         	property real chargingPercent: api.device.batteryPercent*100
+		visible: api.device.batteryPercent ? 1 : 0
 
 	anchors {
 		top: parent.top; topMargin: aspectRatio === 43 ? vpx(18*screenRatio) : vpx(18*screenRatio)
