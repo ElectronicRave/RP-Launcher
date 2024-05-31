@@ -140,7 +140,7 @@ import "layers" as Layers
 
 	property var footerCSS : {
 		"width": wrapperCSS.width,
-		"height": aspectRatio === 43 ? vpx(65*screenRatio) : vpx(60*screenRatio),
+		"height": aspectRatio === 43 ? vpx(65*screenRatio) : vpx(65*screenRatio),
 		"background": "transparent",
 	}
 
