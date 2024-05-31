@@ -9,7 +9,7 @@ import QtGraphicalEffects 1.12
 		clip: true
 
 	anchors {
-		bottom: main.bottom; bottomMargin: aspectRatio === 43 ? vpx(-70*screenRatio) : vpx(-65*screenRatio)
+		bottom: main.bottom; bottomMargin: aspectRatio === 43 ? vpx(-70*screenRatio) : vpx(-75*screenRatio)
 	}
 
 	//Button B
