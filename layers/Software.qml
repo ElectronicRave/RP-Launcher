@@ -30,7 +30,6 @@ import QtGraphicalEffects 1.12
 		width: headerCSS.width
 		height: headerCSS.height
 		color: headerCSS.background
-		clip: true
 
 	anchors {
 		top: parent.top;
@@ -372,7 +371,7 @@ import QtGraphicalEffects 1.12
 		width: aspectRatio === 43 ? vpx(100*screenRatio) : vpx(120*screenRatio)
 		height: aspectRatio === 43 ? vpx(28*screenRatio) : vpx(26*screenRatio)
 		border.color: theme.text
-		border.width: aspectRatio === 43 ? vpx(2*screenRatio) : vpx(1*screenRatio)
+		border.width: aspectRatio === 43 ? vpx(1.5*screenRatio) : vpx(1*screenRatio)
 		radius: vpx(5*screenRatio)
 		visible: searchValue || header__search_input.focus
 
@@ -448,28 +447,26 @@ import QtGraphicalEffects 1.12
 		width: parent.width
 		height: parent.height
 		color: "transparent"
-		visible: true
 		clip: true
 
 	GridView {
 		id: gameView
 		cellWidth: width / numcolumns
-		cellHeight: cellWidth
+		cellHeight: aspectRatio === 43 ? cellWidth + 4 : cellWidth + 7
 		model: currentCollection.games
 		snapMode: ListView.SnapOneItem
 		delegate: gameViewDelegate
 		focus: currentPage === 'Software' ? true : false
-		clip: true
 
 		highlightRangeMode: ListView.StrictlyEnforceRange
 		preferredHighlightBegin: aspectRatio === 43 ? vpx(1*screenRatio) : vpx(1*screenRatio)
 		preferredHighlightEnd: aspectRatio === 43 ? vpx(0*screenRatio) : vpx(0*screenRatio)
 
 	anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(10*screenRatio)
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(10*screenRatio) : vpx(10*screenRatio)
 		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(80*screenRatio) : vpx(100*screenRatio)
 		right: parent.right; rightMargin: aspectRatio === 43 ? vpx(70*screenRatio) : vpx(90*screenRatio)
-		bottom: parent.bottom; bottomMargin: aspectRatio === 43 ? vpx(-5*screenRatio) : vpx(-5*screenRatio)
+		bottom: parent.bottom; bottomMargin: aspectRatio === 43 ? vpx(-5*screenRatio) : vpx(0*screenRatio)
 	}
 
 	KeyNavigation.up: profile_button;
@@ -481,8 +478,9 @@ import QtGraphicalEffects 1.12
 	Item {
 		id: game__item_container
 		property bool selected: GridView.isCurrentItem
-		width: gameView.cellWidth - vpx(10*screenRatio)
+		width: gameView.cellWidth - vpx(12*screenRatio)
 		height: width
+		scale: selected ? 1.06 : 1
 
 	//Launch game
 
@@ -537,8 +535,41 @@ import QtGraphicalEffects 1.12
 		width: parent.width
 		height: parent.height
 		color: theme.buttons
-		radius: vpx(5*screenRatio)
-		z: -1
+		radius: vpx(4*screenRatio)
+}
+
+	Image {
+		id: game__logo
+		width: parent.width
+		height: parent.height
+		source: modelData.assets.boxFront || modelData.assets.logo
+		fillMode: Image.PreserveAspect
+		asynchronous: true
+		smooth: true
+		visible: false
+
+	anchors {
+		fill: game__item
+		margins: aspectRatio === 43 ? vpx(27*screenRatio) : vpx(19*screenRatio)
+	}
+
+}
+
+	OpacityMask {
+		source: game__logo
+		maskSource:
+
+	Rectangle {
+		width: game__logo.width
+		height: game__logo.height
+		radius: vpx(4*screenRatio)
+		visible: true
+	}
+
+	anchors {
+		fill: game__logo
+	}
+
 }
 
 	Image {
@@ -552,43 +583,28 @@ import QtGraphicalEffects 1.12
 		visible: false
 
 	anchors {
-		fill: parent
+		fill: game__item
 	}
 
 }
 
 	OpacityMask {
-		anchors.fill: game__screenshot
 		source: game__screenshot
 		maskSource:
 
 	Rectangle {
 		width: game__screenshot.width
 		height: game__screenshot.height
-		radius: vpx(5*screenRatio)
+		radius: vpx(4*screenRatio)
 		visible: true
 	}
-
-}
-
-	Image {
-		id: game__logo
-		width: parent.width
-		height: parent.height
-		source: modelData.assets.boxFront || modelData.assets.logo
-		fillMode: Image.PreserveAspect
-		asynchronous: true
-		smooth: true
-		z: -1
-		visible: true
 
 	anchors {
-		fill: parent
-		margins: aspectRatio === 43 ? vpx(27*screenRatio) : vpx(19*screenRatio)
+		fill: game__screenshot
 	}
 
 }
- 
+
 	MouseArea {
 		id: game__item_mouse
 		anchors.fill: game__item
@@ -612,7 +628,7 @@ import QtGraphicalEffects 1.12
 		width: parent.width
 		height: aspectRatio === 43 ? vpx(24*screenRatio) : vpx(18*screenRatio)
 		color: "transparent"
-		radius: vpx(5*screenRatio)
+		radius: vpx(4*screenRatio)
 		clip: true
 
 	anchors {
@@ -701,7 +717,7 @@ import QtGraphicalEffects 1.12
 		border.color: theme.title
 		border.width: aspectRatio === 43 ? vpx(0.8*screenRatio) : vpx(0.8*screenRatio)
 		visible: modelData.assets.screenshots[0] ? 1 : 0
-		radius: vpx(5*screenRatio)
+		radius: vpx(4*screenRatio)
 
 	anchors {
 		fill: parent
@@ -717,7 +733,7 @@ import QtGraphicalEffects 1.12
 		border.color: theme.accent
 		border.width: aspectRatio === 43 ? vpx(3.5*screenRatio) : vpx(2.5*screenRatio)
 		opacity: selected ? 1 : 0
-		radius: vpx(5*screenRatio)
+		radius: vpx(4*screenRatio)
 
 	anchors {
 		fill: parent

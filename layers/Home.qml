@@ -251,7 +251,7 @@ import QtGraphicalEffects 1.12
 		highlightMoveVelocity: -1
 
 	anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? vpx(63*screenRatio) : vpx(48*screenRatio)
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(58*screenRatio) : vpx(48*screenRatio)
 		left: parent.left
 		right: parent.right
 		bottom: parent.bottom
@@ -322,7 +322,6 @@ import QtGraphicalEffects 1.12
 }
 
 	OpacityMask {
-		anchors.fill: system__logo
 		source: system__logo
 		maskSource:
 
@@ -331,6 +330,10 @@ import QtGraphicalEffects 1.12
 		height: system__logo.height
 		radius: vpx(4*screenRatio)
 		visible: true
+	}
+
+	anchors {
+		fill: system__logo
 	}
 
 }
