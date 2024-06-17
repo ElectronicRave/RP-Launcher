@@ -28,7 +28,7 @@ import "layers" as Layers
 		return api.allGames.get(allFavorites.mapToSource(currentGameIndex))
 		if (currentCollection.shortName === "all-lastplayed")
 		return api.allGames.get(allLastPlayed.mapToSource(currentGameIndex))
-		if (searchValue !== "")
+		if (searchValue !== '')
 		return  currentCollection.games.get(searchGames.mapToSource(currentGameIndex))   
 		return currentCollection.games.get(currentGameIndex)
 	}
@@ -146,7 +146,7 @@ import "layers" as Layers
 
 	//Enable the search box feature
 
-	property string searchValue: "";
+	property string searchValue: '';
 
 	//Change pages
 
