@@ -51,17 +51,20 @@ import QtGraphicalEffects 1.12
 	Keys.onPressed: {
 		if (api.keys.isAccept(event)) {
 			swapTheme()
+			return;
+		}
+
 	}
-}
 
 	MouseArea {
 		id: profile_icon_mouse
 		anchors.fill: profile_button
 		onPressAndHold:{
 			swapTheme()
-	}
+			return;
+		}
 
-}
+	}
 
 }
 
@@ -101,9 +104,10 @@ import QtGraphicalEffects 1.12
 			searchValue = ""
 			currentCollectionIndex = 2
 			navigate('Software')
-	}
+			return;
+		}
 
-}
+	}
 
 	MouseArea {
 		id: all_mouse
@@ -112,9 +116,10 @@ import QtGraphicalEffects 1.12
 			searchValue = ""
 			currentCollectionIndex = 2
 			navigate('Software')
-	}
+			return;
+		}
 
-}
+	}
 
 }
 
@@ -154,8 +159,10 @@ import QtGraphicalEffects 1.12
 			searchValue = ""
 			currentCollectionIndex = 0
 			navigate('Software')
+			return;
+		}
+
 	}
-}
 
 	MouseArea {
 		id: favorite_mouse
@@ -164,9 +171,10 @@ import QtGraphicalEffects 1.12
 			searchValue = ""
 			currentCollectionIndex = 0
 			navigate('Software')
-	}
+			return;
+		}
 
-}
+	}
 
 }
 
@@ -207,8 +215,10 @@ import QtGraphicalEffects 1.12
 			searchValue = ""
 			currentCollectionIndex = 1
 			navigate('Software')
+			return;
+		}
+
 	}
-}
 
 	MouseArea {
 		id: played_mouse
@@ -217,9 +227,10 @@ import QtGraphicalEffects 1.12
 			searchValue = ""
 			currentCollectionIndex = 1
 			navigate('Software')
-	}
+			return;
+		}
 
-}
+	}
 
 }
 
@@ -273,13 +284,14 @@ import QtGraphicalEffects 1.12
 
 	Keys.onPressed: {
 		if (api.keys.isAccept(event)) {
-		event.accepted = true
-		currentCollectionIndex = system__item_container.ListView.view.currentIndex+3
-		api.memory.set('currentCollectionIndex', currentCollectionIndex)
-		navigate('Software')
-	}
+			event.accepted = true
+			currentCollectionIndex = system__item_container.ListView.view.currentIndex+3
+			api.memory.set('currentCollectionIndex', currentCollectionIndex)
+			navigate('Software')
+			return;
+		}
 
-}
+	}
 
 	Text {
 		id: system__item_title
@@ -342,16 +354,17 @@ import QtGraphicalEffects 1.12
 		id: system__logo_mouse
 		anchors.fill: system__logo
 		onClicked: {
-			if (selected) {
-				currentCollectionIndex = system__item_container.ListView.view.currentIndex+3
-				api.memory.set('currentCollectionIndex', currentCollectionIndex)
-				navigate('Software')
-	}
-			else
-				systemListView.currentIndex = index
-	}
+		if (selected) {
+			currentCollectionIndex = system__item_container.ListView.view.currentIndex+3
+			api.memory.set('currentCollectionIndex', currentCollectionIndex)
+			navigate('Software')
+			return;
+		}
+		else
+			systemListView.currentIndex = index
+		}
 
-}
+	}
 
 	Rectangle {
 		id: system__item_highlight

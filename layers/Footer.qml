@@ -15,7 +15,7 @@ import QtGraphicalEffects 1.12
 	//Button B
 
 	Image {
-		id: footer__button_b
+		id: footer__button_b_img
 		sourceSize.width: aspectRatio === 43 ? vpx(43*screenRatio) : vpx(36*screenRatio)
 		fillMode: Image.PreserveAspectFit
 		source: "../assets/icons/button_b.svg"
@@ -31,28 +31,68 @@ import QtGraphicalEffects 1.12
 
 }
 
+	Rectangle {
+		id: footer__button_b
+		width: vpx(55)
+		height: vpx(40)
+		color: "transparent"
+		visible: currentPage === 'Software' ? 1 : 0
+
 	Text {
 		id: footer__button_b_legend
 		text: "Back"
 		color: theme.text
 		font.pixelSize: aspectRatio === 43 ? vpx(16*screenRatio) : vpx(14*screenRatio)
-		visible: currentPage === 'Software' ? 1 : 0
 
 	anchors {
-		left: footer__button_b.right; leftMargin: aspectRatio === 43 ? vpx(-4*screenRatio) : vpx(-4*screenRatio)
+		centerIn: footer__button_b
+	}
+
+}
+
+	anchors {
+		left: footer__button_b_img.right; leftMargin: aspectRatio === 43 ? vpx(-4*screenRatio) : vpx(-4*screenRatio)
 		verticalCenter: parent.verticalCenter
 	}
 
 }
 
+
 	MouseArea {
 		id: footer__button_b_mouse
-		anchors.fill: footer__button_b_legend
+		anchors.fill: footer__button_b
 		onClicked: {
+
+		if (header__search_input.focus) {
+			searchValue = ''
+			header__search_input.text = 'Search'
+			header__search_layout.focus = true
+		}
+
+		else if (header__search_layout.focus) {
+			searchValue = ''
+			header__search_input.text = 'Search'
+			search_button.focus = true
+		}
+
+		else if (header__search_button_ok.focus) {
+			searchValue = ''
+			header__search_input.text = 'Search'
+			search_button.focus = true
+		}
+
+		else if (header__search_button_cancel.focus) {
+			searchValue = ''
+			header__search_input.text = 'Search'
+			search_button.focus = true
+		}
+
+		else {
 			api.memory.unset('currentCollectionIndex', currentCollectionIndex)
-			searchValue=''
+			searchValue = ''
 			navigate('Home')
-			return
+		}
+
 	}
 
 }
@@ -60,7 +100,7 @@ import QtGraphicalEffects 1.12
 	//Button A
 
 	Image {
-		id: footer__button_a
+		id: footer__button_a_img
 		sourceSize.width: aspectRatio === 43 ? vpx(43*screenRatio) : vpx(36*screenRatio)
 		fillMode: Image.PreserveAspectFit
 		source: "../assets/icons/button_a.svg"
@@ -69,11 +109,17 @@ import QtGraphicalEffects 1.12
 		smooth: true
 
 	anchors {
-		left: footer__button_b_legend.right; leftMargin: aspectRatio === 43 ? vpx(4*screenRatio) : vpx(4*screenRatio)
+		left: footer__button_b.right; leftMargin: aspectRatio === 43 ? vpx(4*screenRatio) : vpx(4*screenRatio)
 		verticalCenter: parent.verticalCenter
 	}
 
 }
+
+	Rectangle {
+		id: footer__button_a
+		width: vpx(35)
+		height: vpx(40)
+		color: "transparent"
 
 	Text {
 		id: footer__button_a_legend
@@ -82,7 +128,13 @@ import QtGraphicalEffects 1.12
 		font.pixelSize: aspectRatio === 43 ? vpx(16*screenRatio) : vpx(14*screenRatio)
 
 	anchors {
-		left: footer__button_a.right; leftMargin: aspectRatio === 43 ? vpx(-4*screenRatio) : vpx(-4*screenRatio)
+		centerIn: footer__button_a
+	}
+
+}
+
+	anchors {
+		left: footer__button_a_img.right; leftMargin: aspectRatio === 43 ? vpx(-4*screenRatio) : vpx(-4*screenRatio)
 		verticalCenter: parent.verticalCenter
 	}
 
@@ -111,7 +163,7 @@ import QtGraphicalEffects 1.12
 }
 
 	anchors {
-		left: footer__button_a_legend.right; leftMargin: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(26*screenRatio)
+		left: footer__button_a.right; leftMargin: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(26*screenRatio)
 		verticalCenter: parent.verticalCenter
 
 	}

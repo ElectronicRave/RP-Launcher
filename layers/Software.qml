@@ -8,22 +8,35 @@ import QtGraphicalEffects 1.12
 
 	Keys.onPressed: {
 		if (api.keys.isCancel(event)) {
-		event.accepted = true
-		all_label.color = theme.accent
-		all_label.font.bold = true
-		favorite_label.color = theme.text
-		favorite_label.font.bold = false
-		played_label.color = theme.text
-		played_label.font.bold = false
-		search_label.color = theme.text
-		search_label.font.bold = false
-		api.memory.unset('currentCollectionIndex', currentCollectionIndex)
-		searchValue = ""
-		header__search_input.clear()
-		navigate('Home')
-	}
+			event.accepted = true
 
-}
+		if (searchValue) {
+			searchValue = ''
+			header__search_input.text = 'Search'
+			search_button.focus = true
+		}
+
+		else if (header__search_button_ok.focus) {
+			searchValue = ''
+			header__search_input.text = 'Search'
+			search_button.focus = true
+		}
+
+		else if (header__search_button_cancel.focus) {
+			searchValue = ''
+			header__search_input.text = 'Search'
+			search_button.focus = true
+		}
+
+		else {
+			api.memory.unset('currentCollectionIndex', currentCollectionIndex)
+			searchValue = ''
+			navigate('Home')
+		}
+
+		}
+
+	}
 
 	Rectangle {
 		id: header
@@ -70,18 +83,20 @@ import QtGraphicalEffects 1.12
               
 	Keys.onPressed: {
 		if (api.keys.isAccept(event)) {
+			event.accepted = true
 			swapTheme()
+		}
+
 	}
-}
 
 	MouseArea {
 		id: profile_icon_mouse
 		anchors.fill: profile_button
 		onPressAndHold:{
 			swapTheme()
-	}
+		}
 
-}
+	}
 
 }
 
@@ -118,41 +133,24 @@ import QtGraphicalEffects 1.12
 
 	Keys.onPressed: {
 		if (api.keys.isAccept(event)) {
-			all_label.color = theme.accent
-			all_label.font.bold = true
-			favorite_label.color = theme.text
-			favorite_label.font.bold = false
-			played_label.color = theme.text
-			played_label.font.bold = false
-			search_label.color = theme.text
-			search_label.font.bold = false
-			searchValue = ""
-			header__search_input.clear()
+			event.accepted = true
+			searchValue = ''
 			currentCollectionIndex = 2
 			navigate('Software')
-	}
+		}
 
-}
+	}
 
 	MouseArea {
 		id: all_mouse
-		anchors.fill: all_button
+		anchors.fill: all_label
 		onClicked: {
-			all_label.color = theme.accent
-			all_label.font.bold = true
-			favorite_label.color = theme.text
-			favorite_label.font.bold = false
-			played_label.color = theme.text
-			played_label.font.bold = false
-			search_label.color = theme.text
-			search_label.font.bold = false
-			searchValue = ""
-			header__search_input.clear()
+			searchValue = ''
 			currentCollectionIndex = 2
 			navigate('Software')
-	}
+		}
 
-}
+	}
 
 }
 
@@ -189,40 +187,24 @@ import QtGraphicalEffects 1.12
 
 	Keys.onPressed: {
 		if (api.keys.isAccept(event)) {
-			all_label.color = theme.text
-			all_label.font.bold = false
-			favorite_label.color = theme.accent
-			favorite_label.font.bold = true
-			played_label.color = theme.text
-			played_label.font.bold = false
-			search_label.color = theme.text
-			search_label.font.bold = false
-			searchValue = ""
-			header__search_input.clear()
+			event.accepted = true
+			searchValue = ''
 			currentCollectionIndex = 0
 			navigate('Software')
+		}
+
 	}
-}
 
 	MouseArea {
 		id: favorite_mouse
-		anchors.fill: favorite_button
+		anchors.fill: favorite_label
 		onClicked: {
-			all_label.color = theme.text
-			all_label.font.bold = false
-			favorite_label.color = theme.accent
-			favorite_label.font.bold = true
-			played_label.color = theme.text
-			played_label.font.bold = false
-			search_label.color = theme.text
-			search_label.font.bold = false
-			searchValue = ""
-			header__search_input.clear()
+			searchValue = ''
 			currentCollectionIndex = 0
 			navigate('Software')
-	}
+		}
 
-}
+	}
 
 }
 
@@ -235,7 +217,6 @@ import QtGraphicalEffects 1.12
 		color: focus ? theme.select : theme.background
                 border.color: focus ? theme.accent : theme.background
                 border.width: 1
-
 
 	Text {
 		id: played_label
@@ -260,40 +241,24 @@ import QtGraphicalEffects 1.12
 
 	Keys.onPressed: {
 		if (api.keys.isAccept(event)) {
-			all_label.color = theme.text
-			all_label.font.bold = false
-			favorite_label.color = theme.text
-			favorite_label.font.bold = false
-			played_label.color = theme.accent
-			played_label.font.bold = true
-			search_label.color = theme.text
-			search_label.font.bold = false
-			searchValue = ""
-			header__search_input.clear()
+			event.accepted = true
+			searchValue = ''
 			currentCollectionIndex = 1
 			navigate('Software')
+		}
+
 	}
-}
 
 	MouseArea {
 		id: played_mouse
-		anchors.fill: played_button
+		anchors.fill: played_label
 		onClicked: {
-			all_label.color = theme.text
-			all_label.font.bold = false
-			favorite_label.color = theme.text
-			favorite_label.font.bold = false
-			played_label.color = theme.accent
-			played_label.font.bold = true
-			search_label.color = theme.text
-			search_label.font.bold = false
-			searchValue = ""
-			header__search_input.clear()
+			searchValue = ''
 			currentCollectionIndex = 1
 			navigate('Software')
-	}
+		}
 
-}
+	}
 
 }
 	//Search content
@@ -305,14 +270,12 @@ import QtGraphicalEffects 1.12
 		color: focus ? theme.select : theme.background
                 border.color: focus ? theme.accent : theme.background
                 border.width: 1
-		visible: currentPage === 'Software' ? 1 : 0 ;
 
 	Text {
 		id: search_label
 		text: "Search"
 		color: theme.text
 		font.pixelSize: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(18*screenRatio)
-		visible: currentPage === 'Software' ? 1 : 0 ;
 
 	anchors {
 		centerIn: parent
@@ -330,54 +293,240 @@ import QtGraphicalEffects 1.12
 
 	Keys.onPressed: {
 		if (api.keys.isAccept(event)) {
-			all_label.color = theme.text
-			all_label.font.bold = false
-			favorite_label.color = theme.text
-			favorite_label.font.bold = false
-			played_label.color = theme.text
-			played_label.font.bold = false
-			search_label.color = theme.accent
-			search_label.font.bold = true
-			searchValue = ""
-			header__search_input.clear()
-			header__search_input.focus = true
+			event.accepted = true
+			searchValue = ''
+			header__search_input.text = 'Search'
+			header__search_layout.focus = true
+		}
+
 	}
-}
 
 	MouseArea {
 		id: search_mouse
-		anchors.fill: search_button
+		anchors.fill: search_label
 		onClicked: {
-			all_label.color = theme.text
-			all_label.font.bold = false
-			favorite_label.color = theme.text
-			favorite_label.font.bold = false
-			played_label.color = theme.text
-			played_label.font.bold = false
-			search_label.color = theme.accent
-			search_label.font.bold = true
-			searchValue = ""
-			header__search_input.clear()
-			header__search_input.focus = true
+			searchValue = ''
+			header__search_input.text = 'Search'
+			header__search_layout.focus = true
+		}
+
 	}
 
 }
+
+	Rectangle {
+		id: header__search_layout
+		color: theme.background
+		width: aspectRatio === 43 ? vpx(100*screenRatio) : vpx(250*screenRatio)
+		height: aspectRatio === 43 ? vpx(28*screenRatio) : vpx(150*screenRatio)
+		border.color: theme.accent
+		border.width: aspectRatio === 43 ? vpx(1.5*screenRatio) : vpx(1*screenRatio)
+		radius: vpx(3*screenRatio)
+		visible: header__search_layout.focus || header__search_input.focus || header__search_button_cancel.focus || header__search_button_ok.focus
+
+	anchors {
+		top: header.bottom; topMargin: aspectRatio === 43 ? vpx(30*screenRatio) : vpx(50*screenRatio)
+		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(34*screenRatio) : vpx(215*screenRatio)
+	}
+
+	Text {
+		id: header__search_layout_label
+		color: theme.text
+		text: "Search Content"
+		font.pixelSize: aspectRatio === 43 ? vpx(16*screenRatio) : vpx(18*screenRatio)
+		font.bold: true
+
+	anchors {
+		top: header__search_layout.top; topMargin: vpx(20)
+		left: header__search_layout.left; leftMargin: vpx(115)
+	}
+
+}
+
+	KeyNavigation.down: header__search_button_cancel;
+
+	Keys.onPressed: {
+		if (api.keys.isAccept(event)) {
+			event.accepted = true
+			searchValue = ''
+			header__search_input.clear()
+			header__search_input.focus = true
+		}
+
+		 if (api.keys.isCancel(event)) {
+			event.accepted = true
+			searchValue = ''
+			header__search_input.text = 'Search'
+			search_button.focus = true
+		}
+
+	}
+
+}
+
+	Rectangle {
+		id: header__search_button_cancel
+		width: aspectRatio === 43 ? vpx(64*screenRatio) : vpx(52*screenRatio)
+		height: aspectRatio === 43 ? vpx(34*screenRatio) : vpx(25*screenRatio)
+		color: focus ? theme.select : theme.background
+                border.color: focus ? theme.accent : theme.background
+                border.width: 1
+		visible: header__search_layout.focus || header__search_input.focus || header__search_button_cancel.focus || header__search_button_ok.focus
+
+	Text {
+		id: header__search_button_cancel_label
+		text: "Cancel"
+		color: theme.text
+		font.pixelSize: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(15*screenRatio)
+		font.bold: true
+
+	anchors {
+		centerIn: parent
+	}
+
+}
+
+	anchors {
+		bottom: header__search_layout.bottom; bottomMargin: vpx(15)
+		right: header__search_layout.right; rightMargin: vpx(85)
+	}
+
+	KeyNavigation.up: header__search_input;
+	KeyNavigation.right: header__search_button_ok;
+
+	Keys.onPressed: {
+		if (api.keys.isAccept(event)) {
+			event.accepted = true
+			searchValue = ''
+			header__search_input.text = 'Search'
+			search_button.focus = true
+		}
+
+	        if (event.key === Qt.Key_Up) {
+			searchValue = ''
+			header__search_input.clear()
+			header__search_input.focus = true
+		}
+
+	}
+
+	MouseArea {
+		id: header__search_button_cancel_mouse
+		anchors.fill: header__search_button_cancel
+		onClicked: {
+
+		if (header__search_input.focus) {
+			searchValue = ''
+			header__search_input.text = 'Search'
+			header__search_layout.focus = true
+		}
+
+		else {
+			searchValue = ''
+			header__search_input.text = 'Search'
+			search_button.focus = true
+		}
+
+		}
+
+	}
+
+}
+
+	Rectangle {
+		id: header__search_button_ok
+		width: aspectRatio === 43 ? vpx(64*screenRatio) : vpx(25*screenRatio)
+		height: aspectRatio === 43 ? vpx(34*screenRatio) : vpx(25*screenRatio)
+		color: focus ? theme.select : theme.background
+                border.color: focus ? theme.accent : theme.background
+                border.width: 1
+		visible: header__search_layout.focus || header__search_input.focus || header__search_button_cancel.focus || header__search_button_ok.focus
+
+	Text {
+		id: header__search_button_ok_label
+		text: "OK"
+		color: theme.text
+		font.pixelSize: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(14*screenRatio)
+		font.bold: true
+
+	anchors {
+		centerIn: parent
+	}
+
+}
+
+	anchors {
+		bottom: header__search_layout.bottom; bottomMargin: vpx(15)
+		left: header__search_button_cancel.right; leftMargin: vpx(15)
+	}
+
+	KeyNavigation.up: header__search_input;
+	KeyNavigation.left: header__search_button_cancel;
+
+	Keys.onPressed: {
+		if (api.keys.isAccept(event)) {
+			event.accepted = true
+
+		if (searchValue) {
+			event.accepted = true
+			currentCollectionIndex = 2
+			gameView.currentIndex = 0
+			gameView.model = searchGames
+			navigate('Software')
+		}
+
+		else {
+			searchValue = ''
+			header__search_input.clear()
+			header__search_input.focus = true
+		}
+
+		}
+
+	        if (event.key === Qt.Key_Up) {
+			searchValue = ''
+			header__search_input.clear()
+			header__search_input.focus = true
+		}
+
+	}
+
+	MouseArea {
+		id: header__search_button_ok_mouse
+		anchors.fill: header__search_button_ok
+		onClicked: {
+
+		if (searchValue) {
+			currentCollectionIndex = 2
+			gameView.currentIndex = 0
+			gameView.model = searchGames
+			navigate('Software')
+		}
+
+		else {
+			searchValue = ''
+			header__search_input.clear()
+			header__search_input.focus = true
+		}
+
+		}
+
+	}
 
 }
 
 	Rectangle {
 		id: header__search
 		color: theme.background
-		width: aspectRatio === 43 ? vpx(100*screenRatio) : vpx(120*screenRatio)
-		height: aspectRatio === 43 ? vpx(28*screenRatio) : vpx(26*screenRatio)
-		border.color: theme.text
+		width: aspectRatio === 43 ? vpx(100*screenRatio) : vpx(140*screenRatio)
+		height: aspectRatio === 43 ? vpx(28*screenRatio) : vpx(28*screenRatio)
+		border.color: theme.accent
 		border.width: aspectRatio === 43 ? vpx(1.5*screenRatio) : vpx(1*screenRatio)
 		radius: vpx(5*screenRatio)
-		visible: searchValue || header__search_input.focus
+		visible: header__search_layout.focus || header__search_input.focus || header__search_button_cancel.focus || header__search_button_ok.focus
 
 	anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? vpx(30*screenRatio) : vpx(22*screenRatio)
-		left: search_button.right; leftMargin: aspectRatio === 43 ? vpx(34*screenRatio) : vpx(56*screenRatio)
+		centerIn: header__search_layout
 	}
 
 
@@ -396,11 +545,11 @@ import QtGraphicalEffects 1.12
 		verticalCenter: header__search.verticalCenter
 	}
 
-}              
+}
 
 	TextInput {
 		id: header__search_input
-		color: theme.text
+		color: searchValue ? theme.text : "grey"
 		font.pixelSize: aspectRatio === 43 ? vpx(16*screenRatio) : vpx(15*screenRatio)
 		clip: true
 
@@ -412,19 +561,63 @@ import QtGraphicalEffects 1.12
 
 	onTextEdited: {
 		searchValue = header__search_input.text
-		gameView.model = searchGames
-		gameView.currentIndex = 0
 	}
 
 	Keys.onPressed: {
 		if (api.keys.isAccept(event)) {
-		navigate('Software')
-	}  
-        if (event.key === Qt.Key_Down) {
-		navigate('Software')
+			event.accepted = true
+
+		if (searchValue) {
+			header__search_layout.focus = true
+		}
+
+		else {
+			searchValue = ''
+			header__search_input.text = 'Search'
+			header__search_layout.focus = true
+		}
+
+		}
+
+	        if (event.key === Qt.Key_Down) {
+
+		if (searchValue) {
+		}
+
+		else {
+			searchValue = ''
+			header__search_input.text = 'Search'
+		}
+
+		}
+
+		if (api.keys.isCancel(event)) {
+			event.accepted = true
+
+		if (searchValue) {
+			header__search_layout.focus = true
+		}
+
+		else {
+			searchValue = ''
+			header__search_input.text = 'Search'
+			header__search_layout.focus = true
+		}
+
 	}
 
 }
+
+	MouseArea {
+		id: header__search_input_mouse
+		anchors.fill: header__search_input
+		onClicked: {
+			searchValue = ''
+			header__search_input.clear()
+			header__search_input.focus = true
+		}
+
+	}
 
 }
  
@@ -448,6 +641,7 @@ import QtGraphicalEffects 1.12
 		height: parent.height
 		color: "transparent"
 		clip: true
+		visible: header__search_layout.focus || header__search_input.focus || header__search_button_cancel.focus || header__search_button_ok.focus ? 0 : 1
 
 	GridView {
 		id: gameView
@@ -480,53 +674,50 @@ import QtGraphicalEffects 1.12
 		property bool selected: GridView.isCurrentItem
 		width: gameView.cellWidth - vpx(12*screenRatio)
 		height: width
-		scale: selected ? 1.06 : 1
+		scale: selected ? 1.07 : 1
 
 	//Launch game
 
 	Keys.onPressed: {
 		if (api.keys.isAccept(event)) {
-		event.accepted = true
-		currentGameIndex = index
-		currentGame.launch()
-}
+			event.accepted = true
+			currentGameIndex = index
+			currentGame.launch()
+	}
 
 	//We reset collection when going home
 
 	if (api.keys.isCancel(event)) {
-	api.memory.unset('currentCollectionIndex', currentCollectionIndex)
-}
+		api.memory.unset('currentCollectionIndex', currentCollectionIndex)
+	}
 
 	//Next page
 
 	if (api.keys.isNextPage(event)) {
-	event.accepted = true
-	aspectRatio === 43 ? gameView.currentIndex = Math.min(gameView.currentIndex + 9, currentCollection.games.count - 1) : gameView.currentIndex = Math.min(gameView.currentIndex + 12, currentCollection.games.count - 1)
-
-}
+		event.accepted = true
+		aspectRatio === 43 ? gameView.currentIndex = Math.min(gameView.currentIndex + 9, currentCollection.games.count - 1) : gameView.currentIndex = Math.min(gameView.currentIndex + 12, currentCollection.games.count - 1)
+	}
 
 	//Prev page
 
 	if (api.keys.isPrevPage(event)) {
-	event.accepted = true
-	aspectRatio === 43 ? gameView.currentIndex = Math.max(gameView.currentIndex - 9, 0) : gameView.currentIndex = Math.max(gameView.currentIndex - 12, 0)
-
-}
+		event.accepted = true
+		aspectRatio === 43 ? gameView.currentIndex = Math.max(gameView.currentIndex - 9, 0) : gameView.currentIndex = Math.max(gameView.currentIndex - 12, 0)
+	}
 
 	//Next collection
 
 	if (api.keys.isPageDown(event)) {
-	event.accepted = true
-	currentCollectionIndex = currentCollectionIndex + 1
-}
+		event.accepted = true
+		currentCollectionIndex = currentCollectionIndex + 1
+	}
 
 	//Prev collection
 
 	if (api.keys.isPageUp(event)) {
-	event.accepted = true
-	currentCollectionIndex = currentCollectionIndex - 1
-
-}
+		event.accepted = true
+		currentCollectionIndex = currentCollectionIndex - 1
+	}
 
 }
 
@@ -608,20 +799,19 @@ import QtGraphicalEffects 1.12
 	MouseArea {
 		id: game__item_mouse
 		anchors.fill: game__item
+		onPressAndHold: {
+			currentGameIndex = index
+			currentGame.favorite = !currentGame.favorite
+		}
 		onClicked: {
 			if (selected) {
 				currentGameIndex = index
 				currentGame.launch()
-	}
+			}
 			else
 				gameView.currentIndex = index
+			}
 	}
-		onPressAndHold: {
-			currentGameIndex = index
-			currentGame.favorite = !currentGame.favorite
-	}
-
-}
 
 	Rectangle {
 		id: game__title_bar
