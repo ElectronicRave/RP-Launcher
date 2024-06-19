@@ -10,19 +10,13 @@ import QtGraphicalEffects 1.12
 		if (api.keys.isCancel(event)) {
 			event.accepted = true
 
-		if (searchValue) {
+		if (header__search_button_cancel.focus) {
 			searchValue = ''
 			header__search_input.text = 'Search'
 			search_button.focus = true
 		}
 
 		else if (header__search_button_ok.focus) {
-			searchValue = ''
-			header__search_input.text = 'Search'
-			search_button.focus = true
-		}
-
-		else if (header__search_button_cancel.focus) {
 			searchValue = ''
 			header__search_input.text = 'Search'
 			search_button.focus = true
@@ -591,7 +585,7 @@ import QtGraphicalEffects 1.12
 			header__search_input.focus = true
 		}
 
-		 if (api.keys.isCancel(event)) {
+		if (api.keys.isCancel(event)) {
 			event.accepted = true
 			searchValue = ''
 			header__search_input.text = 'Search'
@@ -707,10 +701,8 @@ import QtGraphicalEffects 1.12
 
 		if (searchValue) {
 			event.accepted = true
-			currentCollectionIndex = 2
-			gameView.currentIndex = 0
-			gameView.model = searchGames
 			navigate('Software')
+			search_button.focus = true
 		}
 
 		else {
@@ -735,10 +727,8 @@ import QtGraphicalEffects 1.12
 		onClicked: {
 
 		if (searchValue) {
-			currentCollectionIndex = 2
-			gameView.currentIndex = 0
-			gameView.model = searchGames
 			navigate('Software')
+			search_button.focus = true
 		}
 
 		else {
@@ -798,7 +788,10 @@ import QtGraphicalEffects 1.12
 	}
 
 	onTextEdited: {
+		currentCollectionIndex = 2
 		searchValue = header__search_input.text
+		gameView.model = searchGames
+		gameView.currentIndex = 0
 	}
 
 	Keys.onPressed: {
