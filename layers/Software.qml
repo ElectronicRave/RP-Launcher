@@ -55,7 +55,7 @@ import QtGraphicalEffects 1.12
 		width: aspectRatio === 43 ? vpx(230*screenRatio) : vpx(230*screenRatio)
 		height: aspectRatio === 43 ? vpx(95*screenRatio) : vpx(95*screenRatio)
                 border.color: theme.accent
-		border.width: aspectRatio === 43 ? vpx(2*screenRatio) : vpx(1.5*screenRatio)
+		border.width: aspectRatio === 43 ? vpx(1.5*screenRatio) : vpx(1*screenRatio)
 		radius: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(5*screenRatio)
 		clip: true
 		visible: personal__center_layout_icon.focus || personal__center_layout_down_button.focus
@@ -101,7 +101,7 @@ import QtGraphicalEffects 1.12
 		width: aspectRatio === 43 ? vpx(230*screenRatio) : vpx(230*screenRatio)
 		height: aspectRatio === 43 ? vpx(125*screenRatio) : vpx(125*screenRatio)
                 border.color: theme.accent
-		border.width: aspectRatio === 43 ? vpx(2*screenRatio) : vpx(1.5*screenRatio)
+		border.width: aspectRatio === 43 ? vpx(1.5*screenRatio) : vpx(1*screenRatio)
 		radius: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(5*screenRatio)
 		clip: true
 		visible: personal__center_layout_icon.focus || personal__center_layout_down_button.focus
@@ -125,7 +125,7 @@ import QtGraphicalEffects 1.12
 		height: aspectRatio === 43 ? vpx(35*screenRatio) : vpx(30*screenRatio)
 		color: focus ? theme.select : "transparent"
                 border.color: focus ? theme.accent : "transparent"
-		border.width: aspectRatio === 43 ? vpx(1.5*screenRatio) : vpx(1*screenRatio)
+		border.width: aspectRatio === 43 ? vpx(1*screenRatio) : vpx(0.5*screenRatio)
 
 	KeyNavigation.up: personal__center_layout_icon
 
@@ -345,7 +345,7 @@ import QtGraphicalEffects 1.12
 		height: aspectRatio === 43 ? vpx(34*screenRatio) : vpx(32*screenRatio)
 		color: focus ? theme.select : theme.background
                 border.color: focus ? theme.accent : theme.background
-                border.width: 1
+                border.width: aspectRatio === 43 ? vpx(1*screenRatio) : vpx(0.5*screenRatio)
 
 	Text {
 		id: all_label
@@ -399,7 +399,7 @@ import QtGraphicalEffects 1.12
 		height: aspectRatio === 43 ? vpx(34*screenRatio) : vpx(32*screenRatio)
 		color: focus ? theme.select : theme.background
                 border.color: focus ? theme.accent : theme.background
-                border.width: 1
+                border.width: aspectRatio === 43 ? vpx(1*screenRatio) : vpx(0.5*screenRatio)
 
 	Text {
 		id: favorite_label
@@ -453,7 +453,7 @@ import QtGraphicalEffects 1.12
 		height: aspectRatio === 43 ? vpx(34*screenRatio) : vpx(32*screenRatio)
 		color: focus ? theme.select : theme.background
                 border.color: focus ? theme.accent : theme.background
-                border.width: 1
+                border.width: aspectRatio === 43 ? vpx(1*screenRatio) : vpx(0.5*screenRatio)
 
 	Text {
 		id: played_label
@@ -507,7 +507,7 @@ import QtGraphicalEffects 1.12
 		height: aspectRatio === 43 ? vpx(34*screenRatio) : vpx(32*screenRatio)
 		color: focus ? theme.select : theme.background
                 border.color: focus ? theme.accent : theme.background
-                border.width: 1
+                border.width: aspectRatio === 43 ? vpx(1*screenRatio) : vpx(0.5*screenRatio)
 
 	Text {
 		id: search_label
@@ -608,7 +608,7 @@ import QtGraphicalEffects 1.12
 		height: aspectRatio === 43 ? vpx(25*screenRatio) : vpx(25*screenRatio)
 		color: focus ? theme.select : theme.background
                 border.color: focus ? theme.accent : theme.background
-                border.width: aspectRatio === 43 ? vpx(1.5*screenRatio) : vpx(1*screenRatio)
+                border.width: aspectRatio === 43 ? vpx(1*screenRatio) : vpx(0.5*screenRatio)
 		visible: header__search_layout.focus || header__search_input.focus || header__search_button_cancel.focus || header__search_button_ok.focus
 
 	Text {
@@ -677,7 +677,7 @@ import QtGraphicalEffects 1.12
 		height: aspectRatio === 43 ? vpx(25*screenRatio) : vpx(25*screenRatio)
 		color: focus ? theme.select : theme.background
                 border.color: focus ? theme.accent : theme.background
-                border.width: aspectRatio === 43 ? vpx(1.5*screenRatio) : vpx(1*screenRatio)
+                border.width: aspectRatio === 43 ? vpx(1*screenRatio) : vpx(0.5*screenRatio)
 		visible: header__search_layout.focus || header__search_input.focus || header__search_button_cancel.focus || header__search_button_ok.focus
 
 	Text {
@@ -695,7 +695,7 @@ import QtGraphicalEffects 1.12
 
 	anchors {
 		bottom: header__search_layout.bottom; bottomMargin: aspectRatio === 43 ? vpx(10*screenRatio) : vpx(8*screenRatio)
-		left: header__search_button_cancel.right; leftMargin: aspectRatio === 43 ? vpx(6*screenRatio) : vpx(8*screenRatio)
+		left: header__search_button_cancel.right; leftMargin: aspectRatio === 43 ? vpx(8*screenRatio) : vpx(8*screenRatio)
 	}
 
 	KeyNavigation.up: header__search_input;
