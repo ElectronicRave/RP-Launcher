@@ -66,7 +66,7 @@ import "layers" as Layers
 		"buttons": "#CD7F32",
 		"text": "#FFFFFF",
 		"title": "#EBEBEB",
-		"select": "#4C4C4C",
+		"select": "#808080",
 	}
 
 	//Change the theme color
