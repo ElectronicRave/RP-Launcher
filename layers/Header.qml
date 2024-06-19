@@ -8,7 +8,6 @@ import SortFilterProxyModel 0.2
 		width: headerCSS.width
 		height: headerCSS.height
 		color: headerCSS.background
-		clip: true
 
 	anchors {
 		top: parent.top;

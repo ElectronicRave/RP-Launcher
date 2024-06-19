@@ -51,7 +51,7 @@ import QtGraphicalEffects 1.12
 }
 
 	anchors {
-		left: footer__button_b_img.right; leftMargin: aspectRatio === 43 ? vpx(-4*screenRatio) : vpx(-4*screenRatio)
+		left: footer__button_b_img.right; leftMargin: aspectRatio === 43 ? vpx(-1*screenRatio) : vpx(-4*screenRatio)
 		verticalCenter: parent.verticalCenter
 	}
 
@@ -85,6 +85,14 @@ import QtGraphicalEffects 1.12
 			searchValue = ''
 			header__search_input.text = 'Search'
 			search_button.focus = true
+		}
+
+		else if (personal__center_layout_down_button.focus) {
+			profile_icon.focus = true
+		}
+
+		else if (personal__center_layout_icon.focus) {
+			profile_icon.focus = true
 		}
 
 		else {
