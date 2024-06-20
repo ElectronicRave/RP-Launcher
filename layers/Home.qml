@@ -89,7 +89,7 @@ import QtGraphicalEffects 1.12
 		id: personal__center_layout_down_button
 		width: aspectRatio === 43 ? vpx(105*screenRatio) : vpx(90*screenRatio)
 		height: aspectRatio === 43 ? vpx(35*screenRatio) : vpx(30*screenRatio)
-		color: focus ? theme.select : "transparent"
+		color: focus ? "#A9A9A9" : "transparent"
                 border.color: focus ? theme.accent : "transparent"
 		border.width: aspectRatio === 43 ? vpx(1*screenRatio) : vpx(0.5*screenRatio)
 
@@ -529,7 +529,6 @@ import QtGraphicalEffects 1.12
 			currentCollectionIndex = system__item_container.ListView.view.currentIndex+3
 			api.memory.set('currentCollectionIndex', currentCollectionIndex)
 			navigate('Software')
-			return;
 		}
 
 	}
@@ -599,7 +598,6 @@ import QtGraphicalEffects 1.12
 			currentCollectionIndex = system__item_container.ListView.view.currentIndex+3
 			api.memory.set('currentCollectionIndex', currentCollectionIndex)
 			navigate('Software')
-			return;
 		}
 		else
 			systemListView.currentIndex = index
