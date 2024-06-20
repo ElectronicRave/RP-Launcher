@@ -701,6 +701,7 @@ import QtGraphicalEffects 1.12
 
 		if (searchValue) {
 			event.accepted = true
+			currentCollectionIndex = 2
 			navigate('Software')
 			search_button.focus = true
 		}
@@ -727,6 +728,7 @@ import QtGraphicalEffects 1.12
 		onClicked: {
 
 		if (searchValue) {
+			currentCollectionIndex = 2
 			navigate('Software')
 			search_button.focus = true
 		}
@@ -788,7 +790,6 @@ import QtGraphicalEffects 1.12
 	}
 
 	onTextEdited: {
-		currentCollectionIndex = 2
 		searchValue = header__search_input.text
 		gameView.model = searchGames
 		gameView.currentIndex = 0
@@ -1162,7 +1163,7 @@ import QtGraphicalEffects 1.12
 
 }
 
-	//Favorite
+	//Favorite icon
 
 	Canvas {
 		id: game__favorite
