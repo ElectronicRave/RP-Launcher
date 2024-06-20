@@ -21,7 +21,7 @@ import "layers" as Layers
 
 	//Game index
 
-	property int currentGameIndex: 0
+	property var currentGameIndex: 0
 
 	property var currentGame: {
 		if (currentCollection.shortName === "all-favorites")
