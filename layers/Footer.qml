@@ -16,7 +16,7 @@ import QtGraphicalEffects 1.12
 
 	Image {
 		id: footer__button_b_img
-		sourceSize.width: aspectRatio === 43 ? vpx(43*screenRatio) : vpx(36*screenRatio)
+		sourceSize.width: aspectRatio === 43 ? vpx(42*screenRatio) : vpx(35*screenRatio)
 		fillMode: Image.PreserveAspectFit
 		source: "../assets/icons/button_b.svg"
 		layer.enabled: true
@@ -34,7 +34,7 @@ import QtGraphicalEffects 1.12
 	Rectangle {
 		id: footer__button_b
 		width: vpx(55)
-		height: vpx(40)
+		height: vpx(43)
 		color: "transparent"
 		visible: currentPage === 'Software' ? 1 : 0
 
@@ -42,7 +42,7 @@ import QtGraphicalEffects 1.12
 		id: footer__button_b_legend
 		text: "Back"
 		color: theme.text
-		font.pixelSize: aspectRatio === 43 ? vpx(16*screenRatio) : vpx(14*screenRatio)
+		font.pixelSize: aspectRatio === 43 ? vpx(15*screenRatio) : vpx(13*screenRatio)
 
 	anchors {
 		centerIn: footer__button_b
@@ -109,7 +109,7 @@ import QtGraphicalEffects 1.12
 
 	Image {
 		id: footer__button_a_img
-		sourceSize.width: aspectRatio === 43 ? vpx(43*screenRatio) : vpx(36*screenRatio)
+		sourceSize.width: aspectRatio === 43 ? vpx(42*screenRatio) : vpx(35*screenRatio)
 		fillMode: Image.PreserveAspectFit
 		source: "../assets/icons/button_a.svg"
 		layer.enabled: true
@@ -126,14 +126,14 @@ import QtGraphicalEffects 1.12
 	Rectangle {
 		id: footer__button_a
 		width: vpx(35)
-		height: vpx(40)
+		height: vpx(43)
 		color: "transparent"
 
 	Text {
 		id: footer__button_a_legend
 		text: "OK"
 		color: theme.text
-		font.pixelSize: aspectRatio === 43 ? vpx(16*screenRatio) : vpx(14*screenRatio)
+		font.pixelSize: aspectRatio === 43 ? vpx(15*screenRatio) : vpx(13*screenRatio)
 
 	anchors {
 		centerIn: footer__button_a
@@ -152,8 +152,8 @@ import QtGraphicalEffects 1.12
 
 	Rectangle {
 		id: time_button
-		width: aspectRatio === 43 ? vpx(48*screenRatio) : vpx(45*screenRatio)
-		height: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(28*screenRatio)
+		width: aspectRatio === 43 ? vpx(48*screenRatio) : vpx(43*screenRatio)
+		height: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(26*screenRatio)
 		color: focus ? theme.select : theme.background
                 border.color: focus ? theme.accent : theme.background
                 border.width: 1
@@ -162,7 +162,7 @@ import QtGraphicalEffects 1.12
 		id: footer__time
 		text: Qt.formatTime(new Date(), "hh:mm")
 		color: theme.text
-		font.pixelSize: aspectRatio === 43 ? vpx(18*screenRatio) : vpx(16*screenRatio)
+		font.pixelSize: aspectRatio === 43 ? vpx(16*screenRatio) : vpx(14*screenRatio)
 
 	anchors {
 		centerIn: parent

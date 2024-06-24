@@ -27,7 +27,7 @@ import QtGraphicalEffects 1.12
 
 	Image {
 		id: header__battery_icon
-		sourceSize.width: aspectRatio === 43 ? vpx(42.5*screenRatio) : vpx(32.5*screenRatio)
+		sourceSize.width: aspectRatio === 43 ? vpx(40*screenRatio) : vpx(29*screenRatio)
 		fillMode: Image.PreserveAspectFit
 		source: getBatteryIcon()
 		layer.enabled: true
@@ -36,7 +36,7 @@ import QtGraphicalEffects 1.12
 
 	anchors {
 		top: parent.top; topMargin: aspectRatio === 43 ? vpx(3*screenRatio) : vpx(3*screenRatio)
-		right: parent.right; rightMargin: aspectRatio === 43 ? vpx(62*screenRatio) : vpx(62*screenRatio)
+		right: parent.right; rightMargin: aspectRatio === 43 ? vpx(72*screenRatio) : vpx(60*screenRatio)
 	}
 
 	//Battery levels
@@ -79,7 +79,7 @@ import QtGraphicalEffects 1.12
 
 		Image {
 			id: header__battery_icon_charging
-			sourceSize.width: aspectRatio === 43 ? vpx(18*screenRatio) : vpx(13*screenRatio)
+			sourceSize.width: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(15*screenRatio)
 			fillMode: Image.PreserveAspectFit
 			source: "../assets/icons/charge.svg"
 			antialiasing: true
@@ -96,12 +96,12 @@ import QtGraphicalEffects 1.12
 		id: header__battery_level
 		text: Math.floor(api.device.batteryPercent*100)+"%"
 		color: theme.text
-		font.pixelSize: aspectRatio === 43 ? vpx(16*screenRatio) : vpx(14*screenRatio)
+		font.pixelSize: aspectRatio === 43 ? vpx(15*screenRatio) : vpx(13*screenRatio)
 		font.bold: true
 
 		anchors {
 			top: parent.top; topMargin: aspectRatio === 43 ? vpx(4*screenRatio) : vpx(2*screenRatio)
-			left: header__battery_icon.right; leftMargin: aspectRatio === 43 ? vpx(4*screenRatio) : vpx(4*screenRatio)
+			left: header__battery_icon.right; leftMargin: aspectRatio === 43 ? vpx(4*screenRatio) : vpx(3*screenRatio)
 		}
 
 }

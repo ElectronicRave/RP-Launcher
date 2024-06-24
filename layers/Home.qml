@@ -328,7 +328,7 @@ import QtGraphicalEffects 1.12
 }
 
 	anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? vpx(26*screenRatio) : vpx(18*screenRatio)
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(26*screenRatio) : vpx(20*screenRatio)
 		left: profile_button.right; leftMargin: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(48*screenRatio)
 	}
 
@@ -382,7 +382,7 @@ import QtGraphicalEffects 1.12
 }
 
 	anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? vpx(26*screenRatio) : vpx(18*screenRatio)
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(26*screenRatio) : vpx(20*screenRatio)
 		left: all_button.right; leftMargin: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(20*screenRatio)
 	}
 
@@ -436,7 +436,7 @@ import QtGraphicalEffects 1.12
 }
 
 	anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? vpx(26*screenRatio) : vpx(18*screenRatio)
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(26*screenRatio) : vpx(20*screenRatio)
 		left: favorite_button.right; leftMargin: aspectRatio === 43 ? vpx(15*screenRatio) : vpx(15*screenRatio)
 	}
 
