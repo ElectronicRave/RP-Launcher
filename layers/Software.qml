@@ -295,7 +295,7 @@ import QtGraphicalEffects 1.12
 
 	Text {
 		id: personal__center_layout_lace_label
-		text: "Retroid"
+		text: "Pegasus"
 		color: "grey"
 		font.pixelSize: aspectRatio === 43 ? vpx(16*screenRatio) : vpx(14*screenRatio)
 
