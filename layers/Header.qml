@@ -36,7 +36,7 @@ import QtGraphicalEffects 1.12
 
 	anchors {
 		top: parent.top; topMargin: aspectRatio === 43 ? vpx(3*screenRatio) : vpx(3*screenRatio)
-		right: parent.right; rightMargin: aspectRatio === 43 ? vpx(72*screenRatio) : vpx(60*screenRatio)
+		right: parent.right; rightMargin: aspectRatio === 43 ? vpx(62*screenRatio) : vpx(60*screenRatio)
 	}
 
 	//Battery levels
@@ -45,21 +45,21 @@ import QtGraphicalEffects 1.12
 
 	function getBatteryIcon() {
 			if (level >= 0 && level <= 21)
-			return "../assets/icons/battery_empty.svg"
+			return "../assets/icons/battery_empty.png"
 		else
 			if (level >= 21 && level <= 41)
-			return "../assets/icons/battery_quarter.svg"
+			return "../assets/icons/battery_quarter.png"
 		else
 			if (level >= 41 && level <= 61)
-			return "../assets/icons/battery_half.svg"
+			return "../assets/icons/battery_half.png"
 		else
 			if (level >= 61 && level <= 81)
-			return "../assets/icons/battery_three_quarters.svg"
+			return "../assets/icons/battery_three_quarters.png"
 		else
 			if (level >= 81 && level <= 100)
-			return "../assets/icons/battery_full.svg"
+			return "../assets/icons/battery_full.png"
 		else
-			return "../assets/icons/battery_empty.svg"
+			return "../assets/icons/battery_empty.png"
 	}
 
 	function set() {
@@ -81,7 +81,7 @@ import QtGraphicalEffects 1.12
 			id: header__battery_icon_charging
 			sourceSize.width: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(15*screenRatio)
 			fillMode: Image.PreserveAspectFit
-			source: "../assets/icons/charge.svg"
+			source: "../assets/icons/charge.png"
 			antialiasing: true
 			smooth: true
 			visible: chargingStatus && header__battery_icon.level < 100

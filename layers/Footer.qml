@@ -18,7 +18,7 @@ import QtGraphicalEffects 1.12
 		id: footer__button_b_img
 		sourceSize.width: aspectRatio === 43 ? vpx(42*screenRatio) : vpx(35*screenRatio)
 		fillMode: Image.PreserveAspectFit
-		source: "../assets/icons/button_b.svg"
+		source: "../assets/icons/button_b.png"
 		layer.enabled: true
 		layer.effect: ColorOverlay { color: theme.title }
 		smooth: true
@@ -42,7 +42,7 @@ import QtGraphicalEffects 1.12
 		id: footer__button_b_legend
 		text: "Back"
 		color: theme.text
-		font.pixelSize: aspectRatio === 43 ? vpx(15*screenRatio) : vpx(13*screenRatio)
+		font.pixelSize: aspectRatio === 43 ? vpx(16*screenRatio) : vpx(13*screenRatio)
 
 	anchors {
 		centerIn: footer__button_b
@@ -95,6 +95,14 @@ import QtGraphicalEffects 1.12
 			profile_icon.focus = true
 		}
 
+		else if (game__settings_layout.focus) {
+			navigate('Software')
+		}
+
+		else if (game__settings_layout_favorite_button.focus) {
+			navigate('Software')
+		}
+
 		else {
 			api.memory.unset('currentCollectionIndex', currentCollectionIndex)
 			searchValue = ''
@@ -111,13 +119,13 @@ import QtGraphicalEffects 1.12
 		id: footer__button_a_img
 		sourceSize.width: aspectRatio === 43 ? vpx(42*screenRatio) : vpx(35*screenRatio)
 		fillMode: Image.PreserveAspectFit
-		source: "../assets/icons/button_a.svg"
+		source: "../assets/icons/button_a.png"
 		layer.enabled: true
 		layer.effect: ColorOverlay { color: theme.title }
 		smooth: true
 
 	anchors {
-		left: footer__button_b.right; leftMargin: aspectRatio === 43 ? vpx(4*screenRatio) : vpx(4*screenRatio)
+		left: footer__button_b.right; leftMargin: aspectRatio === 43 ? vpx(6*screenRatio) : vpx(4*screenRatio)
 		verticalCenter: parent.verticalCenter
 	}
 
@@ -162,7 +170,7 @@ import QtGraphicalEffects 1.12
 		id: footer__time
 		text: Qt.formatTime(new Date(), "hh:mm")
 		color: theme.text
-		font.pixelSize: aspectRatio === 43 ? vpx(16*screenRatio) : vpx(14*screenRatio)
+		font.pixelSize: aspectRatio === 43 ? vpx(18*screenRatio) : vpx(14*screenRatio)
 
 	anchors {
 		centerIn: parent

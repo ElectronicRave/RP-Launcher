@@ -35,10 +35,6 @@ import QtGraphicalEffects 1.12
 		border.width: personal__center_layout_up.border.width
 		radius: personal__center_layout_up.radius
 
-	anchors {
-		top: parent.top;
-	}
-
 	Text {
 		id: personal__center_layout_label
 		text: "Personal Center"
@@ -56,8 +52,8 @@ import QtGraphicalEffects 1.12
 	}
 
 	anchors {
-		top: parent.bottom; topMargin: aspectRatio === 43 ? vpx(55*screenRatio) : vpx(22*screenRatio)
-		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(210*screenRatio) : vpx(220*screenRatio)
+		top: parent.bottom; topMargin: aspectRatio === 43 ? vpx(55*screenRatio) : vpx(22*screenRatio);
+		horizontalCenter: parent.horizontalCenter;
 	}
 
 }
@@ -123,7 +119,7 @@ import QtGraphicalEffects 1.12
 
 	anchors {
 		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(10*screenRatio) : vpx(10*screenRatio)
-		verticalCenter: parent.verticalCenter;
+		bottom: parent.bottom; bottomMargin: aspectRatio === 43 ? vpx(18*screenRatio) : vpx(25*screenRatio)
 	}
 
 	Rectangle {
@@ -206,7 +202,7 @@ import QtGraphicalEffects 1.12
 
 	anchors {
 		top: personal__center_layout_up.bottom;
-		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(210*screenRatio) : vpx(220*screenRatio);
+		horizontalCenter: parent.horizontalCenter;
 	}
 
 }
@@ -225,7 +221,7 @@ import QtGraphicalEffects 1.12
 		id: theme__color_layout_icon_image
 		sourceSize.width: aspectRatio === 43 ? vpx(70*screenRatio) : vpx(60*screenRatio)
 		fillMode: Image.PreserveAspectFit
-		source: "../assets/icons/profile.svg"
+		source: "../assets/icons/profile.png"
 		antialiasing: true
 		smooth: true
 
@@ -250,6 +246,32 @@ import QtGraphicalEffects 1.12
 
 	}
 
+	Image {
+		id: personal__center_layout_lace_image
+		sourceSize.height: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(20*screenRatio)
+		fillMode: Image.PreserveAspectFit
+		source: "../assets/icons/lace.png"
+		antialiasing: true
+		smooth: true
+
+	anchors {
+		top: personal__center_layout_icon.bottom; topMargin: aspectRatio === 43 ? vpx(6*screenRatio) : vpx(6*screenRatio);
+		horizontalCenter: parent.horizontalCenter;
+	}
+
+	Text {
+		id: personal__center_layout_lace_label
+		text: "Retroid"
+		color: "grey"
+		font.pixelSize: aspectRatio === 43 ? vpx(16*screenRatio) : vpx(14*screenRatio)
+
+	anchors {
+		centerIn: parent
+	}
+}
+
+}
+
 }
 
 	//Profile icon
@@ -267,7 +289,7 @@ import QtGraphicalEffects 1.12
 		id: profile_icon
 		sourceSize.width: aspectRatio === 43 ? vpx(42*screenRatio) : vpx(30*screenRatio)
 		fillMode: Image.PreserveAspectFit
-		source: "../assets/icons/profile.svg"
+		source: "../assets/icons/profile.png"
 		antialiasing: true
 		smooth: true
 

@@ -22,6 +22,14 @@ import QtGraphicalEffects 1.12
 			search_button.focus = true
 		}
 
+		else if (game__settings_layout.focus) {
+			navigate('Software')
+		}
+
+		else if (game__settings_layout_favorite_button.focus) {
+			navigate('Software')
+		}
+
 		else {
 			api.memory.unset('currentCollectionIndex', currentCollectionIndex)
 			searchValue = ''
@@ -63,10 +71,6 @@ import QtGraphicalEffects 1.12
 		border.width: personal__center_layout_up.border.width
 		radius: personal__center_layout_up.radius
 
-	anchors {
-		top: parent.top;
-	}
-
 	Text {
 		id: personal__center_layout_label
 		text: "Personal Center"
@@ -85,7 +89,7 @@ import QtGraphicalEffects 1.12
 
 	anchors {
 		top: parent.bottom; topMargin: aspectRatio === 43 ? vpx(55*screenRatio) : vpx(22*screenRatio)
-		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(210*screenRatio) : vpx(220*screenRatio)
+		horizontalCenter: parent.horizontalCenter
 	}
 
 }
@@ -149,7 +153,7 @@ import QtGraphicalEffects 1.12
 
 	anchors {
 		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(10*screenRatio) : vpx(10*screenRatio)
-		verticalCenter: parent.verticalCenter;
+		bottom: parent.bottom; bottomMargin: aspectRatio === 43 ? vpx(18*screenRatio) : vpx(25*screenRatio)
 	}
 
 	Rectangle {
@@ -232,7 +236,7 @@ import QtGraphicalEffects 1.12
 
 	anchors {
 		top: personal__center_layout_up.bottom;
-		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(210*screenRatio) : vpx(220*screenRatio);
+		horizontalCenter: parent.horizontalCenter;
 	}
 
 }
@@ -251,7 +255,7 @@ import QtGraphicalEffects 1.12
 		id: theme__color_layout_icon_image
 		sourceSize.width: aspectRatio === 43 ? vpx(70*screenRatio) : vpx(60*screenRatio)
 		fillMode: Image.PreserveAspectFit
-		source: "../assets/icons/profile.svg"
+		source: "../assets/icons/profile.png"
 		antialiasing: true
 		smooth: true
 
@@ -276,6 +280,32 @@ import QtGraphicalEffects 1.12
 
 	}
 
+	Image {
+		id: personal__center_layout_lace_image
+		sourceSize.height: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(20*screenRatio)
+		fillMode: Image.PreserveAspectFit
+		source: "../assets/icons/lace.png"
+		antialiasing: true
+		smooth: true
+
+	anchors {
+		top: personal__center_layout_icon.bottom; topMargin: aspectRatio === 43 ? vpx(6*screenRatio) : vpx(6*screenRatio);
+		horizontalCenter: parent.horizontalCenter;
+	}
+
+	Text {
+		id: personal__center_layout_lace_label
+		text: "Retroid"
+		color: "grey"
+		font.pixelSize: aspectRatio === 43 ? vpx(16*screenRatio) : vpx(14*screenRatio)
+
+	anchors {
+		centerIn: parent
+	}
+}
+
+}
+
 }
 
 	//Profile icon
@@ -293,7 +323,7 @@ import QtGraphicalEffects 1.12
 		id: profile_icon
 		sourceSize.width: aspectRatio === 43 ? vpx(42*screenRatio) : vpx(30*screenRatio)
 		fillMode: Image.PreserveAspectFit
-		source: "../assets/icons/profile.svg"
+		source: "../assets/icons/profile.png"
 		antialiasing: true
 		smooth: true
 
@@ -557,8 +587,8 @@ import QtGraphicalEffects 1.12
 		visible: header__search_layout.focus || header__search_input.focus || header__search_button_cancel.focus || header__search_button_ok.focus
 
 	anchors {
-		top: header.bottom; topMargin: aspectRatio === 43 ? vpx(80*screenRatio) : vpx(55*screenRatio)
-		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(185*screenRatio) : vpx(215*screenRatio)
+		top: header.bottom; topMargin: aspectRatio === 43 ? vpx(80*screenRatio) : vpx(55*screenRatio);
+		horizontalCenter: parent.horizontalCenter;
 	}
 
 	Text {
@@ -768,7 +798,7 @@ import QtGraphicalEffects 1.12
 		id: header__search_icon
 		sourceSize.width: aspectRatio === 43 ? vpx(22*screenRatio) : vpx(20*screenRatio)
 		fillMode: Image.PreserveAspectFit
-		source: "../assets/icons/search.svg"
+		source: "../assets/icons/search.png"
 		layer.enabled: true
 		layer.effect: ColorOverlay { color: theme.text }
 		antialiasing: true
@@ -857,6 +887,131 @@ import QtGraphicalEffects 1.12
  
 }
 
+	//Game settings
+
+	Rectangle {
+		id: game__settings_layout
+		width: aspectRatio === 43 ? vpx(230*screenRatio) : vpx(230*screenRatio)
+		height: aspectRatio === 43 ? vpx(120*screenRatio) : vpx(120*screenRatio)
+		color: theme.background
+                border.color: theme.accent
+		border.width: aspectRatio === 43 ? vpx(1.5*screenRatio) : vpx(1*screenRatio)
+		radius: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(5*screenRatio)
+		visible: game__settings_layout.focus || game__settings_layout_favorite_button.focus
+
+	Text {
+		id: game__settings_layout_label
+		text: "Game Settings"
+		color: theme.text
+		font.bold: true
+		font.pixelSize: aspectRatio === 43 ? vpx(18*screenRatio) : vpx(16*screenRatio)
+
+	anchors {
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(10*screenRatio) : vpx(10*screenRatio)
+		horizontalCenter: parent.horizontalCenter
+	}
+
+}
+
+	Rectangle {
+		id: game__settings_layout_line
+		width: game__settings_layout.width
+		height: aspectRatio === 43 ? vpx(1.5*screenRatio) : vpx(1*screenRatio)
+		color: theme.text
+ 
+	anchors {
+		top: game__settings_layout_label.bottom; topMargin: aspectRatio === 43 ? vpx(10*screenRatio) : vpx(10*screenRatio)
+		horizontalCenter: game__settings_layout.horizontalCenter
+	}
+
+}
+
+	Rectangle {
+		id: game__settings_layout_favorite_button
+		width: aspectRatio === 43 ? vpx(226*screenRatio) : vpx(226*screenRatio)
+		height: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(30*screenRatio)
+		color: focus ? theme.select : theme.background
+                border.color: focus ? theme.accent : "transparent"
+		border.width: aspectRatio === 43 ? vpx(1*screenRatio) : vpx(0.5*screenRatio)
+
+	Image {
+		id: game__settings_layout_favorite_image
+		sourceSize.width: aspectRatio === 43 ? vpx(25*screenRatio) : vpx(22*screenRatio)
+		fillMode: Image.PreserveAspectFit
+		source: "../assets/icons/favorite_menu.png"
+		layer.enabled: true
+		layer.effect: ColorOverlay { color: theme.title }
+		smooth: true
+
+	anchors {
+		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(12*screenRatio) : vpx(12*screenRatio);
+		verticalCenter: parent.verticalCenter;
+	}
+
+}
+
+	Text {
+		id: game__settings_layout_favorite_set_label
+		text: "Set Favorite"
+		color: theme.text
+		font.pixelSize: aspectRatio === 43 ? vpx(16*screenRatio) : vpx(14*screenRatio)
+		visible: currentGame.favorite ? 0 : 1
+
+	anchors {
+		left: game__settings_layout_favorite_image.right; leftMargin: aspectRatio === 43 ? vpx(12*screenRatio) : vpx(12*screenRatio);
+		verticalCenter: parent.verticalCenter
+	}
+}
+
+	Text {
+		id: game__settings_layout_favorite_unset_label
+		text: "Set Un Favorite"
+		color: theme.text
+		font.pixelSize: aspectRatio === 43 ? vpx(16*screenRatio) : vpx(14*screenRatio)
+		visible: currentGame.favorite ? 1 : 0
+
+	anchors {
+		left: game__settings_layout_favorite_image.right; leftMargin: aspectRatio === 43 ? vpx(12*screenRatio) : vpx(12*screenRatio);
+		verticalCenter: parent.verticalCenter
+	}
+}
+	anchors {
+		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(2*screenRatio) : vpx(2*screenRatio);
+		bottom: parent.bottom; bottomMargin: aspectRatio === 43 ? vpx(23*screenRatio) : vpx(25*screenRatio);
+	}
+
+	KeyNavigation.up: game__settings_layout
+
+	Keys.onPressed: {
+		if (api.keys.isAccept(event)) {
+			event.accepted = true
+			currentGame.favorite = !currentGame.favorite
+			navigate('Software')
+		}
+
+	}
+
+	MouseArea {
+		id: game__settings_layout_favorite_button_mouse
+		anchors.fill: game__settings_layout_favorite_button
+		onClicked:{
+			currentGame.favorite = !currentGame.favorite
+			navigate('Software')
+		}
+
+	}
+
+}
+
+	anchors {
+		top: header.bottom; topMargin: aspectRatio === 43 ? vpx(110*screenRatio) : vpx(70*screenRatio)
+		horizontalCenter: parent.horizontalCenter
+	}
+
+	KeyNavigation.down: game__settings_layout_favorite_button
+
+	}
+
 }
 
 	Rectangle {
@@ -875,7 +1030,7 @@ import QtGraphicalEffects 1.12
 		height: parent.height
 		color: "transparent"
 		clip: true
-		visible: header__search_layout.focus || header__search_input.focus || header__search_button_cancel.focus || header__search_button_ok.focus || personal__center_layout_up.focus || personal__center_layout_down.focus || personal__center_layout_icon.focus || personal__center_layout_down_button.focus ? 0 : 1
+		visible: header__search_layout.focus || header__search_input.focus || header__search_button_cancel.focus || header__search_button_ok.focus || personal__center_layout_up.focus || personal__center_layout_down.focus || personal__center_layout_icon.focus || personal__center_layout_down_button.focus || game__settings_layout.focus || game__settings_layout_favorite_button.focus ? 0 : 1
 
 	GridView {
 		id: gameView
@@ -1035,7 +1190,7 @@ import QtGraphicalEffects 1.12
 		anchors.fill: game__item
 		onPressAndHold: {
 			currentGameIndex = index
-			currentGame.favorite = !currentGame.favorite
+			game__settings_layout.focus = true
 		}
 		onClicked: {
 			if (selected) {
@@ -1179,13 +1334,13 @@ import QtGraphicalEffects 1.12
 	Image {
 		sourceSize.width: aspectRatio === 43 ? vpx(26*screenRatio) : vpx(22*screenRatio)
 		fillMode: Image.PreserveAspectFit
-		source: focus ? "../assets/icons/favorite.svg" : "../assets/icons/favorite.svg"
+		source: "../assets/icons/favorite_icon.png"
 		antialiasing: true
 		smooth: true
 
 	anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? vpx(8*screenRatio) : vpx(4*screenRatio)
-		right: parent.right; rightMargin: aspectRatio === 43 ? vpx(8*screenRatio) : vpx(4*screenRatio)
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(4*screenRatio) : vpx(2*screenRatio)
+		right: parent.right; rightMargin: aspectRatio === 43 ? vpx(4*screenRatio) : vpx(2*screenRatio)
 	}
 
 }
