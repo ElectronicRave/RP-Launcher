@@ -618,7 +618,6 @@ import QtGraphicalEffects 1.12
 		if (api.keys.isCancel(event)) {
 			event.accepted = true
 			searchValue = ''
-			header__search_input.text = 'Search'
 			search_button.focus = true
 		}
 
@@ -660,7 +659,6 @@ import QtGraphicalEffects 1.12
 		if (api.keys.isAccept(event)) {
 			event.accepted = true
 			searchValue = ''
-			header__search_input.text = 'Search'
 			search_button.focus = true
 		}
 
@@ -676,19 +674,8 @@ import QtGraphicalEffects 1.12
 		id: header__search_button_cancel_mouse
 		anchors.fill: header__search_button_cancel
 		onClicked: {
-
-		if (header__search_input.focus) {
 			searchValue = ''
-			header__search_input.text = 'Search'
-			header__search_layout.focus = true
-		}
-
-		else {
-			searchValue = ''
-			header__search_input.text = 'Search'
 			search_button.focus = true
-		}
-
 		}
 
 	}

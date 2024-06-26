@@ -65,25 +65,21 @@ import QtGraphicalEffects 1.12
 
 		if (header__search_input.focus) {
 			searchValue = ''
-			header__search_input.text = 'Search'
-			header__search_layout.focus = true
+			search_button.focus = true
 		}
 
 		else if (header__search_layout.focus) {
 			searchValue = ''
-			header__search_input.text = 'Search'
 			search_button.focus = true
 		}
 
 		else if (header__search_button_ok.focus) {
 			searchValue = ''
-			header__search_input.text = 'Search'
 			search_button.focus = true
 		}
 
 		else if (header__search_button_cancel.focus) {
 			searchValue = ''
-			header__search_input.text = 'Search'
 			search_button.focus = true
 		}
 
