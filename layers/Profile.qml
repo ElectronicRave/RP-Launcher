@@ -62,7 +62,17 @@ import QtQuick 2.15
 		id: profile_icon_mouse
 		anchors.fill: profile_button
 		onClicked:{
+
+		if (currentPage === 'Home') {
 			personal__center_layout_icon.focus = true
+		}
+
+		else if (currentPage === 'Software') {
+			game__settings_layout.focus = false
+			game__settings_layout_favorite_button.focus = false
+			personal__center_layout_icon.focus = true
+		}
+
 		}
 
 	}

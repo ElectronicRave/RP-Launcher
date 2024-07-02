@@ -583,10 +583,29 @@ import QtGraphicalEffects 1.12
 				currentGameIndex = index
 				currentGame.launch()
 			}
-			else
+
+			if (game__settings_layout.focus) {
+				game__settings_layout.focus = false
+			}
+
+			else if (game__settings_layout_favorite_button.focus) {
+				game__settings_layout_favorite_button.focus = false
+			}
+
+			else if (personal__center_layout_icon.focus) {
+				navigate('Software')
+			}
+
+			else if (personal__center_layout_down_button.focus) {
+				navigate('Software')
+			}
+
+			else {
 				gameView.currentIndex = index
 			}
-	}
+
+			}
+		}
 
 	Rectangle {
 		id: game__title_bar

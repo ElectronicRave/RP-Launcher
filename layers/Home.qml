@@ -182,6 +182,14 @@ import QtGraphicalEffects 1.12
 			navigate('Software')
 		}
 
+		else if (personal__center_layout_icon.focus) {
+			navigate('Home')
+		}
+
+		else if (personal__center_layout_down_button.focus) {
+			navigate('Home')
+		}
+
 		else 
 			systemListView.currentIndex = index
 		}
