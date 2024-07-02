@@ -7,7 +7,7 @@ import QtGraphicalEffects 1.12
 	//Button B
 
 	Image {
-		id: footer__button_b_img
+		id: button_b_img
 		sourceSize.width: aspectRatio === 43 ? vpx(42*screenRatio) : vpx(35*screenRatio)
 		fillMode: Image.PreserveAspectFit
 		source: "../assets/icons/button_b.png"
@@ -24,26 +24,26 @@ import QtGraphicalEffects 1.12
 }
 
 	Rectangle {
-		id: footer__button_b
-		width: vpx(55)
-		height: vpx(43)
+		id: button_b_layout
+		width: aspectRatio === 43 ? vpx(28*screenRatio) : vpx(28*screenRatio)
+		height: aspectRatio === 43 ? vpx(23*screenRatio) : vpx(23*screenRatio)
 		color: "transparent"
 		visible: currentPage === 'Software' ? 1 : 0
 
 	Text {
-		id: footer__button_b_legend
+		id: button_b_legend
 		text: "Back"
 		color: theme.text
 		font.pixelSize: aspectRatio === 43 ? vpx(16*screenRatio) : vpx(13*screenRatio)
 
 	anchors {
-		centerIn: footer__button_b
+		centerIn: button_b_layout
 	}
 
 }
 
 	anchors {
-		left: footer__button_b_img.right; leftMargin: aspectRatio === 43 ? vpx(-1*screenRatio) : vpx(-4*screenRatio)
+		left: button_b_img.right; leftMargin: aspectRatio === 43 ? vpx(-1*screenRatio) : vpx(-4*screenRatio)
 		verticalCenter: parent.verticalCenter
 	}
 
@@ -51,8 +51,8 @@ import QtGraphicalEffects 1.12
 
 
 	MouseArea {
-		id: footer__button_b_mouse
-		anchors.fill: footer__button_b
+		id: button_b_layout_mouse
+		anchors.fill: button_b_layout
 		onClicked: {
 
 		if (header__search_layout.focus) {
@@ -102,7 +102,7 @@ import QtGraphicalEffects 1.12
 	//Button A
 
 	Image {
-		id: footer__button_a_img
+		id: button_a_img
 		sourceSize.width: aspectRatio === 43 ? vpx(42*screenRatio) : vpx(35*screenRatio)
 		fillMode: Image.PreserveAspectFit
 		source: "../assets/icons/button_a.png"
@@ -111,32 +111,32 @@ import QtGraphicalEffects 1.12
 		smooth: true
 
 	anchors {
-		left: footer__button_b.right; leftMargin: aspectRatio === 43 ? vpx(6*screenRatio) : vpx(4*screenRatio)
+		left: button_b_layout.right; leftMargin: aspectRatio === 43 ? vpx(6*screenRatio) : vpx(6*screenRatio)
 		verticalCenter: parent.verticalCenter
 	}
 
 }
 
 	Rectangle {
-		id: footer__button_a
-		width: vpx(35)
-		height: vpx(43)
+		id: button_a_layout
+		width: aspectRatio === 43 ? vpx(18*screenRatio) : vpx(18*screenRatio)
+		height: aspectRatio === 43 ? vpx(23*screenRatio) : vpx(23*screenRatio)
 		color: "transparent"
 
 	Text {
-		id: footer__button_a_legend
+		id: button_a_legend
 		text: "OK"
 		color: theme.text
 		font.pixelSize: aspectRatio === 43 ? vpx(15*screenRatio) : vpx(13*screenRatio)
 
 	anchors {
-		centerIn: footer__button_a
+		centerIn: button_a_layout
 	}
 
 }
 
 	anchors {
-		left: footer__button_a_img.right; leftMargin: aspectRatio === 43 ? vpx(-4*screenRatio) : vpx(-4*screenRatio)
+		left: button_a_img.right; leftMargin: aspectRatio === 43 ? vpx(-4*screenRatio) : vpx(-5*screenRatio)
 		verticalCenter: parent.verticalCenter
 	}
 

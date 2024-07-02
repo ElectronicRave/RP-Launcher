@@ -432,7 +432,7 @@ import QtGraphicalEffects 1.12
 
 	KeyNavigation.up: profile;
 
-	KeyNavigation.down: time;
+	KeyNavigation.down: quit;
 
 	anchors {
 		top: parent.top; topMargin: aspectRatio === 43 ? vpx(10*screenRatio) : vpx(10*screenRatio)
@@ -1204,6 +1204,10 @@ import QtGraphicalEffects 1.12
 	}
 
 	//Buttons
+
+	Quit {
+		id: quit
+	}
 
 	Buttons {
 		id: buttons

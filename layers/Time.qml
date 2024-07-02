@@ -9,7 +9,7 @@ import QtQuick 2.15
                 border.width: 1
 
 	Text {
-		id: footer__time
+		id: time_legend
 		text: Qt.formatTime(new Date(), "hh:mm")
 		color: theme.text
 		font.pixelSize: aspectRatio === 43 ? vpx(18*screenRatio) : vpx(14*screenRatio)
@@ -21,7 +21,7 @@ import QtQuick 2.15
 }
 
 	anchors {
-		right: buttons.right; rightMargin: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(26*screenRatio)
+		right: buttons.right; rightMargin: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(22*screenRatio)
 		verticalCenter: parent.verticalCenter
 
 	}
@@ -38,13 +38,25 @@ import QtQuick 2.15
 
 	}
 
+	KeyNavigation.left: {
+
+		if (currentPage === 'Home') {
+			quit;
+		}
+
+		else if (currentPage === 'Software') {
+			quit;
+		}
+
+	}
+
 	Timer {
-		id: footer__time_update
+		id: time_update
 		interval: 1000 //Run the timer every 1 second
 		running: true
 		repeat: true
 		triggeredOnStart: true
-		onTriggered: footer__time.text = Qt.formatTime(new Date(), "hh:mm")
+		onTriggered: time_legend.text = Qt.formatTime(new Date(), "hh:mm")
 	}
 
 }
