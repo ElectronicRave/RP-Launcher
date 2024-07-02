@@ -3,8 +3,8 @@ import QtGraphicalEffects 1.12
 
 	Rectangle {
 		id: button_quit_layout
-		width: aspectRatio === 43 ? vpx(50*screenRatio) : vpx(50*screenRatio)
-		height: aspectRatio === 43 ? vpx(28*screenRatio) : vpx(28*screenRatio)
+		width: aspectRatio === 43 ? vpx(60*screenRatio) : vpx(50*screenRatio)
+		height: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(28*screenRatio)
 		color: focus ? theme.select : theme.background
                 border.color: focus ? theme.accent : theme.background
                 border.width: 1
@@ -39,7 +39,7 @@ import QtGraphicalEffects 1.12
 }
 
 	anchors {
-		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(10*screenRatio) : vpx(15*screenRatio)
+		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(15*screenRatio) : vpx(15*screenRatio)
 		verticalCenter: parent.verticalCenter
 	}
 

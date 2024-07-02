@@ -3,7 +3,7 @@ import QtQuick 2.15
 	Rectangle {
 		id: time_button
 		width: aspectRatio === 43 ? vpx(48*screenRatio) : vpx(43*screenRatio)
-		height: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(26*screenRatio)
+		height: aspectRatio === 43 ? vpx(30*screenRatio) : vpx(26*screenRatio)
 		color: focus ? theme.select : theme.background
                 border.color: focus ? theme.accent : theme.background
                 border.width: 1
@@ -21,7 +21,7 @@ import QtQuick 2.15
 }
 
 	anchors {
-		right: buttons.right; rightMargin: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(22*screenRatio)
+		right: buttons.right; rightMargin: aspectRatio === 43 ? vpx(22*screenRatio) : vpx(22*screenRatio)
 		verticalCenter: parent.verticalCenter
 
 	}
