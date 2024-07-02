@@ -256,7 +256,7 @@ import QtGraphicalEffects 1.12
 
 	anchors {
 		top: header.bottom; topMargin: aspectRatio === 43 ? vpx(55*screenRatio) : vpx(20*screenRatio);
-		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(55*screenRatio) : vpx(225*screenRatio);
+		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(210*screenRatio) : vpx(225*screenRatio);
 	}
 
 }
@@ -405,7 +405,7 @@ import QtGraphicalEffects 1.12
 
 	anchors {
 		top: personal__center_layout_up.bottom;
-		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(55*screenRatio) : vpx(225*screenRatio);
+		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(210*screenRatio) : vpx(225*screenRatio);
 	}
 
 }
@@ -435,7 +435,7 @@ import QtGraphicalEffects 1.12
 }
 
 	anchors {
-		top: personal__center_layout_up.top; topMargin: aspectRatio === 43 ? vpx(100*screenRatio) : vpx(50*screenRatio)
+		top: personal__center_layout_up.top; topMargin: aspectRatio === 43 ? vpx(45*screenRatio) : vpx(50*screenRatio)
 		horizontalCenter: personal__center_layout_up.horizontalCenter;
 	}
 

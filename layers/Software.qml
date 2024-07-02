@@ -77,8 +77,8 @@ import QtGraphicalEffects 1.12
 		visible: header__search_layout.focus || header__search_input.focus || header__search_button_cancel.focus || header__search_button_ok.focus
 
 	anchors {
-		top: header.bottom; topMargin: aspectRatio === 43 ? vpx(90*screenRatio) : vpx(55*screenRatio);
-		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(55*screenRatio) : vpx(215*screenRatio);
+		top: header.bottom; topMargin: aspectRatio === 43 ? vpx(85*screenRatio) : vpx(55*screenRatio);
+		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(185*screenRatio) : vpx(215*screenRatio);
 	}
 
 	Text {
@@ -927,7 +927,7 @@ import QtGraphicalEffects 1.12
 
 	anchors {
 		top: header.bottom; topMargin: aspectRatio === 43 ? vpx(55*screenRatio) : vpx(20*screenRatio);
-		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(55*screenRatio) : vpx(225*screenRatio);
+		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(210*screenRatio) : vpx(225*screenRatio);
 	}
 
 }
@@ -1076,7 +1076,7 @@ import QtGraphicalEffects 1.12
 
 	anchors {
 		top: personal__center_layout_up.bottom;
-		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(55*screenRatio) : vpx(225*screenRatio);
+		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(210*screenRatio) : vpx(225*screenRatio);
 	}
 
 }
@@ -1106,7 +1106,7 @@ import QtGraphicalEffects 1.12
 }
 
 	anchors {
-		top: personal__center_layout_up.top; topMargin: aspectRatio === 43 ? vpx(100*screenRatio) : vpx(50*screenRatio)
+		top: personal__center_layout_up.top; topMargin: aspectRatio === 43 ? vpx(45*screenRatio) : vpx(50*screenRatio)
 		horizontalCenter: personal__center_layout_up.horizontalCenter;
 	}
 
