@@ -11,10 +11,13 @@ import "layers" as Layers
 	//System index from memory so we can remember the last system we were in
 
 		property var currentCollection: allCollections[currentCollectionIndex]
+
 		property var currentCollectionIndexMemory : api.memory.get('currentCollectionIndex', currentCollectionIndex);
+
 		property var currentCollectionIndex: {
 		if(currentCollectionIndexMemory)
 		return currentCollectionIndexMemory;
+
 		if(!currentCollectionIndexMemory)
 		return currentItem
 	}
@@ -26,8 +29,10 @@ import "layers" as Layers
 	property var currentGame: {
 		if (currentCollection.shortName === "all-favorites")
 		return api.allGames.get(allFavorites.mapToSource(currentGameIndex))
+
 		if (currentCollection.shortName === "all-lastplayed")
 		return api.allGames.get(allLastPlayed.mapToSource(currentGameIndex))
+
 		if (searchValue !== '')
 		return  currentCollection.games.get(searchGames.mapToSource(currentGameIndex))   
 		return currentCollection.games.get(currentGameIndex)
@@ -37,7 +42,7 @@ import "layers" as Layers
 
 	property var allCollections: {
 		let collections = api.collections.toVarArray()
-		collections.unshift({"name": "All Games", "shortName": "all-allgames", "games": api.allGames})      
+		collections.unshift({"name": "All Games", "shortName": "all-games", "games": api.allGames})      
 		collections.unshift({"name": "Last Played", "shortName": "all-lastplayed", "games": filterLastPlayed})
 		collections.unshift({"name": "Favorites", "shortName": "all-favorites", "games": allFavorites})
 		return collections
@@ -152,7 +157,7 @@ import "layers" as Layers
 
 	function navigate(page){
 		currentPage = page
-		/*pageNames    
+		/*pageNames
 		'Home'
 		'Software'
 		*/
@@ -214,10 +219,12 @@ import "layers" as Layers
 	}
 
 	Layers.Home {
+		id: home
 		visible: currentPage === 'Home' ? 1 : 0 ;
 	}
     
 	Layers.Software {
+		id: software
 		visible: currentPage === 'Software' ? 1 : 0 ;
 	}
 
