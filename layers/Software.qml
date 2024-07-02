@@ -836,17 +836,20 @@ import QtGraphicalEffects 1.12
 		centerIn: parent
 	}
 
-	Keys.onUpPressed: {}
-
-	Keys.onLeftPressed: {}
-
-	Keys.onRightPressed: {}
-
-	Keys.onDownPressed: {
-		if (game__settings_layout.focus) {
+	Keys.onUpPressed: {
 		game__settings_layout_favorite_button.focus = true
 	}
 
+	Keys.onLeftPressed: {
+		game__settings_layout_favorite_button.focus = true
+	}
+
+	Keys.onRightPressed: {
+		game__settings_layout_favorite_button.focus = true
+	}
+
+	Keys.onDownPressed: {
+		game__settings_layout_favorite_button.focus = true
 	}
 
 	Keys.onPressed: {
