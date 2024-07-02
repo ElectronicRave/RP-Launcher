@@ -69,7 +69,6 @@ import QtGraphicalEffects 1.12
 			sourceSize.width: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(15*screenRatio)
 			fillMode: Image.PreserveAspectFit
 			source: "../assets/icons/charge.png"
-			antialiasing: true
 			smooth: true
 			visible: chargingStatus && battery_icon.level < 100
                    
