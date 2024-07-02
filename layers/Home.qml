@@ -84,10 +84,9 @@ import QtGraphicalEffects 1.12
 		highlightMoveDuration: 200
 		highlightMoveVelocity: -1
 
-		KeyNavigation.up: favorite;
+	KeyNavigation.up: favorite;
 
-		Keys.onLeftPressed: {  decrementCurrentIndex(); } 
-                Keys.onRightPressed: {  incrementCurrentIndex(); }
+	KeyNavigation.down: time;
 
 	anchors {
 		top: parent.top; topMargin: aspectRatio === 43 ? vpx(58*screenRatio) : vpx(48*screenRatio)
@@ -292,7 +291,15 @@ import QtGraphicalEffects 1.12
                 border.color: focus ? theme.accent : "transparent"
 		border.width: aspectRatio === 43 ? vpx(1*screenRatio) : vpx(0.5*screenRatio)
 
-	KeyNavigation.up: personal__center_layout_icon
+	Keys.onUpPressed: {
+		personal__center_layout_icon.focus = true
+	}
+
+	Keys.onLeftPressed: {}
+
+	Keys.onRightPressed: {}
+
+	Keys.onDownPressed: {}
 
 	Keys.onPressed: {
 		if (api.keys.isAccept(event)) {
@@ -439,7 +446,15 @@ import QtGraphicalEffects 1.12
 		horizontalCenter: personal__center_layout_up.horizontalCenter;
 	}
 
-	KeyNavigation.down: personal__center_layout_down_button
+	Keys.onUpPressed: {}
+
+	Keys.onLeftPressed: {}
+
+	Keys.onRightPressed: {}
+
+	Keys.onDownPressed: {
+		personal__center_layout_down_button.focus = true
+	}
 
 	Keys.onPressed: {
 		if (api.keys.isCancel(event)) {

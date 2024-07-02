@@ -94,8 +94,15 @@ import QtGraphicalEffects 1.12
 	}
 
 }
+	Keys.onUpPressed: {}
 
-	KeyNavigation.down: header__search_button_cancel;
+	Keys.onLeftPressed: {}
+
+	Keys.onRightPressed: {}
+
+	Keys.onDownPressed: {
+		header__search_button_cancel.focus = true
+	}
 
 	Keys.onPressed: {
 		if (api.keys.isAccept(event)) {
@@ -142,20 +149,25 @@ import QtGraphicalEffects 1.12
 		right: header__search_layout.right; rightMargin: aspectRatio === 43 ? vpx(45*screenRatio) : vpx(45*screenRatio)
 	}
 
-	KeyNavigation.up: header__search_input;
-	KeyNavigation.right: header__search_button_ok;
+	Keys.onUpPressed: {
+		searchValue = ''
+		header__search_input.clear()
+		header__search_input.focus = true
+	}
+
+	Keys.onLeftPressed: {}
+
+	Keys.onRightPressed: {
+		header__search_button_ok.focus = true
+	}
+
+	Keys.onDownPressed: {}
 
 	Keys.onPressed: {
 		if (api.keys.isAccept(event)) {
 			event.accepted = true
 			searchValue = ''
 			search.focus = true
-		}
-
-	        if (event.key === Qt.Key_Up) {
-			searchValue = ''
-			header__search_input.clear()
-			header__search_input.focus = true
 		}
 
 		if (api.keys.isCancel(event)) {
@@ -205,8 +217,19 @@ import QtGraphicalEffects 1.12
 		left: header__search_button_cancel.right; leftMargin: aspectRatio === 43 ? vpx(8*screenRatio) : vpx(8*screenRatio)
 	}
 
-	KeyNavigation.up: header__search_input;
-	KeyNavigation.left: header__search_button_cancel;
+	Keys.onUpPressed: {
+		searchValue = ''
+		header__search_input.clear()
+		header__search_input.focus = true
+	}
+
+	Keys.onLeftPressed: {
+		header__search_button_cancel.focus = true
+	}
+
+	Keys.onRightPressed: {}
+
+	Keys.onDownPressed: {}
 
 	Keys.onPressed: {
 		if (api.keys.isAccept(event)) {
@@ -227,12 +250,6 @@ import QtGraphicalEffects 1.12
 			header__search_input.focus = true
 		}
 
-		}
-
-	        if (event.key === Qt.Key_Up) {
-			searchValue = ''
-			header__search_input.clear()
-			header__search_input.focus = true
 		}
 
 		if (api.keys.isCancel(event)) {
@@ -315,6 +332,25 @@ import QtGraphicalEffects 1.12
 		searchValue = header__search_input.text
 	}
 
+	Keys.onUpPressed: {}
+
+	Keys.onLeftPressed: {}
+
+	Keys.onRightPressed: {}
+
+	Keys.onDownPressed: {
+		if (searchValue) {
+			header__search_button_cancel.focus = true
+		}
+
+		else if (header__search_input.focus) {
+			searchValue = ''
+			header__search_input.text = 'Search'
+			header__search_button_cancel.focus = true
+		}
+
+	}
+
 	Keys.onPressed: {
 		if (api.keys.isAccept(event)) {
 			event.accepted = true
@@ -327,18 +363,6 @@ import QtGraphicalEffects 1.12
 			searchValue = ''
 			header__search_input.text = 'Search'
 			header__search_layout.focus = true
-		}
-
-		}
-
-	        if (event.key === Qt.Key_Down) {
-
-		if (searchValue) {
-		}
-
-		else {
-			searchValue = ''
-			header__search_input.text = 'Search'
 		}
 
 		}
@@ -408,36 +432,8 @@ import QtGraphicalEffects 1.12
 
 	KeyNavigation.up: profile;
 
-	Keys.onLeftPressed: {
-		if (game__settings_layout.focus) {
-			null
-		}
+	KeyNavigation.down: time;
 
-		else if (game__settings_layout_favorite_button.focus) {
-			null
-		}
-
-		else {
- 			moveCurrentIndexLeft();
-		}
-
-	}
-
-	Keys.onRightPressed: {
-		if (game__settings_layout.focus) {
-			null
-		}
-
-		else if (game__settings_layout_favorite_button.focus) {
-			null
-		}
-
-		else {
- 			moveCurrentIndexRight();
-		}
-
-	}
-  
 	anchors {
 		top: parent.top; topMargin: aspectRatio === 43 ? vpx(10*screenRatio) : vpx(10*screenRatio)
 		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(80*screenRatio) : vpx(100*screenRatio)
@@ -840,9 +836,18 @@ import QtGraphicalEffects 1.12
 		centerIn: parent
 	}
 
-	KeyNavigation.up: game__settings_layout
+	Keys.onUpPressed: {}
 
-	KeyNavigation.down: game__settings_layout_favorite_button
+	Keys.onLeftPressed: {}
+
+	Keys.onRightPressed: {}
+
+	Keys.onDownPressed: {
+		if (game__settings_layout.focus) {
+		game__settings_layout_favorite_button.focus = true
+	}
+
+	}
 
 	Keys.onPressed: {
 		if (api.keys.isAccept(event)) {
@@ -963,7 +968,15 @@ import QtGraphicalEffects 1.12
                 border.color: focus ? theme.accent : "transparent"
 		border.width: aspectRatio === 43 ? vpx(1*screenRatio) : vpx(0.5*screenRatio)
 
-	KeyNavigation.up: personal__center_layout_icon
+	Keys.onUpPressed: {
+		personal__center_layout_icon.focus = true
+	}
+
+	Keys.onLeftPressed: {}
+
+	Keys.onRightPressed: {}
+
+	Keys.onDownPressed: {}
 
 	Keys.onPressed: {
 		if (api.keys.isAccept(event)) {
@@ -1110,7 +1123,15 @@ import QtGraphicalEffects 1.12
 		horizontalCenter: personal__center_layout_up.horizontalCenter;
 	}
 
-	KeyNavigation.down: personal__center_layout_down_button
+	Keys.onUpPressed: {}
+
+	Keys.onLeftPressed: {}
+
+	Keys.onRightPressed: {}
+
+	Keys.onDownPressed: {
+		personal__center_layout_down_button.focus = true
+	}
 
 	Keys.onPressed: {
 		if (api.keys.isCancel(event)) {
