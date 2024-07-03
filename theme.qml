@@ -15,10 +15,10 @@ import "layers" as Layers
 	property var currentCollectionIndexMemory : api.memory.get('currentCollectionIndex', currentCollectionIndex);
 
 	property var currentCollectionIndex: {
-		if(currentCollectionIndexMemory)
+		if (currentCollectionIndexMemory)
 		return currentCollectionIndexMemory;
 
-		if(!currentCollectionIndexMemory)
+		if (!currentCollectionIndexMemory)
 		return currentItem
 	}
 
