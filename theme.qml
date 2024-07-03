@@ -154,7 +154,7 @@ import "layers" as Layers
 
 	property string searchValue: '';
 
-	//Change pages
+	//Navigation pages
 
 	function navigate(page){
 		currentPage = page
