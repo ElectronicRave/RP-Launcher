@@ -10,11 +10,11 @@ import "layers" as Layers
 
 	//System index from memory so we can remember the last system we were in
 
-		property var currentCollection: allCollections[currentCollectionIndex]
+	property var currentCollection: allCollections[currentCollectionIndex]
 
-		property var currentCollectionIndexMemory : api.memory.get('currentCollectionIndex', currentCollectionIndex);
+	property var currentCollectionIndexMemory : api.memory.get('currentCollectionIndex', currentCollectionIndex);
 
-		property var currentCollectionIndex: {
+	property var currentCollectionIndex: {
 		if(currentCollectionIndexMemory)
 		return currentCollectionIndexMemory;
 
@@ -77,14 +77,15 @@ import "layers" as Layers
 	//Change the theme color
 
 	function swapTheme(){
-		if(theme === themeDark){
-		api.memory.set('theme', 'themeLight');
+		if(theme === themeLight){
+			api.memory.set('theme', 'themeDark');
+		}
+
+		else if(theme === themeDark){
+			api.memory.set('theme', 'themeLight');
+		}
+
 	}
-		else
-	{
-		api.memory.set('theme', 'themeDark');
-	}
-}
 
 	//Calculates the number of items and columns to be displayed
 
