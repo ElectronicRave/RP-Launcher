@@ -74,7 +74,7 @@ import "layers" as Layers
 		"select": "#4C4C4C",
 	}
 
-	//Change the theme color
+	//Change theme color
 
 	function swapTheme(){
 		if (theme === themeLight){
