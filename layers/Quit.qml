@@ -74,11 +74,11 @@ import QtGraphicalEffects 1.12
 			event.accepted = true
 
 		if (currentPage === 'Home') {
-			Qt.quit();
+			Qt.callLater(Qt.quit);
 		}
 
 		else if (currentPage === 'Software') {
-			Qt.quit();
+			Qt.callLater(Qt.quit);
 		}
 			
 		}
@@ -91,11 +91,11 @@ import QtGraphicalEffects 1.12
 		onClicked: {
 
 		if (currentPage === 'Home') {
-			Qt.quit();
+			Qt.callLater(Qt.quit);
 		}
 
 		else if (currentPage === 'Software') {
-			Qt.quit();
+			Qt.callLater(Qt.quit);
 		}
 
 		}
