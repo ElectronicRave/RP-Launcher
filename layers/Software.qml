@@ -594,7 +594,20 @@ import QtGraphicalEffects 1.12
 
 		onClicked: {
 
-		if (focused) {
+
+		if (game__settings_layout.focus) {
+			game__settings_layout.focus = false
+			game__settings_layout_favorite_button.focus = false
+			gameView.currentIndex = index
+		}
+
+		else if (game__settings_layout_favorite_button.focus) {
+			game__settings_layout.focus = false
+			game__settings_layout_favorite_button.focus = false
+			gameView.currentIndex = index
+		}
+
+		else if (focused) {
 			currentGameIndex = index
 			currentGame.launch()
 		}
