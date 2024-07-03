@@ -42,9 +42,9 @@ import "layers" as Layers
 
 	property var allCollections: {
 		let collections = api.collections.toVarArray()
-		collections.unshift({"name": "All Games", "shortName": "all-games", "games": api.allGames})      
-		collections.unshift({"name": "Last Played", "shortName": "all-lastplayed", "games": filterLastPlayed})
-		collections.unshift({"name": "Favorites", "shortName": "all-favorites", "games": allFavorites})
+		collections.unshift ({"name": "All Games", "shortName": "all-games", "games": api.allGames})      
+		collections.unshift ({"name": "Last Played", "shortName": "all-lastplayed", "games": filterLastPlayed})
+		collections.unshift ({"name": "Favorites", "shortName": "all-favorites", "games": allFavorites})
 		return collections
 	}
 
@@ -77,11 +77,11 @@ import "layers" as Layers
 	//Change the theme color
 
 	function swapTheme(){
-		if(theme === themeLight){
+		if (theme === themeLight){
 			api.memory.set('theme', 'themeDark');
 		}
 
-		else if(theme === themeDark){
+		else if (theme === themeDark){
 			api.memory.set('theme', 'themeLight');
 		}
 
