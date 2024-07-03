@@ -360,7 +360,7 @@ import QtGraphicalEffects 1.12
                 border.color: "#2C2C2C"
 		border.width: aspectRatio === 43 ? vpx(2*screenRatio) : vpx(2*screenRatio)
 		radius: aspectRatio === 43 ? vpx(30*screenRatio) : vpx(30*screenRatio)
-		visible: "themeLight" ? 1 : 0
+		visible: api.memory.get('theme') === 'themeLight' ? true : false
 
 	anchors {
 		left: parent.left;
@@ -390,7 +390,7 @@ import QtGraphicalEffects 1.12
                 border.color: "#2C2C2C"
 		border.width: aspectRatio === 43 ? vpx(2*screenRatio) : vpx(2*screenRatio)
 		radius: aspectRatio === 43 ? vpx(30*screenRatio) : vpx(30*screenRatio)
-		visible: "themeDark" ? 0 : 1
+		visible: api.memory.get('theme') === 'themeDark' ? true : false
 
 	anchors {
 		right: parent.right;
