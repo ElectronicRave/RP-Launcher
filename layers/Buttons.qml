@@ -136,7 +136,7 @@ import QtGraphicalEffects 1.12
 }
 
 	anchors {
-		left: button_a_img.right; leftMargin: aspectRatio === 43 ? vpx(-3*screenRatio) : vpx(-5*screenRatio)
+		left: button_a_img.right; leftMargin: aspectRatio === 43 ? vpx(-4*screenRatio) : vpx(-5*screenRatio)
 		verticalCenter: parent.verticalCenter
 	}
 

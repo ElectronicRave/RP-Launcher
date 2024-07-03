@@ -41,7 +41,7 @@ import QtGraphicalEffects 1.12
 	//Favorite games
 
 	Favorite {
-		id: favorite
+		id: favorites
 	}
 
 	//Played games
@@ -74,7 +74,7 @@ import QtGraphicalEffects 1.12
 		border.color: theme.accent
 		border.width: aspectRatio === 43 ? vpx(1.5*screenRatio) : vpx(1*screenRatio)
 		radius: vpx(3*screenRatio)
-		visible: header__search_layout.focus || header__search_input.focus || header__search_button_cancel.focus || header__search_button_ok.focus
+		visible: header__search_layout.focus || header__search_input.focus || header__search_button_cancel.focus || header__search_button_ok.focus ? 1 : 0
 
 	anchors {
 		top: header.bottom; topMargin: aspectRatio === 43 ? vpx(85*screenRatio) : vpx(55*screenRatio);
@@ -129,7 +129,7 @@ import QtGraphicalEffects 1.12
 		color: focus ? theme.select : theme.background
                 border.color: focus ? theme.accent : theme.background
                 border.width: aspectRatio === 43 ? vpx(1*screenRatio) : vpx(0.5*screenRatio)
-		visible: header__search_layout.focus || header__search_input.focus || header__search_button_cancel.focus || header__search_button_ok.focus
+		visible: header__search_layout.focus || header__search_input.focus || header__search_button_cancel.focus || header__search_button_ok.focus ? 1 : 0
 
 	Text {
 		id: header__search_button_cancel_label
@@ -197,7 +197,7 @@ import QtGraphicalEffects 1.12
 		color: focus ? theme.select : theme.background
                 border.color: focus ? theme.accent : theme.background
                 border.width: aspectRatio === 43 ? vpx(1*screenRatio) : vpx(0.5*screenRatio)
-		visible: header__search_layout.focus || header__search_input.focus || header__search_button_cancel.focus || header__search_button_ok.focus
+		visible: header__search_layout.focus || header__search_input.focus || header__search_button_cancel.focus || header__search_button_ok.focus ? 1 : 0
 
 	Text {
 		id: header__search_button_ok_label
@@ -292,7 +292,7 @@ import QtGraphicalEffects 1.12
 		border.color: theme.accent
 		border.width: aspectRatio === 43 ? vpx(1.5*screenRatio) : vpx(1*screenRatio)
 		radius: vpx(5*screenRatio)
-		visible: header__search_layout.focus || header__search_input.focus || header__search_button_cancel.focus || header__search_button_ok.focus
+		visible: header__search_layout.focus || header__search_input.focus || header__search_button_cancel.focus || header__search_button_ok.focus ? 1 : 0
 
 	anchors {
 		centerIn: header__search_layout
@@ -447,9 +447,10 @@ import QtGraphicalEffects 1.12
 	Item {
 		id: game__item_container
 		property bool selected: GridView.isCurrentItem
+		property bool focused: GridView.isCurrentItem && gameView.focus
 		width: gameView.cellWidth - vpx(12*screenRatio)
 		height: width
-		scale: selected ? 1.07 : 1
+		scale: focused ? 1.07 : 1
 
 	//Launch game
 
@@ -574,38 +575,38 @@ import QtGraphicalEffects 1.12
 	MouseArea {
 		id: game__item_mouse
 		anchors.fill: game__item
+
 		onPressAndHold: {
+
+		if (focused) {
 			currentGameIndex = index
 			game__settings_layout.focus = true
 		}
-		onClicked: {
-			if (selected) {
-				currentGameIndex = index
-				currentGame.launch()
-			}
 
-			if (game__settings_layout.focus) {
-				game__settings_layout.focus = false
-			}
-
-			else if (game__settings_layout_favorite_button.focus) {
-				game__settings_layout_favorite_button.focus = false
-			}
-
-			else if (personal__center_layout_icon.focus) {
-				navigate('Software')
-			}
-
-			else if (personal__center_layout_down_button.focus) {
-				navigate('Software')
-			}
-
-			else {
-				gameView.currentIndex = index
-			}
-
-			}
+		else {
+			gameView.currentIndex = index
+			navigate('Software')
+			currentGameIndex = index
+			game__settings_layout.focus = true
 		}
+
+		}
+
+		onClicked: {
+
+		if (focused) {
+			currentGameIndex = index
+			currentGame.launch()
+		}
+
+		else {
+			gameView.currentIndex = index
+			navigate('Software')
+		}
+
+		}
+
+	}
 
 	Rectangle {
 		id: game__title_bar
@@ -661,10 +662,10 @@ import QtGraphicalEffects 1.12
 		text: modelData.title
 		color: "#FFFFFF"
 		font.pixelSize: aspectRatio === 43 ? vpx(18*screenRatio) : vpx(13*screenRatio)
-		visible: selected ? game__title_name.truncated : 0
+		visible: focused ? game__title_name.truncated : 0
 
 	SequentialAnimation on x {
-		running: selected ? game__title_name.truncated : 0
+		running: focused ? game__title_name.truncated : 0
 		loops: Animation.Infinite
 
 	NumberAnimation {
@@ -716,8 +717,8 @@ import QtGraphicalEffects 1.12
 		color: "transparent"
 		border.color: theme.accent
 		border.width: aspectRatio === 43 ? vpx(3.5*screenRatio) : vpx(2.5*screenRatio)
-		opacity: selected ? 1 : 0
 		radius: vpx(4*screenRatio)
+		opacity: focused ? 1 : 0
 
 	anchors {
 		fill: parent
@@ -766,7 +767,7 @@ import QtGraphicalEffects 1.12
                 border.color: theme.accent
 		border.width: aspectRatio === 43 ? vpx(1.5*screenRatio) : vpx(1*screenRatio)
 		radius: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(5*screenRatio)
-		visible: game__settings_layout.focus || game__settings_layout_favorite_button.focus
+		visible: game__settings_layout.focus || game__settings_layout_favorite_button.focus ? 1 : 0
 
 	Text {
 		id: game__settings_layout_label
@@ -802,6 +803,7 @@ import QtGraphicalEffects 1.12
 		color: focus ? theme.select : theme.background
                 border.color: focus ? theme.accent : "transparent"
 		border.width: aspectRatio === 43 ? vpx(1*screenRatio) : vpx(0.5*screenRatio)
+		visible: game__settings_layout.focus || game__settings_layout_favorite_button.focus ? 1 : 0
 
 	Image {
 		id: game__settings_layout_favorite_image
@@ -898,6 +900,7 @@ import QtGraphicalEffects 1.12
 	MouseArea {
 		id: game__settings_layout_favorite_button_mouse
 		anchors.fill: game__settings_layout_favorite_button
+
 		onClicked:{
 			currentGame.favorite = !currentGame.favorite
 			game__settings_layout.focus = false
@@ -925,7 +928,7 @@ import QtGraphicalEffects 1.12
 		border.width: aspectRatio === 43 ? vpx(1.5*screenRatio) : vpx(1*screenRatio)
 		radius: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(5*screenRatio)
 		clip: true
-		visible: personal__center_layout_icon.focus || personal__center_layout_down_button.focus
+		visible: personal__center_layout_icon.focus || personal__center_layout_down_button.focus ? 1 : 0
 
 	Rectangle {
 		id: personal__center_layout_up_clipped
@@ -967,7 +970,7 @@ import QtGraphicalEffects 1.12
 		border.width: aspectRatio === 43 ? vpx(1.5*screenRatio) : vpx(1*screenRatio)
 		radius: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(5*screenRatio)
 		clip: true
-		visible: personal__center_layout_icon.focus || personal__center_layout_down_button.focus
+		visible: personal__center_layout_icon.focus || personal__center_layout_down_button.focus ? 1 : 0
 
 	Rectangle {
 		id: personal__center_layout_down_clipped
@@ -1051,7 +1054,7 @@ import QtGraphicalEffects 1.12
                 border.color: "#2C2C2C"
 		border.width: aspectRatio === 43 ? vpx(2*screenRatio) : vpx(2*screenRatio)
 		radius: aspectRatio === 43 ? vpx(30*screenRatio) : vpx(30*screenRatio)
-		visible: api.memory.get('theme') === 'themeLight' ? true : false
+		visible: theme === themeLight ? true : false
 
 	anchors {
 		left: parent.left;
@@ -1081,7 +1084,7 @@ import QtGraphicalEffects 1.12
                 border.color: "#2C2C2C"
 		border.width: aspectRatio === 43 ? vpx(2*screenRatio) : vpx(2*screenRatio)
 		radius: aspectRatio === 43 ? vpx(30*screenRatio) : vpx(30*screenRatio)
-		visible: api.memory.get('theme') === 'themeDark' ? true : false
+		visible: theme === themeDark ? true : false
 
 	anchors {
 		right: parent.right;
@@ -1124,7 +1127,7 @@ import QtGraphicalEffects 1.12
                 border.color: focus ? theme.accent : "#2C2C2C"
 		border.width: aspectRatio === 43 ? vpx(3.5*screenRatio) : vpx(2.5*screenRatio)
 		radius: aspectRatio === 43 ? vpx(100*screenRatio) : vpx(100*screenRatio)
-		visible: personal__center_layout_icon.focus || personal__center_layout_down_button.focus
+		visible: personal__center_layout_icon.focus || personal__center_layout_down_button.focus ? 1 : 0
 
 	Image {
 		id: theme__color_layout_icon_image
@@ -1170,7 +1173,7 @@ import QtGraphicalEffects 1.12
 		source: "../assets/icons/lace.png"
 		antialiasing: true
 		smooth: true
-		visible: personal__center_layout_icon.focus || personal__center_layout_down_button.focus
+		visible: personal__center_layout_icon.focus || personal__center_layout_down_button.focus ? 1 : 0
 
 	anchors {
 		top: personal__center_layout_icon.bottom; topMargin: aspectRatio === 43 ? vpx(6*screenRatio) : vpx(6*screenRatio);

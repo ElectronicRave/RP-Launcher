@@ -52,8 +52,15 @@ import QtQuick 2.15
               
 	Keys.onPressed: {
 		if (api.keys.isAccept(event)) {
-			event.accepted = true
+
+		if (currentPage === 'Home') {
 			personal__center_layout_icon.focus = true
+		}
+
+		else if (currentPage === 'Software') {
+			personal__center_layout_icon.focus = true
+		}
+
 		}
 
 	}

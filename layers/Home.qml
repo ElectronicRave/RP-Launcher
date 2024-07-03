@@ -29,7 +29,7 @@ import QtGraphicalEffects 1.12
 	//Favorite games
 
 	Favorite {
-		id: favorite
+		id: favorites
 	}
 
 	//Played games
@@ -84,7 +84,7 @@ import QtGraphicalEffects 1.12
 		highlightMoveDuration: 200
 		highlightMoveVelocity: -1
 
-	KeyNavigation.up: favorite;
+	KeyNavigation.up: favorites;
 
 	KeyNavigation.down: quit;
 
@@ -101,6 +101,7 @@ import QtGraphicalEffects 1.12
 	Item {
 		id: system__item_container
 		property bool selected: ListView.isCurrentItem
+		property bool focused: ListView.isCurrentItem && systemListView.focus
 		width: aspectRatio === 43 ? vpx(175*screenRatio) : vpx(122*screenRatio)
 		height: width
 
@@ -123,7 +124,7 @@ import QtGraphicalEffects 1.12
 		color: theme.accent
 		font.pixelSize: aspectRatio === 43 ? vpx(24*screenRatio) : vpx(17*screenRatio)
 		font.bold: true
-		opacity: selected ? 1 : 0
+		opacity: focused ? 1 : 0
 
 	anchors {
 		horizontalCenter: system__item_container.horizontalCenter
@@ -174,24 +175,21 @@ import QtGraphicalEffects 1.12
 	MouseArea {
 		id: system__logo_mouse
 		anchors.fill: system__logo
+
 		onClicked: {
 
-		if (selected) {
+		if (focused) {
 			currentCollectionIndex = system__item_container.ListView.view.currentIndex+3
 			api.memory.set('currentCollectionIndex', currentCollectionIndex)
 			navigate('Software')
 		}
 
-		else if (personal__center_layout_icon.focus) {
-			navigate('Home')
-		}
-
-		else if (personal__center_layout_down_button.focus) {
-			navigate('Home')
-		}
-
-		else 
+		else {
 			systemListView.currentIndex = index
+			api.memory.unset('currentCollectionIndex', currentCollectionIndex)
+			navigate('Home')
+		}
+
 		}
 
 	}
@@ -204,7 +202,7 @@ import QtGraphicalEffects 1.12
 		border.color: theme.accent
 		border.width: aspectRatio === 43 ? vpx(3.5*screenRatio) : vpx(2.5*screenRatio)
 		radius: vpx(4*screenRatio)
-		opacity: selected ? 1 : 0
+		opacity: focused ? 1 : 0
 
 	anchors {
 		centerIn: system__logo
@@ -234,7 +232,7 @@ import QtGraphicalEffects 1.12
 		border.width: aspectRatio === 43 ? vpx(1.5*screenRatio) : vpx(1*screenRatio)
 		radius: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(5*screenRatio)
 		clip: true
-		visible: personal__center_layout_icon.focus || personal__center_layout_down_button.focus
+		visible: personal__center_layout_icon.focus || personal__center_layout_down_button.focus ? 1 : 0
 
 	Rectangle {
 		id: personal__center_layout_up_clipped
@@ -276,7 +274,7 @@ import QtGraphicalEffects 1.12
 		border.width: aspectRatio === 43 ? vpx(1.5*screenRatio) : vpx(1*screenRatio)
 		radius: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(5*screenRatio)
 		clip: true
-		visible: personal__center_layout_icon.focus || personal__center_layout_down_button.focus
+		visible: personal__center_layout_icon.focus || personal__center_layout_down_button.focus ? 1 : 0
 
 	Rectangle {
 		id: personal__center_layout_down_clipped
@@ -360,7 +358,7 @@ import QtGraphicalEffects 1.12
                 border.color: "#2C2C2C"
 		border.width: aspectRatio === 43 ? vpx(2*screenRatio) : vpx(2*screenRatio)
 		radius: aspectRatio === 43 ? vpx(30*screenRatio) : vpx(30*screenRatio)
-		visible: api.memory.get('theme') === 'themeLight' ? true : false
+		visible: theme === themeLight ? true : false
 
 	anchors {
 		left: parent.left;
@@ -390,7 +388,7 @@ import QtGraphicalEffects 1.12
                 border.color: "#2C2C2C"
 		border.width: aspectRatio === 43 ? vpx(2*screenRatio) : vpx(2*screenRatio)
 		radius: aspectRatio === 43 ? vpx(30*screenRatio) : vpx(30*screenRatio)
-		visible: api.memory.get('theme') === 'themeDark' ? true : false
+		visible: theme === themeDark ? true : false
 
 	anchors {
 		right: parent.right;
@@ -433,7 +431,7 @@ import QtGraphicalEffects 1.12
                 border.color: focus ? theme.accent : "#2C2C2C"
 		border.width: aspectRatio === 43 ? vpx(3.5*screenRatio) : vpx(2.5*screenRatio)
 		radius: aspectRatio === 43 ? vpx(100*screenRatio) : vpx(100*screenRatio)
-		visible: personal__center_layout_icon.focus || personal__center_layout_down_button.focus
+		visible: personal__center_layout_icon.focus || personal__center_layout_down_button.focus ? 1 : 0
 
 	Image {
 		id: theme__color_layout_icon_image
@@ -479,7 +477,7 @@ import QtGraphicalEffects 1.12
 		source: "../assets/icons/lace.png"
 		antialiasing: true
 		smooth: true
-		visible: personal__center_layout_icon.focus || personal__center_layout_down_button.focus
+		visible: personal__center_layout_icon.focus || personal__center_layout_down_button.focus ? 1 : 0
 
 	anchors {
 		top: personal__center_layout_icon.bottom; topMargin: aspectRatio === 43 ? vpx(6*screenRatio) : vpx(6*screenRatio);

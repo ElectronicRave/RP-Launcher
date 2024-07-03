@@ -61,9 +61,19 @@ import QtQuick 2.15
 	Keys.onPressed: {
 		if (api.keys.isAccept(event)) {
 			event.accepted = true
+
+		if (currentPage === 'Home') {
 			searchValue = ''
 			currentCollectionIndex = 0
 			navigate('Software')
+		}
+
+		else if (currentPage === 'Software') {
+			searchValue = ''
+			currentCollectionIndex = 0
+			navigate('Software')
+		}
+
 		}
 
 	}
@@ -71,10 +81,23 @@ import QtQuick 2.15
 	MouseArea {
 		id: favorite_mouse
 		anchors.fill: favorite_label
+
 		onClicked: {
+
+		if (currentPage === 'Home') {
 			searchValue = ''
 			currentCollectionIndex = 0
 			navigate('Software')
+		}
+
+		else if (currentPage === 'Software') {
+			game__settings_layout.focus = false
+			game__settings_layout_favorite_button.focus = false
+			searchValue = ''
+			currentCollectionIndex = 0
+			navigate('Software')
+		}
+
 		}
 
 	}

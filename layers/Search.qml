@@ -44,9 +44,19 @@ import QtGraphicalEffects 1.12
 	Keys.onPressed: {
 		if (api.keys.isAccept(event)) {
 			event.accepted = true
+
+		if (currentPage === 'Home') {
 			searchValue = ''
 			header__search_input.text = 'Search'
 			header__search_layout.focus = true
+		}
+
+		else if (currentPage === 'Software') {
+			searchValue = ''
+			header__search_input.text = 'Search'
+			header__search_layout.focus = true
+		}
+
 		}
 
 	}
@@ -54,10 +64,23 @@ import QtGraphicalEffects 1.12
 	MouseArea {
 		id: search_mouse
 		anchors.fill: search_label
+
 		onClicked: {
+
+		if (currentPage === 'Home') {
 			searchValue = ''
 			header__search_input.text = 'Search'
 			header__search_layout.focus = true
+		}
+
+		else if (currentPage === 'Software') {
+			game__settings_layout.focus = false
+			game__settings_layout_favorite_button.focus = false
+			searchValue = ''
+			header__search_input.text = 'Search'
+			header__search_layout.focus = true
+		}
+
 		}
 
 	}

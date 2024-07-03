@@ -74,6 +74,7 @@ import QtGraphicalEffects 1.12
 			event.accepted = true
 
 		if (currentPage === 'Home') {
+			api.memory.unset('currentCollectionIndex', currentCollectionIndex)
 			Qt.callLater(Qt.quit);
 		}
 
@@ -91,6 +92,7 @@ import QtGraphicalEffects 1.12
 		onClicked: {
 
 		if (currentPage === 'Home') {
+			api.memory.unset('currentCollectionIndex', currentCollectionIndex)
 			Qt.callLater(Qt.quit);
 		}
 
