@@ -8,23 +8,6 @@ import QtQuick 2.15
                 border.color: focus ? theme.accent : theme.background
                 border.width: aspectRatio === 43 ? vpx(1*screenRatio) : vpx(0.5*screenRatio)
 
-	Text {
-		id: all_label
-		text: "All"
-		color: theme.accent
-		font.bold: true
-		font.pixelSize: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(18*screenRatio)
-
-	anchors {
-		centerIn: parent
-	}
-}
-
-	anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? vpx(26*screenRatio) : vpx(20*screenRatio)
-		left: profile.right; leftMargin: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(48*screenRatio)
-	}
-
 	KeyNavigation.left: {
 		if (currentPage === 'Home') {
 			profile;
@@ -63,19 +46,34 @@ import QtQuick 2.15
 			event.accepted = true
 
 		if (currentPage === 'Home') {
-			searchValue = ''
-			currentCollectionIndex = 2
-			navigate('Software')
+			navigate('Home');
 		}
 
 		else if (currentPage === 'Software') {
 			searchValue = ''
-			currentCollectionIndex = 2
-			navigate('Software')
+			header__search_input.text = 'Search'
+			navigate('Software');
 		}
 
 		}
 
+	}
+
+	Text {
+		id: all_label
+		text: "All"
+		color: theme.accent
+		font.bold: true
+		font.pixelSize: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(18*screenRatio)
+
+	anchors {
+		centerIn: parent
+	}
+}
+
+	anchors {
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(26*screenRatio) : vpx(20*screenRatio)
+		left: profile.right; leftMargin: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(48*screenRatio)
 	}
 
 	MouseArea {
@@ -85,17 +83,15 @@ import QtQuick 2.15
 		onClicked: {
 
 		if (currentPage === 'Home') {
-			searchValue = ''
-			currentCollectionIndex = 2
-			navigate('Software')
+			navigate('Home');
 		}
 
 		else if (currentPage === 'Software') {
 			game__settings_layout.focus = false
 			game__settings_layout_favorite_button.focus = false
 			searchValue = ''
-			currentCollectionIndex = 2
-			navigate('Software')
+			header__search_input.text = 'Search'
+			navigate('Software');
 		}
 
 		}

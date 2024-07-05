@@ -9,6 +9,64 @@ import QtGraphicalEffects 1.12
                 border.color: focus ? theme.accent : theme.background
                 border.width: 1
 
+	KeyNavigation.up: {
+		if (currentPage === 'Home') {
+			systemListView;
+		}
+
+		else if (currentPage === 'Software') {
+			gameView;
+		}
+
+	}
+
+	KeyNavigation.right: {
+		if (currentPage === 'Home') {
+			time;
+		}
+
+		else if (currentPage === 'Software') {
+			time;
+		}
+
+	}
+
+	Keys.onPressed: {
+		if (api.keys.isAccept(event)) {
+			event.accepted = true
+
+		if (currentPage === 'Home') {
+			api.memory.unset('currentCollectionIndex', currentCollectionIndex)
+			Qt.callLater(Qt.quit);
+		}
+
+		else if (currentPage === 'Software') {
+			Qt.callLater(Qt.quit);
+		}
+			
+		}
+
+	}
+
+	MouseArea {
+		id: button_quit_layout_mouse
+		anchors.fill: button_quit_layout
+
+		onClicked: {
+
+		if (currentPage === 'Home') {
+			api.memory.unset('currentCollectionIndex', currentCollectionIndex)
+			Qt.callLater(Qt.quit);
+		}
+
+		else if (currentPage === 'Software') {
+			Qt.callLater(Qt.quit);
+		}
+
+		}
+
+	}
+
 	Text {
 		id: button_quit_legend
 		text: "Quit"
@@ -41,67 +99,6 @@ import QtGraphicalEffects 1.12
 	anchors {
 		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(15*screenRatio) : vpx(15*screenRatio)
 		verticalCenter: parent.verticalCenter
-	}
-
-
-
-	KeyNavigation.up: {
-
-		if (currentPage === 'Home') {
-			systemListView;
-		}
-
-		else if (currentPage === 'Software') {
-			gameView;
-		}
-
-	}
-
-	KeyNavigation.right: {
-
-		if (currentPage === 'Home') {
-			time;
-		}
-
-		else if (currentPage === 'Software') {
-			time;
-		}
-
-	}
-
-	Keys.onPressed: {
-		if (api.keys.isAccept(event)) {
-			event.accepted = true
-
-		if (currentPage === 'Home') {
-			api.memory.unset('currentCollectionIndex', currentCollectionIndex)
-			Qt.callLater(Qt.quit);
-		}
-
-		else if (currentPage === 'Software') {
-			Qt.callLater(Qt.quit);
-		}
-			
-		}
-
-	}
-
-	MouseArea {
-		id: button_quit_layout_mouse
-		anchors.fill: button_quit_layout
-		onClicked: {
-
-		if (currentPage === 'Home') {
-			api.memory.unset('currentCollectionIndex', currentCollectionIndex)
-			Qt.callLater(Qt.quit);
-		}
-
-		else if (currentPage === 'Software') {
-			Qt.callLater(Qt.quit);
-		}
-
-		}
-
 	}
 
 }

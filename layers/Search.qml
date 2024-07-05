@@ -10,23 +10,6 @@ import QtGraphicalEffects 1.12
                 border.width: aspectRatio === 43 ? vpx(1*screenRatio) : vpx(0.5*screenRatio)
 		visible: currentPage === 'Software'
 
-	Text {
-		id: search_label
-		text: "Search"
-		color: theme.text
-		font.pixelSize: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(18*screenRatio)
-
-	anchors {
-		centerIn: parent
-	}
-
-}
-
-	anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? vpx(26*screenRatio) : vpx(20*screenRatio)
-		left: played.right; leftMargin: aspectRatio === 43 ? vpx(15*screenRatio) : vpx(15*screenRatio)
-	}
-
 	KeyNavigation.left: {
 		if (currentPage === 'Software') {
 			played;
@@ -61,19 +44,30 @@ import QtGraphicalEffects 1.12
 
 	}
 
+	Text {
+		id: search_label
+		text: "Search"
+		color: theme.text
+		font.pixelSize: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(18*screenRatio)
+
+	anchors {
+		centerIn: parent
+	}
+
+}
+
+	anchors {
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(26*screenRatio) : vpx(20*screenRatio)
+		left: played.right; leftMargin: aspectRatio === 43 ? vpx(15*screenRatio) : vpx(15*screenRatio)
+	}
+
 	MouseArea {
 		id: search_mouse
 		anchors.fill: search_label
 
 		onClicked: {
 
-		if (currentPage === 'Home') {
-			searchValue = ''
-			header__search_input.text = 'Search'
-			header__search_layout.focus = true
-		}
-
-		else if (currentPage === 'Software') {
+		if (currentPage === 'Software') {
 			game__settings_layout.focus = false
 			game__settings_layout_favorite_button.focus = false
 			searchValue = ''

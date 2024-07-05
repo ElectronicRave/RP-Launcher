@@ -8,23 +8,6 @@ import QtQuick 2.15
                 border.color: focus ? theme.accent : theme.background
                 border.width: aspectRatio === 43 ? vpx(1*screenRatio) : vpx(0.5*screenRatio)
 
-	Text {
-		id: favorite_label
-		text: "Favorite"
-		color: theme.text
-		font.pixelSize: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(18*screenRatio)
-
-	anchors {
-		centerIn: parent
-	}
-
-}
-
-	anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? vpx(26*screenRatio) : vpx(20*screenRatio)
-		left: all.right; leftMargin: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(20*screenRatio)
-	}
-
 	KeyNavigation.left: {
 		if (currentPage === 'Home') {
 			all;
@@ -63,19 +46,37 @@ import QtQuick 2.15
 			event.accepted = true
 
 		if (currentPage === 'Home') {
-			searchValue = ''
 			currentCollectionIndex = 0
-			navigate('Software')
+			api.memory.set('currentCollectionIndex', currentCollectionIndex);
+			navigate('Software');
 		}
 
 		else if (currentPage === 'Software') {
 			searchValue = ''
+			header__search_input.text = 'Search'
 			currentCollectionIndex = 0
 			navigate('Software')
 		}
 
 		}
 
+	}
+
+	Text {
+		id: favorite_label
+		text: "Favorite"
+		color: theme.text
+		font.pixelSize: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(18*screenRatio)
+
+	anchors {
+		centerIn: parent
+	}
+
+}
+
+	anchors {
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(26*screenRatio) : vpx(20*screenRatio)
+		left: all.right; leftMargin: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(20*screenRatio)
 	}
 
 	MouseArea {
@@ -85,8 +86,8 @@ import QtQuick 2.15
 		onClicked: {
 
 		if (currentPage === 'Home') {
-			searchValue = ''
 			currentCollectionIndex = 0
+			api.memory.set('currentCollectionIndex', currentCollectionIndex)
 			navigate('Software')
 		}
 
@@ -94,6 +95,7 @@ import QtQuick 2.15
 			game__settings_layout.focus = false
 			game__settings_layout_favorite_button.focus = false
 			searchValue = ''
+			header__search_input.text = 'Search'
 			currentCollectionIndex = 0
 			navigate('Software')
 		}

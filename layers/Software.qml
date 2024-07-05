@@ -9,8 +9,9 @@ import QtGraphicalEffects 1.12
 	Keys.onPressed: {
 		if (api.keys.isCancel(event)) {
 			event.accepted = true
-			api.memory.unset('currentCollectionIndex', currentCollectionIndex)
 			searchValue = ''
+			header__search_input.text = 'Search'
+			api.memory.unset('currentCollectionIndex', currentCollectionIndex)
 			navigate('Home')
 		}
 
@@ -74,7 +75,28 @@ import QtGraphicalEffects 1.12
 		border.color: theme.accent
 		border.width: aspectRatio === 43 ? vpx(1.5*screenRatio) : vpx(1*screenRatio)
 		radius: vpx(3*screenRatio)
-		visible: header__search_layout.focus || header__search_input.focus || header__search_button_cancel.focus || header__search_button_ok.focus ? 1 : 0
+		visible: header__search_layout.focus || header__search_input.focus || header__search_button_cancel.focus || header__search_button_ok.focus
+
+	Keys.onDownPressed: {
+		header__search_button_cancel.focus = true
+	}
+
+	Keys.onPressed: {
+		if (api.keys.isAccept(event)) {
+			event.accepted = true
+			searchValue = ''
+			header__search_input.clear()
+			header__search_input.focus = true
+		}
+
+		if (api.keys.isCancel(event)) {
+			event.accepted = true
+			searchValue = ''
+			header__search_input.text = 'Search'
+			search.focus = true
+		}
+
+	}
 
 	anchors {
 		top: header.bottom; topMargin: aspectRatio === 43 ? vpx(85*screenRatio) : vpx(55*screenRatio);
@@ -94,31 +116,6 @@ import QtGraphicalEffects 1.12
 	}
 
 }
-	Keys.onUpPressed: {}
-
-	Keys.onLeftPressed: {}
-
-	Keys.onRightPressed: {}
-
-	Keys.onDownPressed: {
-		header__search_button_cancel.focus = true
-	}
-
-	Keys.onPressed: {
-		if (api.keys.isAccept(event)) {
-			event.accepted = true
-			searchValue = ''
-			header__search_input.clear()
-			header__search_input.focus = true
-		}
-
-		if (api.keys.isCancel(event)) {
-			event.accepted = true
-			searchValue = ''
-			search.focus = true
-		}
-
-	}
 
 }
 
@@ -129,7 +126,34 @@ import QtGraphicalEffects 1.12
 		color: focus ? theme.select : theme.background
                 border.color: focus ? theme.accent : theme.background
                 border.width: aspectRatio === 43 ? vpx(1*screenRatio) : vpx(0.5*screenRatio)
-		visible: header__search_layout.focus || header__search_input.focus || header__search_button_cancel.focus || header__search_button_ok.focus ? 1 : 0
+		visible: header__search_layout.focus || header__search_input.focus || header__search_button_cancel.focus || header__search_button_ok.focus
+
+	Keys.onUpPressed: {
+		searchValue = ''
+		header__search_input.clear()
+		header__search_input.focus = true
+	}
+
+	Keys.onRightPressed: {
+		header__search_button_ok.focus = true
+	}
+
+	Keys.onPressed: {
+		if (api.keys.isAccept(event)) {
+			event.accepted = true
+			searchValue = ''
+			header__search_input.text = 'Search'
+			search.focus = true
+		}
+
+		if (api.keys.isCancel(event)) {
+			event.accepted = true
+			searchValue = ''
+			header__search_input.text = 'Search'
+			search.focus = true
+		}
+
+	}
 
 	Text {
 		id: header__search_button_cancel_label
@@ -149,40 +173,13 @@ import QtGraphicalEffects 1.12
 		right: header__search_layout.right; rightMargin: aspectRatio === 43 ? vpx(45*screenRatio) : vpx(45*screenRatio)
 	}
 
-	Keys.onUpPressed: {
-		searchValue = ''
-		header__search_input.clear()
-		header__search_input.focus = true
-	}
-
-	Keys.onLeftPressed: {}
-
-	Keys.onRightPressed: {
-		header__search_button_ok.focus = true
-	}
-
-	Keys.onDownPressed: {}
-
-	Keys.onPressed: {
-		if (api.keys.isAccept(event)) {
-			event.accepted = true
-			searchValue = ''
-			search.focus = true
-		}
-
-		if (api.keys.isCancel(event)) {
-			event.accepted = true
-			searchValue = ''
-			search.focus = true
-		}
-
-	}
-
 	MouseArea {
 		id: header__search_button_cancel_mouse
 		anchors.fill: header__search_button_cancel
+
 		onClicked: {
 			searchValue = ''
+			header__search_input.text = 'Search'
 			search.focus = true
 		}
 
@@ -197,25 +194,7 @@ import QtGraphicalEffects 1.12
 		color: focus ? theme.select : theme.background
                 border.color: focus ? theme.accent : theme.background
                 border.width: aspectRatio === 43 ? vpx(1*screenRatio) : vpx(0.5*screenRatio)
-		visible: header__search_layout.focus || header__search_input.focus || header__search_button_cancel.focus || header__search_button_ok.focus ? 1 : 0
-
-	Text {
-		id: header__search_button_ok_label
-		text: "OK"
-		color: theme.text
-		font.pixelSize: aspectRatio === 43 ? vpx(14*screenRatio) : vpx(14*screenRatio)
-		font.bold: true
-
-	anchors {
-		centerIn: parent
-	}
-
-}
-
-	anchors {
-		bottom: header__search_layout.bottom; bottomMargin: aspectRatio === 43 ? vpx(10*screenRatio) : vpx(8*screenRatio)
-		left: header__search_button_cancel.right; leftMargin: aspectRatio === 43 ? vpx(8*screenRatio) : vpx(8*screenRatio)
-	}
+		visible: header__search_layout.focus || header__search_input.focus || header__search_button_cancel.focus || header__search_button_ok.focus
 
 	Keys.onUpPressed: {
 		searchValue = ''
@@ -226,10 +205,6 @@ import QtGraphicalEffects 1.12
 	Keys.onLeftPressed: {
 		header__search_button_cancel.focus = true
 	}
-
-	Keys.onRightPressed: {}
-
-	Keys.onDownPressed: {}
 
 	Keys.onPressed: {
 		if (api.keys.isAccept(event)) {
@@ -255,18 +230,39 @@ import QtGraphicalEffects 1.12
 		if (api.keys.isCancel(event)) {
 			event.accepted = true
 			searchValue = ''
+			header__search_input.text = 'Search'
 			search.focus = true
 		}
 
 	}
 
+	Text {
+		id: header__search_button_ok_label
+		text: "OK"
+		color: theme.text
+		font.pixelSize: aspectRatio === 43 ? vpx(14*screenRatio) : vpx(14*screenRatio)
+		font.bold: true
+
+	anchors {
+		centerIn: parent
+	}
+
+}
+
+	anchors {
+		bottom: header__search_layout.bottom; bottomMargin: aspectRatio === 43 ? vpx(10*screenRatio) : vpx(8*screenRatio)
+		left: header__search_button_cancel.right; leftMargin: aspectRatio === 43 ? vpx(8*screenRatio) : vpx(8*screenRatio)
+	}
+
 	MouseArea {
 		id: header__search_button_ok_mouse
 		anchors.fill: header__search_button_ok
+
 		onClicked: {
 
 		if (searchValue) {
 			currentCollectionIndex = 2
+			api.memory.set('currentCollectionIndex', currentCollectionIndex);
 			gameView.model = searchGames
 			gameView.currentIndex = 0
 			navigate('Software')
@@ -292,7 +288,7 @@ import QtGraphicalEffects 1.12
 		border.color: theme.accent
 		border.width: aspectRatio === 43 ? vpx(1.5*screenRatio) : vpx(1*screenRatio)
 		radius: vpx(5*screenRatio)
-		visible: header__search_layout.focus || header__search_input.focus || header__search_button_cancel.focus || header__search_button_ok.focus ? 1 : 0
+		visible: header__search_layout.focus || header__search_input.focus || header__search_button_cancel.focus || header__search_button_ok.focus
 
 	anchors {
 		centerIn: header__search_layout
@@ -321,22 +317,6 @@ import QtGraphicalEffects 1.12
 		color: searchValue ? theme.text : "grey"
 		font.pixelSize: aspectRatio === 43 ? vpx(15*screenRatio) : vpx(15*screenRatio)
 		clip: true
-
-	anchors {
-		left: header__search_icon.right; leftMargin: aspectRatio === 43 ? vpx(4*screenRatio) : vpx(3*screenRatio)
-		right: header__search.right; rightMargin: aspectRatio === 43 ? vpx(12*screenRatio) : vpx(12*screenRatio)
-		verticalCenter: header__search.verticalCenter
-	}
-
-	onTextEdited: {
-		searchValue = header__search_input.text
-	}
-
-	Keys.onUpPressed: {}
-
-	Keys.onLeftPressed: {}
-
-	Keys.onRightPressed: {}
 
 	Keys.onDownPressed: {
 		if (searchValue) {
@@ -384,9 +364,22 @@ import QtGraphicalEffects 1.12
 
 }
 
+	anchors {
+		left: header__search_icon.right; leftMargin: aspectRatio === 43 ? vpx(4*screenRatio) : vpx(3*screenRatio)
+		right: header__search.right; rightMargin: aspectRatio === 43 ? vpx(12*screenRatio) : vpx(12*screenRatio)
+		verticalCenter: header__search.verticalCenter
+	}
+
+	onTextEdited: {
+		searchValue = header__search_input.text
+	}
+
+}
+
 	MouseArea {
 		id: header__search_input_mouse
 		anchors.fill: header__search_input
+
 		onClicked: {
 			searchValue = ''
 			header__search_input.clear()
@@ -395,7 +388,6 @@ import QtGraphicalEffects 1.12
 
 	}
 
-}
  
 }
 
@@ -459,12 +451,6 @@ import QtGraphicalEffects 1.12
 			event.accepted = true
 			currentGameIndex = index
 			currentGame.launch()
-	}
-
-	//We reset collection when going home
-
-	if (api.keys.isCancel(event)) {
-		api.memory.unset('currentCollectionIndex', currentCollectionIndex)
 	}
 
 	//Next page
@@ -539,6 +525,65 @@ import QtGraphicalEffects 1.12
 
 }
 
+	MouseArea {
+		id: game__item_mouse
+		anchors.fill: game__item
+
+		onPressAndHold: {
+
+		if (game__settings_layout.focus) {
+			game__settings_layout.focus = false
+			game__settings_layout_favorite_button.focus = false
+			currentGameIndex = index
+		}
+
+		else if (game__settings_layout_favorite_button.focus) {
+			game__settings_layout.focus = false
+			game__settings_layout_favorite_button.focus = false
+			currentGameIndex = index
+		}
+
+		else if (focused) {
+			currentGameIndex = index
+			game__settings_layout.focus = true
+		}
+
+		else {
+			gameView.currentIndex = index
+			currentGameIndex = index
+			game__settings_layout.focus = true
+		}
+
+		}
+
+		onClicked: {
+
+		if (game__settings_layout.focus) {
+			game__settings_layout.focus = false
+			game__settings_layout_favorite_button.focus = false
+			currentGameIndex = index
+		}
+
+		else if (game__settings_layout_favorite_button.focus) {
+			game__settings_layout.focus = false
+			game__settings_layout_favorite_button.focus = false
+			currentGameIndex = index
+		}
+
+		else if (focused) {
+			currentGameIndex = index
+			currentGame.launch()
+		}
+
+		else  {
+			gameView.currentIndex = index
+			navigate('Software')
+		}
+
+		}
+
+	}
+
 	Image {
 		id: game__screenshot
 		width: parent.width
@@ -572,54 +617,6 @@ import QtGraphicalEffects 1.12
 
 }
 
-	MouseArea {
-		id: game__item_mouse
-		anchors.fill: game__item
-
-		onPressAndHold: {
-
-		if (focused) {
-			currentGameIndex = index
-			game__settings_layout.focus = true
-		}
-
-		else {
-			gameView.currentIndex = index
-			navigate('Software')
-			currentGameIndex = index
-			game__settings_layout.focus = true
-		}
-
-		}
-
-		onClicked: {
-
-
-		if (game__settings_layout.focus) {
-			game__settings_layout.focus = false
-			game__settings_layout_favorite_button.focus = false
-			gameView.currentIndex = index
-		}
-
-		else if (game__settings_layout_favorite_button.focus) {
-			game__settings_layout.focus = false
-			game__settings_layout_favorite_button.focus = false
-			gameView.currentIndex = index
-		}
-
-		else if (focused) {
-			currentGameIndex = index
-			currentGame.launch()
-		}
-
-		else {
-			gameView.currentIndex = index
-			navigate('Software')
-		}
-
-		}
-
-	}
 
 	Rectangle {
 		id: game__title_bar
@@ -782,6 +779,46 @@ import QtGraphicalEffects 1.12
 		radius: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(5*screenRatio)
 		visible: game__settings_layout.focus || game__settings_layout_favorite_button.focus ? 1 : 0
 
+	Keys.onUpPressed: {
+		game__settings_layout_favorite_button.focus = true
+	}
+
+	Keys.onLeftPressed: {
+		game__settings_layout_favorite_button.focus = true
+	}
+
+	Keys.onRightPressed: {
+		game__settings_layout_favorite_button.focus = true
+	}
+
+	Keys.onDownPressed: {
+		game__settings_layout_favorite_button.focus = true
+	}
+
+	Keys.onPressed: {
+		if (api.keys.isAccept(event)) {
+			event.accepted = true
+
+		if (game__settings_layout.focus) {
+			game__settings_layout_favorite_button.focus = true
+		}
+
+		else {
+			currentGame.favorite = !currentGame.favorite
+			game__settings_layout.focus = false
+			game__settings_layout_favorite_button.focus = false
+		}
+
+	}
+
+		if (api.keys.isCancel(event)) {
+			event.accepted = true
+			game__settings_layout.focus = false
+			game__settings_layout_favorite_button.focus = false
+		}
+
+	}
+
 	Text {
 		id: game__settings_layout_label
 		text: "Game Settings"
@@ -870,45 +907,6 @@ import QtGraphicalEffects 1.12
 		centerIn: parent
 	}
 
-	Keys.onUpPressed: {
-		game__settings_layout_favorite_button.focus = true
-	}
-
-	Keys.onLeftPressed: {
-		game__settings_layout_favorite_button.focus = true
-	}
-
-	Keys.onRightPressed: {
-		game__settings_layout_favorite_button.focus = true
-	}
-
-	Keys.onDownPressed: {
-		game__settings_layout_favorite_button.focus = true
-	}
-
-	Keys.onPressed: {
-		if (api.keys.isAccept(event)) {
-			event.accepted = true
-
-		if (game__settings_layout.focus) {
-			game__settings_layout_favorite_button.focus = true
-		}
-
-		else {
-			currentGame.favorite = !currentGame.favorite
-			game__settings_layout.focus = false
-			game__settings_layout_favorite_button.focus = false
-		}
-
-	}
-
-		if (api.keys.isCancel(event)) {
-			event.accepted = true
-			game__settings_layout.focus = false
-			game__settings_layout_favorite_button.focus = false
-		}
-
-	}
 
 	MouseArea {
 		id: game__settings_layout_favorite_button_mouse
@@ -933,280 +931,9 @@ import QtGraphicalEffects 1.12
 
 	//Personal center
 
-	Rectangle {
-		id: personal__center_layout_up
-		width: aspectRatio === 43 ? vpx(230*screenRatio) : vpx(230*screenRatio)
-		height: aspectRatio === 43 ? vpx(95*screenRatio) : vpx(95*screenRatio)
-                border.color: theme.accent
-		border.width: aspectRatio === 43 ? vpx(1.5*screenRatio) : vpx(1*screenRatio)
-		radius: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(5*screenRatio)
-		clip: true
-		visible: personal__center_layout_icon.focus || personal__center_layout_down_button.focus ? 1 : 0
-
-	Rectangle {
-		id: personal__center_layout_up_clipped
-		width: parent.width
-		height: parent.height + radius
-		color: "#2C2C2C"
-                border.color: personal__center_layout_up.border.color
-		border.width: personal__center_layout_up.border.width
-		radius: personal__center_layout_up.radius
-
-	Text {
-		id: personal__center_layout_label
-		text: "Personal Center"
-		color: "#FFFFFF"
-		font.bold: true
-		font.pixelSize: aspectRatio === 43 ? vpx(18*screenRatio) : vpx(16*screenRatio)
-
-	anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? vpx(10*screenRatio) : vpx(10*screenRatio)
-		horizontalCenter: parent.horizontalCenter
+	Personal {
+		id: personal
 	}
-
-	}
-
-	}
-
-	anchors {
-		top: header.bottom; topMargin: aspectRatio === 43 ? vpx(55*screenRatio) : vpx(20*screenRatio);
-		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(210*screenRatio) : vpx(225*screenRatio);
-	}
-
-}
-
-	Rectangle {
-		id: personal__center_layout_down
-		width: aspectRatio === 43 ? vpx(230*screenRatio) : vpx(230*screenRatio)
-		height: aspectRatio === 43 ? vpx(125*screenRatio) : vpx(125*screenRatio)
-                border.color: theme.accent
-		border.width: aspectRatio === 43 ? vpx(1.5*screenRatio) : vpx(1*screenRatio)
-		radius: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(5*screenRatio)
-		clip: true
-		visible: personal__center_layout_icon.focus || personal__center_layout_down_button.focus ? 1 : 0
-
-	Rectangle {
-		id: personal__center_layout_down_clipped
-		width: parent.width 
-		height: parent.height + radius
-		color: "#EBEBEB"
-                border.color: personal__center_layout_down.border.color
-		border.width: personal__center_layout_down.border.width
-		radius: personal__center_layout_down.radius
-
-	anchors {
-		bottom: parent.bottom;
-	}
-
-	Rectangle {
-		id: personal__center_layout_down_button
-		width: aspectRatio === 43 ? vpx(105*screenRatio) : vpx(90*screenRatio)
-		height: aspectRatio === 43 ? vpx(35*screenRatio) : vpx(30*screenRatio)
-		color: focus ? "#A9A9A9" : "transparent"
-                border.color: focus ? theme.accent : "transparent"
-		border.width: aspectRatio === 43 ? vpx(1*screenRatio) : vpx(0.5*screenRatio)
-
-	Keys.onUpPressed: {
-		personal__center_layout_icon.focus = true
-	}
-
-	Keys.onLeftPressed: {}
-
-	Keys.onRightPressed: {}
-
-	Keys.onDownPressed: {}
-
-	Keys.onPressed: {
-		if (api.keys.isAccept(event)) {
-			event.accepted = true
-			swapTheme();
-			api.memory.unset('currentCollectionIndex', currentCollectionIndex);
-			navigate('Software');
-		}
-
-		if (api.keys.isCancel(event)) {
-			event.accepted = true
-			profile.focus = true
-		}
-
-	}
-
-	MouseArea {
-		id: personal__center_layout_down_button_mouse
-		anchors.fill: personal__center_layout_down_button
-		onClicked:{
-			swapTheme();
-			api.memory.unset('currentCollectionIndex', currentCollectionIndex);
-			navigate('Software');
-		}
-
-	}
-
-	anchors {
-		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(10*screenRatio) : vpx(10*screenRatio)
-		bottom: parent.bottom; bottomMargin: aspectRatio === 43 ? vpx(18*screenRatio) : vpx(25*screenRatio)
-	}
-
-	Rectangle {
-		id: personal__center_layout_down_switch
-		width: aspectRatio === 43 ? vpx(53*screenRatio) : vpx(45*screenRatio)
-		height: aspectRatio === 43 ? vpx(24*screenRatio) : vpx(20*screenRatio)
-		color: "#2C2C2C"
- 		radius: aspectRatio === 43 ? vpx(30*screenRatio) : vpx(30*screenRatio)
-
-	anchors {
-		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(5*screenRatio)
-		verticalCenter: parent.verticalCenter;
-	}
-
-	Rectangle {
-		id: personal__center_layout_down_switch_light
-		width: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(28*screenRatio)
-		height: aspectRatio === 43 ? vpx(24*screenRatio) : vpx(20*screenRatio)
-		color: "#EBEBEB"
-                border.color: "#2C2C2C"
-		border.width: aspectRatio === 43 ? vpx(2*screenRatio) : vpx(2*screenRatio)
-		radius: aspectRatio === 43 ? vpx(30*screenRatio) : vpx(30*screenRatio)
-		visible: theme === themeLight ? true : false
-
-	anchors {
-		left: parent.left;
-		verticalCenter: parent.verticalCenter;
-	}
-
-	Text {
-		id: personal__center_layout_down_switch_light_label
-		text: "Light"
-		color: "#2C2C2C"
-		font.pixelSize: aspectRatio === 43 ? vpx(16*screenRatio) : vpx(13*screenRatio)
-
-	anchors {
-		verticalCenter: parent.verticalCenter
-		left: parent.right; leftMargin: aspectRatio === 43 ? vpx(28*screenRatio) : vpx(24*screenRatio)
-	}
-
-	}
-
-}
-
-	Rectangle {
-		id: personal__center_layout_down_switch_dark
-		width: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(28*screenRatio)
-		height: aspectRatio === 43 ? vpx(24*screenRatio) : vpx(20*screenRatio)
-		color: "#EBEBEB"
-                border.color: "#2C2C2C"
-		border.width: aspectRatio === 43 ? vpx(2*screenRatio) : vpx(2*screenRatio)
-		radius: aspectRatio === 43 ? vpx(30*screenRatio) : vpx(30*screenRatio)
-		visible: theme === themeDark ? true : false
-
-	anchors {
-		right: parent.right;
-		verticalCenter: parent.verticalCenter;
-	}
-
-	Text {
-		id: personal__center_layout_down_switch_dark_label
-		text: "Dark"
-		color: "#2C2C2C"
-		font.pixelSize: aspectRatio === 43 ? vpx(16*screenRatio) : vpx(13*screenRatio)
-
-	anchors {
-		verticalCenter: parent.verticalCenter
-		left: parent.right; leftMargin: aspectRatio === 43 ? vpx(8*screenRatio) : vpx(8*screenRatio)
-	}
-
-	}
-
-	}
-
-	}
-
-	}
-
-	}
-
-	anchors {
-		top: personal__center_layout_up.bottom;
-		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(210*screenRatio) : vpx(225*screenRatio);
-	}
-
-}
-
-	Rectangle {
-		id: personal__center_layout_icon
-		width: aspectRatio === 43 ? vpx(80*screenRatio) : vpx(70*screenRatio)
-		height: width
-		color: "#EBEBEB"
-                border.color: focus ? theme.accent : "#2C2C2C"
-		border.width: aspectRatio === 43 ? vpx(3.5*screenRatio) : vpx(2.5*screenRatio)
-		radius: aspectRatio === 43 ? vpx(100*screenRatio) : vpx(100*screenRatio)
-		visible: personal__center_layout_icon.focus || personal__center_layout_down_button.focus ? 1 : 0
-
-	Image {
-		id: theme__color_layout_icon_image
-		sourceSize.width: aspectRatio === 43 ? vpx(70*screenRatio) : vpx(60*screenRatio)
-		fillMode: Image.PreserveAspectFit
-		source: "../assets/icons/profile.png"
-		antialiasing: true
-		smooth: true
-
-	anchors {
-		centerIn: personal__center_layout_icon
-	}
-
-}
-
-	anchors {
-		top: personal__center_layout_up.top; topMargin: aspectRatio === 43 ? vpx(45*screenRatio) : vpx(50*screenRatio)
-		horizontalCenter: personal__center_layout_up.horizontalCenter;
-	}
-
-	Keys.onUpPressed: {}
-
-	Keys.onLeftPressed: {}
-
-	Keys.onRightPressed: {}
-
-	Keys.onDownPressed: {
-		personal__center_layout_down_button.focus = true
-	}
-
-	Keys.onPressed: {
-		if (api.keys.isCancel(event)) {
-			event.accepted = true
-			profile.focus = true
-		}
-
-	}
-
-	Image {
-		id: personal__center_layout_lace_image
-		sourceSize.height: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(20*screenRatio)
-		fillMode: Image.PreserveAspectFit
-		source: "../assets/icons/lace.png"
-		antialiasing: true
-		smooth: true
-		visible: personal__center_layout_icon.focus || personal__center_layout_down_button.focus ? 1 : 0
-
-	anchors {
-		top: personal__center_layout_icon.bottom; topMargin: aspectRatio === 43 ? vpx(6*screenRatio) : vpx(6*screenRatio);
-		horizontalCenter: parent.horizontalCenter;
-	}
-
-	Text {
-		id: personal__center_layout_lace_label
-		text: "Pegasus"
-		color: "grey"
-		font.pixelSize: aspectRatio === 43 ? vpx(16*screenRatio) : vpx(14*screenRatio)
-
-	anchors {
-		centerIn: parent
-	}
-}
-
-}
-
-}
 
 	Rectangle {
 		id: footer

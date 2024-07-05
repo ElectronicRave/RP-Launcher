@@ -30,6 +30,21 @@ import QtGraphicalEffects 1.12
 		color: "transparent"
 		visible: currentPage === 'Software' ? 1 : 0
 
+	MouseArea {
+		id: button_b_layout_mouse
+		anchors.fill: button_b_layout
+
+		onClicked: {
+			game__settings_layout.focus = false
+			game__settings_layout_favorite_button.focus = false
+			searchValue = ''
+			header__search_input.text = 'Search'
+			api.memory.unset('currentCollectionIndex', currentCollectionIndex)
+			navigate('Home')
+		}
+
+	}
+
 	Text {
 		id: button_b_legend
 		text: "Back"
@@ -49,55 +64,6 @@ import QtGraphicalEffects 1.12
 
 }
 
-
-	MouseArea {
-		id: button_b_layout_mouse
-		anchors.fill: button_b_layout
-		onClicked: {
-
-		if (header__search_layout.focus) {
-			search.focus = true
-		}
-
-		else if (header__search_input.focus) {
-			search.focus = true
-		}
-
-		else if (header__search_button_cancel.focus) {
-			search.focus = true
-		}
-
-		else if (header__search_button_ok.focus) {
-			search.focus = true
-		}
-
-		else if (game__settings_layout.focus) {
-			game__settings_layout.focus = false
-			game__settings_layout_favorite_button.focus = false
-		}
-
-		else if (game__settings_layout_favorite_button.focus) {
-			game__settings_layout.focus = false
-			game__settings_layout_favorite_button.focus = false
-		}
-
-		else if (personal__center_layout_icon.focus) {
-			profile.focus = true
-		}
-
-		else if (personal__center_layout_down_button.focus) {
-			profile.focus = true
-		}
-
-		else {
-			api.memory.unset('currentCollectionIndex', currentCollectionIndex)
-			searchValue = ''
-			navigate('Home')
-		}
-
-	}
-
-}
 
 	//Button A
 

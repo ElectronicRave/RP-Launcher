@@ -8,24 +8,6 @@ import QtQuick 2.15
                 border.color: focus ? theme.accent : theme.background
                 border.width: 1
 
-	Text {
-		id: time_legend
-		text: Qt.formatTime(new Date(), "hh:mm")
-		color: theme.text
-		font.pixelSize: aspectRatio === 43 ? vpx(18*screenRatio) : vpx(14*screenRatio)
-
-	anchors {
-		centerIn: parent
-	}
-
-}
-
-	anchors {
-		right: buttons.right; rightMargin: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(22*screenRatio)
-		verticalCenter: parent.verticalCenter
-
-	}
-
 	KeyNavigation.up: {
 
 		if (currentPage === 'Home') {
@@ -47,6 +29,24 @@ import QtQuick 2.15
 		else if (currentPage === 'Software') {
 			quit;
 		}
+
+	}
+
+	Text {
+		id: time_legend
+		text: Qt.formatTime(new Date(), "hh:mm")
+		color: theme.text
+		font.pixelSize: aspectRatio === 43 ? vpx(18*screenRatio) : vpx(14*screenRatio)
+
+	anchors {
+		centerIn: parent
+	}
+
+}
+
+	anchors {
+		right: buttons.right; rightMargin: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(22*screenRatio)
+		verticalCenter: parent.verticalCenter
 
 	}
 
