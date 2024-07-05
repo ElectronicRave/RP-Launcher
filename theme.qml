@@ -15,6 +15,7 @@ import "layers" as Layers
 	property var currentCollectionIndexMemory : api.memory.get('currentCollectionIndex', currentCollectionIndex);
 
 	property var currentCollectionIndex: {
+
 		if (currentCollectionIndexMemory)
 		return currentCollectionIndexMemory;
 
@@ -42,9 +43,15 @@ import "layers" as Layers
 
 	property var allCollections: {
 		let collections = api.collections.toVarArray()
-		collections.unshift ({"name": "All Games", "shortName": "all-games", "games": api.allGames})      
+		collections.unshift ({"name": "All Games", "shortName": "all-games", "games": api.allGames})     
 		collections.unshift ({"name": "Last Played", "shortName": "all-lastplayed", "games": filterLastPlayed})
 		collections.unshift ({"name": "Favorites", "shortName": "all-favorites", "games": allFavorites})
+		return collections
+	}
+
+	property var allCollectionsHome: {
+		let collections = api.collections.toVarArray()
+		collections.unshift ({"name": "ALL SELECT PLATFORM GAMES", "shortName": "all-games", "games": api.allGames})      
 		return collections
 	}
 
