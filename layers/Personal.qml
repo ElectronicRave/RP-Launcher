@@ -81,11 +81,11 @@ import QtQuick 2.15
 			event.accepted = true
 
 		if (currentPage === 'Home') {
-			profile_button.focus = true
+			profile.focus = true
 		}
 
 		else if (currentPage === 'Software') {
-			profile_button.focus = true
+			profile.focus = true
 		}
 
 		}
@@ -166,11 +166,11 @@ import QtQuick 2.15
 			event.accepted = true
 
 		if (currentPage === 'Home') {
-			profile_button.focus = true
+			profile.focus = true
 		}
 
 		else if (currentPage === 'Software') {
-			profile_button.focus = true
+			profile.focus = true
 		}
 
 		}

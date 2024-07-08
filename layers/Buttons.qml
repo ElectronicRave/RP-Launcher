@@ -14,7 +14,6 @@ import QtGraphicalEffects 1.12
 		layer.enabled: true
 		layer.effect: ColorOverlay { color: theme.title }
 		smooth: true
-		visible: currentPage === 'Software' ? 1 : 0
 
 	anchors {
 		right: parent.right; rightMargin: aspectRatio === 43 ? vpx(195*screenRatio) : vpx(170*screenRatio)
@@ -28,7 +27,6 @@ import QtGraphicalEffects 1.12
 		width: aspectRatio === 43 ? vpx(28*screenRatio) : vpx(28*screenRatio)
 		height: aspectRatio === 43 ? vpx(23*screenRatio) : vpx(23*screenRatio)
 		color: "transparent"
-		visible: currentPage === 'Software' ? 1 : 0
 
 	MouseArea {
 		id: button_b_layout_mouse
