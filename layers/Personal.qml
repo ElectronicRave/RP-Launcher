@@ -8,7 +8,7 @@ import QtQuick 2.15
                 border.color: theme.accent
 		border.width: aspectRatio === 43 ? vpx(1.5*screenRatio) : vpx(1*screenRatio)
 		radius: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(5*screenRatio)
-		visible: personal__center_layout_up.focus || personal__center_layout_icon.focus || personal__center_layout_down_button.focus
+		visible: personal__center_layout_up.focus || personal__center_layout_icon.focus || personal__center_layout_down_button.focus ? 1 : 0
 
 	Text {
 		id: personal__center_layout_label
@@ -81,11 +81,11 @@ import QtQuick 2.15
 			event.accepted = true
 
 		if (currentPage === 'Home') {
-			profile.focus = true
+			profile_button.focus = true
 		}
 
 		else if (currentPage === 'Software') {
-			profile.focus = true
+			profile_button.focus = true
 		}
 
 		}
@@ -166,11 +166,11 @@ import QtQuick 2.15
 			event.accepted = true
 
 		if (currentPage === 'Home') {
-			profile.focus = true
+			profile_button.focus = true
 		}
 
 		else if (currentPage === 'Software') {
-			profile.focus = true
+			profile_button.focus = true
 		}
 
 		}

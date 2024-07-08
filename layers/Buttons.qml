@@ -35,6 +35,7 @@ import QtGraphicalEffects 1.12
 		anchors.fill: button_b_layout
 
 		onClicked: {
+			gameView.visible = true
 			game__settings_layout.focus = false
 			game__settings_layout_favorite_button.focus = false
 			searchValue = ''
