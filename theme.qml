@@ -12,16 +12,11 @@ import "layers" as Layers
 
 	property var currentCollection: allCollections[currentCollectionIndex]
 
-	property var currentCollectionIndexMemory : api.memory.get('currentCollectionIndex', currentCollectionIndex);
+	property var currentCollectionIndex: api.memory.get('currentCollectionIndex', currentCollectionIndex);
 
-	property var currentCollectionIndex: {
+	//We show the game list if we have stored the collection ID
 
-		if (currentCollectionIndexMemory)
-		return currentCollectionIndexMemory;
-
-		if (!currentCollectionIndexMemory)
-		return currentItem
-	}
+	property var currentPage: currentCollectionIndex ? 'Software' : 'Home';
 
 	//Game index
 
@@ -42,22 +37,18 @@ import "layers" as Layers
 	//We remove the favorite, lastplayed, etc collections so we can put them in another place
 
 	property var allCollections: {
-		let collections = api.collections.toVarArray()
-		collections.unshift ({"name": "All Games", "shortName": "all-games", "games": api.allGames})     
+		const collections = api.collections.toVarArray()
+		collections.unshift ({"name": "All Games", "shortName": "all-games", "games": api.allGames})
 		collections.unshift ({"name": "Last Played", "shortName": "all-lastplayed", "games": filterLastPlayed})
 		collections.unshift ({"name": "Favorites", "shortName": "all-favorites", "games": allFavorites})
 		return collections
 	}
 
 	property var allCollectionsHome: {
-		let collections = api.collections.toVarArray()
-		collections.unshift ({"name": "ALL SELECT PLATFORM GAMES", "shortName": "all", "games": api.allGames})      
+		const collections = api.collections.toVarArray()
+		collections.unshift ({"name": "ALL SELECT PLATFORM GAMES", "shortName": "all-games", "games": api.allGames})
 		return collections
 	}
-
-	//We show the game list if we have stored the collection ID
-
-	property var currentPage : currentCollectionIndexMemory ? 'Software' : 'Home';
 
 	//Memorizes the condition of the theme
 
