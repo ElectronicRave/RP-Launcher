@@ -1170,7 +1170,7 @@ import QtGraphicalEffects 1.12
 
 	Image {
 		id: game__settings_layout_favorite_image
-		sourceSize.width: aspectRatio === 43 ? vpx(25*screenRatio) : vpx(22*screenRatio)
+		sourceSize.width: aspectRatio === 43 ? vpx(25*screenRatio) : vpx(23*screenRatio)
 		fillMode: Image.PreserveAspectFit
 		source: "../assets/icons/favorite_menu.png"
 		layer.enabled: true
