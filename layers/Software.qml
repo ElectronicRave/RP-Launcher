@@ -126,9 +126,9 @@ import QtGraphicalEffects 1.12
 	Text {
 		id: all_label
 		text: "All"
-		color: header__search_layout.focus || currentCollectionIndex === 0 || currentCollectionIndex === 1 || header__search_input.focus || header__search_button_cancel.focus || header__search_button_ok.focus || searchValue ? theme.text : theme.accent
+		color: currentCollectionIndex === 2 && header__search_layout.focus || currentCollectionIndex === 0 || currentCollectionIndex === 1 || header__search_input.focus || header__search_button_cancel.focus || header__search_button_ok.focus || searchValue ? theme.text : theme.accent
 		font.pixelSize: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(18*screenRatio)
-		font.bold: header__search_layout.focus || currentCollectionIndex === 0 || currentCollectionIndex === 1 || header__search_input.focus || header__search_button_cancel.focus || header__search_button_ok.focus || searchValue ? false : true
+		font.bold: currentCollectionIndex === 2 && header__search_layout.focus || currentCollectionIndex === 0 || currentCollectionIndex === 1 || header__search_input.focus || header__search_button_cancel.focus || header__search_button_ok.focus || searchValue ? false : true
 
 	anchors {
 		centerIn: parent
@@ -325,6 +325,7 @@ import QtGraphicalEffects 1.12
 		if (api.keys.isAccept(event)) {
 			event.accepted = true
 			gameView.visible = false
+			currentCollectionIndex = 2
 			searchValue = ''
 			header__search_input.text = 'Search'
 			header__search_layout.focus = true
@@ -335,9 +336,9 @@ import QtGraphicalEffects 1.12
 	Text {
 		id: search_label
 		text: "Search"
-		color: header__search_layout.focus || header__search_input.focus || header__search_button_cancel.focus || header__search_button_ok.focus || searchValue ? theme.accent : theme.text
+		color: currentCollectionIndex === 2 && header__search_layout.focus || header__search_input.focus || header__search_button_cancel.focus || header__search_button_ok.focus || searchValue ? theme.accent : theme.text
 		font.pixelSize: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(18*screenRatio)
-		font.bold: header__search_layout.focus || header__search_input.focus || header__search_button_cancel.focus || header__search_button_ok.focus || searchValue ? true : false
+		font.bold: currentCollectionIndex === 2 && header__search_layout.focus || header__search_input.focus || header__search_button_cancel.focus || header__search_button_ok.focus || searchValue ? true : false
 
 	anchors {
 		centerIn: parent
@@ -627,7 +628,6 @@ import QtGraphicalEffects 1.12
 
 		if (searchValue) {
 			event.accepted = true
-			currentCollectionIndex = 2
 			gameView.model = searchGames
 			gameView.currentIndex = 0
 			navigate('Software')
