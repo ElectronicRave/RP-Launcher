@@ -134,7 +134,7 @@ import QtGraphicalEffects 1.12
 
 	Rectangle {
 		id: favorite_button
-		width: aspectRatio === 43 ? vpx(72*screenRatio) : vpx(65*screenRatio)
+		width: aspectRatio === 43 ? vpx(74*screenRatio) : vpx(67*screenRatio)
 		height: aspectRatio === 43 ? vpx(34*screenRatio) : vpx(32*screenRatio)
 		color: focus ? theme.select : theme.background
                 border.color: focus ? theme.accent : theme.background
@@ -197,7 +197,7 @@ import QtGraphicalEffects 1.12
 
 	Rectangle {
 		id: played_button
-		width: aspectRatio === 43 ? vpx(62*screenRatio) : vpx(53*screenRatio)
+		width: aspectRatio === 43 ? vpx(65*screenRatio) : vpx(58*screenRatio)
 		height: aspectRatio === 43 ? vpx(34*screenRatio) : vpx(32*screenRatio)
 		color: focus ? theme.select : theme.background
                 border.color: focus ? theme.accent : theme.background
