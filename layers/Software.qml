@@ -162,7 +162,7 @@ import QtGraphicalEffects 1.12
 
 	Rectangle {
 		id: favorite_button
-		width: aspectRatio === 43 ? vpx(72*screenRatio) : vpx(65*screenRatio)
+		width: aspectRatio === 43 ? vpx(73*screenRatio) : vpx(67*screenRatio)
 		height: aspectRatio === 43 ? vpx(34*screenRatio) : vpx(32*screenRatio)
 		color: focus ? theme.select : theme.background
                 border.color: focus ? theme.accent : theme.background
@@ -234,7 +234,7 @@ import QtGraphicalEffects 1.12
 
 	Rectangle {
 		id: played_button
-		width: aspectRatio === 43 ? vpx(62*screenRatio) : vpx(53*screenRatio)
+		width: aspectRatio === 43 ? vpx(63*screenRatio) : vpx(56*screenRatio)
 		height: aspectRatio === 43 ? vpx(34*screenRatio) : vpx(32*screenRatio)
 		color: focus ? theme.select : theme.background
                 border.color: focus ? theme.accent : theme.background
@@ -306,7 +306,7 @@ import QtGraphicalEffects 1.12
 
 	Rectangle {
 		id: search_button
-		width: aspectRatio === 43 ? vpx(64*screenRatio) : vpx(55*screenRatio)
+		width: aspectRatio === 43 ? vpx(65*screenRatio) : vpx(58*screenRatio)
 		height: aspectRatio === 43 ? vpx(34*screenRatio) : vpx(32*screenRatio)
 		color: focus || header__search_layout.focus || header__search_input.focus || header__search_button_cancel.focus || header__search_button_ok.focus ? theme.select : theme.background
                 border.color: focus || header__search_layout.focus || header__search_input.focus || header__search_button_cancel.focus || header__search_button_ok.focus ? theme.accent : theme.background
