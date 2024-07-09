@@ -311,7 +311,6 @@ import QtGraphicalEffects 1.12
 		color: focus || header__search_layout.focus || header__search_input.focus || header__search_button_cancel.focus || header__search_button_ok.focus ? theme.select : theme.background
                 border.color: focus || header__search_layout.focus || header__search_input.focus || header__search_button_cancel.focus || header__search_button_ok.focus ? theme.accent : theme.background
                 border.width: aspectRatio === 43 ? vpx(1*screenRatio) : vpx(0.5*screenRatio)
-		visible: currentPage === 'Software'
 
 	KeyNavigation.left: {
 		played_button;
