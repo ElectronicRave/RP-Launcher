@@ -751,11 +751,10 @@ import QtGraphicalEffects 1.12
 
 	Item {
 		id: game__item_container
-		property bool selected: GridView.isCurrentItem
-		property bool focused: GridView.isCurrentItem && gameView.focus
+		property bool selected: gameView.focus && GridView.isCurrentItem
 		width: gameView.cellWidth - vpx(12*screenRatio)
 		height: width
-		scale: focused ? 1.07 : 1
+		scale: selected ? 1.07 : 1
 
 	//Launch game
 
@@ -847,16 +846,22 @@ import QtGraphicalEffects 1.12
 		if (game__settings_layout.focus) {
 			game__settings_layout.focus = false
 			game__settings_layout_favorite_button.focus = false
-			currentGameIndex = index
 		}
 
 		else if (game__settings_layout_favorite_button.focus) {
 			game__settings_layout.focus = false
 			game__settings_layout_favorite_button.focus = false
-			currentGameIndex = index
 		}
 
-		else if (focused) {
+		else if (personal__center_layout_icon.focus) {
+			navigate('Software')
+		}
+
+		else if (personal__center_layout_down_button.focus) {
+			navigate('Software')
+		}
+
+		else if (selected) {
 			currentGameIndex = index
 			game__settings_layout.focus = true
 		}
@@ -874,16 +879,22 @@ import QtGraphicalEffects 1.12
 		if (game__settings_layout.focus) {
 			game__settings_layout.focus = false
 			game__settings_layout_favorite_button.focus = false
-			currentGameIndex = index
 		}
 
 		else if (game__settings_layout_favorite_button.focus) {
 			game__settings_layout.focus = false
 			game__settings_layout_favorite_button.focus = false
-			currentGameIndex = index
 		}
 
-		else if (focused) {
+		else if (personal__center_layout_icon.focus) {
+			navigate('Software')
+		}
+
+		else if (personal__center_layout_down_button.focus) {
+			navigate('Software')
+		}
+
+		else if (selected) {
 			currentGameIndex = index
 			currentGame.launch()
 		}
@@ -985,10 +996,10 @@ import QtGraphicalEffects 1.12
 		text: modelData.title
 		color: "#FFFFFF"
 		font.pixelSize: aspectRatio === 43 ? vpx(18*screenRatio) : vpx(13*screenRatio)
-		visible: focused ? game__title_name.truncated : 0
+		visible: selected ? game__title_name.truncated : 0
 
 	SequentialAnimation on x {
-		running: focused ? game__title_name.truncated : 0
+		running: selected ? game__title_name.truncated : 0
 		loops: Animation.Infinite
 
 	NumberAnimation {
@@ -1041,7 +1052,7 @@ import QtGraphicalEffects 1.12
 		border.color: theme.accent
 		border.width: aspectRatio === 43 ? vpx(3.5*screenRatio) : vpx(2.5*screenRatio)
 		radius: vpx(4*screenRatio)
-		opacity: focused ? 1 : 0
+		opacity: selected ? 1 : 0
 
 	anchors {
 		fill: parent

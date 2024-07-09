@@ -308,8 +308,7 @@ import QtGraphicalEffects 1.12
                   
 	Item {
 		id: system__item_container
-		property bool selected: ListView.isCurrentItem
-		property bool focused: ListView.isCurrentItem && systemListView.focus
+		property bool selected: systemListView.focus && ListView.isCurrentItem
 		width: aspectRatio === 43 ? vpx(175*screenRatio) : vpx(122*screenRatio)
 		height: width
 
@@ -334,7 +333,7 @@ import QtGraphicalEffects 1.12
 		color: theme.accent
 		font.pixelSize: aspectRatio === 43 ? vpx(24*screenRatio) : vpx(17*screenRatio)
 		font.bold: true
-		opacity: focused ? 1 : 0
+		opacity: selected ? 1 : 0
 
 	anchors {
 		horizontalCenter: system__item_container.horizontalCenter
@@ -386,17 +385,48 @@ import QtGraphicalEffects 1.12
 		id: system__logo_mouse
 		anchors.fill: system__logo
 
+		onPressAndHold: {
+
+		if (personal__center_layout_icon.focus) {
+			navigate('Home')
+		}
+
+		else if (personal__center_layout_down_button.focus) {
+			navigate('Home')
+		}
+
+		else if (selected) {
+			system__item_container.scale = 1.07
+		}
+
+		else {
+			systemListView.currentIndex = index
+			system__item_container.scale = 1.07
+		}
+
+	}
+
+		onReleased: {
+			system__item_container.scale = 1
+		}
+
 		onClicked: {
 
-		if (focused) {
+		if (personal__center_layout_icon.focus) {
+			navigate('Home')
+		}
+
+		else if (personal__center_layout_down_button.focus) {
+			navigate('Home')
+		}
+
+		else if (selected) {
 			currentCollectionIndex = system__item_container.ListView.view.currentIndex+3
-			api.memory.set('currentCollectionIndex', currentCollectionIndex);
 			navigate('Software')
 		}
 
 		else {
 			systemListView.currentIndex = index
-			api.memory.unset('currentCollectionIndex', currentCollectionIndex);
 			navigate('Home')
 		}
 
@@ -412,7 +442,7 @@ import QtGraphicalEffects 1.12
 		border.color: theme.accent
 		border.width: aspectRatio === 43 ? vpx(3.5*screenRatio) : vpx(2.5*screenRatio)
 		radius: vpx(4*screenRatio)
-		opacity: focused ? 1 : 0
+		opacity: selected ? 1 : 0
 
 	anchors {
 		centerIn: system__logo
