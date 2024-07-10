@@ -809,7 +809,6 @@ import QtGraphicalEffects 1.12
 		source: modelData.assets.boxFront || modelData.assets.logo
 		fillMode: Image.PreserveAspect
 		asynchronous: true
-		smooth: true
 		visible: false
 
 	anchors {
@@ -914,7 +913,6 @@ import QtGraphicalEffects 1.12
 		fillMode: Image.PreserveAspect
 		source: modelData.assets.screenshots[0]
 		asynchronous: true
-		smooth: true
 		visible: false
 
 	anchors {

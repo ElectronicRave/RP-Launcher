@@ -360,7 +360,6 @@ import QtGraphicalEffects 1.12
 		fillMode: Image.PreserveAspect
 		source: "../assets/images/logos/"+modelData.shortName+".jpg"
 		asynchronous: true
-		smooth: true
 		visible: false
 }
 
