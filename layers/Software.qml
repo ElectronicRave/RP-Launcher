@@ -117,8 +117,9 @@ import QtGraphicalEffects 1.12
 			gameView.visible = true
 			searchValue = ''
 			header__search_input.text = 'Search'
-			api.memory.unset('currentCollectionIndex', currentCollectionIndex)
-			navigate('Home')
+			api.memory.set('currentCollectionIndex', currentCollectionIndex)
+			currentCollectionIndex = 2
+			navigate('Software')
 		}
 
 	}
@@ -126,9 +127,9 @@ import QtGraphicalEffects 1.12
 	Text {
 		id: all_label
 		text: "All"
-		color: currentCollectionIndex === 2 && header__search_layout.focus || currentCollectionIndex === 0 || currentCollectionIndex === 1 || header__search_input.focus || header__search_button_cancel.focus || header__search_button_ok.focus || searchValue ? theme.text : theme.accent
+		color: currentCollectionIndex === 0 || currentCollectionIndex === 1 || header__search_layout.focus || header__search_input.focus || header__search_button_cancel.focus || header__search_button_ok.focus || searchValue ? theme.text : theme.accent
 		font.pixelSize: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(18*screenRatio)
-		font.bold: currentCollectionIndex === 2 && header__search_layout.focus || currentCollectionIndex === 0 || currentCollectionIndex === 1 || header__search_input.focus || header__search_button_cancel.focus || header__search_button_ok.focus || searchValue ? false : true
+		font.bold: currentCollectionIndex === 0 || currentCollectionIndex === 1 || header__search_layout.focus || header__search_input.focus || header__search_button_cancel.focus || header__search_button_ok.focus || searchValue ? false : true
 
 	anchors {
 		centerIn: parent
@@ -150,8 +151,9 @@ import QtGraphicalEffects 1.12
 			game__settings_layout_favorite_button.focus = false
 			searchValue = ''
 			header__search_input.text = 'Search'
-			api.memory.unset('currentCollectionIndex', currentCollectionIndex)
-			navigate('Home')
+			api.memory.set('currentCollectionIndex', currentCollectionIndex)
+			currentCollectionIndex = 2
+			navigate('Software')
 		}
 
 	}
@@ -323,11 +325,12 @@ import QtGraphicalEffects 1.12
 	Keys.onPressed: {
 		if (api.keys.isAccept(event)) {
 			event.accepted = true
-			gameView.visible = false
-			currentCollectionIndex = 2
+			currentCollectionIndex = ''
+			navigate('Software')
 			searchValue = ''
 			header__search_input.text = 'Search'
 			header__search_layout.focus = true
+			gameView.visible = false
 		}
 
 	}
@@ -335,9 +338,9 @@ import QtGraphicalEffects 1.12
 	Text {
 		id: search_label
 		text: "Search"
-		color: currentCollectionIndex === 2 && header__search_layout.focus || header__search_input.focus || header__search_button_cancel.focus || header__search_button_ok.focus || searchValue ? theme.accent : theme.text
+		color: header__search_layout.focus || header__search_input.focus || header__search_button_cancel.focus || header__search_button_ok.focus || searchValue ? theme.accent : theme.text
 		font.pixelSize: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(18*screenRatio)
-		font.bold: currentCollectionIndex === 2 && header__search_layout.focus || header__search_input.focus || header__search_button_cancel.focus || header__search_button_ok.focus || searchValue ? true : false
+		font.bold: header__search_layout.focus || header__search_input.focus || header__search_button_cancel.focus || header__search_button_ok.focus || searchValue ? true : false
 
 	anchors {
 		centerIn: parent
@@ -355,13 +358,14 @@ import QtGraphicalEffects 1.12
 		anchors.fill: search_label
 
 		onClicked: {
-			gameView.visible = false
-			currentCollectionIndex = 2
 			game__settings_layout.focus = false
 			game__settings_layout_favorite_button.focus = false
+			currentCollectionIndex = ''
+			navigate('Software')
 			searchValue = ''
 			header__search_input.text = 'Search'
 			header__search_layout.focus = true
+			gameView.visible = false
 		}
 
 	}
@@ -402,7 +406,7 @@ import QtGraphicalEffects 1.12
 
 		if (api.keys.isCancel(event)) {
 			event.accepted = true
-			searchValue = 'null'
+			searchValue = ' '
 			header__search_input.text = 'Search'
 			search_button.focus = true
 			gameView.visible = false
@@ -555,7 +559,7 @@ import QtGraphicalEffects 1.12
 	Keys.onPressed: {
 		if (api.keys.isAccept(event)) {
 			event.accepted = true
-			searchValue = 'null'
+			searchValue = ' '
 			header__search_input.text = 'Search'
 			search_button.focus = true
 			gameView.visible = false
@@ -563,7 +567,7 @@ import QtGraphicalEffects 1.12
 
 		if (api.keys.isCancel(event)) {
 			event.accepted = true
-			searchValue = 'null'
+			searchValue = ' '
 			header__search_input.text = 'Search'
 			search_button.focus = true
 			gameView.visible = false
@@ -594,7 +598,7 @@ import QtGraphicalEffects 1.12
 		anchors.fill: header__search_button_cancel
 
 		onClicked: {
-			searchValue = 'null'
+			searchValue = ' '
 			header__search_input.text = 'Search'
 			search_button.focus = true
 		}
@@ -628,7 +632,6 @@ import QtGraphicalEffects 1.12
 		if (searchValue) {
 			event.accepted = true
 			gameView.model = searchGames
-			gameView.currentIndex = 0
 			navigate('Software')
 			search_button.focus = true
 			gameView.visible = true
@@ -644,7 +647,7 @@ import QtGraphicalEffects 1.12
 
 		if (api.keys.isCancel(event)) {
 			event.accepted = true
-			searchValue = 'null'
+			searchValue = ' '
 			header__search_input.text = 'Search'
 			search_button.focus = true
 			gameView.visible = false
@@ -1390,7 +1393,10 @@ import QtGraphicalEffects 1.12
 		if (api.keys.isAccept(event)) {
 			event.accepted = true
 			swapTheme();
+			searchValue = ''
+			header__search_input.text = 'Search'
 			navigate('Software');
+			gameView.visible = true
 		}
 
 		if (api.keys.isCancel(event)) {
@@ -1406,7 +1412,10 @@ import QtGraphicalEffects 1.12
 
 		onClicked:{
 			swapTheme();
+			searchValue = ''
+			header__search_input.text = 'Search'
 			navigate('Software');
+			gameView.visible = true
 		}
 
 	}

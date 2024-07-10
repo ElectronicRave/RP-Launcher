@@ -283,8 +283,9 @@ import QtGraphicalEffects 1.12
 		snapMode: ListView.SnapOneItem
 		delegate: systemDelegate
 		orientation: ListView.Horizontal
-		focus: currentPage === 'Home' ? true : false
 		spacing: aspectRatio === 43 ? vpx(10*screenRatio) : vpx(10*screenRatio)
+		focus: currentPage === 'Home' ? true : false
+		
 
 		highlightRangeMode: ListView.StrictlyEnforceRange
 		preferredHighlightBegin: aspectRatio === 43 ? vpx(135*screenRatio) : vpx(95*screenRatio)
