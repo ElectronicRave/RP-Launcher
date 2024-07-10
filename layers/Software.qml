@@ -114,12 +114,12 @@ import QtGraphicalEffects 1.12
 	Keys.onPressed: {
 		if (api.keys.isAccept(event)) {
 			event.accepted = true
-			gameView.visible = true
 			searchValue = ''
 			header__search_input.text = 'Search'
-			api.memory.set('currentCollectionIndex', currentCollectionIndex)
 			currentCollectionIndex = 2
-			navigate('Software')
+			api.memory.set('currentCollectionIndex', currentCollectionIndex);
+			navigate('Software');
+			gameView.visible = true
 		}
 
 	}
@@ -146,14 +146,15 @@ import QtGraphicalEffects 1.12
 		anchors.fill: all_label
 
 		onClicked: {
-			gameView.visible = true
+			
 			game__settings_layout.focus = false
 			game__settings_layout_favorite_button.focus = false
 			searchValue = ''
 			header__search_input.text = 'Search'
-			api.memory.set('currentCollectionIndex', currentCollectionIndex)
 			currentCollectionIndex = 2
-			navigate('Software')
+			api.memory.set('currentCollectionIndex', currentCollectionIndex);
+			navigate('Software');
+			gameView.visible = true
 		}
 
 	}
@@ -185,12 +186,12 @@ import QtGraphicalEffects 1.12
 	Keys.onPressed: {
 		if (api.keys.isAccept(event)) {
 			event.accepted = true
-			gameView.visible = true
 			searchValue = ''
 			header__search_input.text = 'Search'
 			currentCollectionIndex = 0
 			api.memory.set('currentCollectionIndex', currentCollectionIndex);
 			navigate('Software');
+			gameView.visible = true
 		}
 
 	}
@@ -218,7 +219,6 @@ import QtGraphicalEffects 1.12
 		anchors.fill: favorite_label
 
 		onClicked: {
-			gameView.visible = true
 			game__settings_layout.focus = false
 			game__settings_layout_favorite_button.focus = false
 			searchValue = ''
@@ -226,6 +226,7 @@ import QtGraphicalEffects 1.12
 			currentCollectionIndex = 0
 			api.memory.set('currentCollectionIndex', currentCollectionIndex);
 			navigate('Software');
+			gameView.visible = true
 		}
 
 	}
@@ -257,12 +258,12 @@ import QtGraphicalEffects 1.12
 	Keys.onPressed: {
 		if (api.keys.isAccept(event)) {
 			event.accepted = true
-			gameView.visible = true
 			searchValue = ''
 			header__search_input.text = 'Search'
 			currentCollectionIndex = 1
 			api.memory.set('currentCollectionIndex', currentCollectionIndex);
 			navigate('Software');
+			gameView.visible = true
 		}
 
 	}
@@ -290,7 +291,6 @@ import QtGraphicalEffects 1.12
 		anchors.fill: played_label
 
 		onClicked: {
-			gameView.visible = true
 			game__settings_layout.focus = false
 			game__settings_layout_favorite_button.focus = false
 			searchValue = ''
@@ -298,6 +298,7 @@ import QtGraphicalEffects 1.12
 			currentCollectionIndex = 1
 			api.memory.set('currentCollectionIndex', currentCollectionIndex);
 			navigate('Software');
+			gameView.visible = true
 		}
 
 	}
@@ -325,12 +326,13 @@ import QtGraphicalEffects 1.12
 	Keys.onPressed: {
 		if (api.keys.isAccept(event)) {
 			event.accepted = true
-			currentCollectionIndex = ''
-			navigate('Software')
 			searchValue = ''
 			header__search_input.text = 'Search'
+			currentCollectionIndex = ''
+			navigate('Software');
 			header__search_layout.focus = true
 			gameView.visible = false
+			
 		}
 
 	}
@@ -360,10 +362,10 @@ import QtGraphicalEffects 1.12
 		onClicked: {
 			game__settings_layout.focus = false
 			game__settings_layout_favorite_button.focus = false
-			currentCollectionIndex = ''
-			navigate('Software')
 			searchValue = ''
 			header__search_input.text = 'Search'
+			currentCollectionIndex = ''
+			navigate('Software');
 			header__search_layout.focus = true
 			gameView.visible = false
 		}
@@ -632,7 +634,8 @@ import QtGraphicalEffects 1.12
 		if (searchValue) {
 			event.accepted = true
 			gameView.model = searchGames
-			navigate('Software')
+			gameView.currentIndex = 0
+			navigate('Software');
 			search_button.focus = true
 			gameView.visible = true
 		}
@@ -682,7 +685,7 @@ import QtGraphicalEffects 1.12
 		if (searchValue) {
 			gameView.model = searchGames
 			gameView.currentIndex = 0
-			navigate('Software')
+			navigate('Software');
 			search_button.focus = true
 			gameView.visible = true
 		}
@@ -757,6 +760,7 @@ import QtGraphicalEffects 1.12
 		width: gameView.cellWidth - vpx(12*screenRatio)
 		height: width
 		scale: selected ? 1.07 : 1
+		visible: currentPage === 'Software' ? true : false
 
 	//Launch game
 
@@ -1392,9 +1396,9 @@ import QtGraphicalEffects 1.12
 	Keys.onPressed: {
 		if (api.keys.isAccept(event)) {
 			event.accepted = true
-			swapTheme();
 			searchValue = ''
 			header__search_input.text = 'Search'
+			swapTheme();
 			navigate('Software');
 			gameView.visible = true
 		}
@@ -1411,9 +1415,9 @@ import QtGraphicalEffects 1.12
 		anchors.fill: personal__center_layout_down_button
 
 		onClicked:{
-			swapTheme();
 			searchValue = ''
 			header__search_input.text = 'Search'
+			swapTheme();
 			navigate('Software');
 			gameView.visible = true
 		}

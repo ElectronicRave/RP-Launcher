@@ -312,6 +312,7 @@ import QtGraphicalEffects 1.12
 		property bool selected: systemListView.focus && ListView.isCurrentItem
 		width: aspectRatio === 43 ? vpx(175*screenRatio) : vpx(122*screenRatio)
 		height: width
+		visible: currentPage === 'Home' ? true : false
 
 	//Browse the collection and return to the same place after playing
 
