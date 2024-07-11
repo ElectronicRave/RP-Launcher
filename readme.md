@@ -72,7 +72,3 @@ In this list you can see all contents in the System, in this screen you can do s
 Visible only on the content page!
 
 Just click search in the current collection and write the name of the content.
-
-Note:
-- If you write the name of the content and press "enter" on the virtual keyboard it will show the corresponding items.
-- If you press the back button "B" you will return to the software screen.
