@@ -323,7 +323,7 @@ import QtGraphicalEffects 1.12
 			event.accepted = true
 			currentCollectionIndex = system__item_container.ListView.view.currentIndex + 2
 			api.memory.set('currentCollectionIndex', currentCollectionIndex);
-			navigate('Software')
+			navigate('Software');
 		}
 
 	}
@@ -422,8 +422,9 @@ import QtGraphicalEffects 1.12
 		}
 
 		else if (selected) {
-			currentCollectionIndex = system__item_container.ListView.view.currentIndex+3
-			navigate('Software')
+			currentCollectionIndex = system__item_container.ListView.view.currentIndex + 2
+			api.memory.set('currentCollectionIndex', currentCollectionIndex);
+			navigate('Software');
 		}
 
 		else {
