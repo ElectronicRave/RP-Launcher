@@ -69,7 +69,7 @@ In this list you can see all contents in the System, in this screen you can do s
 
 ### Search mode
 
-Visible only on the software page!
+Visible only on the content page!
 
 Just click search in the current collection and write the name of the content.
 
