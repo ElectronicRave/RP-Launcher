@@ -4,6 +4,8 @@ import QtGraphicalEffects 1.12
 	Item {
 		id: home
 
+		property var personalFocus: personal__center_layout_up.focus || personal__center_layout_icon.focus || personal__center_layout_down_button.focus
+
 	Rectangle {
 		id: header
 		width: headerCSS.width
@@ -21,7 +23,7 @@ import QtGraphicalEffects 1.12
 		width: aspectRatio === 43 ? vpx(48*screenRatio) : vpx(35*screenRatio)
 		height: width
 		color: "#FFFFFF"
-                border.color: focus || personal__center_layout_up.focus || personal__center_layout_icon.focus || personal__center_layout_down_button.focus ? theme.accent : "#2C2C2C"
+                border.color: focus || personalFocus ? theme.accent : "#2C2C2C"
 		border.width: aspectRatio === 43 ? vpx(2*screenRatio) : vpx(1.5*screenRatio)
 		radius: aspectRatio === 43 ? vpx(100*screenRatio) : vpx(100*screenRatio)
 
@@ -474,7 +476,7 @@ import QtGraphicalEffects 1.12
                 border.color: theme.accent
 		border.width: aspectRatio === 43 ? vpx(1.5*screenRatio) : vpx(1*screenRatio)
 		radius: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(5*screenRatio)
-		visible: personal__center_layout_up.focus || personal__center_layout_icon.focus || personal__center_layout_down_button.focus ? 1 : 0
+		visible: personalFocus ? 1 : 0
 
 	Text {
 		id: personal__center_layout_label

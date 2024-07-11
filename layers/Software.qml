@@ -4,6 +4,10 @@ import QtGraphicalEffects 1.12
 	Item {
 		id: software
 
+		property var searchFocus: header__search_layout.focus || header__search_input.focus || header__search_button_cancel.focus || header__search_button_ok.focus
+
+		property var personalFocus: personal__center_layout_up.focus || personal__center_layout_icon.focus || personal__center_layout_down_button.focus
+
 	//Back to Home
 
 	Keys.onPressed: {
@@ -37,7 +41,7 @@ import QtGraphicalEffects 1.12
 		width: aspectRatio === 43 ? vpx(48*screenRatio) : vpx(35*screenRatio)
 		height: width
 		color: "#FFFFFF"
-                border.color: focus || personal__center_layout_up.focus || personal__center_layout_icon.focus || personal__center_layout_down_button.focus ? theme.accent : "#2C2C2C"
+                border.color: focus || personalFocus ? theme.accent : "#2C2C2C"
 		border.width: aspectRatio === 43 ? vpx(2*screenRatio) : vpx(1.5*screenRatio)
 		radius: aspectRatio === 43 ? vpx(100*screenRatio) : vpx(100*screenRatio)
 
@@ -127,9 +131,9 @@ import QtGraphicalEffects 1.12
 	Text {
 		id: all_label
 		text: "All"
-		color: currentCollectionIndex === 0 || currentCollectionIndex === 1 || header__search_layout.focus || header__search_input.focus || header__search_button_cancel.focus || header__search_button_ok.focus || searchValue ? theme.text : theme.accent
+		color: currentCollectionIndex === 0 || currentCollectionIndex === 1 || searchFocus || searchValue ? theme.text : theme.accent
 		font.pixelSize: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(18*screenRatio)
-		font.bold: currentCollectionIndex === 0 || currentCollectionIndex === 1 || header__search_layout.focus || header__search_input.focus || header__search_button_cancel.focus || header__search_button_ok.focus || searchValue ? false : true
+		font.bold: currentCollectionIndex === 0 || currentCollectionIndex === 1 || searchFocus || searchValue ? false : true
 
 	anchors {
 		centerIn: parent
@@ -311,8 +315,8 @@ import QtGraphicalEffects 1.12
 		id: search_button
 		width: aspectRatio === 43 ? vpx(65*screenRatio) : vpx(58*screenRatio)
 		height: aspectRatio === 43 ? vpx(34*screenRatio) : vpx(32*screenRatio)
-		color: focus || header__search_layout.focus || header__search_input.focus || header__search_button_cancel.focus || header__search_button_ok.focus ? theme.select : theme.background
-                border.color: focus || header__search_layout.focus || header__search_input.focus || header__search_button_cancel.focus || header__search_button_ok.focus ? theme.accent : theme.background
+		color: focus || searchFocus ? theme.select : theme.background
+                border.color: focus || searchFocus ? theme.accent : theme.background
                 border.width: aspectRatio === 43 ? vpx(1*screenRatio) : vpx(0.5*screenRatio)
 
 	KeyNavigation.left: {
@@ -340,9 +344,9 @@ import QtGraphicalEffects 1.12
 	Text {
 		id: search_label
 		text: "Search"
-		color: header__search_layout.focus || header__search_input.focus || header__search_button_cancel.focus || header__search_button_ok.focus || searchValue ? theme.accent : theme.text
+		color: searchFocus || searchValue ? theme.accent : theme.text
 		font.pixelSize: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(18*screenRatio)
-		font.bold: header__search_layout.focus || header__search_input.focus || header__search_button_cancel.focus || header__search_button_ok.focus || searchValue ? true : false
+		font.bold: searchFocus || searchValue ? true : false
 
 	anchors {
 		centerIn: parent
@@ -392,7 +396,7 @@ import QtGraphicalEffects 1.12
 		border.color: theme.accent
 		border.width: aspectRatio === 43 ? vpx(1.5*screenRatio) : vpx(1*screenRatio)
 		radius: vpx(3*screenRatio)
-		visible: header__search_layout.focus || header__search_input.focus || header__search_button_cancel.focus || header__search_button_ok.focus ? 1 : 0
+		visible: searchFocus ? 1 : 0
 
 	Keys.onDownPressed: {
 		header__search_button_cancel.focus = true
@@ -1267,7 +1271,7 @@ import QtGraphicalEffects 1.12
                 border.color: theme.accent
 		border.width: aspectRatio === 43 ? vpx(1.5*screenRatio) : vpx(1*screenRatio)
 		radius: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(5*screenRatio)
-		visible: personal__center_layout_up.focus || personal__center_layout_icon.focus || personal__center_layout_down_button.focus ? 1 : 0
+		visible: personalFocus ? 1 : 0
 
 	Text {
 		id: personal__center_layout_label
