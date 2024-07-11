@@ -60,7 +60,7 @@ In this list you can see all contents in the System, in this screen you can do s
 - R1 - Next page
 - L2 - Previnious system
 - R2 - Next system
-- D-Pad or TOUCH - Access to All, Favorite, Played and Search
+- D-PAD or TOUCH - Access to All, Favorite, Played and Search
  
 ### Favorite mode
 
