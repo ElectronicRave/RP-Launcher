@@ -328,7 +328,7 @@ import QtGraphicalEffects 1.12
 			event.accepted = true
 			searchValue = ''
 			header__search_input.text = 'Search'
-			currentCollectionIndex = ''
+			currentCollectionIndex = currentCollectionIndex + ''
 			navigate('Software');
 			header__search_layout.focus = true
 			gameView.visible = false
@@ -364,7 +364,7 @@ import QtGraphicalEffects 1.12
 			game__settings_layout_favorite_button.focus = false
 			searchValue = ''
 			header__search_input.text = 'Search'
-			currentCollectionIndex = ''
+			currentCollectionIndex = currentCollectionIndex + ''
 			navigate('Software');
 			header__search_layout.focus = true
 			gameView.visible = false
