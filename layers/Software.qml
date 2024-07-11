@@ -1399,6 +1399,7 @@ import QtGraphicalEffects 1.12
 			searchValue = ''
 			header__search_input.text = 'Search'
 			swapTheme();
+			currentCollectionIndex = currentCollectionIndex + ''
 			navigate('Software');
 			gameView.visible = true
 		}
@@ -1418,6 +1419,7 @@ import QtGraphicalEffects 1.12
 			searchValue = ''
 			header__search_input.text = 'Search'
 			swapTheme();
+			currentCollectionIndex = currentCollectionIndex + ''
 			navigate('Software');
 			gameView.visible = true
 		}
