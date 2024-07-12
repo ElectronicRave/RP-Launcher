@@ -813,6 +813,33 @@ import QtGraphicalEffects 1.12
 		radius: vpx(4*screenRatio)
 }
 
+	Rectangle {
+		id: game__item_id
+		width: parent.width
+		height: parent.height
+		color: Qt.rgba(Math.random(),Math.random(),Math.random(),1);
+		radius: 100
+		visible: modelData.assets.boxFront || modelData.assets.logo ? 0 : 1
+
+	Text {
+		id: game__item_id_label
+		text: modelData.title.substring(1,0)
+		color: "#FFFFFF"
+		font.pixelSize: aspectRatio === 43 ? vpx(28*screenRatio) : vpx(26*screenRatio)
+
+	anchors {
+		centerIn: parent
+	}
+
+}
+
+	anchors {
+		fill: game__item
+		margins: aspectRatio === 43 ? vpx(27*screenRatio) : vpx(19*screenRatio)
+	}
+
+}
+
 	Image {
 		id: game__logo
 		width: parent.width
