@@ -825,7 +825,7 @@ import QtGraphicalEffects 1.12
 		id: game__item_id_label
 		text: modelData.title.substring(1,0)
 		color: "#FFFFFF"
-		font.pixelSize: aspectRatio === 43 ? vpx(28*screenRatio) : vpx(26*screenRatio)
+		font.pixelSize: aspectRatio === 43 ? vpx(30*screenRatio) : vpx(26*screenRatio)
 
 	anchors {
 		centerIn: parent
