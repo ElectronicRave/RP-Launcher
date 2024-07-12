@@ -814,15 +814,15 @@ import QtGraphicalEffects 1.12
 }
 
 	Rectangle {
-		id: game__item_id
+		id: game__id
 		width: parent.width
 		height: parent.height
-		color: Qt.rgba(Math.random(255),Math.random(255),Math.random(255),1);
+		color: Qt.rgba(Math.random(),Math.random(),Math.random(),160);
 		radius: 100
-		visible: modelData.assets.boxFront || modelData.assets.logo ? 0 : 1
+		visible: modelData.assets.boxFront || modelData.assets.logo || modelData.assets.screenshots[0] ? 0 : 1
 
 	Text {
-		id: game__item_id_label
+		id: game__id_label
 		text: modelData.title.substring(1,0)
 		color: "#FFFFFF"
 		font.pixelSize: aspectRatio === 43 ? vpx(28*screenRatio) : vpx(26*screenRatio)
