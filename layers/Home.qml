@@ -77,7 +77,7 @@ import QtGraphicalEffects 1.12
 
 	Rectangle {
 		id: all_button
-		width: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(30*screenRatio)
+		width: aspectRatio === 43 ? vpx(33*screenRatio) : vpx(31*screenRatio)
 		height: aspectRatio === 43 ? vpx(34*screenRatio) : vpx(32*screenRatio)
 		color: focus ? theme.select : theme.background
                 border.color: focus ? theme.accent : theme.background
@@ -105,10 +105,12 @@ import QtGraphicalEffects 1.12
 
 	Text {
 		id: all_label
+		height: aspectRatio === 43 ? vpx(21*screenRatio) : vpx(30*screenRatio)
 		text: "All"
 		color: theme.accent
+		font.family: font.bold ? titleFontBold.name : 0
 		font.bold: true
-		font.pixelSize: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(18*screenRatio)
+		font.pixelSize: aspectRatio === 43 ? vpx(21*screenRatio) : vpx(19*screenRatio)
 
 	anchors {
 		centerIn: parent
@@ -117,7 +119,7 @@ import QtGraphicalEffects 1.12
 
 	anchors {
 		top: parent.top; topMargin: aspectRatio === 43 ? vpx(26*screenRatio) : vpx(20*screenRatio)
-		left: profile_button.right; leftMargin: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(48*screenRatio)
+		left: profile_button.right; leftMargin: aspectRatio === 43 ? vpx(34*screenRatio) : vpx(50*screenRatio)
 	}
 
 	MouseArea {
@@ -136,7 +138,7 @@ import QtGraphicalEffects 1.12
 
 	Rectangle {
 		id: favorite_button
-		width: aspectRatio === 43 ? vpx(74*screenRatio) : vpx(67*screenRatio)
+		width: aspectRatio === 43 ? vpx(79*screenRatio) : vpx(72*screenRatio)
 		height: aspectRatio === 43 ? vpx(34*screenRatio) : vpx(32*screenRatio)
 		color: focus ? theme.select : theme.background
                 border.color: focus ? theme.accent : theme.background
@@ -167,8 +169,8 @@ import QtGraphicalEffects 1.12
 	Text {
 		id: favorite_label
 		text: "Favorite"
-		color: theme.text
-		font.pixelSize: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(18*screenRatio)
+		color: theme.title
+		font.pixelSize: aspectRatio === 43 ? vpx(21*screenRatio) : vpx(19*screenRatio)
 
 	anchors {
 		centerIn: parent
@@ -178,7 +180,7 @@ import QtGraphicalEffects 1.12
 
 	anchors {
 		top: parent.top; topMargin: aspectRatio === 43 ? vpx(26*screenRatio) : vpx(20*screenRatio)
-		left: all_button.right; leftMargin: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(20*screenRatio)
+		left: all_button.right; leftMargin: aspectRatio === 43 ? vpx(10*screenRatio) : vpx(10*screenRatio)
 	}
 
 	MouseArea {
@@ -199,7 +201,7 @@ import QtGraphicalEffects 1.12
 
 	Rectangle {
 		id: played_button
-		width: aspectRatio === 43 ? vpx(63*screenRatio) : vpx(56*screenRatio)
+		width: aspectRatio === 43 ? vpx(64*screenRatio) : vpx(57*screenRatio)
 		height: aspectRatio === 43 ? vpx(34*screenRatio) : vpx(32*screenRatio)
 		color: focus ? theme.select : theme.background
                 border.color: focus ? theme.accent : theme.background
@@ -226,8 +228,8 @@ import QtGraphicalEffects 1.12
 	Text {
 		id: played_label
 		text: "Played"
-		color: theme.text
-		font.pixelSize: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(18*screenRatio)
+		color: theme.title
+		font.pixelSize: aspectRatio === 43 ? vpx(21*screenRatio) : vpx(19*screenRatio)
 
 	anchors {
 		centerIn: parent
@@ -237,7 +239,7 @@ import QtGraphicalEffects 1.12
 
 	anchors {
 		top: parent.top; topMargin: aspectRatio === 43 ? vpx(26*screenRatio) : vpx(20*screenRatio)
-		left: favorite_button.right; leftMargin: aspectRatio === 43 ? vpx(15*screenRatio) : vpx(15*screenRatio)
+		left: favorite_button.right; leftMargin: aspectRatio === 43 ? vpx(10*screenRatio) : vpx(10*screenRatio)
 	}
 
 	MouseArea {

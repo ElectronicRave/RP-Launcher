@@ -81,7 +81,7 @@ import QtGraphicalEffects 1.12
 	Text {
 		id: battery_level
 		text: Math.floor(api.device.batteryPercent*100)+"%"
-		color: theme.text
+		color: theme.title
 		font.pixelSize: aspectRatio === 43 ? vpx(15*screenRatio) : vpx(13*screenRatio)
 		font.bold: true
 

@@ -70,7 +70,7 @@ import QtGraphicalEffects 1.12
 	Text {
 		id: button_quit_legend
 		text: "Quit"
-		color: theme.text
+		color: theme.title
 		font.pixelSize: aspectRatio === 43 ? vpx(16*screenRatio) : vpx(13*screenRatio)
 
 	anchors {

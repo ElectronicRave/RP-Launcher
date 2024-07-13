@@ -35,7 +35,7 @@ import QtQuick 2.15
 	Text {
 		id: time_legend
 		text: Qt.formatTime(new Date(), "hh:mm")
-		color: theme.text
+		color: theme.title
 		font.pixelSize: aspectRatio === 43 ? vpx(18*screenRatio) : vpx(14*screenRatio)
 
 	anchors {
