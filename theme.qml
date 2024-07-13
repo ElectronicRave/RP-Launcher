@@ -50,6 +50,10 @@ import "layers" as Layers
 		return collections
 	}
 
+	//Theme system fonts
+
+	FontLoader { id: titleFontBold; source: "assets/fonts/Juhl_W00_ExtraBold.ttf" }
+
 	//Memorizes the condition of the theme
 
 	property var theme : api.memory.get('theme') === 'themeDark' ? themeDark : themeLight ;
