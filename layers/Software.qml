@@ -118,12 +118,20 @@ import QtGraphicalEffects 1.12
 	Keys.onPressed: {
 		if (api.keys.isAccept(event)) {
 			event.accepted = true
+
+		if (currentCollectionIndex === 2) {
+			all_button.focus = true
+		}
+
+		else {
 			searchValue = ''
 			header__search_input.text = 'Search'
 			currentCollectionIndex = 2
 			api.memory.set('currentCollectionIndex', currentCollectionIndex);
 			navigate('Software');
 			gameView.visible = true
+		}
+
 		}
 
 	}
@@ -192,12 +200,20 @@ import QtGraphicalEffects 1.12
 	Keys.onPressed: {
 		if (api.keys.isAccept(event)) {
 			event.accepted = true
+
+		if (currentCollectionIndex === 0) {
+			favorite_button.focus = true
+		}
+
+		else {
 			searchValue = ''
 			header__search_input.text = 'Search'
 			currentCollectionIndex = 0
 			api.memory.set('currentCollectionIndex', currentCollectionIndex);
 			navigate('Software');
 			gameView.visible = true
+		}
+
 		}
 
 	}
@@ -266,12 +282,20 @@ import QtGraphicalEffects 1.12
 	Keys.onPressed: {
 		if (api.keys.isAccept(event)) {
 			event.accepted = true
+
+		if (currentCollectionIndex === 1) {
+			played_button.focus = true
+		}
+
+		else {
 			searchValue = ''
 			header__search_input.text = 'Search'
 			currentCollectionIndex = 1
 			api.memory.set('currentCollectionIndex', currentCollectionIndex);
 			navigate('Software');
 			gameView.visible = true
+		}
+
 		}
 
 	}
