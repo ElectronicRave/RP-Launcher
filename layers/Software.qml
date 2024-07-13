@@ -817,7 +817,7 @@ import QtGraphicalEffects 1.12
 		id: game__id
 		width: parent.width
 		height: parent.height
-		color: Qt.rgba(Math.random(),Math.random(),Math.random(),160);
+		color: '#' + Math.random().toString(12).substring(2,8);
 		radius: 100
 		visible: modelData.assets.boxFront || modelData.assets.logo || modelData.assets.screenshots[0] ? 0 : 1
 
