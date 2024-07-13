@@ -105,7 +105,7 @@ import QtGraphicalEffects 1.12
 
 	Text {
 		id: all_label
-		height: aspectRatio === 43 ? vpx(21*screenRatio) : vpx(30*screenRatio)
+		height: aspectRatio === 43 ? vpx(34*screenRatio) : vpx(30*screenRatio)
 		text: "All"
 		color: theme.accent
 		font.family: font.bold ? titleFontBold.name : 0
@@ -119,7 +119,7 @@ import QtGraphicalEffects 1.12
 
 	anchors {
 		top: parent.top; topMargin: aspectRatio === 43 ? vpx(26*screenRatio) : vpx(20*screenRatio)
-		left: profile_button.right; leftMargin: aspectRatio === 43 ? vpx(34*screenRatio) : vpx(50*screenRatio)
+		left: profile_button.right; leftMargin: aspectRatio === 43 ? vpx(50*screenRatio) : vpx(50*screenRatio)
 	}
 
 	MouseArea {
