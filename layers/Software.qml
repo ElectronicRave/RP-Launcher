@@ -4,7 +4,7 @@ import QtGraphicalEffects 1.12
 	Item {
 		id: software
 
-		property var searchFocus: header__search_layout.focus || header__search_input.focus || header__search_button_cancel.focus || header__search_button_ok.focus
+		property var searchFocus: search_layout.focus || search_input.focus || search_button_cancel.focus || search_button_ok.focus
 
 		property var personalFocus: personal__center_layout_up.focus || personal__center_layout_icon.focus || personal__center_layout_down_button.focus
 
@@ -17,7 +17,7 @@ import QtGraphicalEffects 1.12
 			game__settings_layout.focus = false
 			game__settings_layout_favorite_button.focus = false
 			searchValue = ''
-			header__search_input.clear()
+			search_input.clear()
 			api.memory.unset('currentCollectionIndex', currentCollectionIndex)
 			navigate('Home')
 		}
@@ -85,32 +85,32 @@ import QtGraphicalEffects 1.12
 
 		onClicked:{
 
-		if (header__search_layout.focus) {
-			header__search_layout.focus = false
-			header__search_input.focus = false
-			header__search_button_cancel.focus = false
-			header__search_button_ok.focus = false
+		if (search_layout.focus) {
+			search_layout.focus = false
+			search_input.focus = false
+			search_button_cancel.focus = false
+			search_button_ok.focus = false
 		}
 
-		else if (header__search_input.focus) {
-			header__search_layout.focus = false
-			header__search_input.focus = false
-			header__search_button_cancel.focus = false
-			header__search_button_ok.focus = false
+		else if (search_input.focus) {
+			search_layout.focus = false
+			search_input.focus = false
+			search_button_cancel.focus = false
+			search_button_ok.focus = false
 		}
 
-		else if (header__search_button_cancel.focus) {
-			header__search_layout.focus = false
-			header__search_input.focus = false
-			header__search_button_cancel.focus = false
-			header__search_button_ok.focus = false
+		else if (search_button_cancel.focus) {
+			search_layout.focus = false
+			search_input.focus = false
+			search_button_cancel.focus = false
+			search_button_ok.focus = false
 		}
 
-		else if (header__search_button_ok.focus) {
-			header__search_layout.focus = false
-			header__search_input.focus = false
-			header__search_button_cancel.focus = false
-			header__search_button_ok.focus = false
+		else if (search_button_ok.focus) {
+			search_layout.focus = false
+			search_input.focus = false
+			search_button_cancel.focus = false
+			search_button_ok.focus = false
 		}
 
 		else if (game__settings_layout.focus) {
@@ -173,7 +173,7 @@ import QtGraphicalEffects 1.12
 
 		else {
 			searchValue = ''
-			header__search_input.clear()
+			search_input.clear()
 			currentCollectionIndex = 2
 			api.memory.set('currentCollectionIndex', currentCollectionIndex);
 			navigate('Software');
@@ -185,13 +185,13 @@ import QtGraphicalEffects 1.12
 	}
 
 	Text {
-		id: all_label
+		id: all_button_label
 		height: font.bold ? aspectRatio === 43 ? vpx(34*screenRatio) : vpx(30*screenRatio) : aspectRatio === 43 ? vpx(25*screenRatio) : vpx(23*screenRatio)
 		text: "All"
-		color: currentCollectionIndex === 0 || currentCollectionIndex === 1 || searchFocus || header__search_input.text || searchValue ? theme.title : theme.accent
+		color: currentCollectionIndex === 0 || currentCollectionIndex === 1 || searchFocus || search_input.text || searchValue ? theme.title : theme.accent
 		font.family: font.bold ? titleFontBold.name : 0
 		font.pixelSize: aspectRatio === 43 ? vpx(21*screenRatio) : vpx(19*screenRatio)
-		font.bold: currentCollectionIndex === 0 || currentCollectionIndex === 1 || searchFocus || header__search_input.text || searchValue ? false : true
+		font.bold: currentCollectionIndex === 0 || currentCollectionIndex === 1 || searchFocus || search_input.text || searchValue ? false : true
 
 	anchors {
 		centerIn: parent
@@ -204,37 +204,37 @@ import QtGraphicalEffects 1.12
 	}
 
 	MouseArea {
-		id: all_mouse
-		anchors.fill: all_label
+		id: all_button_mouse
+		anchors.fill: all_button_label
 
 		onClicked: {
 
-		if (header__search_layout.focus) {
-			header__search_layout.focus = false
-			header__search_input.focus = false
-			header__search_button_cancel.focus = false
-			header__search_button_ok.focus = false
+		if (search_layout.focus) {
+			search_layout.focus = false
+			search_input.focus = false
+			search_button_cancel.focus = false
+			search_button_ok.focus = false
 		}
 
-		else if (header__search_input.focus) {
-			header__search_layout.focus = false
-			header__search_input.focus = false
-			header__search_button_cancel.focus = false
-			header__search_button_ok.focus = false
+		else if (search_input.focus) {
+			search_layout.focus = false
+			search_input.focus = false
+			search_button_cancel.focus = false
+			search_button_ok.focus = false
 		}
 
-		else if (header__search_button_cancel.focus) {
-			header__search_layout.focus = false
-			header__search_input.focus = false
-			header__search_button_cancel.focus = false
-			header__search_button_ok.focus = false
+		else if (search_button_cancel.focus) {
+			search_layout.focus = false
+			search_input.focus = false
+			search_button_cancel.focus = false
+			search_button_ok.focus = false
 		}
 
-		else if (header__search_button_ok.focus) {
-			header__search_layout.focus = false
-			header__search_input.focus = false
-			header__search_button_cancel.focus = false
-			header__search_button_ok.focus = false
+		else if (search_button_ok.focus) {
+			search_layout.focus = false
+			search_input.focus = false
+			search_button_cancel.focus = false
+			search_button_ok.focus = false
 		}
 
 		else if (game__settings_layout.focus) {
@@ -257,7 +257,7 @@ import QtGraphicalEffects 1.12
 
 		else {
 			searchValue = ''
-			header__search_input.clear()
+			search_input.clear()
 			currentCollectionIndex = 2
 			api.memory.set('currentCollectionIndex', currentCollectionIndex);
 			navigate('Software');
@@ -302,7 +302,7 @@ import QtGraphicalEffects 1.12
 
 		else {
 			searchValue = ''
-			header__search_input.clear()
+			search_input.clear()
 			currentCollectionIndex = 0
 			api.memory.set('currentCollectionIndex', currentCollectionIndex);
 			navigate('Software');
@@ -314,7 +314,7 @@ import QtGraphicalEffects 1.12
 	}
 
 	Text {
-		id: favorite_label
+		id: favorite_button_label
 		height: font.bold ? aspectRatio === 43 ? vpx(34*screenRatio) : vpx(30*screenRatio) : aspectRatio === 43 ? vpx(25.3*screenRatio) : vpx(23*screenRatio)
 		text: "Favorite"
 		color: currentCollectionIndex === 0 ? theme.accent : theme.title
@@ -334,37 +334,37 @@ import QtGraphicalEffects 1.12
 	}
 
 	MouseArea {
-		id: favorite_mouse
-		anchors.fill: favorite_label
+		id: favorite_button_mouse
+		anchors.fill: favorite_button_label
 
 		onClicked: {
 
-		if (header__search_layout.focus) {
-			header__search_layout.focus = false
-			header__search_input.focus = false
-			header__search_button_cancel.focus = false
-			header__search_button_ok.focus = false
+		if (search_layout.focus) {
+			search_layout.focus = false
+			search_input.focus = false
+			search_button_cancel.focus = false
+			search_button_ok.focus = false
 		}
 
-		else if (header__search_input.focus) {
-			header__search_layout.focus = false
-			header__search_input.focus = false
-			header__search_button_cancel.focus = false
-			header__search_button_ok.focus = false
+		else if (search_input.focus) {
+			search_layout.focus = false
+			search_input.focus = false
+			search_button_cancel.focus = false
+			search_button_ok.focus = false
 		}
 
-		else if (header__search_button_cancel.focus) {
-			header__search_layout.focus = false
-			header__search_input.focus = false
-			header__search_button_cancel.focus = false
-			header__search_button_ok.focus = false
+		else if (search_button_cancel.focus) {
+			search_layout.focus = false
+			search_input.focus = false
+			search_button_cancel.focus = false
+			search_button_ok.focus = false
 		}
 
-		else if (header__search_button_ok.focus) {
-			header__search_layout.focus = false
-			header__search_input.focus = false
-			header__search_button_cancel.focus = false
-			header__search_button_ok.focus = false
+		else if (search_button_ok.focus) {
+			search_layout.focus = false
+			search_input.focus = false
+			search_button_cancel.focus = false
+			search_button_ok.focus = false
 		}
 
 		else if (game__settings_layout.focus) {
@@ -387,7 +387,7 @@ import QtGraphicalEffects 1.12
 
 		else {
 			searchValue = ''
-			header__search_input.clear()
+			search_input.clear()
 			currentCollectionIndex = 0
 			api.memory.set('currentCollectionIndex', currentCollectionIndex);
 			navigate('Software');
@@ -432,7 +432,7 @@ import QtGraphicalEffects 1.12
 
 		else {
 			searchValue = ''
-			header__search_input.clear()
+			search_input.clear()
 			currentCollectionIndex = 1
 			api.memory.set('currentCollectionIndex', currentCollectionIndex);
 			navigate('Software');
@@ -444,7 +444,7 @@ import QtGraphicalEffects 1.12
 	}
 
 	Text {
-		id: played_label
+		id: played_button_label
 		height: font.bold ? aspectRatio === 43 ? vpx(34*screenRatio) : vpx(30*screenRatio) : aspectRatio === 43 ? vpx(25.3*screenRatio) : vpx(23*screenRatio)
 		text: "Played"
 		color: currentCollectionIndex === 1 ? theme.accent : theme.title
@@ -464,37 +464,37 @@ import QtGraphicalEffects 1.12
 	}
 
 	MouseArea {
-		id: played_mouse
-		anchors.fill: played_label
+		id: played_button_mouse
+		anchors.fill: played_button_label
 
 		onClicked: {
 
-		if (header__search_layout.focus) {
-			header__search_layout.focus = false
-			header__search_input.focus = false
-			header__search_button_cancel.focus = false
-			header__search_button_ok.focus = false
+		if (search_layout.focus) {
+			search_layout.focus = false
+			search_input.focus = false
+			search_button_cancel.focus = false
+			search_button_ok.focus = false
 		}
 
-		else if (header__search_input.focus) {
-			header__search_layout.focus = false
-			header__search_input.focus = false
-			header__search_button_cancel.focus = false
-			header__search_button_ok.focus = false
+		else if (search_input.focus) {
+			search_layout.focus = false
+			search_input.focus = false
+			search_button_cancel.focus = false
+			search_button_ok.focus = false
 		}
 
-		else if (header__search_button_cancel.focus) {
-			header__search_layout.focus = false
-			header__search_input.focus = false
-			header__search_button_cancel.focus = false
-			header__search_button_ok.focus = false
+		else if (search_button_cancel.focus) {
+			search_layout.focus = false
+			search_input.focus = false
+			search_button_cancel.focus = false
+			search_button_ok.focus = false
 		}
 
-		else if (header__search_button_ok.focus) {
-			header__search_layout.focus = false
-			header__search_input.focus = false
-			header__search_button_cancel.focus = false
-			header__search_button_ok.focus = false
+		else if (search_button_ok.focus) {
+			search_layout.focus = false
+			search_input.focus = false
+			search_button_cancel.focus = false
+			search_button_ok.focus = false
 		}
 
 		else if (game__settings_layout.focus) {
@@ -517,7 +517,7 @@ import QtGraphicalEffects 1.12
 
 		else {
 			searchValue = ''
-			header__search_input.clear()
+			search_input.clear()
 			currentCollectionIndex = 1
 			api.memory.set('currentCollectionIndex', currentCollectionIndex);
 			navigate('Software');
@@ -552,10 +552,10 @@ import QtGraphicalEffects 1.12
 		if (api.keys.isAccept(event)) {
 			event.accepted = true
 			searchValue = ''
-			header__search_input.text = 'Search'
+			search_input.text = 'Search'
 			currentCollectionIndex = currentCollectionIndex + ''
 			navigate('Software');
-			header__search_layout.focus = true
+			search_layout.focus = true
 			gameView.visible = false
 			
 		}
@@ -563,13 +563,13 @@ import QtGraphicalEffects 1.12
 	}
 
 	Text {
-		id: search_label
+		id: search_button_label
 		height: font.bold ? aspectRatio === 43 ? vpx(34*screenRatio) : vpx(30*screenRatio) : aspectRatio === 43 ? vpx(25.3*screenRatio) : vpx(23*screenRatio)
 		text: "Search"
-		color: searchFocus || header__search_input.text || searchValue ? theme.accent : theme.title
+		color: searchFocus || search_input.text || searchValue ? theme.accent : theme.title
 		font.family: font.bold ? titleFontBold.name : 0
 		font.pixelSize: aspectRatio === 43 ? vpx(21*screenRatio) : vpx(19*screenRatio)
-		font.bold: searchFocus || header__search_input.text || searchValue ? true : false
+		font.bold: searchFocus || search_input.text || searchValue ? true : false
 
 	anchors {
 		centerIn: parent
@@ -583,37 +583,37 @@ import QtGraphicalEffects 1.12
 	}
 
 	MouseArea {
-		id: search_mouse
-		anchors.fill: search_label
+		id: search_button_mouse
+		anchors.fill: search_button_label
 
 		onClicked: {
 
-		if (header__search_layout.focus) {
-			header__search_layout.focus = false
-			header__search_input.focus = false
-			header__search_button_cancel.focus = false
-			header__search_button_ok.focus = false
+		if (search_layout.focus) {
+			search_layout.focus = false
+			search_input.focus = false
+			search_button_cancel.focus = false
+			search_button_ok.focus = false
 		}
 
-		else if (header__search_input.focus) {
-			header__search_layout.focus = false
-			header__search_input.focus = false
-			header__search_button_cancel.focus = false
-			header__search_button_ok.focus = false
+		else if (search_input.focus) {
+			search_layout.focus = false
+			search_input.focus = false
+			search_button_cancel.focus = false
+			search_button_ok.focus = false
 		}
 
-		else if (header__search_button_cancel.focus) {
-			header__search_layout.focus = false
-			header__search_input.focus = false
-			header__search_button_cancel.focus = false
-			header__search_button_ok.focus = false
+		else if (search_button_cancel.focus) {
+			search_layout.focus = false
+			search_input.focus = false
+			search_button_cancel.focus = false
+			search_button_ok.focus = false
 		}
 
-		else if (header__search_button_ok.focus) {
-			header__search_layout.focus = false
-			header__search_input.focus = false
-			header__search_button_cancel.focus = false
-			header__search_button_ok.focus = false
+		else if (search_button_ok.focus) {
+			search_layout.focus = false
+			search_input.focus = false
+			search_button_cancel.focus = false
+			search_button_ok.focus = false
 		}
 
 		else if (game__settings_layout.focus) {
@@ -636,10 +636,10 @@ import QtGraphicalEffects 1.12
 
 		else {
 			searchValue = ''
-			header__search_input.text = 'Search'
+			search_input.text = 'Search'
 			currentCollectionIndex = currentCollectionIndex + ''
 			navigate('Software');
-			header__search_layout.focus = true
+			search_layout.focus = true
 			gameView.visible = false
 		}
 
@@ -660,7 +660,7 @@ import QtGraphicalEffects 1.12
 	//Search component
 
 	Rectangle {
-		id: header__search_layout
+		id: search_layout
 		color: theme.background
 		width: aspectRatio === 43 ? vpx(270*screenRatio) : vpx(250*screenRatio)
 		height: aspectRatio === 43 ? vpx(170*screenRatio) : vpx(150*screenRatio)
@@ -670,21 +670,21 @@ import QtGraphicalEffects 1.12
 		visible: searchFocus ? 1 : 0
 
 	Keys.onDownPressed: {
-		header__search_button_cancel.focus = true
+		search_button_cancel.focus = true
 	}
 
 	Keys.onPressed: {
 		if (api.keys.isAccept(event)) {
 			event.accepted = true
 			searchValue = ''
-			header__search_input.clear()
-			header__search_input.focus = true
+			search_input.clear()
+			search_input.focus = true
 		}
 
 		if (api.keys.isCancel(event)) {
 			event.accepted = true
 			searchValue = ' '
-			header__search_input.clear()
+			search_input.clear()
 			search_button.focus = true
 			gameView.visible = false
 		}
@@ -692,21 +692,21 @@ import QtGraphicalEffects 1.12
 	}
 
 	Text {
-		id: header__search_layout_label
+		id: search_layout_label
 		color: theme.text
 		text: "Search Content"
 		font.pixelSize: aspectRatio === 43 ? vpx(19*screenRatio) : vpx(18*screenRatio)
 		font.bold: true
 
 	anchors {
-		top: header__search_layout.top; topMargin: aspectRatio === 43 ? vpx(10*screenRatio) : vpx(8*screenRatio);
-		horizontalCenter: header__search_layout.horizontalCenter;
+		top: search_layout.top; topMargin: aspectRatio === 43 ? vpx(10*screenRatio) : vpx(8*screenRatio);
+		horizontalCenter: search_layout.horizontalCenter;
 	}
 
 }
 
 	Rectangle {
-		id: header__search
+		id: search
 		color: theme.background
 		width: aspectRatio === 43 ? vpx(150*screenRatio) : vpx(140*screenRatio)
 		height: aspectRatio === 43 ? vpx(30*screenRatio) : vpx(28*screenRatio)
@@ -715,12 +715,12 @@ import QtGraphicalEffects 1.12
 		radius: vpx(5*screenRatio)
 
 	anchors {
-		centerIn: header__search_layout
+		centerIn: search_layout
 	}
 
 
 	Image {
-		id: header__search_icon
+		id: search_icon
 		sourceSize.width: aspectRatio === 43 ? vpx(22*screenRatio) : vpx(20*screenRatio)
 		fillMode: Image.PreserveAspectFit
 		source: "../assets/icons/search.png"
@@ -730,27 +730,27 @@ import QtGraphicalEffects 1.12
 		smooth: true
 
 	anchors {
-		left: header__search.left; leftMargin: aspectRatio === 43 ? vpx(4*screenRatio) : vpx(3*screenRatio)
-		verticalCenter: header__search.verticalCenter
+		left: search.left; leftMargin: aspectRatio === 43 ? vpx(4*screenRatio) : vpx(3*screenRatio)
+		verticalCenter: search.verticalCenter
 	}
 
 }
 
 	TextInput {
-		id: header__search_input
+		id: search_input
 		color: searchValue ? theme.text : "grey"
 		font.pixelSize: aspectRatio === 43 ? vpx(15*screenRatio) : vpx(15*screenRatio)
 		clip: true
 
 	Keys.onDownPressed: {
 		if (searchValue) {
-			header__search_button_cancel.focus = true
+			search_button_cancel.focus = true
 		}
 
-		else if (header__search_input.focus) {
+		else if (search_input.focus) {
 			searchValue = ''
-			header__search_input.text = 'Search'
-			header__search_button_cancel.focus = true
+			search_input.text = 'Search'
+			search_button_cancel.focus = true
 		}
 
 	}
@@ -760,13 +760,13 @@ import QtGraphicalEffects 1.12
 			event.accepted = true
 
 		if (searchValue) {
-			header__search_layout.focus = true
+			search_layout.focus = true
 		}
 
 		else {
 			searchValue = ''
-			header__search_input.text = 'Search'
-			header__search_layout.focus = true
+			search_input.text = 'Search'
+			search_layout.focus = true
 		}
 
 		}
@@ -775,13 +775,13 @@ import QtGraphicalEffects 1.12
 			event.accepted = true
 
 		if (searchValue) {
-			header__search_layout.focus = true
+			search_layout.focus = true
 		}
 
 		else {
 			searchValue = ''
-			header__search_input.text = 'Search'
-			header__search_layout.focus = true
+			search_input.text = 'Search'
+			search_layout.focus = true
 		}
 
 	}
@@ -789,25 +789,25 @@ import QtGraphicalEffects 1.12
 }
 
 	anchors {
-		left: header__search_icon.right; leftMargin: aspectRatio === 43 ? vpx(4*screenRatio) : vpx(3*screenRatio)
-		right: header__search.right; rightMargin: aspectRatio === 43 ? vpx(12*screenRatio) : vpx(12*screenRatio)
-		verticalCenter: header__search.verticalCenter
+		left: search_icon.right; leftMargin: aspectRatio === 43 ? vpx(4*screenRatio) : vpx(3*screenRatio)
+		right: search.right; rightMargin: aspectRatio === 43 ? vpx(12*screenRatio) : vpx(12*screenRatio)
+		verticalCenter: search.verticalCenter
 	}
 
 	onTextEdited: {
-		searchValue = header__search_input.text
+		searchValue = search_input.text
 	}
 
 }
 
 	MouseArea {
-		id: header__search_input_mouse
-		anchors.fill: header__search_input
+		id: search_input_mouse
+		anchors.fill: search_input
 
 		onClicked: {
 			searchValue = ''
-			header__search_input.clear()
-			header__search_input.focus = true
+			search_input.clear()
+			search_input.focus = true
 		}
 
 	}
@@ -816,7 +816,7 @@ import QtGraphicalEffects 1.12
 }
 
 	Rectangle {
-		id: header__search_button_cancel
+		id: search_button_cancel
 		width: aspectRatio === 43 ? vpx(52*screenRatio) : vpx(52*screenRatio)
 		height: aspectRatio === 43 ? vpx(25*screenRatio) : vpx(25*screenRatio)
 		color: focus ? theme.select : theme.background
@@ -825,19 +825,19 @@ import QtGraphicalEffects 1.12
 
 	Keys.onUpPressed: {
 		searchValue = ''
-		header__search_input.clear()
-		header__search_input.focus = true
+		search_input.clear()
+		search_input.focus = true
 	}
 
 	Keys.onRightPressed: {
-		header__search_button_ok.focus = true
+		search_button_ok.focus = true
 	}
 
 	Keys.onPressed: {
 		if (api.keys.isAccept(event)) {
 			event.accepted = true
 			searchValue = ' '
-			header__search_input.clear()
+			search_input.clear()
 			search_button.focus = true
 			gameView.visible = false
 		}
@@ -845,7 +845,7 @@ import QtGraphicalEffects 1.12
 		if (api.keys.isCancel(event)) {
 			event.accepted = true
 			searchValue = ' '
-			header__search_input.clear()
+			search_input.clear()
 			search_button.focus = true
 			gameView.visible = false
 		}
@@ -853,7 +853,7 @@ import QtGraphicalEffects 1.12
 	}
 
 	Text {
-		id: header__search_button_cancel_label
+		id: search_button_cancel_label
 		text: "Cancel"
 		color: theme.text
 		font.pixelSize: aspectRatio === 43 ? vpx(15*screenRatio) : vpx(15*screenRatio)
@@ -866,17 +866,17 @@ import QtGraphicalEffects 1.12
 }
 
 	anchors {
-		bottom: header__search_layout.bottom; bottomMargin: aspectRatio === 43 ? vpx(10*screenRatio) : vpx(8*screenRatio)
-		right: header__search_layout.right; rightMargin: aspectRatio === 43 ? vpx(45*screenRatio) : vpx(45*screenRatio)
+		bottom: search_layout.bottom; bottomMargin: aspectRatio === 43 ? vpx(10*screenRatio) : vpx(8*screenRatio)
+		right: search_layout.right; rightMargin: aspectRatio === 43 ? vpx(45*screenRatio) : vpx(45*screenRatio)
 	}
 
 	MouseArea {
-		id: header__search_button_cancel_mouse
-		anchors.fill: header__search_button_cancel
+		id: search_button_cancel_mouse
+		anchors.fill: search_button_cancel
 
 		onClicked: {
 			searchValue = ' '
-			header__search_input.clear()
+			search_input.clear()
 			search_button.focus = true
 		}
 
@@ -885,7 +885,7 @@ import QtGraphicalEffects 1.12
 }
 
 	Rectangle {
-		id: header__search_button_ok
+		id: search_button_ok
 		width: aspectRatio === 43 ? vpx(25*screenRatio) : vpx(25*screenRatio)
 		height: aspectRatio === 43 ? vpx(25*screenRatio) : vpx(25*screenRatio)
 		color: focus ? theme.select : theme.background
@@ -894,12 +894,12 @@ import QtGraphicalEffects 1.12
 
 	Keys.onUpPressed: {
 		searchValue = ''
-		header__search_input.clear()
-		header__search_input.focus = true
+		search_input.clear()
+		search_input.focus = true
 	}
 
 	Keys.onLeftPressed: {
-		header__search_button_cancel.focus = true
+		search_button_cancel.focus = true
 	}
 
 	Keys.onPressed: {
@@ -917,8 +917,8 @@ import QtGraphicalEffects 1.12
 
 		else {
 			searchValue = ''
-			header__search_input.clear()
-			header__search_input.focus = true
+			search_input.clear()
+			search_input.focus = true
 		}
 
 		}
@@ -926,7 +926,7 @@ import QtGraphicalEffects 1.12
 		if (api.keys.isCancel(event)) {
 			event.accepted = true
 			searchValue = ' '
-			header__search_input.clear()
+			search_input.clear()
 			search_button.focus = true
 			gameView.visible = false
 		}
@@ -934,7 +934,7 @@ import QtGraphicalEffects 1.12
 	}
 
 	Text {
-		id: header__search_button_ok_label
+		id: search_button_ok_label
 		text: "OK"
 		color: theme.text
 		font.pixelSize: aspectRatio === 43 ? vpx(14*screenRatio) : vpx(14*screenRatio)
@@ -947,13 +947,13 @@ import QtGraphicalEffects 1.12
 }
 
 	anchors {
-		bottom: header__search_layout.bottom; bottomMargin: aspectRatio === 43 ? vpx(10*screenRatio) : vpx(8*screenRatio)
-		left: header__search_button_cancel.right; leftMargin: aspectRatio === 43 ? vpx(8*screenRatio) : vpx(8*screenRatio)
+		bottom: search_layout.bottom; bottomMargin: aspectRatio === 43 ? vpx(10*screenRatio) : vpx(8*screenRatio)
+		left: search_button_cancel.right; leftMargin: aspectRatio === 43 ? vpx(8*screenRatio) : vpx(8*screenRatio)
 	}
 
 	MouseArea {
-		id: header__search_button_ok_mouse
-		anchors.fill: header__search_button_ok
+		id: search_button_ok_mouse
+		anchors.fill: search_button_ok
 
 		onClicked: {
 
@@ -967,8 +967,8 @@ import QtGraphicalEffects 1.12
 
 		else {
 			searchValue = ''
-			header__search_input.clear()
-			header__search_input.focus = true
+			search_input.clear()
+			search_input.focus = true
 		}
 
 		}
@@ -1699,7 +1699,7 @@ import QtGraphicalEffects 1.12
 		if (api.keys.isAccept(event)) {
 			event.accepted = true
 			searchValue = ''
-			header__search_input.clear()
+			search_input.clear()
 			swapTheme();
 			currentCollectionIndex = currentCollectionIndex + ''
 			navigate('Software');
@@ -1719,7 +1719,7 @@ import QtGraphicalEffects 1.12
 
 		onClicked:{
 			searchValue = ''
-			header__search_input.clear()
+			search_input.clear()
 			swapTheme();
 			currentCollectionIndex = currentCollectionIndex + ''
 			navigate('Software');

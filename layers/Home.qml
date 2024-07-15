@@ -116,7 +116,7 @@ import QtGraphicalEffects 1.12
 	}
 
 	Text {
-		id: all_label
+		id: all_button_label
 		height: aspectRatio === 43 ? vpx(34*screenRatio) : vpx(30*screenRatio)
 		text: "All"
 		color: theme.accent
@@ -135,8 +135,8 @@ import QtGraphicalEffects 1.12
 	}
 
 	MouseArea {
-		id: all_mouse
-		anchors.fill: all_label
+		id: all_button_mouse
+		anchors.fill: all_button_label
 
 		onClicked: {
 
@@ -191,7 +191,7 @@ import QtGraphicalEffects 1.12
 	}
 
 	Text {
-		id: favorite_label
+		id: favorite_button_label
 		text: "Favorite"
 		color: theme.title
 		font.pixelSize: aspectRatio === 43 ? vpx(21*screenRatio) : vpx(19*screenRatio)
@@ -208,8 +208,8 @@ import QtGraphicalEffects 1.12
 	}
 
 	MouseArea {
-		id: favorite_mouse
-		anchors.fill: favorite_label
+		id: favorite_button_mouse
+		anchors.fill: favorite_button_label
 
 		onClicked: {
 
@@ -262,7 +262,7 @@ import QtGraphicalEffects 1.12
 	}
 
 	Text {
-		id: played_label
+		id: played_button_label
 		text: "Played"
 		color: theme.title
 		font.pixelSize: aspectRatio === 43 ? vpx(21*screenRatio) : vpx(19*screenRatio)
@@ -279,8 +279,8 @@ import QtGraphicalEffects 1.12
 	}
 
 	MouseArea {
-		id: played_mouse
-		anchors.fill: played_label
+		id: played_button_mouse
+		anchors.fill: played_button_label
 
 		onClicked: {
 

@@ -33,7 +33,7 @@ import QtQuick 2.15
 	}
 
 	Text {
-		id: time_legend
+		id: time_button_legend
 		text: Qt.formatTime(new Date(), "hh:mm")
 		color: theme.title
 		font.pixelSize: aspectRatio === 43 ? vpx(18*screenRatio) : vpx(14*screenRatio)
@@ -56,7 +56,7 @@ import QtQuick 2.15
 		running: true
 		repeat: true
 		triggeredOnStart: true
-		onTriggered: time_legend.text = Qt.formatTime(new Date(), "hh:mm")
+		onTriggered: time_button_legend.text = Qt.formatTime(new Date(), "hh:mm")
 	}
 
 }
