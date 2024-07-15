@@ -66,7 +66,19 @@ import QtGraphicalEffects 1.12
 		anchors.fill: profile_button
 
 		onClicked:{
+
+		if (personal__center_layout_icon.focus) {
+			navigate('Home')
+		}
+
+		else if (personal__center_layout_down_button.focus) {
+			navigate('Home')
+		}
+
+		else {
 			personal__center_layout_icon.focus = true
+		}
+
 		}
 
 	}
@@ -127,7 +139,19 @@ import QtGraphicalEffects 1.12
 		anchors.fill: all_label
 
 		onClicked: {
+
+		if (personal__center_layout_icon.focus) {
+			navigate('Home')
+		}
+
+		else if (personal__center_layout_down_button.focus) {
+			navigate('Home')
+		}
+
+		else {
 			all_button.focus;
+		}
+
 		}
 
 	}
@@ -188,9 +212,21 @@ import QtGraphicalEffects 1.12
 		anchors.fill: favorite_label
 
 		onClicked: {
+
+		if (personal__center_layout_icon.focus) {
+			navigate('Home')
+		}
+
+		else if (personal__center_layout_down_button.focus) {
+			navigate('Home')
+		}
+
+		else {
 			currentCollectionIndex = 0
 			api.memory.set('currentCollectionIndex', currentCollectionIndex);
 			navigate('Software');
+		}
+
 		}
 
 	}
@@ -247,9 +283,21 @@ import QtGraphicalEffects 1.12
 		anchors.fill: played_label
 
 		onClicked: {
+
+		if (personal__center_layout_icon.focus) {
+			navigate('Home')
+		}
+
+		else if (personal__center_layout_down_button.focus) {
+			navigate('Home')
+		}
+
+		else {
 			currentCollectionIndex = 1
 			api.memory.set('currentCollectionIndex', currentCollectionIndex);
 			navigate('Software');
+		}
+
 		}
 
 	}

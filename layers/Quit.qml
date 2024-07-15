@@ -55,12 +55,74 @@ import QtGraphicalEffects 1.12
 		onClicked: {
 
 		if (currentPage === 'Home') {
+
+		if (personal__center_layout_icon.focus) {
+			navigate('Home')
+		}
+
+		else if (personal__center_layout_down_button.focus) {
+			navigate('Home')
+		}
+
+		else {
 			api.memory.unset('currentCollectionIndex', currentCollectionIndex)
 			Qt.callLater(Qt.quit);
 		}
 
+		}
+
 		else if (currentPage === 'Software') {
+
+		if (header__search_layout.focus) {
+			header__search_layout.focus = false
+			header__search_input.focus = false
+			header__search_button_cancel.focus = false
+			header__search_button_ok.focus = false
+		}
+
+		else if (header__search_input.focus) {
+			header__search_layout.focus = false
+			header__search_input.focus = false
+			header__search_button_cancel.focus = false
+			header__search_button_ok.focus = false
+		}
+
+		else if (header__search_button_cancel.focus) {
+			header__search_layout.focus = false
+			header__search_input.focus = false
+			header__search_button_cancel.focus = false
+			header__search_button_ok.focus = false
+		}
+
+		else if (header__search_button_ok.focus) {
+			header__search_layout.focus = false
+			header__search_input.focus = false
+			header__search_button_cancel.focus = false
+			header__search_button_ok.focus = false
+		}
+
+		else if (game__settings_layout.focus) {
+			game__settings_layout.focus = false
+			game__settings_layout_favorite_button.focus = false
+		}
+
+		else if (game__settings_layout_favorite_button.focus) {
+			game__settings_layout.focus = false
+			game__settings_layout_favorite_button.focus = false
+		}
+
+		else if (personal__center_layout_icon.focus) {
+			navigate('Software')
+		}
+
+		else if (personal__center_layout_down_button.focus) {
+			navigate('Software')
+		}
+
+		else {
 			Qt.callLater(Qt.quit);
+		}
+
 		}
 
 		}

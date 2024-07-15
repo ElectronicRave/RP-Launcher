@@ -17,7 +17,7 @@ import QtGraphicalEffects 1.12
 			game__settings_layout.focus = false
 			game__settings_layout_favorite_button.focus = false
 			searchValue = ''
-			header__search_input.text = 'Search'
+			header__search_input.clear()
 			api.memory.unset('currentCollectionIndex', currentCollectionIndex)
 			navigate('Home')
 		}
@@ -84,9 +84,57 @@ import QtGraphicalEffects 1.12
 		anchors.fill: profile_button
 
 		onClicked:{
+
+		if (header__search_layout.focus) {
+			header__search_layout.focus = false
+			header__search_input.focus = false
+			header__search_button_cancel.focus = false
+			header__search_button_ok.focus = false
+		}
+
+		else if (header__search_input.focus) {
+			header__search_layout.focus = false
+			header__search_input.focus = false
+			header__search_button_cancel.focus = false
+			header__search_button_ok.focus = false
+		}
+
+		else if (header__search_button_cancel.focus) {
+			header__search_layout.focus = false
+			header__search_input.focus = false
+			header__search_button_cancel.focus = false
+			header__search_button_ok.focus = false
+		}
+
+		else if (header__search_button_ok.focus) {
+			header__search_layout.focus = false
+			header__search_input.focus = false
+			header__search_button_cancel.focus = false
+			header__search_button_ok.focus = false
+		}
+
+		else if (game__settings_layout.focus) {
 			game__settings_layout.focus = false
 			game__settings_layout_favorite_button.focus = false
+		}
+
+		else if (game__settings_layout_favorite_button.focus) {
+			game__settings_layout.focus = false
+			game__settings_layout_favorite_button.focus = false
+		}
+
+		else if (personal__center_layout_icon.focus) {
+			navigate('Software')
+		}
+
+		else if (personal__center_layout_down_button.focus) {
+			navigate('Software')
+		}
+
+		else {
 			personal__center_layout_icon.focus = true
+		}
+
 		}
 
 	}
@@ -125,7 +173,7 @@ import QtGraphicalEffects 1.12
 
 		else {
 			searchValue = ''
-			header__search_input.text = 'Search'
+			header__search_input.clear()
 			currentCollectionIndex = 2
 			api.memory.set('currentCollectionIndex', currentCollectionIndex);
 			navigate('Software');
@@ -140,10 +188,10 @@ import QtGraphicalEffects 1.12
 		id: all_label
 		height: font.bold ? aspectRatio === 43 ? vpx(34*screenRatio) : vpx(30*screenRatio) : aspectRatio === 43 ? vpx(25*screenRatio) : vpx(23*screenRatio)
 		text: "All"
-		color: currentCollectionIndex === 0 || currentCollectionIndex === 1 || searchFocus || searchValue ? theme.title : theme.accent
+		color: currentCollectionIndex === 0 || currentCollectionIndex === 1 || searchFocus || header__search_input.text || searchValue ? theme.title : theme.accent
 		font.family: font.bold ? titleFontBold.name : 0
 		font.pixelSize: aspectRatio === 43 ? vpx(21*screenRatio) : vpx(19*screenRatio)
-		font.bold: currentCollectionIndex === 0 || currentCollectionIndex === 1 || searchFocus || searchValue ? false : true
+		font.bold: currentCollectionIndex === 0 || currentCollectionIndex === 1 || searchFocus || header__search_input.text || searchValue ? false : true
 
 	anchors {
 		centerIn: parent
@@ -160,15 +208,62 @@ import QtGraphicalEffects 1.12
 		anchors.fill: all_label
 
 		onClicked: {
-			
+
+		if (header__search_layout.focus) {
+			header__search_layout.focus = false
+			header__search_input.focus = false
+			header__search_button_cancel.focus = false
+			header__search_button_ok.focus = false
+		}
+
+		else if (header__search_input.focus) {
+			header__search_layout.focus = false
+			header__search_input.focus = false
+			header__search_button_cancel.focus = false
+			header__search_button_ok.focus = false
+		}
+
+		else if (header__search_button_cancel.focus) {
+			header__search_layout.focus = false
+			header__search_input.focus = false
+			header__search_button_cancel.focus = false
+			header__search_button_ok.focus = false
+		}
+
+		else if (header__search_button_ok.focus) {
+			header__search_layout.focus = false
+			header__search_input.focus = false
+			header__search_button_cancel.focus = false
+			header__search_button_ok.focus = false
+		}
+
+		else if (game__settings_layout.focus) {
 			game__settings_layout.focus = false
 			game__settings_layout_favorite_button.focus = false
+		}
+
+		else if (game__settings_layout_favorite_button.focus) {
+			game__settings_layout.focus = false
+			game__settings_layout_favorite_button.focus = false
+		}
+
+		else if (personal__center_layout_icon.focus) {
+			navigate('Software')
+		}
+
+		else if (personal__center_layout_down_button.focus) {
+			navigate('Software')
+		}
+
+		else {
 			searchValue = ''
-			header__search_input.text = 'Search'
+			header__search_input.clear()
 			currentCollectionIndex = 2
 			api.memory.set('currentCollectionIndex', currentCollectionIndex);
 			navigate('Software');
 			gameView.visible = true
+		}
+
 		}
 
 	}
@@ -207,7 +302,7 @@ import QtGraphicalEffects 1.12
 
 		else {
 			searchValue = ''
-			header__search_input.text = 'Search'
+			header__search_input.clear()
 			currentCollectionIndex = 0
 			api.memory.set('currentCollectionIndex', currentCollectionIndex);
 			navigate('Software');
@@ -243,14 +338,62 @@ import QtGraphicalEffects 1.12
 		anchors.fill: favorite_label
 
 		onClicked: {
+
+		if (header__search_layout.focus) {
+			header__search_layout.focus = false
+			header__search_input.focus = false
+			header__search_button_cancel.focus = false
+			header__search_button_ok.focus = false
+		}
+
+		else if (header__search_input.focus) {
+			header__search_layout.focus = false
+			header__search_input.focus = false
+			header__search_button_cancel.focus = false
+			header__search_button_ok.focus = false
+		}
+
+		else if (header__search_button_cancel.focus) {
+			header__search_layout.focus = false
+			header__search_input.focus = false
+			header__search_button_cancel.focus = false
+			header__search_button_ok.focus = false
+		}
+
+		else if (header__search_button_ok.focus) {
+			header__search_layout.focus = false
+			header__search_input.focus = false
+			header__search_button_cancel.focus = false
+			header__search_button_ok.focus = false
+		}
+
+		else if (game__settings_layout.focus) {
 			game__settings_layout.focus = false
 			game__settings_layout_favorite_button.focus = false
+		}
+
+		else if (game__settings_layout_favorite_button.focus) {
+			game__settings_layout.focus = false
+			game__settings_layout_favorite_button.focus = false
+		}
+
+		else if (personal__center_layout_icon.focus) {
+			navigate('Software')
+		}
+
+		else if (personal__center_layout_down_button.focus) {
+			navigate('Software')
+		}
+
+		else {
 			searchValue = ''
-			header__search_input.text = 'Search'
+			header__search_input.clear()
 			currentCollectionIndex = 0
 			api.memory.set('currentCollectionIndex', currentCollectionIndex);
 			navigate('Software');
 			gameView.visible = true
+		}
+
 		}
 
 	}
@@ -289,7 +432,7 @@ import QtGraphicalEffects 1.12
 
 		else {
 			searchValue = ''
-			header__search_input.text = 'Search'
+			header__search_input.clear()
 			currentCollectionIndex = 1
 			api.memory.set('currentCollectionIndex', currentCollectionIndex);
 			navigate('Software');
@@ -325,14 +468,62 @@ import QtGraphicalEffects 1.12
 		anchors.fill: played_label
 
 		onClicked: {
+
+		if (header__search_layout.focus) {
+			header__search_layout.focus = false
+			header__search_input.focus = false
+			header__search_button_cancel.focus = false
+			header__search_button_ok.focus = false
+		}
+
+		else if (header__search_input.focus) {
+			header__search_layout.focus = false
+			header__search_input.focus = false
+			header__search_button_cancel.focus = false
+			header__search_button_ok.focus = false
+		}
+
+		else if (header__search_button_cancel.focus) {
+			header__search_layout.focus = false
+			header__search_input.focus = false
+			header__search_button_cancel.focus = false
+			header__search_button_ok.focus = false
+		}
+
+		else if (header__search_button_ok.focus) {
+			header__search_layout.focus = false
+			header__search_input.focus = false
+			header__search_button_cancel.focus = false
+			header__search_button_ok.focus = false
+		}
+
+		else if (game__settings_layout.focus) {
 			game__settings_layout.focus = false
 			game__settings_layout_favorite_button.focus = false
+		}
+
+		else if (game__settings_layout_favorite_button.focus) {
+			game__settings_layout.focus = false
+			game__settings_layout_favorite_button.focus = false
+		}
+
+		else if (personal__center_layout_icon.focus) {
+			navigate('Software')
+		}
+
+		else if (personal__center_layout_down_button.focus) {
+			navigate('Software')
+		}
+
+		else {
 			searchValue = ''
-			header__search_input.text = 'Search'
+			header__search_input.clear()
 			currentCollectionIndex = 1
 			api.memory.set('currentCollectionIndex', currentCollectionIndex);
 			navigate('Software');
 			gameView.visible = true
+		}
+
 		}
 
 	}
@@ -375,10 +566,10 @@ import QtGraphicalEffects 1.12
 		id: search_label
 		height: font.bold ? aspectRatio === 43 ? vpx(34*screenRatio) : vpx(30*screenRatio) : aspectRatio === 43 ? vpx(25.3*screenRatio) : vpx(23*screenRatio)
 		text: "Search"
-		color: searchFocus || searchValue ? theme.accent : theme.title
+		color: searchFocus || header__search_input.text || searchValue ? theme.accent : theme.title
 		font.family: font.bold ? titleFontBold.name : 0
 		font.pixelSize: aspectRatio === 43 ? vpx(21*screenRatio) : vpx(19*screenRatio)
-		font.bold: searchFocus || searchValue ? true : false
+		font.bold: searchFocus || header__search_input.text || searchValue ? true : false
 
 	anchors {
 		centerIn: parent
@@ -396,14 +587,62 @@ import QtGraphicalEffects 1.12
 		anchors.fill: search_label
 
 		onClicked: {
+
+		if (header__search_layout.focus) {
+			header__search_layout.focus = false
+			header__search_input.focus = false
+			header__search_button_cancel.focus = false
+			header__search_button_ok.focus = false
+		}
+
+		else if (header__search_input.focus) {
+			header__search_layout.focus = false
+			header__search_input.focus = false
+			header__search_button_cancel.focus = false
+			header__search_button_ok.focus = false
+		}
+
+		else if (header__search_button_cancel.focus) {
+			header__search_layout.focus = false
+			header__search_input.focus = false
+			header__search_button_cancel.focus = false
+			header__search_button_ok.focus = false
+		}
+
+		else if (header__search_button_ok.focus) {
+			header__search_layout.focus = false
+			header__search_input.focus = false
+			header__search_button_cancel.focus = false
+			header__search_button_ok.focus = false
+		}
+
+		else if (game__settings_layout.focus) {
 			game__settings_layout.focus = false
 			game__settings_layout_favorite_button.focus = false
+		}
+
+		else if (game__settings_layout_favorite_button.focus) {
+			game__settings_layout.focus = false
+			game__settings_layout_favorite_button.focus = false
+		}
+
+		else if (personal__center_layout_icon.focus) {
+			navigate('Software')
+		}
+
+		else if (personal__center_layout_down_button.focus) {
+			navigate('Software')
+		}
+
+		else {
 			searchValue = ''
 			header__search_input.text = 'Search'
 			currentCollectionIndex = currentCollectionIndex + ''
 			navigate('Software');
 			header__search_layout.focus = true
 			gameView.visible = false
+		}
+
 		}
 
 	}
@@ -445,7 +684,7 @@ import QtGraphicalEffects 1.12
 		if (api.keys.isCancel(event)) {
 			event.accepted = true
 			searchValue = ' '
-			header__search_input.text = 'Search'
+			header__search_input.clear()
 			search_button.focus = true
 			gameView.visible = false
 		}
@@ -598,7 +837,7 @@ import QtGraphicalEffects 1.12
 		if (api.keys.isAccept(event)) {
 			event.accepted = true
 			searchValue = ' '
-			header__search_input.text = 'Search'
+			header__search_input.clear()
 			search_button.focus = true
 			gameView.visible = false
 		}
@@ -606,7 +845,7 @@ import QtGraphicalEffects 1.12
 		if (api.keys.isCancel(event)) {
 			event.accepted = true
 			searchValue = ' '
-			header__search_input.text = 'Search'
+			header__search_input.clear()
 			search_button.focus = true
 			gameView.visible = false
 		}
@@ -637,7 +876,7 @@ import QtGraphicalEffects 1.12
 
 		onClicked: {
 			searchValue = ' '
-			header__search_input.text = 'Search'
+			header__search_input.clear()
 			search_button.focus = true
 		}
 
@@ -687,7 +926,7 @@ import QtGraphicalEffects 1.12
 		if (api.keys.isCancel(event)) {
 			event.accepted = true
 			searchValue = ' '
-			header__search_input.text = 'Search'
+			header__search_input.clear()
 			search_button.focus = true
 			gameView.visible = false
 		}
@@ -1460,7 +1699,7 @@ import QtGraphicalEffects 1.12
 		if (api.keys.isAccept(event)) {
 			event.accepted = true
 			searchValue = ''
-			header__search_input.text = 'Search'
+			header__search_input.clear()
 			swapTheme();
 			currentCollectionIndex = currentCollectionIndex + ''
 			navigate('Software');
@@ -1480,7 +1719,7 @@ import QtGraphicalEffects 1.12
 
 		onClicked:{
 			searchValue = ''
-			header__search_input.text = 'Search'
+			header__search_input.clear()
 			swapTheme();
 			currentCollectionIndex = currentCollectionIndex + ''
 			navigate('Software');

@@ -37,7 +37,7 @@ import QtGraphicalEffects 1.12
 			game__settings_layout.focus = false
 			game__settings_layout_favorite_button.focus = false
 			searchValue = ''
-			header__search_input.text = 'Search'
+			header__search_input.clear()
 			api.memory.unset('currentCollectionIndex', currentCollectionIndex)
 			navigate('Home')
 		}
