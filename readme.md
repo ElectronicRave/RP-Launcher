@@ -14,7 +14,11 @@
 
 Pegasus Frontend Theme optimized for Handheld. You need to have Pegasus installed in your handheld
 
-**Is Compatible With 4:3 and 16:9 handhelds**
+** Is Compatible With 4:3 and 16:9 handhelds **
+
+** A T T E N T I O N ! **	
+
+Always use the latest version and only stable versions of pegasus or you will have many bugs in its operation !
 
 ## Assets needed
 
@@ -60,7 +64,7 @@ In this list you can see all contents in the System, in this screen you can do s
 - R1 - Next page
 - L2 - Previnious system
 - R2 - Next system
-- D-PAD or TOUCH - Access to All, Favorite, Played and Search
+- TOUCH - Access to All, Favorite, Played and Search
  
 ### Favorite mode
 
