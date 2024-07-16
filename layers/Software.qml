@@ -877,7 +877,7 @@ import QtGraphicalEffects 1.12
 }
 
 	Text {
-		id: search_game_name_item_label
+		id: search_file_name_item_label
 		color: theme.text
 		text: "File name"
 		font.pixelSize: aspectRatio === 43 ? vpx(12*screenRatio) : vpx(12*screenRatio)
@@ -899,7 +899,7 @@ import QtGraphicalEffects 1.12
 	Text {
 		id: search_method_label
 		color: theme.text
-		text: "Search method"
+		text: "Search Method"
 		font.pixelSize: aspectRatio === 43 ? vpx(16*screenRatio) : vpx(14*screenRatio)
 		font.bold: true
 
