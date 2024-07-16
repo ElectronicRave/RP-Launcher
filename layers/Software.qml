@@ -86,31 +86,19 @@ import QtGraphicalEffects 1.12
 		onClicked:{
 
 		if (search_layout.focus) {
-			search_layout.focus = false
-			search_input.focus = false
-			search_button_cancel.focus = false
-			search_button_ok.focus = false
+			navigate('Software')
 		}
 
 		else if (search_input.focus) {
-			search_layout.focus = false
-			search_input.focus = false
-			search_button_cancel.focus = false
-			search_button_ok.focus = false
+			navigate('Software')
 		}
 
 		else if (search_button_cancel.focus) {
-			search_layout.focus = false
-			search_input.focus = false
-			search_button_cancel.focus = false
-			search_button_ok.focus = false
+			navigate('Software')
 		}
 
 		else if (search_button_ok.focus) {
-			search_layout.focus = false
-			search_input.focus = false
-			search_button_cancel.focus = false
-			search_button_ok.focus = false
+			navigate('Software')
 		}
 
 		else if (game__settings_layout.focus) {
@@ -210,31 +198,19 @@ import QtGraphicalEffects 1.12
 		onClicked: {
 
 		if (search_layout.focus) {
-			search_layout.focus = false
-			search_input.focus = false
-			search_button_cancel.focus = false
-			search_button_ok.focus = false
+			navigate('Software')
 		}
 
 		else if (search_input.focus) {
-			search_layout.focus = false
-			search_input.focus = false
-			search_button_cancel.focus = false
-			search_button_ok.focus = false
+			navigate('Software')
 		}
 
 		else if (search_button_cancel.focus) {
-			search_layout.focus = false
-			search_input.focus = false
-			search_button_cancel.focus = false
-			search_button_ok.focus = false
+			navigate('Software')
 		}
 
 		else if (search_button_ok.focus) {
-			search_layout.focus = false
-			search_input.focus = false
-			search_button_cancel.focus = false
-			search_button_ok.focus = false
+			navigate('Software')
 		}
 
 		else if (game__settings_layout.focus) {
@@ -340,31 +316,19 @@ import QtGraphicalEffects 1.12
 		onClicked: {
 
 		if (search_layout.focus) {
-			search_layout.focus = false
-			search_input.focus = false
-			search_button_cancel.focus = false
-			search_button_ok.focus = false
+			navigate('Software')
 		}
 
 		else if (search_input.focus) {
-			search_layout.focus = false
-			search_input.focus = false
-			search_button_cancel.focus = false
-			search_button_ok.focus = false
+			navigate('Software')
 		}
 
 		else if (search_button_cancel.focus) {
-			search_layout.focus = false
-			search_input.focus = false
-			search_button_cancel.focus = false
-			search_button_ok.focus = false
+			navigate('Software')
 		}
 
 		else if (search_button_ok.focus) {
-			search_layout.focus = false
-			search_input.focus = false
-			search_button_cancel.focus = false
-			search_button_ok.focus = false
+			navigate('Software')
 		}
 
 		else if (game__settings_layout.focus) {
@@ -470,31 +434,19 @@ import QtGraphicalEffects 1.12
 		onClicked: {
 
 		if (search_layout.focus) {
-			search_layout.focus = false
-			search_input.focus = false
-			search_button_cancel.focus = false
-			search_button_ok.focus = false
+			navigate('Software')
 		}
 
 		else if (search_input.focus) {
-			search_layout.focus = false
-			search_input.focus = false
-			search_button_cancel.focus = false
-			search_button_ok.focus = false
+			navigate('Software')
 		}
 
 		else if (search_button_cancel.focus) {
-			search_layout.focus = false
-			search_input.focus = false
-			search_button_cancel.focus = false
-			search_button_ok.focus = false
+			navigate('Software')
 		}
 
 		else if (search_button_ok.focus) {
-			search_layout.focus = false
-			search_input.focus = false
-			search_button_cancel.focus = false
-			search_button_ok.focus = false
+			navigate('Software')
 		}
 
 		else if (game__settings_layout.focus) {
@@ -536,8 +488,8 @@ import QtGraphicalEffects 1.12
 		id: search_button
 		width: aspectRatio === 43 ? vpx(67*screenRatio) : vpx(60*screenRatio)
 		height: aspectRatio === 43 ? vpx(34*screenRatio) : vpx(32*screenRatio)
-		color: focus || searchFocus ? theme.select : theme.background
-                border.color: focus || searchFocus ? theme.accent : theme.background
+		color: focus ? theme.select : theme.background
+                border.color: focus ? theme.accent : theme.background
                 border.width: aspectRatio === 43 ? vpx(1*screenRatio) : vpx(0.5*screenRatio)
 
 	KeyNavigation.left: {
@@ -589,31 +541,19 @@ import QtGraphicalEffects 1.12
 		onClicked: {
 
 		if (search_layout.focus) {
-			search_layout.focus = false
-			search_input.focus = false
-			search_button_cancel.focus = false
-			search_button_ok.focus = false
+			navigate('Software')
 		}
 
 		else if (search_input.focus) {
-			search_layout.focus = false
-			search_input.focus = false
-			search_button_cancel.focus = false
-			search_button_ok.focus = false
+			navigate('Software')
 		}
 
 		else if (search_button_cancel.focus) {
-			search_layout.focus = false
-			search_input.focus = false
-			search_button_cancel.focus = false
-			search_button_ok.focus = false
+			navigate('Software')
 		}
 
 		else if (search_button_ok.focus) {
-			search_layout.focus = false
-			search_input.focus = false
-			search_button_cancel.focus = false
-			search_button_ok.focus = false
+			navigate('Software')
 		}
 
 		else if (game__settings_layout.focus) {
@@ -657,7 +597,7 @@ import QtGraphicalEffects 1.12
 
 }
 
-	//Search component
+	//Search games
 
 	Rectangle {
 		id: search_layout
@@ -684,9 +624,7 @@ import QtGraphicalEffects 1.12
 		if (api.keys.isCancel(event)) {
 			event.accepted = true
 			searchValue = ' '
-			search_input.clear()
 			search_button.focus = true
-			gameView.visible = false
 		}
 
 	}
@@ -829,25 +767,29 @@ import QtGraphicalEffects 1.12
 		search_input.focus = true
 	}
 
+	Keys.onLeftPressed: {
+		null
+	}
+
 	Keys.onRightPressed: {
 		search_button_ok.focus = true
+	}
+
+	Keys.onDownPressed: {
+		null
 	}
 
 	Keys.onPressed: {
 		if (api.keys.isAccept(event)) {
 			event.accepted = true
 			searchValue = ' '
-			search_input.clear()
 			search_button.focus = true
-			gameView.visible = false
 		}
 
 		if (api.keys.isCancel(event)) {
 			event.accepted = true
 			searchValue = ' '
-			search_input.clear()
 			search_button.focus = true
-			gameView.visible = false
 		}
 
 	}
@@ -876,8 +818,7 @@ import QtGraphicalEffects 1.12
 
 		onClicked: {
 			searchValue = ' '
-			search_input.clear()
-			search_button.focus = true
+			navigate('Software')
 		}
 
 	}
@@ -902,6 +843,14 @@ import QtGraphicalEffects 1.12
 		search_button_cancel.focus = true
 	}
 
+	Keys.onRightPressed: {
+		null
+	}
+
+	Keys.onDownPressed: {
+		null
+	}
+
 	Keys.onPressed: {
 		if (api.keys.isAccept(event)) {
 			event.accepted = true
@@ -916,9 +865,8 @@ import QtGraphicalEffects 1.12
 		}
 
 		else {
-			searchValue = ''
-			search_input.clear()
-			search_input.focus = true
+			searchValue = ' '
+			search_button.focus = true
 		}
 
 		}
@@ -926,9 +874,7 @@ import QtGraphicalEffects 1.12
 		if (api.keys.isCancel(event)) {
 			event.accepted = true
 			searchValue = ' '
-			search_input.clear()
 			search_button.focus = true
-			gameView.visible = false
 		}
 
 	}
@@ -961,14 +907,12 @@ import QtGraphicalEffects 1.12
 			gameView.model = searchGames
 			gameView.currentIndex = 0
 			navigate('Software');
-			search_button.focus = true
 			gameView.visible = true
 		}
 
 		else {
-			searchValue = ''
-			search_input.clear()
-			search_input.focus = true
+			searchValue = ' '
+			navigate('Software')
 		}
 
 		}
