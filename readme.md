@@ -16,7 +16,7 @@ Pegasus Frontend Theme optimized for Handheld. You need to have Pegasus installe
 
 ** Is Compatible With 4:3 and 16:9 handhelds **
 
-** A T T E N T I O N ! **	
+## A T T E N T I O N !	
 
 Always use the latest version and only stable versions of pegasus or you will have many bugs in its operation !
 
