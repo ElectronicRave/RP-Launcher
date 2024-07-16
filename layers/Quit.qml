@@ -74,19 +74,27 @@ import QtGraphicalEffects 1.12
 		else if (currentPage === 'Software') {
 
 		if (search_layout.focus) {
-			navigate('Software')
+			profile_icon.focus = true
 		}
 
 		else if (search_input.focus) {
-			navigate('Software')
+			profile_icon.focus = true
+		}
+
+		else if (search_file_name_item_button.focus) {
+			profile_icon.focus = true
+		}
+
+		else if (search_contain_item_button.focus) {
+			profile_icon.focus = true
 		}
 
 		else if (search_button_cancel.focus) {
-			navigate('Software')
+			profile_icon.focus = true
 		}
 
 		else if (search_button_ok.focus) {
-			navigate('Software')
+			profile_icon.focus = true
 		}
 
 		else if (game__settings_layout.focus) {

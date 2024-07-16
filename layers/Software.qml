@@ -4,7 +4,7 @@ import QtGraphicalEffects 1.12
 	Item {
 		id: software
 
-		property var searchFocus: search_layout.focus || search_input.focus || search_button_cancel.focus || search_button_ok.focus
+		property var searchFocus: search_layout.focus || search_input.focus || search_file_name_item_button.focus || search_contain_item_button.focus || search_button_cancel.focus || search_button_ok.focus
 
 		property var personalFocus: personal__center_layout_up.focus || personal__center_layout_icon.focus || personal__center_layout_down_button.focus
 
@@ -86,19 +86,27 @@ import QtGraphicalEffects 1.12
 		onClicked:{
 
 		if (search_layout.focus) {
-			navigate('Software')
+			profile_icon.focus = true
 		}
 
 		else if (search_input.focus) {
-			navigate('Software')
+			profile_icon.focus = true
+		}
+
+		else if (search_file_name_item_button.focus) {
+			profile_icon.focus = true
+		}
+
+		else if (search_contain_item_button.focus) {
+			profile_icon.focus = true
 		}
 
 		else if (search_button_cancel.focus) {
-			navigate('Software')
+			profile_icon.focus = true
 		}
 
 		else if (search_button_ok.focus) {
-			navigate('Software')
+			profile_icon.focus = true
 		}
 
 		else if (game__settings_layout.focus) {
@@ -198,19 +206,27 @@ import QtGraphicalEffects 1.12
 		onClicked: {
 
 		if (search_layout.focus) {
-			navigate('Software')
+			profile_icon.focus = true
 		}
 
 		else if (search_input.focus) {
-			navigate('Software')
+			profile_icon.focus = true
+		}
+
+		else if (search_file_name_item_button.focus) {
+			profile_icon.focus = true
+		}
+
+		else if (search_contain_item_button.focus) {
+			profile_icon.focus = true
 		}
 
 		else if (search_button_cancel.focus) {
-			navigate('Software')
+			profile_icon.focus = true
 		}
 
 		else if (search_button_ok.focus) {
-			navigate('Software')
+			profile_icon.focus = true
 		}
 
 		else if (game__settings_layout.focus) {
@@ -316,19 +332,27 @@ import QtGraphicalEffects 1.12
 		onClicked: {
 
 		if (search_layout.focus) {
-			navigate('Software')
+			profile_icon.focus = true
 		}
 
 		else if (search_input.focus) {
-			navigate('Software')
+			profile_icon.focus = true
+		}
+
+		else if (search_file_name_item_button.focus) {
+			profile_icon.focus = true
+		}
+
+		else if (search_contain_item_button.focus) {
+			profile_icon.focus = true
 		}
 
 		else if (search_button_cancel.focus) {
-			navigate('Software')
+			profile_icon.focus = true
 		}
 
 		else if (search_button_ok.focus) {
-			navigate('Software')
+			profile_icon.focus = true
 		}
 
 		else if (game__settings_layout.focus) {
@@ -434,19 +458,27 @@ import QtGraphicalEffects 1.12
 		onClicked: {
 
 		if (search_layout.focus) {
-			navigate('Software')
+			profile_icon.focus = true
 		}
 
 		else if (search_input.focus) {
-			navigate('Software')
+			profile_icon.focus = true
+		}
+
+		else if (search_file_name_item_button.focus) {
+			profile_icon.focus = true
+		}
+
+		else if (search_contain_item_button.focus) {
+			profile_icon.focus = true
 		}
 
 		else if (search_button_cancel.focus) {
-			navigate('Software')
+			profile_icon.focus = true
 		}
 
 		else if (search_button_ok.focus) {
-			navigate('Software')
+			profile_icon.focus = true
 		}
 
 		else if (game__settings_layout.focus) {
@@ -541,19 +573,27 @@ import QtGraphicalEffects 1.12
 		onClicked: {
 
 		if (search_layout.focus) {
-			navigate('Software')
+			profile_icon.focus = true
 		}
 
 		else if (search_input.focus) {
-			navigate('Software')
+			profile_icon.focus = true
+		}
+
+		else if (search_file_name_item_button.focus) {
+			profile_icon.focus = true
+		}
+
+		else if (search_contain_item_button.focus) {
+			profile_icon.focus = true
 		}
 
 		else if (search_button_cancel.focus) {
-			navigate('Software')
+			profile_icon.focus = true
 		}
 
 		else if (search_button_ok.focus) {
-			navigate('Software')
+			profile_icon.focus = true
 		}
 
 		else if (game__settings_layout.focus) {
@@ -597,20 +637,24 @@ import QtGraphicalEffects 1.12
 
 }
 
-	//Search games
+	//Search component
 
 	Rectangle {
 		id: search_layout
 		color: theme.background
 		width: aspectRatio === 43 ? vpx(270*screenRatio) : vpx(250*screenRatio)
-		height: aspectRatio === 43 ? vpx(170*screenRatio) : vpx(150*screenRatio)
+		height: aspectRatio === 43 ? vpx(210*screenRatio) : vpx(205*screenRatio)
 		border.color: theme.accent
 		border.width: aspectRatio === 43 ? vpx(1.5*screenRatio) : vpx(1*screenRatio)
 		radius: vpx(3*screenRatio)
 		visible: searchFocus ? 1 : 0
 
+	Keys.onRightPressed: {
+		search_file_name_item_button.focus = true
+	}
+
 	Keys.onDownPressed: {
-		search_button_cancel.focus = true
+		search_file_name_item_button.focus = true
 	}
 
 	Keys.onPressed: {
@@ -629,23 +673,9 @@ import QtGraphicalEffects 1.12
 
 	}
 
-	Text {
-		id: search_layout_label
-		color: theme.text
-		text: "Search Content"
-		font.pixelSize: aspectRatio === 43 ? vpx(19*screenRatio) : vpx(18*screenRatio)
-		font.bold: true
-
-	anchors {
-		top: search_layout.top; topMargin: aspectRatio === 43 ? vpx(10*screenRatio) : vpx(8*screenRatio);
-		horizontalCenter: search_layout.horizontalCenter;
-	}
-
-}
-
 	Rectangle {
 		id: search
-		color: theme.background
+		color: "#EBEBEB"
 		width: aspectRatio === 43 ? vpx(150*screenRatio) : vpx(140*screenRatio)
 		height: aspectRatio === 43 ? vpx(30*screenRatio) : vpx(28*screenRatio)
 		border.color: theme.accent
@@ -653,9 +683,9 @@ import QtGraphicalEffects 1.12
 		radius: vpx(5*screenRatio)
 
 	anchors {
-		centerIn: search_layout
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(20*screenRatio)
+		horizontalCenter: parent.horizontalCenter
 	}
-
 
 	Image {
 		id: search_icon
@@ -663,7 +693,7 @@ import QtGraphicalEffects 1.12
 		fillMode: Image.PreserveAspectFit
 		source: "../assets/icons/search.png"
 		layer.enabled: true
-		layer.effect: ColorOverlay { color: theme.text }
+		layer.effect: ColorOverlay { color: "#2C2C2C" }
 		antialiasing: true
 		smooth: true
 
@@ -676,19 +706,32 @@ import QtGraphicalEffects 1.12
 
 	TextInput {
 		id: search_input
-		color: searchValue ? theme.text : "grey"
+		color: searchValue ? "#000000" : "grey"
 		font.pixelSize: aspectRatio === 43 ? vpx(15*screenRatio) : vpx(15*screenRatio)
 		clip: true
 
-	Keys.onDownPressed: {
+	Keys.onRightPressed: {
 		if (searchValue) {
-			search_button_cancel.focus = true
+			search_file_name_item_button.focus = true
 		}
 
 		else if (search_input.focus) {
 			searchValue = ''
 			search_input.text = 'Search'
-			search_button_cancel.focus = true
+			search_file_name_item_button.focus = true
+		}
+
+	}
+
+	Keys.onDownPressed: {
+		if (searchValue) {
+			search_file_name_item_button.focus = true
+		}
+
+		else if (search_input.focus) {
+			searchValue = ''
+			search_input.text = 'Search'
+			search_file_name_item_button.focus = true
 		}
 
 	}
@@ -753,6 +796,208 @@ import QtGraphicalEffects 1.12
  
 }
 
+	Text {
+		id: search_object_label
+		color: theme.text
+		text: "Search Object"
+		font.pixelSize: aspectRatio === 43 ? vpx(16*screenRatio) : vpx(14*screenRatio)
+		font.bold: true
+
+	anchors {
+		top: search.bottom; topMargin: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(20*screenRatio);
+		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(10*screenRatio) : vpx(10*screenRatio)
+	}
+
+}
+
+	Rectangle {
+		id: search_file_name_item_button
+		width: aspectRatio === 43 ? vpx(90*screenRatio) : vpx(90*screenRatio)
+		height: aspectRatio === 43 ? vpx(22*screenRatio) : vpx(22*screenRatio)
+		color: "transparent"
+                border.color: focus ? theme.accent : theme.background
+                border.width: aspectRatio === 43 ? vpx(1.5*screenRatio) : vpx(1*screenRatio)
+
+	Keys.onUpPressed: {
+		searchValue = ''
+		search_input.clear()
+		search_input.focus = true
+	}
+
+	Keys.onRightPressed: {
+		search_contain_item_button.focus = true
+	}
+
+	Keys.onDownPressed: {
+		search_contain_item_button.focus = true
+	}
+
+	Keys.onPressed: {
+		if (api.keys.isAccept(event)) {
+			event.accepted = true
+			null
+		}
+
+		if (api.keys.isCancel(event)) {
+			event.accepted = true
+			searchValue = ' '
+			search_button.focus = true
+		}
+
+	}
+
+	Rectangle {
+		id: search_file_name_item_border
+		width: aspectRatio === 43 ? vpx(15*screenRatio) : vpx(15*screenRatio)
+		height: width
+		color: "transparent"
+                border.color: theme.accent
+                border.width: aspectRatio === 43 ? vpx(1.5*screenRatio) : vpx(1.5*screenRatio)
+		radius: 100
+		
+	Rectangle {
+		id: search_file_name_item
+		width: aspectRatio === 43 ? vpx(8*screenRatio) : vpx(8*screenRatio)
+		height: width
+		color: theme.accent
+		radius: 100
+		
+
+	anchors {
+		centerIn: search_file_name_item_border
+	}
+
+}
+
+	anchors {
+		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(5*screenRatio)
+		verticalCenter: parent.verticalCenter
+	}
+
+}
+
+	Text {
+		id: search_game_name_item_label
+		color: theme.text
+		text: "File name"
+		font.pixelSize: aspectRatio === 43 ? vpx(12*screenRatio) : vpx(12*screenRatio)
+
+	anchors {
+		left: search_file_name_item_border.right; leftMargin: aspectRatio === 43 ? vpx(10*screenRatio) : vpx(10*screenRatio)
+		verticalCenter: parent.verticalCenter
+	}
+
+}
+
+	anchors {
+		top: search_object_label.bottom; topMargin: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(5*screenRatio);
+		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(20*screenRatio)
+	}
+
+}
+
+	Text {
+		id: search_method_label
+		color: theme.text
+		text: "Search method"
+		font.pixelSize: aspectRatio === 43 ? vpx(16*screenRatio) : vpx(14*screenRatio)
+		font.bold: true
+
+	anchors {
+		top: search_file_name_item_button.bottom; topMargin: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(5*screenRatio);
+		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(10*screenRatio) : vpx(10*screenRatio)
+	}
+
+}
+
+	Rectangle {
+		id: search_contain_item_button
+		width: aspectRatio === 43 ? vpx(85*screenRatio) : vpx(85*screenRatio)
+		height: aspectRatio === 43 ? vpx(22*screenRatio) : vpx(22*screenRatio)
+		color: "transparent"
+                border.color: focus ? theme.accent : theme.background
+                border.width: aspectRatio === 43 ? vpx(1.5*screenRatio) : vpx(1*screenRatio)
+
+	Keys.onUpPressed: {
+		search_file_name_item_button.focus = true
+	}
+
+	Keys.onLeftPressed: {
+		search_file_name_item_button.focus = true
+	}
+
+	Keys.onRightPressed: {
+		search_button_cancel.focus = true
+	}
+
+	Keys.onDownPressed: {
+		search_button_cancel.focus = true
+	}
+
+	Keys.onPressed: {
+		if (api.keys.isAccept(event)) {
+			event.accepted = true
+			null
+		}
+
+		if (api.keys.isCancel(event)) {
+			event.accepted = true
+			searchValue = ' '
+			search_button.focus = true
+		}
+
+	}
+
+	Rectangle {
+		id: search_contain_item_border
+		width: aspectRatio === 43 ? vpx(15*screenRatio) : vpx(15*screenRatio)
+		height: width
+		color: "transparent"
+                border.color: theme.accent
+                border.width: aspectRatio === 43 ? vpx(1.5*screenRatio) : vpx(1.5*screenRatio)
+		radius: 100
+		
+	Rectangle {
+		id: search_contain_item
+		width: aspectRatio === 43 ? vpx(8*screenRatio) : vpx(8*screenRatio)
+		height: width
+		color: theme.accent
+		radius: 100
+		
+
+	anchors {
+		centerIn: search_contain_item_border
+	}
+
+}
+
+	anchors {
+		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(5*screenRatio)
+		verticalCenter: parent.verticalCenter
+	}
+
+}
+
+	Text {
+		id: search_contain_item_label
+		color: theme.text
+		text: "Contain..."
+		font.pixelSize: aspectRatio === 43 ? vpx(12*screenRatio) : vpx(12*screenRatio)
+
+	anchors {
+		left: search_contain_item_border.right; leftMargin: aspectRatio === 43 ? vpx(10*screenRatio) : vpx(10*screenRatio)
+		verticalCenter: parent.verticalCenter
+	}
+
+}
+
+	anchors {
+		top: search_method_label.bottom; topMargin: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(5*screenRatio);
+		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(20*screenRatio)
+	}
+
+}
+
 	Rectangle {
 		id: search_button_cancel
 		width: aspectRatio === 43 ? vpx(52*screenRatio) : vpx(52*screenRatio)
@@ -762,13 +1007,11 @@ import QtGraphicalEffects 1.12
                 border.width: aspectRatio === 43 ? vpx(1*screenRatio) : vpx(0.5*screenRatio)
 
 	Keys.onUpPressed: {
-		searchValue = ''
-		search_input.clear()
-		search_input.focus = true
+		search_contain_item_button.focus = true
 	}
 
 	Keys.onLeftPressed: {
-		null
+		search_contain_item_button.focus = true
 	}
 
 	Keys.onRightPressed: {
@@ -808,8 +1051,8 @@ import QtGraphicalEffects 1.12
 }
 
 	anchors {
-		bottom: search_layout.bottom; bottomMargin: aspectRatio === 43 ? vpx(10*screenRatio) : vpx(8*screenRatio)
-		right: search_layout.right; rightMargin: aspectRatio === 43 ? vpx(45*screenRatio) : vpx(45*screenRatio)
+		right: search_layout.right; rightMargin: aspectRatio === 43 ? vpx(50*screenRatio) : vpx(50*screenRatio)
+		bottom: search_layout.bottom; bottomMargin: aspectRatio === 43 ? vpx(12*screenRatio) : vpx(10*screenRatio)
 	}
 
 	MouseArea {
@@ -818,7 +1061,7 @@ import QtGraphicalEffects 1.12
 
 		onClicked: {
 			searchValue = ' '
-			navigate('Software')
+			profile_icon.focus = true
 		}
 
 	}
@@ -834,9 +1077,7 @@ import QtGraphicalEffects 1.12
                 border.width: aspectRatio === 43 ? vpx(1*screenRatio) : vpx(0.5*screenRatio)
 
 	Keys.onUpPressed: {
-		searchValue = ''
-		search_input.clear()
-		search_input.focus = true
+		search_contain_item_button.focus = true
 	}
 
 	Keys.onLeftPressed: {
@@ -893,8 +1134,8 @@ import QtGraphicalEffects 1.12
 }
 
 	anchors {
-		bottom: search_layout.bottom; bottomMargin: aspectRatio === 43 ? vpx(10*screenRatio) : vpx(8*screenRatio)
 		left: search_button_cancel.right; leftMargin: aspectRatio === 43 ? vpx(8*screenRatio) : vpx(8*screenRatio)
+		bottom: search_layout.bottom; bottomMargin: aspectRatio === 43 ? vpx(12*screenRatio) : vpx(10*screenRatio)
 	}
 
 	MouseArea {
@@ -912,7 +1153,7 @@ import QtGraphicalEffects 1.12
 
 		else {
 			searchValue = ' '
-			navigate('Software')
+			profile_icon.focus = true
 		}
 
 		}
@@ -923,7 +1164,7 @@ import QtGraphicalEffects 1.12
 
 
 	anchors {
-		top: header.bottom; topMargin: aspectRatio === 43 ? vpx(85*screenRatio) : vpx(55*screenRatio);
+		top: header.bottom; topMargin: aspectRatio === 43 ? vpx(60*screenRatio) : vpx(30*screenRatio);
 		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(185*screenRatio) : vpx(215*screenRatio);
 	}
 
