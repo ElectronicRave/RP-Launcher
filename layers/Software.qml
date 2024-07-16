@@ -693,7 +693,7 @@ import QtGraphicalEffects 1.12
 		fillMode: Image.PreserveAspectFit
 		source: "../assets/icons/search.png"
 		layer.enabled: true
-		layer.effect: ColorOverlay { color: "#2C2C2C" }
+		layer.effect: ColorOverlay { color: "#000000" }
 		antialiasing: true
 		smooth: true
 
@@ -798,7 +798,7 @@ import QtGraphicalEffects 1.12
 
 	Text {
 		id: search_object_label
-		color: theme.text
+		color: theme.title
 		text: "Search Object"
 		font.pixelSize: aspectRatio === 43 ? vpx(16*screenRatio) : vpx(14*screenRatio)
 		font.bold: true
@@ -878,7 +878,7 @@ import QtGraphicalEffects 1.12
 
 	Text {
 		id: search_file_name_item_label
-		color: theme.text
+		color: theme.title
 		text: "File name"
 		font.pixelSize: aspectRatio === 43 ? vpx(12*screenRatio) : vpx(12*screenRatio)
 
