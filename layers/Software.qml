@@ -541,7 +541,6 @@ import QtGraphicalEffects 1.12
 			navigate('Software');
 			search_layout.focus = true
 			gameView.visible = false
-			
 		}
 
 	}
