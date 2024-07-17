@@ -8,6 +8,8 @@ import QtGraphicalEffects 1.12
 
 		property var personalFocus: personal__center_layout_up.focus || personal__center_layout_icon.focus || personal__center_layout_down_button.focus
 
+		property var settingsFocus: game__settings_layout.focus || game__settings_layout_favorite_button.focus
+
 	//Back to Home
 
 	Keys.onPressed: {
@@ -1425,10 +1427,26 @@ import QtGraphicalEffects 1.12
 
 }
 
+	SequentialAnimation {
+		id: search_layout_animation
+		running: search_layout.visible
 
-	anchors {
-		top: header.bottom; topMargin: aspectRatio === 43 ? vpx(60*screenRatio) : vpx(30*screenRatio);
-		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(177*screenRatio) : vpx(207*screenRatio);
+  	NumberAnimation {
+		target: search_layout;
+		property: "x";
+		from: aspectRatio === 43 ? vpx(180*screenRatio) : vpx(210*screenRatio);
+		to: aspectRatio === 43 ? vpx(180*screenRatio) : vpx(210*screenRatio);
+		duration: 0;
+	}
+
+  	NumberAnimation {
+		target: search_layout;
+		property: "y";
+		from: aspectRatio === 43 ? vpx(500*screenRatio) : vpx(450*screenRatio);
+		to: aspectRatio === 43 ? vpx(135*screenRatio) : vpx(90*screenRatio);
+		duration: 500;
+	}
+
 	}
 
 }
@@ -1484,6 +1502,22 @@ import QtGraphicalEffects 1.12
 		height: width
 		scale: selected ? 1.07 : 1
 		visible: currentPage === 'Software' ? true : false
+
+    OpacityAnimator {
+        target: game__item_container;
+        from: -1;
+        to: 1;
+        duration: 150
+        running: game__item_container.visible ? 1 : 0
+    }
+
+    OpacityAnimator {
+        target: game__item_container;
+        from: 1;
+        to: -1;
+        duration: 0
+        running: game__item_container.visible ? 0 : 1
+    }
 
 	//Launch game
 
@@ -1855,7 +1889,23 @@ import QtGraphicalEffects 1.12
                 border.color: theme.accent
 		border.width: aspectRatio === 43 ? vpx(1.5*screenRatio) : vpx(1*screenRatio)
 		radius: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(5*screenRatio)
-		visible: game__settings_layout.focus || game__settings_layout_favorite_button.focus ? 1 : 0
+		visible: settingsFocus ? 1 : 0
+
+    OpacityAnimator {
+        target: game__settings_layout;
+        from: 0;
+        to: 1;
+        duration: 50
+        running: game__settings_layout.visible ? 1 : 0
+    }
+
+    OpacityAnimator {
+        target: game__settings_layout;
+        from: 1;
+        to: 0;
+        duration: 0
+        running: game__settings_layout.visible ? 0 : 1
+    }
 
 	Keys.onUpPressed: {
 		game__settings_layout_favorite_button.focus = true
@@ -2018,6 +2068,22 @@ import QtGraphicalEffects 1.12
 		border.width: aspectRatio === 43 ? vpx(1.5*screenRatio) : vpx(1*screenRatio)
 		radius: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(5*screenRatio)
 		visible: personalFocus ? 1 : 0
+
+    OpacityAnimator {
+        target: personal__center_layout_up;
+        from: 0;
+        to: 1;
+        duration: 200
+        running: personal__center_layout_up.visible ? 1 : 0
+    }
+
+    OpacityAnimator {
+        target: personal__center_layout_up;
+        from: 1;
+        to: 0;
+        duration: 0
+        running: personal__center_layout_up.visible ? 0 : 1
+    }
 
 	Text {
 		id: personal__center_layout_label
