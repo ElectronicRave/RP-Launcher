@@ -350,7 +350,7 @@ import QtGraphicalEffects 1.12
 	KeyNavigation.down: quit;
 
 	anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? vpx(58*screenRatio) : vpx(48*screenRatio)
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(58*screenRatio) : vpx(58*screenRatio)
 		left: parent.left
 		right: parent.right
 		bottom: parent.bottom
