@@ -750,7 +750,7 @@ import QtGraphicalEffects 1.12
 	Rectangle {
 		id: search
 		color: "#EBEBEB"
-		width: aspectRatio === 43 ? vpx(150*screenRatio) : vpx(145*screenRatio)
+		width: aspectRatio === 43 ? vpx(155*screenRatio) : vpx(145*screenRatio)
 		height: aspectRatio === 43 ? vpx(30*screenRatio) : vpx(28*screenRatio)
 		border.color: theme.accent
 		border.width: aspectRatio === 43 ? vpx(1.5*screenRatio) : vpx(1*screenRatio)
