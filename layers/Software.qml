@@ -1347,6 +1347,7 @@ import QtGraphicalEffects 1.12
 
 		if (searchValue) {
 			event.accepted = true
+			currentCollectionIndex = 2
 			gameView.model = searchGames
 			gameView.currentIndex = 0
 			navigate('Software');
@@ -1388,6 +1389,7 @@ import QtGraphicalEffects 1.12
 		onClicked: {
 
 		if (searchValue) {
+			currentCollectionIndex = 2
 			gameView.model = searchGames
 			gameView.currentIndex = 0
 			navigate('Software');
