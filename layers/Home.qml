@@ -136,7 +136,7 @@ import QtGraphicalEffects 1.12
 
 	MouseArea {
 		id: all_button_mouse
-		anchors.fill: all_button_label
+		anchors.fill: all_button
 
 		onClicked: {
 
@@ -209,7 +209,7 @@ import QtGraphicalEffects 1.12
 
 	MouseArea {
 		id: favorite_button_mouse
-		anchors.fill: favorite_button_label
+		anchors.fill: favorite_button
 
 		onClicked: {
 
@@ -280,7 +280,7 @@ import QtGraphicalEffects 1.12
 
 	MouseArea {
 		id: played_button_mouse
-		anchors.fill: played_button_label
+		anchors.fill: played_button
 
 		onClicked: {
 

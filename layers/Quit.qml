@@ -2,7 +2,7 @@ import QtQuick 2.12
 import QtGraphicalEffects 1.12
 
 	Rectangle {
-		id: quit_button_layout
+		id: quit_button
 		width: aspectRatio === 43 ? vpx(60*screenRatio) : vpx(50*screenRatio)
 		height: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(28*screenRatio)
 		color: focus ? theme.select : theme.background
@@ -49,8 +49,8 @@ import QtGraphicalEffects 1.12
 	}
 
 	MouseArea {
-		id: quit_button_layout_mouse
-		anchors.fill: quit_button_layout
+		id: quit_button_mouse
+		anchors.fill: quit_button
 
 		onClicked: {
 
@@ -78,6 +78,12 @@ import QtGraphicalEffects 1.12
 		}
 
 		else if (search_input.focus) {
+			searchValue = ''
+			search_input.text = 'Search'
+			profile_icon.focus = true
+		}
+
+		else if (search_game_name_item_button.focus) {
 			profile_icon.focus = true
 		}
 
@@ -86,6 +92,10 @@ import QtGraphicalEffects 1.12
 		}
 
 		else if (search_contain_item_button.focus) {
+			profile_icon.focus = true
+		}
+
+		else if (search_start_with_item_button.focus) {
 			profile_icon.focus = true
 		}
 

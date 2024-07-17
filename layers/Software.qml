@@ -4,7 +4,7 @@ import QtGraphicalEffects 1.12
 	Item {
 		id: software
 
-		property var searchFocus: search_layout.focus || search_input.focus || search_file_name_item_button.focus || search_contain_item_button.focus || search_button_cancel.focus || search_button_ok.focus
+		property var searchFocus: search_layout.focus || search_input.focus || search_game_name_item_button.focus || search_file_name_item_button.focus || search_contain_item_button.focus || search_start_with_item_button.focus || search_button_cancel.focus || search_button_ok.focus
 
 		property var personalFocus: personal__center_layout_up.focus || personal__center_layout_icon.focus || personal__center_layout_down_button.focus
 
@@ -90,6 +90,12 @@ import QtGraphicalEffects 1.12
 		}
 
 		else if (search_input.focus) {
+			searchValue = ''
+			search_input.text = 'Search'
+			search_layout.focus = true
+		}
+
+		else if (search_game_name_item_button.focus) {
 			profile_icon.focus = true
 		}
 
@@ -98,6 +104,10 @@ import QtGraphicalEffects 1.12
 		}
 
 		else if (search_contain_item_button.focus) {
+			profile_icon.focus = true
+		}
+
+		else if (search_start_with_item_button.focus) {
 			profile_icon.focus = true
 		}
 
@@ -201,7 +211,7 @@ import QtGraphicalEffects 1.12
 
 	MouseArea {
 		id: all_button_mouse
-		anchors.fill: all_button_label
+		anchors.fill: all_button
 
 		onClicked: {
 
@@ -210,6 +220,12 @@ import QtGraphicalEffects 1.12
 		}
 
 		else if (search_input.focus) {
+			searchValue = ''
+			search_input.text = 'Search'
+			search_layout.focus = true
+		}
+
+		else if (search_game_name_item_button.focus) {
 			profile_icon.focus = true
 		}
 
@@ -218,6 +234,10 @@ import QtGraphicalEffects 1.12
 		}
 
 		else if (search_contain_item_button.focus) {
+			profile_icon.focus = true
+		}
+
+		else if (search_start_with_item_button.focus) {
 			profile_icon.focus = true
 		}
 
@@ -327,7 +347,7 @@ import QtGraphicalEffects 1.12
 
 	MouseArea {
 		id: favorite_button_mouse
-		anchors.fill: favorite_button_label
+		anchors.fill: favorite_button
 
 		onClicked: {
 
@@ -336,6 +356,12 @@ import QtGraphicalEffects 1.12
 		}
 
 		else if (search_input.focus) {
+			searchValue = ''
+			search_input.text = 'Search'
+			search_layout.focus = true
+		}
+
+		else if (search_game_name_item_button.focus) {
 			profile_icon.focus = true
 		}
 
@@ -344,6 +370,10 @@ import QtGraphicalEffects 1.12
 		}
 
 		else if (search_contain_item_button.focus) {
+			profile_icon.focus = true
+		}
+
+		else if (search_start_with_item_button.focus) {
 			profile_icon.focus = true
 		}
 
@@ -453,7 +483,7 @@ import QtGraphicalEffects 1.12
 
 	MouseArea {
 		id: played_button_mouse
-		anchors.fill: played_button_label
+		anchors.fill: played_button
 
 		onClicked: {
 
@@ -462,6 +492,12 @@ import QtGraphicalEffects 1.12
 		}
 
 		else if (search_input.focus) {
+			searchValue = ''
+			search_input.text = 'Search'
+			search_layout.focus = true
+		}
+
+		else if (search_game_name_item_button.focus) {
 			profile_icon.focus = true
 		}
 
@@ -470,6 +506,10 @@ import QtGraphicalEffects 1.12
 		}
 
 		else if (search_contain_item_button.focus) {
+			profile_icon.focus = true
+		}
+
+		else if (search_start_with_item_button.focus) {
 			profile_icon.focus = true
 		}
 
@@ -535,6 +575,10 @@ import QtGraphicalEffects 1.12
 	Keys.onPressed: {
 		if (api.keys.isAccept(event)) {
 			event.accepted = true
+			search_game_name_item.visible = false
+			search_file_name_item.visible = true
+			search_contain_item.visible = true
+			search_start_with_item.visible = false
 			searchValue = ''
 			search_input.text = 'Search'
 			currentCollectionIndex = currentCollectionIndex + ''
@@ -567,7 +611,7 @@ import QtGraphicalEffects 1.12
 
 	MouseArea {
 		id: search_button_mouse
-		anchors.fill: search_button_label
+		anchors.fill: search_button
 
 		onClicked: {
 
@@ -576,6 +620,12 @@ import QtGraphicalEffects 1.12
 		}
 
 		else if (search_input.focus) {
+			searchValue = ''
+			search_input.text = 'Search'
+			search_layout.focus = true
+		}
+
+		else if (search_game_name_item_button.focus) {
 			profile_icon.focus = true
 		}
 
@@ -584,6 +634,10 @@ import QtGraphicalEffects 1.12
 		}
 
 		else if (search_contain_item_button.focus) {
+			profile_icon.focus = true
+		}
+
+		else if (search_start_with_item_button.focus) {
 			profile_icon.focus = true
 		}
 
@@ -614,6 +668,10 @@ import QtGraphicalEffects 1.12
 		}
 
 		else {
+			search_game_name_item.visible = false
+			search_file_name_item.visible = true
+			search_contain_item.visible = true
+			search_start_with_item.visible = false
 			searchValue = ''
 			search_input.text = 'Search'
 			currentCollectionIndex = currentCollectionIndex + ''
@@ -641,7 +699,7 @@ import QtGraphicalEffects 1.12
 	Rectangle {
 		id: search_layout
 		color: theme.background
-		width: aspectRatio === 43 ? vpx(270*screenRatio) : vpx(250*screenRatio)
+		width: aspectRatio === 43 ? vpx(290*screenRatio) : vpx(270*screenRatio)
 		height: aspectRatio === 43 ? vpx(210*screenRatio) : vpx(205*screenRatio)
 		border.color: theme.accent
 		border.width: aspectRatio === 43 ? vpx(1.5*screenRatio) : vpx(1*screenRatio)
@@ -653,7 +711,7 @@ import QtGraphicalEffects 1.12
 	}
 
 	Keys.onDownPressed: {
-		search_file_name_item_button.focus = true
+		search_game_name_item_button.focus = true
 	}
 
 	Keys.onPressed: {
@@ -666,7 +724,6 @@ import QtGraphicalEffects 1.12
 
 		if (api.keys.isCancel(event)) {
 			event.accepted = true
-			searchValue = ' '
 			search_button.focus = true
 		}
 
@@ -688,7 +745,7 @@ import QtGraphicalEffects 1.12
 
 	Image {
 		id: search_icon
-		sourceSize.width: aspectRatio === 43 ? vpx(22*screenRatio) : vpx(20*screenRatio)
+		sourceSize.width: aspectRatio === 43 ? vpx(22*screenRatio) : vpx(22*screenRatio)
 		fillMode: Image.PreserveAspectFit
 		source: "../assets/icons/search.png"
 		layer.enabled: true
@@ -706,7 +763,7 @@ import QtGraphicalEffects 1.12
 	TextInput {
 		id: search_input
 		color: searchValue ? "#000000" : "grey"
-		font.pixelSize: aspectRatio === 43 ? vpx(15*screenRatio) : vpx(15*screenRatio)
+		font.pixelSize: aspectRatio === 43 ? vpx(12*screenRatio) : vpx(12*screenRatio)
 		clip: true
 
 	Keys.onRightPressed: {
@@ -724,13 +781,13 @@ import QtGraphicalEffects 1.12
 
 	Keys.onDownPressed: {
 		if (searchValue) {
-			search_file_name_item_button.focus = true
+			search_game_name_item_button.focus = true
 		}
 
 		else if (search_input.focus) {
 			searchValue = ''
 			search_input.text = 'Search'
-			search_file_name_item_button.focus = true
+			search_game_name_item_button.focus = true
 		}
 
 	}
@@ -792,7 +849,6 @@ import QtGraphicalEffects 1.12
 
 	}
 
- 
 }
 
 	Text {
@@ -810,7 +866,7 @@ import QtGraphicalEffects 1.12
 }
 
 	Rectangle {
-		id: search_file_name_item_button
+		id: search_game_name_item_button
 		width: aspectRatio === 43 ? vpx(90*screenRatio) : vpx(90*screenRatio)
 		height: aspectRatio === 43 ? vpx(22*screenRatio) : vpx(22*screenRatio)
 		color: "transparent"
@@ -824,7 +880,7 @@ import QtGraphicalEffects 1.12
 	}
 
 	Keys.onRightPressed: {
-		search_contain_item_button.focus = true
+		search_file_name_item_button.focus = true
 	}
 
 	Keys.onDownPressed: {
@@ -834,13 +890,104 @@ import QtGraphicalEffects 1.12
 	Keys.onPressed: {
 		if (api.keys.isAccept(event)) {
 			event.accepted = true
-			null
+			search_game_name_item.visible = true
+			search_file_name_item.visible = false
 		}
 
-		if (api.keys.isCancel(event)) {
+	}
+
+	Rectangle {
+		id: search_game_name_item_border
+		width: aspectRatio === 43 ? vpx(15*screenRatio) : vpx(15*screenRatio)
+		height: width
+		color: "transparent"
+                border.color: theme.accent
+                border.width: aspectRatio === 43 ? vpx(1.5*screenRatio) : vpx(1.5*screenRatio)
+		radius: 100
+		
+	Rectangle {
+		id: search_game_name_item
+		width: aspectRatio === 43 ? vpx(8*screenRatio) : vpx(8*screenRatio)
+		height: width
+		color: theme.accent
+		radius: 100
+		visible: false
+
+	anchors {
+		centerIn: search_game_name_item_border
+	}
+
+}
+
+	anchors {
+		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(4*screenRatio) : vpx(4*screenRatio)
+		verticalCenter: parent.verticalCenter
+	}
+
+}
+
+	Text {
+		id: search_game_name_item_label
+		color: theme.title
+		text: "Game name"
+		font.pixelSize: aspectRatio === 43 ? vpx(11*screenRatio) : vpx(11*screenRatio)
+
+	anchors {
+		left: search_game_name_item_border.right; leftMargin: aspectRatio === 43 ? vpx(7*screenRatio) : vpx(7*screenRatio)
+		verticalCenter: parent.verticalCenter
+	}
+
+}
+
+	anchors {
+		top: search_object_label.bottom; topMargin: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(5*screenRatio);
+		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(20*screenRatio)
+	}
+
+	MouseArea {
+		id: search_game_name_item_button_mouse
+		anchors.fill: search_game_name_item_button
+
+		onClicked:{
+			search_game_name_item.visible = true
+			search_file_name_item.visible = false
+		}
+
+	}
+
+}
+
+	Rectangle {
+		id: search_file_name_item_button
+		width: aspectRatio === 43 ? vpx(80*screenRatio) : vpx(80*screenRatio)
+		height: aspectRatio === 43 ? vpx(22*screenRatio) : vpx(22*screenRatio)
+		color: "transparent"
+                border.color: focus ? theme.accent : theme.background
+                border.width: aspectRatio === 43 ? vpx(1.5*screenRatio) : vpx(1*screenRatio)
+
+	Keys.onUpPressed: {
+		searchValue = ''
+		search_input.clear()
+		search_input.focus = true
+	}
+
+	Keys.onLeftPressed: {
+		search_game_name_item_button.focus = true
+	}
+
+	Keys.onRightPressed: {
+		search_button_cancel.focus = true
+	}
+
+	Keys.onDownPressed: {
+		search_start_with_item_button.focus = true
+	}
+
+	Keys.onPressed: {
+		if (api.keys.isAccept(event)) {
 			event.accepted = true
-			searchValue = ' '
-			search_button.focus = true
+			search_game_name_item.visible = false
+			search_file_name_item.visible = true
 		}
 
 	}
@@ -860,7 +1007,6 @@ import QtGraphicalEffects 1.12
 		height: width
 		color: theme.accent
 		radius: 100
-		
 
 	anchors {
 		centerIn: search_file_name_item_border
@@ -869,7 +1015,7 @@ import QtGraphicalEffects 1.12
 }
 
 	anchors {
-		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(5*screenRatio)
+		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(4*screenRatio) : vpx(4*screenRatio)
 		verticalCenter: parent.verticalCenter
 	}
 
@@ -879,10 +1025,10 @@ import QtGraphicalEffects 1.12
 		id: search_file_name_item_label
 		color: theme.title
 		text: "File name"
-		font.pixelSize: aspectRatio === 43 ? vpx(12*screenRatio) : vpx(12*screenRatio)
+		font.pixelSize: aspectRatio === 43 ? vpx(1*screenRatio) : vpx(11*screenRatio)
 
 	anchors {
-		left: search_file_name_item_border.right; leftMargin: aspectRatio === 43 ? vpx(10*screenRatio) : vpx(10*screenRatio)
+		left: search_file_name_item_border.right; leftMargin: aspectRatio === 43 ? vpx(7*screenRatio) : vpx(7*screenRatio)
 		verticalCenter: parent.verticalCenter
 	}
 
@@ -890,7 +1036,18 @@ import QtGraphicalEffects 1.12
 
 	anchors {
 		top: search_object_label.bottom; topMargin: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(5*screenRatio);
-		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(20*screenRatio)
+		left: search_game_name_item_button.right; leftMargin: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(20*screenRatio)
+	}
+
+	MouseArea {
+		id: search_filee_name_item_button_mouse
+		anchors.fill: search_file_name_item_button
+
+		onClicked:{
+			search_game_name_item.visible = false
+			search_file_name_item.visible = true
+		}
+
 	}
 
 }
@@ -911,22 +1068,22 @@ import QtGraphicalEffects 1.12
 
 	Rectangle {
 		id: search_contain_item_button
-		width: aspectRatio === 43 ? vpx(85*screenRatio) : vpx(85*screenRatio)
+		width: aspectRatio === 43 ? vpx(78*screenRatio) : vpx(78*screenRatio)
 		height: aspectRatio === 43 ? vpx(22*screenRatio) : vpx(22*screenRatio)
 		color: "transparent"
                 border.color: focus ? theme.accent : theme.background
                 border.width: aspectRatio === 43 ? vpx(1.5*screenRatio) : vpx(1*screenRatio)
 
 	Keys.onUpPressed: {
-		search_file_name_item_button.focus = true
+		search_game_name_item_button.focus = true
 	}
 
 	Keys.onLeftPressed: {
-		search_file_name_item_button.focus = true
+		null
 	}
 
 	Keys.onRightPressed: {
-		search_button_cancel.focus = true
+		search_start_with_item_button.focus = true
 	}
 
 	Keys.onDownPressed: {
@@ -936,13 +1093,8 @@ import QtGraphicalEffects 1.12
 	Keys.onPressed: {
 		if (api.keys.isAccept(event)) {
 			event.accepted = true
-			null
-		}
-
-		if (api.keys.isCancel(event)) {
-			event.accepted = true
-			searchValue = ' '
-			search_button.focus = true
+			search_contain_item.visible = true
+			search_start_with_item.visible = false
 		}
 
 	}
@@ -962,7 +1114,6 @@ import QtGraphicalEffects 1.12
 		height: width
 		color: theme.accent
 		radius: 100
-		
 
 	anchors {
 		centerIn: search_contain_item_border
@@ -971,7 +1122,7 @@ import QtGraphicalEffects 1.12
 }
 
 	anchors {
-		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(5*screenRatio)
+		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(4*screenRatio) : vpx(4*screenRatio)
 		verticalCenter: parent.verticalCenter
 	}
 
@@ -981,10 +1132,10 @@ import QtGraphicalEffects 1.12
 		id: search_contain_item_label
 		color: theme.text
 		text: "Contain..."
-		font.pixelSize: aspectRatio === 43 ? vpx(12*screenRatio) : vpx(12*screenRatio)
+		font.pixelSize: aspectRatio === 43 ? vpx(11*screenRatio) : vpx(11*screenRatio)
 
 	anchors {
-		left: search_contain_item_border.right; leftMargin: aspectRatio === 43 ? vpx(10*screenRatio) : vpx(10*screenRatio)
+		left: search_contain_item_border.right; leftMargin: aspectRatio === 43 ? vpx(7*screenRatio) : vpx(7*screenRatio)
 		verticalCenter: parent.verticalCenter
 	}
 
@@ -993,6 +1144,111 @@ import QtGraphicalEffects 1.12
 	anchors {
 		top: search_method_label.bottom; topMargin: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(5*screenRatio);
 		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(20*screenRatio)
+	}
+
+	MouseArea {
+		id: search_contain_item_button_mouse
+		anchors.fill: search_contain_item_button
+
+		onClicked:{
+			search_contain_item.visible = true
+			search_start_with_item.visible = false
+		}
+
+	}
+
+}
+
+	Rectangle {
+		id: search_start_with_item_button
+		width: aspectRatio === 43 ? vpx(88*screenRatio) : vpx(88*screenRatio)
+		height: aspectRatio === 43 ? vpx(22*screenRatio) : vpx(22*screenRatio)
+		color: "transparent"
+                border.color: focus ? theme.accent : theme.background
+                border.width: aspectRatio === 43 ? vpx(1.5*screenRatio) : vpx(1*screenRatio)
+
+	Keys.onUpPressed: {
+		search_file_name_item_button.focus = true
+	}
+
+	Keys.onLeftPressed: {
+		search_contain_item_button.focus = true
+	}
+
+	Keys.onRightPressed: {
+		search_button_cancel.focus = true
+	}
+
+	Keys.onDownPressed: {
+		search_button_cancel.focus = true
+	}
+
+	Keys.onPressed: {
+		if (api.keys.isAccept(event)) {
+			event.accepted = true
+			search_contain_item.visible = false
+			search_start_with_item.visible = true
+		}
+
+	}
+
+	Rectangle {
+		id: search_start_with_item_border
+		width: aspectRatio === 43 ? vpx(15*screenRatio) : vpx(15*screenRatio)
+		height: width
+		color: "transparent"
+                border.color: theme.accent
+                border.width: aspectRatio === 43 ? vpx(1.5*screenRatio) : vpx(1.5*screenRatio)
+		radius: 100
+		
+	Rectangle {
+		id: search_start_with_item
+		width: aspectRatio === 43 ? vpx(8*screenRatio) : vpx(8*screenRatio)
+		height: width
+		color: theme.accent
+		radius: 100
+		visible: false
+
+	anchors {
+		centerIn: search_start_with_item_border
+	}
+
+}
+
+	anchors {
+		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(4*screenRatio) : vpx(4*screenRatio)
+		verticalCenter: parent.verticalCenter
+	}
+
+}
+
+	Text {
+		id: search_start_with_item_label
+		color: theme.text
+		text: "Start with..."
+		font.pixelSize: aspectRatio === 43 ? vpx(11*screenRatio) : vpx(11*screenRatio)
+
+	anchors {
+		left: search_start_with_item_border.right; leftMargin: aspectRatio === 43 ? vpx(7*screenRatio) : vpx(7*screenRatio)
+		verticalCenter: parent.verticalCenter
+	}
+
+}
+
+	anchors {
+		top: search_method_label.bottom; topMargin: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(5*screenRatio);
+		left: search_contain_item_button.right; leftMargin: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(20*screenRatio)
+	}
+
+	MouseArea {
+		id: search_start_with_item_button_mouse
+		anchors.fill: search_start_with_item_button
+
+		onClicked:{
+			search_contain_item.visible = false
+			search_start_with_item.visible = true
+		}
+
 	}
 
 }
@@ -1006,11 +1262,11 @@ import QtGraphicalEffects 1.12
                 border.width: aspectRatio === 43 ? vpx(1*screenRatio) : vpx(0.5*screenRatio)
 
 	Keys.onUpPressed: {
-		search_contain_item_button.focus = true
+		search_start_with_item_button.focus = true
 	}
 
 	Keys.onLeftPressed: {
-		search_contain_item_button.focus = true
+		search_start_with_item_button.focus = true
 	}
 
 	Keys.onRightPressed: {
@@ -1023,12 +1279,6 @@ import QtGraphicalEffects 1.12
 
 	Keys.onPressed: {
 		if (api.keys.isAccept(event)) {
-			event.accepted = true
-			searchValue = ' '
-			search_button.focus = true
-		}
-
-		if (api.keys.isCancel(event)) {
 			event.accepted = true
 			searchValue = ' '
 			search_button.focus = true
@@ -1076,7 +1326,7 @@ import QtGraphicalEffects 1.12
                 border.width: aspectRatio === 43 ? vpx(1*screenRatio) : vpx(0.5*screenRatio)
 
 	Keys.onUpPressed: {
-		search_contain_item_button.focus = true
+		search_start_with_item_button.focus = true
 	}
 
 	Keys.onLeftPressed: {
@@ -1109,12 +1359,6 @@ import QtGraphicalEffects 1.12
 			search_button.focus = true
 		}
 
-		}
-
-		if (api.keys.isCancel(event)) {
-			event.accepted = true
-			searchValue = ' '
-			search_button.focus = true
 		}
 
 	}
