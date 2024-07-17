@@ -1444,7 +1444,7 @@ import QtGraphicalEffects 1.12
 		property: "y";
 		from: aspectRatio === 43 ? vpx(500*screenRatio) : vpx(450*screenRatio);
 		to: aspectRatio === 43 ? vpx(135*screenRatio) : vpx(90*screenRatio);
-		duration: 500;
+		duration: 400;
 	}
 
 	}
