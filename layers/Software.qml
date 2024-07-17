@@ -173,7 +173,16 @@ import QtGraphicalEffects 1.12
 		if (api.keys.isAccept(event)) {
 			event.accepted = true
 
-		if (currentCollectionIndex === 2) {
+		if (searchValue) {
+			searchValue = ''
+			search_input.clear()
+			currentCollectionIndex = 2
+			api.memory.set('currentCollectionIndex', currentCollectionIndex);
+			navigate('Software');
+			gameView.visible = true
+		}
+
+		else if (currentCollectionIndex === 2) {
 			all_button.focus = true
 		}
 
@@ -215,7 +224,16 @@ import QtGraphicalEffects 1.12
 
 		onClicked: {
 
-		if (search_layout.focus) {
+		if (searchValue) {
+			searchValue = ''
+			search_input.clear()
+			currentCollectionIndex = 2
+			api.memory.set('currentCollectionIndex', currentCollectionIndex);
+			navigate('Software');
+			gameView.visible = true
+		}
+
+		else if (search_layout.focus) {
 			profile_icon.focus = true
 		}
 
@@ -1347,9 +1365,9 @@ import QtGraphicalEffects 1.12
 
 		if (searchValue) {
 			event.accepted = true
-			currentCollectionIndex = 2
 			gameView.model = searchGames
 			gameView.currentIndex = 0
+			currentCollectionIndex = 2
 			navigate('Software');
 			search_button.focus = true
 			gameView.visible = true
@@ -1389,9 +1407,9 @@ import QtGraphicalEffects 1.12
 		onClicked: {
 
 		if (searchValue) {
-			currentCollectionIndex = 2
 			gameView.model = searchGames
 			gameView.currentIndex = 0
+			currentCollectionIndex = 2
 			navigate('Software');
 			gameView.visible = true
 		}
