@@ -366,6 +366,22 @@ import QtGraphicalEffects 1.12
 		height: width
 		visible: currentPage === 'Home' ? true : false
 
+	OpacityAnimator {
+		target: system__item_container;
+		from: -1;
+		to: 1;
+		duration: 150
+		running: system__item_container.visible ? 1 : 0
+	}
+
+	OpacityAnimator {
+		target: system__item_container;
+		from: 1;
+		to: -1;
+		duration: 0
+		running: system__item_container.visible ? 0 : 1
+	}
+
 	//Browse the collection and return to the same place after playing
 
 	//Selecting the collection
@@ -527,6 +543,22 @@ import QtGraphicalEffects 1.12
 		border.width: aspectRatio === 43 ? vpx(1.5*screenRatio) : vpx(1*screenRatio)
 		radius: aspectRatio === 43 ? vpx(5*screenRatio) : vpx(5*screenRatio)
 		visible: personalFocus ? 1 : 0
+
+	OpacityAnimator {
+		target: personal__center_layout_up;
+		from: 0;
+		to: 1;
+		duration: 200
+		running: personal__center_layout_up.visible ? 1 : 0
+	}
+
+	OpacityAnimator {
+		target: personal__center_layout_up;
+		from: 1;
+		to: 0;
+		duration: 0
+		running: personal__center_layout_up.visible ? 0 : 1
+	}
 
 	Text {
 		id: personal__center_layout_label
