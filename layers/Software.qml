@@ -871,7 +871,7 @@ import QtGraphicalEffects 1.12
 
 	Text {
 		id: search_object_label
-		color: theme.title
+		color: theme.text
 		text: "Search Object"
 		font.pixelSize: aspectRatio === 43 ? vpx(18*screenRatio) : vpx(14*screenRatio)
 		font.bold: true
