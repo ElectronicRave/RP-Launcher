@@ -471,6 +471,7 @@ import QtGraphicalEffects 1.12
 		else {
 			systemListView.currentIndex = index
 			system__item_container.scale = 1.07
+			navigate('Home');
 		}
 
 	}
