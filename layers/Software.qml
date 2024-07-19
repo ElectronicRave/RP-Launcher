@@ -1656,6 +1656,7 @@ import QtGraphicalEffects 1.12
 		else {
 			gameView.currentIndex = index
 			currentGameIndex = index
+			navigate('Software');
 			game__settings_layout.focus = true
 		}
 
