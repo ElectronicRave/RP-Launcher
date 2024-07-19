@@ -59,8 +59,8 @@ import "layers" as Layers
 	property var theme : api.memory.get('theme') === 'themeDark' ? themeDark : themeLight ;
 
 	property var themeLight : {
-		"background": "#EBEBEB",
-		"accent": "#FF3800",
+		"background": "#ECECEC",
+		"accent": "#F44336",
 		"buttons": "#FFBD88",
 		"text": "#000000",
 		"title": "#2C2C2C",
@@ -72,7 +72,7 @@ import "layers" as Layers
 		"accent": "#00FFFF",
 		"buttons": "#CD7F32",
 		"text": "#FFFFFF",
-		"title": "#EBEBEB",
+		"title": "#ECECEC",
 		"select": "#4C4C4C",
 	}
 
