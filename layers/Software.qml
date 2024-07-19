@@ -153,8 +153,8 @@ import QtGraphicalEffects 1.12
 
 	Rectangle {
 		id: all_button
-		width: aspectRatio === 43 ? vpx(33*screenRatio) : vpx(31*screenRatio)
-		height: aspectRatio === 43 ? vpx(34*screenRatio) : vpx(32*screenRatio)
+		width: aspectRatio === 43 ? vpx(37*screenRatio) : vpx(31*screenRatio)
+		height: aspectRatio === 43 ? vpx(36*screenRatio) : vpx(32*screenRatio)
 		color: focus ? theme.select : theme.background
                 border.color: focus ? theme.accent : theme.background
                 border.width: aspectRatio === 43 ? vpx(1*screenRatio) : vpx(0.5*screenRatio)
@@ -203,12 +203,12 @@ import QtGraphicalEffects 1.12
 
 	Text {
 		id: all_button_label
-		height: font.bold ? aspectRatio === 43 ? vpx(34*screenRatio) : vpx(30*screenRatio) : aspectRatio === 43 ? vpx(25*screenRatio) : vpx(23*screenRatio)
+		property var anyFocus: currentCollectionIndex === 0 || currentCollectionIndex === 1 || searchFocus || search_input.text || searchValue
+		height: anyFocus ? aspectRatio === 43 ? vpx(27.4*screenRatio) : vpx(23*screenRatio) : aspectRatio === 43 ? vpx(36*screenRatio) : vpx(30*screenRatio)
 		text: "All"
-		color: currentCollectionIndex === 0 || currentCollectionIndex === 1 || searchFocus || search_input.text || searchValue ? theme.title : theme.accent
-		font.family: font.bold ? titleFontBold.name : 0
-		font.pixelSize: aspectRatio === 43 ? vpx(21*screenRatio) : vpx(19*screenRatio)
-		font.bold: currentCollectionIndex === 0 || currentCollectionIndex === 1 || searchFocus || search_input.text || searchValue ? false : true
+		color: anyFocus ? theme.title : theme.accent
+		font.family: anyFocus ? global.fonts.sans : titleFontBold.name
+		font.pixelSize: aspectRatio === 43 ? vpx(23*screenRatio) : vpx(19*screenRatio)
 
 	anchors {
 		centerIn: parent
@@ -216,7 +216,7 @@ import QtGraphicalEffects 1.12
 }
 
 	anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? vpx(26*screenRatio) : vpx(20*screenRatio)
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(24*screenRatio) : vpx(20*screenRatio)
 		left: profile_button.right; leftMargin: aspectRatio === 43 ? vpx(50*screenRatio) : vpx(50*screenRatio)
 	}
 
@@ -306,8 +306,8 @@ import QtGraphicalEffects 1.12
 
 	Rectangle {
 		id: favorite_button
-		width: aspectRatio === 43 ? vpx(79*screenRatio) : vpx(72*screenRatio)
-		height: aspectRatio === 43 ? vpx(34*screenRatio) : vpx(32*screenRatio)
+		width: aspectRatio === 43 ? vpx(88*screenRatio) : vpx(72*screenRatio)
+		height: aspectRatio === 43 ? vpx(36*screenRatio) : vpx(32*screenRatio)
 		color: focus ? theme.select : theme.background
                 border.color: focus ? theme.accent : theme.background
                 border.width: aspectRatio === 43 ? vpx(1*screenRatio) : vpx(0.5*screenRatio)
@@ -347,12 +347,11 @@ import QtGraphicalEffects 1.12
 
 	Text {
 		id: favorite_button_label
-		height: font.bold ? aspectRatio === 43 ? vpx(34*screenRatio) : vpx(30*screenRatio) : aspectRatio === 43 ? vpx(25.3*screenRatio) : vpx(23*screenRatio)
+		height: currentCollectionIndex === 0 ? aspectRatio === 43 ? vpx(36*screenRatio) : vpx(30*screenRatio) : aspectRatio === 43 ? vpx(27.4*screenRatio) : vpx(23*screenRatio)
 		text: "Favorite"
 		color: currentCollectionIndex === 0 ? theme.accent : theme.title
-		font.family: font.bold ? titleFontBold.name : 0
-		font.pixelSize: aspectRatio === 43 ? vpx(21*screenRatio) : vpx(19*screenRatio)
-		font.bold: currentCollectionIndex === 0 ? true : false
+		font.family: currentCollectionIndex === 0 ? titleFontBold.name : global.fonts.sans
+		font.pixelSize: aspectRatio === 43 ? vpx(23*screenRatio) : vpx(19*screenRatio)
 
 	anchors {
 		centerIn: parent
@@ -361,7 +360,7 @@ import QtGraphicalEffects 1.12
 }
 
 	anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? vpx(26*screenRatio) : vpx(20*screenRatio)
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(24*screenRatio) : vpx(20*screenRatio)
 		left: all_button.right; leftMargin: aspectRatio === 43 ? vpx(10*screenRatio) : vpx(10*screenRatio)
 	}
 
@@ -442,8 +441,8 @@ import QtGraphicalEffects 1.12
 
 	Rectangle {
 		id: played_button
-		width: aspectRatio === 43 ? vpx(64*screenRatio) : vpx(57*screenRatio)
-		height: aspectRatio === 43 ? vpx(34*screenRatio) : vpx(32*screenRatio)
+		width: aspectRatio === 43 ? vpx(70*screenRatio) : vpx(57*screenRatio)
+		height: aspectRatio === 43 ? vpx(36*screenRatio) : vpx(32*screenRatio)
 		color: focus ? theme.select : theme.background
                 border.color: focus ? theme.accent : theme.background
                 border.width: aspectRatio === 43 ? vpx(1*screenRatio) : vpx(0.5*screenRatio)
@@ -483,12 +482,11 @@ import QtGraphicalEffects 1.12
 
 	Text {
 		id: played_button_label
-		height: font.bold ? aspectRatio === 43 ? vpx(34*screenRatio) : vpx(30*screenRatio) : aspectRatio === 43 ? vpx(25.3*screenRatio) : vpx(23*screenRatio)
+		height: currentCollectionIndex === 1 ? aspectRatio === 43 ? vpx(36*screenRatio) : vpx(30*screenRatio) : aspectRatio === 43 ? vpx(27.4*screenRatio) : vpx(23*screenRatio)
 		text: "Played"
 		color: currentCollectionIndex === 1 ? theme.accent : theme.title
-		font.family: font.bold ? titleFontBold.name : 0
-		font.pixelSize: aspectRatio === 43 ? vpx(21*screenRatio) : vpx(19*screenRatio)
-		font.bold: currentCollectionIndex === 1 ? true : false
+		font.family: currentCollectionIndex === 1 ? titleFontBold.name : global.fonts.sans
+		font.pixelSize: aspectRatio === 43 ? vpx(23*screenRatio) : vpx(19*screenRatio)
 
 	anchors {
 		centerIn: parent
@@ -497,7 +495,7 @@ import QtGraphicalEffects 1.12
 }
 
 	anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? vpx(26*screenRatio) : vpx(20*screenRatio)
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(24*screenRatio) : vpx(20*screenRatio)
 		left: favorite_button.right; leftMargin: aspectRatio === 43 ? vpx(10*screenRatio) : vpx(10*screenRatio)
 	}
 
@@ -578,8 +576,8 @@ import QtGraphicalEffects 1.12
 
 	Rectangle {
 		id: search_button
-		width: aspectRatio === 43 ? vpx(67*screenRatio) : vpx(60*screenRatio)
-		height: aspectRatio === 43 ? vpx(34*screenRatio) : vpx(32*screenRatio)
+		width: aspectRatio === 43 ? vpx(74*screenRatio) : vpx(60*screenRatio)
+		height: aspectRatio === 43 ? vpx(36*screenRatio) : vpx(32*screenRatio)
 		color: focus ? theme.select : theme.background
                 border.color: focus ? theme.accent : theme.background
                 border.width: aspectRatio === 43 ? vpx(1*screenRatio) : vpx(0.5*screenRatio)
@@ -611,12 +609,12 @@ import QtGraphicalEffects 1.12
 
 	Text {
 		id: search_button_label
-		height: font.bold ? aspectRatio === 43 ? vpx(34*screenRatio) : vpx(30*screenRatio) : aspectRatio === 43 ? vpx(25.3*screenRatio) : vpx(23*screenRatio)
+		property var anyFocus: searchFocus || search_input.text || searchValue
+		height: anyFocus ? aspectRatio === 43 ? vpx(36*screenRatio) : vpx(30*screenRatio) : aspectRatio === 43 ? vpx(27.4*screenRatio) : vpx(23*screenRatio)
 		text: "Search"
-		color: searchFocus || search_input.text || searchValue ? theme.accent : theme.title
-		font.family: font.bold ? titleFontBold.name : 0
-		font.pixelSize: aspectRatio === 43 ? vpx(21*screenRatio) : vpx(19*screenRatio)
-		font.bold: searchFocus || search_input.text || searchValue ? true : false
+		color: anyFocus ? theme.accent : theme.title
+		font.family: anyFocus ? titleFontBold.name : global.fonts.sans
+		font.pixelSize: aspectRatio === 43 ? vpx(23*screenRatio) : vpx(19*screenRatio)
 
 	anchors {
 		centerIn: parent
@@ -625,7 +623,7 @@ import QtGraphicalEffects 1.12
 }
 
 	anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? vpx(26*screenRatio) : vpx(20*screenRatio)
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(24*screenRatio) : vpx(20*screenRatio)
 		left: played_button.right; leftMargin: aspectRatio === 43 ? vpx(10*screenRatio) : vpx(10*screenRatio)
 	}
 
@@ -719,8 +717,8 @@ import QtGraphicalEffects 1.12
 	Rectangle {
 		id: search_layout
 		color: theme.background
-		width: aspectRatio === 43 ? vpx(285*screenRatio) : vpx(265*screenRatio)
-		height: aspectRatio === 43 ? vpx(210*screenRatio) : vpx(205*screenRatio)
+		width: aspectRatio === 43 ? vpx(325*screenRatio) : vpx(265*screenRatio)
+		height: aspectRatio === 43 ? vpx(240*screenRatio) : vpx(205*screenRatio)
 		border.color: theme.accent
 		border.width: aspectRatio === 43 ? vpx(1.5*screenRatio) : vpx(1*screenRatio)
 		radius: vpx(3*screenRatio)
@@ -752,20 +750,20 @@ import QtGraphicalEffects 1.12
 	Rectangle {
 		id: search
 		color: "#EBEBEB"
-		width: aspectRatio === 43 ? vpx(155*screenRatio) : vpx(145*screenRatio)
-		height: aspectRatio === 43 ? vpx(30*screenRatio) : vpx(28*screenRatio)
+		width: aspectRatio === 43 ? vpx(185*screenRatio) : vpx(145*screenRatio)
+		height: aspectRatio === 43 ? vpx(35*screenRatio) : vpx(28*screenRatio)
 		border.color: theme.accent
 		border.width: aspectRatio === 43 ? vpx(1.5*screenRatio) : vpx(1*screenRatio)
 		radius: vpx(5*screenRatio)
 
 	anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(20*screenRatio)
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(25*screenRatio) : vpx(20*screenRatio)
 		horizontalCenter: parent.horizontalCenter
 	}
 
 	Image {
 		id: search_icon
-		sourceSize.width: aspectRatio === 43 ? vpx(22*screenRatio) : vpx(22*screenRatio)
+		sourceSize.width: aspectRatio === 43 ? vpx(25*screenRatio) : vpx(22*screenRatio)
 		fillMode: Image.PreserveAspectFit
 		source: "../assets/icons/search.png"
 		layer.enabled: true
@@ -783,7 +781,7 @@ import QtGraphicalEffects 1.12
 	TextInput {
 		id: search_input
 		color: searchValue ? "#000000" : "grey"
-		font.pixelSize: aspectRatio === 43 ? vpx(14*screenRatio) : vpx(12*screenRatio)
+		font.pixelSize: aspectRatio === 43 ? vpx(16*screenRatio) : vpx(12*screenRatio)
 		clip: true
 
 	Keys.onRightPressed: {
@@ -875,11 +873,11 @@ import QtGraphicalEffects 1.12
 		id: search_object_label
 		color: theme.title
 		text: "Search Object"
-		font.pixelSize: aspectRatio === 43 ? vpx(16*screenRatio) : vpx(14*screenRatio)
+		font.pixelSize: aspectRatio === 43 ? vpx(18*screenRatio) : vpx(14*screenRatio)
 		font.bold: true
 
 	anchors {
-		top: search.bottom; topMargin: aspectRatio === 43 ? vpx(18*screenRatio) : vpx(18*screenRatio);
+		top: search.bottom; topMargin: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(18*screenRatio);
 		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(10*screenRatio) : vpx(10*screenRatio)
 	}
 
@@ -887,8 +885,8 @@ import QtGraphicalEffects 1.12
 
 	Rectangle {
 		id: search_game_name_item_button
-		width: aspectRatio === 43 ? vpx(95*screenRatio) : vpx(90*screenRatio)
-		height: aspectRatio === 43 ? vpx(23*screenRatio) : vpx(22*screenRatio)
+		width: aspectRatio === 43 ? vpx(108*screenRatio) : vpx(90*screenRatio)
+		height: aspectRatio === 43 ? vpx(26*screenRatio) : vpx(22*screenRatio)
 		color: "transparent"
                 border.color: focus ? theme.accent : theme.background
                 border.width: aspectRatio === 43 ? vpx(1.5*screenRatio) : vpx(1*screenRatio)
@@ -918,16 +916,16 @@ import QtGraphicalEffects 1.12
 
 	Rectangle {
 		id: search_game_name_item_border
-		width: aspectRatio === 43 ? vpx(15*screenRatio) : vpx(15*screenRatio)
+		width: aspectRatio === 43 ? vpx(18*screenRatio) : vpx(15*screenRatio)
 		height: width
 		color: "transparent"
                 border.color: theme.accent
-                border.width: aspectRatio === 43 ? vpx(1.5*screenRatio) : vpx(1.5*screenRatio)
+                border.width: aspectRatio === 43 ? vpx(2*screenRatio) : vpx(1.5*screenRatio)
 		radius: 100
 		
 	Rectangle {
 		id: search_game_name_item
-		width: aspectRatio === 43 ? vpx(9*screenRatio) : vpx(8*screenRatio)
+		width: aspectRatio === 43 ? vpx(10*screenRatio) : vpx(8*screenRatio)
 		height: width
 		color: theme.accent
 		radius: 100
@@ -950,7 +948,7 @@ import QtGraphicalEffects 1.12
 		id: search_game_name_item_label
 		color: theme.title
 		text: "Game name"
-		font.pixelSize: aspectRatio === 43 ? vpx(12*screenRatio) : vpx(11*screenRatio)
+		font.pixelSize: aspectRatio === 43 ? vpx(14*screenRatio) : vpx(11*screenRatio)
 
 	anchors {
 		left: search_game_name_item_border.right; leftMargin: aspectRatio === 43 ? vpx(7*screenRatio) : vpx(7*screenRatio)
@@ -979,8 +977,8 @@ import QtGraphicalEffects 1.12
 
 	Rectangle {
 		id: search_file_name_item_button
-		width: aspectRatio === 43 ? vpx(82*screenRatio) : vpx(78*screenRatio)
-		height: aspectRatio === 43 ? vpx(23*screenRatio) : vpx(22*screenRatio)
+		width: aspectRatio === 43 ? vpx(93*screenRatio) : vpx(78*screenRatio)
+		height: aspectRatio === 43 ? vpx(26*screenRatio) : vpx(22*screenRatio)
 		color: "transparent"
                 border.color: focus ? theme.accent : theme.background
                 border.width: aspectRatio === 43 ? vpx(1.5*screenRatio) : vpx(1*screenRatio)
@@ -1014,16 +1012,16 @@ import QtGraphicalEffects 1.12
 
 	Rectangle {
 		id: search_file_name_item_border
-		width: aspectRatio === 43 ? vpx(15*screenRatio) : vpx(15*screenRatio)
+		width: aspectRatio === 43 ? vpx(18*screenRatio) : vpx(15*screenRatio)
 		height: width
 		color: "transparent"
                 border.color: theme.accent
-                border.width: aspectRatio === 43 ? vpx(1.5*screenRatio) : vpx(1.5*screenRatio)
+                border.width: aspectRatio === 43 ? vpx(2*screenRatio) : vpx(1.5*screenRatio)
 		radius: 100
 		
 	Rectangle {
 		id: search_file_name_item
-		width: aspectRatio === 43 ? vpx(9*screenRatio) : vpx(8*screenRatio)
+		width: aspectRatio === 43 ? vpx(10*screenRatio) : vpx(8*screenRatio)
 		height: width
 		color: theme.accent
 		radius: 100
@@ -1045,7 +1043,7 @@ import QtGraphicalEffects 1.12
 		id: search_file_name_item_label
 		color: theme.title
 		text: "File name"
-		font.pixelSize: aspectRatio === 43 ? vpx(12*screenRatio) : vpx(11*screenRatio)
+		font.pixelSize: aspectRatio === 43 ? vpx(14*screenRatio) : vpx(11*screenRatio)
 
 	anchors {
 		left: search_file_name_item_border.right; leftMargin: aspectRatio === 43 ? vpx(7*screenRatio) : vpx(7*screenRatio)
@@ -1076,7 +1074,7 @@ import QtGraphicalEffects 1.12
 		id: search_method_label
 		color: theme.text
 		text: "Search Method"
-		font.pixelSize: aspectRatio === 43 ? vpx(16*screenRatio) : vpx(14*screenRatio)
+		font.pixelSize: aspectRatio === 43 ? vpx(18*screenRatio) : vpx(14*screenRatio)
 		font.bold: true
 
 	anchors {
@@ -1088,8 +1086,8 @@ import QtGraphicalEffects 1.12
 
 	Rectangle {
 		id: search_contain_item_button
-		width: aspectRatio === 43 ? vpx(82*screenRatio) : vpx(78*screenRatio)
-		height: aspectRatio === 43 ? vpx(23*screenRatio) : vpx(22*screenRatio)
+		width: aspectRatio === 43 ? vpx(93*screenRatio) : vpx(78*screenRatio)
+		height: aspectRatio === 43 ? vpx(26*screenRatio) : vpx(22*screenRatio)
 		color: "transparent"
                 border.color: focus ? theme.accent : theme.background
                 border.width: aspectRatio === 43 ? vpx(1.5*screenRatio) : vpx(1*screenRatio)
@@ -1121,16 +1119,16 @@ import QtGraphicalEffects 1.12
 
 	Rectangle {
 		id: search_contain_item_border
-		width: aspectRatio === 43 ? vpx(15*screenRatio) : vpx(15*screenRatio)
+		width: aspectRatio === 43 ? vpx(18*screenRatio) : vpx(15*screenRatio)
 		height: width
 		color: "transparent"
                 border.color: theme.accent
-                border.width: aspectRatio === 43 ? vpx(1.5*screenRatio) : vpx(1.5*screenRatio)
+                border.width: aspectRatio === 43 ? vpx(2*screenRatio) : vpx(1.5*screenRatio)
 		radius: 100
 		
 	Rectangle {
 		id: search_contain_item
-		width: aspectRatio === 43 ? vpx(9*screenRatio) : vpx(8*screenRatio)
+		width: aspectRatio === 43 ? vpx(10*screenRatio) : vpx(8*screenRatio)
 		height: width
 		color: theme.accent
 		radius: 100
@@ -1152,7 +1150,7 @@ import QtGraphicalEffects 1.12
 		id: search_contain_item_label
 		color: theme.title
 		text: "Contain..."
-		font.pixelSize: aspectRatio === 43 ? vpx(12*screenRatio) : vpx(11*screenRatio)
+		font.pixelSize: aspectRatio === 43 ? vpx(14*screenRatio) : vpx(11*screenRatio)
 
 	anchors {
 		left: search_contain_item_border.right; leftMargin: aspectRatio === 43 ? vpx(7*screenRatio) : vpx(7*screenRatio)
@@ -1181,8 +1179,8 @@ import QtGraphicalEffects 1.12
 
 	Rectangle {
 		id: search_start_with_item_button
-		width: aspectRatio === 43 ? vpx(92*screenRatio) : vpx(87*screenRatio)
-		height: aspectRatio === 43 ? vpx(23*screenRatio) : vpx(22*screenRatio)
+		width: aspectRatio === 43 ? vpx(104*screenRatio) : vpx(87*screenRatio)
+		height: aspectRatio === 43 ? vpx(26*screenRatio) : vpx(22*screenRatio)
 		color: "transparent"
                 border.color: focus ? theme.accent : theme.background
                 border.width: aspectRatio === 43 ? vpx(1.5*screenRatio) : vpx(1*screenRatio)
@@ -1214,16 +1212,16 @@ import QtGraphicalEffects 1.12
 
 	Rectangle {
 		id: search_start_with_item_border
-		width: aspectRatio === 43 ? vpx(15*screenRatio) : vpx(15*screenRatio)
+		width: aspectRatio === 43 ? vpx(18*screenRatio) : vpx(15*screenRatio)
 		height: width
 		color: "transparent"
                 border.color: theme.accent
-                border.width: aspectRatio === 43 ? vpx(1.5*screenRatio) : vpx(1.5*screenRatio)
+                border.width: aspectRatio === 43 ? vpx(2*screenRatio) : vpx(1.5*screenRatio)
 		radius: 100
 		
 	Rectangle {
 		id: search_start_with_item
-		width: aspectRatio === 43 ? vpx(9*screenRatio) : vpx(8*screenRatio)
+		width: aspectRatio === 43 ? vpx(10*screenRatio) : vpx(8*screenRatio)
 		height: width
 		color: theme.accent
 		radius: 100
@@ -1246,7 +1244,7 @@ import QtGraphicalEffects 1.12
 		id: search_start_with_item_label
 		color: theme.title
 		text: "Start with..."
-		font.pixelSize: aspectRatio === 43 ? vpx(12*screenRatio) : vpx(11*screenRatio)
+		font.pixelSize: aspectRatio === 43 ? vpx(14*screenRatio) : vpx(11*screenRatio)
 
 	anchors {
 		left: search_start_with_item_border.right; leftMargin: aspectRatio === 43 ? vpx(7*screenRatio) : vpx(7*screenRatio)
@@ -1275,8 +1273,8 @@ import QtGraphicalEffects 1.12
 
 	Rectangle {
 		id: search_button_cancel
-		width: aspectRatio === 43 ? vpx(50*screenRatio) : vpx(50*screenRatio)
-		height: aspectRatio === 43 ? vpx(25*screenRatio) : vpx(25*screenRatio)
+		width: aspectRatio === 43 ? vpx(60*screenRatio) : vpx(50*screenRatio)
+		height: aspectRatio === 43 ? vpx(30*screenRatio) : vpx(25*screenRatio)
 		color: focus ? theme.select : theme.background
                 border.color: focus ? theme.accent : theme.background
                 border.width: aspectRatio === 43 ? vpx(1*screenRatio) : vpx(0.5*screenRatio)
@@ -1310,7 +1308,7 @@ import QtGraphicalEffects 1.12
 		id: search_button_cancel_label
 		text: "Cancel"
 		color: theme.text
-		font.pixelSize: aspectRatio === 43 ? vpx(15*screenRatio) : vpx(15*screenRatio)
+		font.pixelSize: aspectRatio === 43 ? vpx(18*screenRatio) : vpx(15*screenRatio)
 		font.bold: true
 
 	anchors {
@@ -1320,8 +1318,8 @@ import QtGraphicalEffects 1.12
 }
 
 	anchors {
-		right: search_layout.right; rightMargin: aspectRatio === 43 ? vpx(50*screenRatio) : vpx(50*screenRatio)
-		bottom: search_layout.bottom; bottomMargin: aspectRatio === 43 ? vpx(12*screenRatio) : vpx(10*screenRatio)
+		right: search_layout.right; rightMargin: aspectRatio === 43 ? vpx(55*screenRatio) : vpx(50*screenRatio)
+		bottom: search_layout.bottom; bottomMargin: aspectRatio === 43 ? vpx(13*screenRatio) : vpx(10*screenRatio)
 	}
 
 	MouseArea {
@@ -1339,8 +1337,8 @@ import QtGraphicalEffects 1.12
 
 	Rectangle {
 		id: search_button_ok
-		width: aspectRatio === 43 ? vpx(25*screenRatio) : vpx(25*screenRatio)
-		height: aspectRatio === 43 ? vpx(25*screenRatio) : vpx(25*screenRatio)
+		width: aspectRatio === 43 ? vpx(30*screenRatio) : vpx(25*screenRatio)
+		height: aspectRatio === 43 ? vpx(30*screenRatio) : vpx(25*screenRatio)
 		color: focus ? theme.select : theme.background
                 border.color: focus ? theme.accent : theme.background
                 border.width: aspectRatio === 43 ? vpx(1*screenRatio) : vpx(0.5*screenRatio)
@@ -1388,7 +1386,7 @@ import QtGraphicalEffects 1.12
 		id: search_button_ok_label
 		text: "OK"
 		color: theme.text
-		font.pixelSize: aspectRatio === 43 ? vpx(14*screenRatio) : vpx(14*screenRatio)
+		font.pixelSize: aspectRatio === 43 ? vpx(16*screenRatio) : vpx(14*screenRatio)
 		font.bold: true
 
 	anchors {
@@ -1399,7 +1397,7 @@ import QtGraphicalEffects 1.12
 
 	anchors {
 		left: search_button_cancel.right; leftMargin: aspectRatio === 43 ? vpx(8*screenRatio) : vpx(8*screenRatio)
-		bottom: search_layout.bottom; bottomMargin: aspectRatio === 43 ? vpx(12*screenRatio) : vpx(10*screenRatio)
+		bottom: search_layout.bottom; bottomMargin: aspectRatio === 43 ? vpx(13*screenRatio) : vpx(10*screenRatio)
 	}
 
 	MouseArea {
@@ -1434,8 +1432,8 @@ import QtGraphicalEffects 1.12
   	NumberAnimation {
 		target: search_layout;
 		property: "x";
-		from: aspectRatio === 43 ? vpx(180*screenRatio) : vpx(210*screenRatio);
-		to: aspectRatio === 43 ? vpx(180*screenRatio) : vpx(210*screenRatio);
+		from: aspectRatio === 43 ? vpx(160*screenRatio) : vpx(210*screenRatio);
+		to: aspectRatio === 43 ? vpx(160*screenRatio) : vpx(210*screenRatio);
 		duration: 0;
 	}
 
@@ -1443,7 +1441,7 @@ import QtGraphicalEffects 1.12
 		target: search_layout;
 		property: "y";
 		from: aspectRatio === 43 ? vpx(500*screenRatio) : vpx(450*screenRatio);
-		to: aspectRatio === 43 ? vpx(135*screenRatio) : vpx(90*screenRatio);
+		to: aspectRatio === 43 ? vpx(120*screenRatio) : vpx(90*screenRatio);
 		duration: 400;
 	}
 
@@ -1883,8 +1881,8 @@ import QtGraphicalEffects 1.12
 
 	Rectangle {
 		id: game__settings_layout
-		width: aspectRatio === 43 ? vpx(230*screenRatio) : vpx(230*screenRatio)
-		height: aspectRatio === 43 ? vpx(120*screenRatio) : vpx(120*screenRatio)
+		width: aspectRatio === 43 ? vpx(290*screenRatio) : vpx(230*screenRatio)
+		height: aspectRatio === 43 ? vpx(150*screenRatio) : vpx(120*screenRatio)
 		color: theme.background
                 border.color: theme.accent
 		border.width: aspectRatio === 43 ? vpx(1.5*screenRatio) : vpx(1*screenRatio)
@@ -1952,10 +1950,10 @@ import QtGraphicalEffects 1.12
 		text: "Game Settings"
 		color: theme.text
 		font.bold: true
-		font.pixelSize: aspectRatio === 43 ? vpx(18*screenRatio) : vpx(16*screenRatio)
+		font.pixelSize: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(16*screenRatio)
 
 	anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? vpx(10*screenRatio) : vpx(10*screenRatio)
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(15*screenRatio) : vpx(10*screenRatio)
 		horizontalCenter: parent.horizontalCenter
 	}
 
@@ -1968,7 +1966,7 @@ import QtGraphicalEffects 1.12
 		color: theme.text
  
 	anchors {
-		top: game__settings_layout_label.bottom; topMargin: aspectRatio === 43 ? vpx(10*screenRatio) : vpx(10*screenRatio)
+		top: game__settings_layout_label.bottom; topMargin: aspectRatio === 43 ? vpx(15*screenRatio) : vpx(10*screenRatio)
 		horizontalCenter: game__settings_layout.horizontalCenter
 	}
 
@@ -1976,8 +1974,8 @@ import QtGraphicalEffects 1.12
 
 	Rectangle {
 		id: game__settings_layout_favorite_button
-		width: aspectRatio === 43 ? vpx(226*screenRatio) : vpx(226*screenRatio)
-		height: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(30*screenRatio)
+		width: aspectRatio === 43 ? vpx(286*screenRatio) : vpx(226*screenRatio)
+		height: aspectRatio === 43 ? vpx(42*screenRatio) : vpx(30*screenRatio)
 		color: focus ? theme.select : theme.background
                 border.color: focus ? theme.accent : "transparent"
 		border.width: aspectRatio === 43 ? vpx(1*screenRatio) : vpx(0.5*screenRatio)
@@ -1985,7 +1983,7 @@ import QtGraphicalEffects 1.12
 
 	Image {
 		id: game__settings_layout_favorite_image
-		sourceSize.width: aspectRatio === 43 ? vpx(25*screenRatio) : vpx(23*screenRatio)
+		sourceSize.width: aspectRatio === 43 ? vpx(30*screenRatio) : vpx(23*screenRatio)
 		fillMode: Image.PreserveAspectFit
 		source: "../assets/icons/favorite_menu.png"
 		layer.enabled: true
@@ -2003,7 +2001,7 @@ import QtGraphicalEffects 1.12
 		id: game__settings_layout_favorite_set_label
 		text: "Set Favorite"
 		color: theme.title
-		font.pixelSize: aspectRatio === 43 ? vpx(16*screenRatio) : vpx(14*screenRatio)
+		font.pixelSize: aspectRatio === 43 ? vpx(18*screenRatio) : vpx(14*screenRatio)
 		visible: currentGame.favorite ? 0 : 1
 
 	anchors {
@@ -2016,7 +2014,7 @@ import QtGraphicalEffects 1.12
 		id: game__settings_layout_favorite_unset_label
 		text: "Set Un Favorite"
 		color: theme.text
-		font.pixelSize: aspectRatio === 43 ? vpx(16*screenRatio) : vpx(14*screenRatio)
+		font.pixelSize: aspectRatio === 43 ? vpx(18*screenRatio) : vpx(14*screenRatio)
 		visible: currentGame.favorite ? 1 : 0
 
 	anchors {
@@ -2026,7 +2024,7 @@ import QtGraphicalEffects 1.12
 }
 	anchors {
 		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(2*screenRatio) : vpx(2*screenRatio);
-		bottom: parent.bottom; bottomMargin: aspectRatio === 43 ? vpx(23*screenRatio) : vpx(25*screenRatio);
+		bottom: parent.bottom; bottomMargin: aspectRatio === 43 ? vpx(28*screenRatio) : vpx(25*screenRatio);
 	}
 
 }
@@ -2061,8 +2059,8 @@ import QtGraphicalEffects 1.12
 
 	Rectangle {
 		id: personal__center_layout_up
-		width: aspectRatio === 43 ? vpx(240*screenRatio) : vpx(230*screenRatio)
-		height: aspectRatio === 43 ? vpx(230*screenRatio) : vpx(220*screenRatio)
+		width: aspectRatio === 43 ? vpx(300*screenRatio) : vpx(230*screenRatio)
+		height: aspectRatio === 43 ? vpx(290*screenRatio) : vpx(220*screenRatio)
 		color: "#2C2C2C"
                 border.color: theme.accent
 		border.width: aspectRatio === 43 ? vpx(1.5*screenRatio) : vpx(1*screenRatio)
@@ -2090,10 +2088,10 @@ import QtGraphicalEffects 1.12
 		text: "Personal Center"
 		color: "#FFFFFF"
 		font.bold: true
-		font.pixelSize: aspectRatio === 43 ? vpx(18*screenRatio) : vpx(16*screenRatio)
+		font.pixelSize: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(16*screenRatio)
 
 	anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? vpx(10*screenRatio) : vpx(10*screenRatio)
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(15*screenRatio) : vpx(10*screenRatio)
 		horizontalCenter: parent.horizontalCenter
 	}
 
@@ -2101,8 +2099,8 @@ import QtGraphicalEffects 1.12
 
 	Rectangle {
 		id: personal__center_layout_down
-		width: aspectRatio === 43 ? vpx(240*screenRatio) : vpx(230*screenRatio)
-		height: aspectRatio === 43 ? vpx(135*screenRatio) : vpx(125*screenRatio)
+		width: aspectRatio === 43 ? vpx(300*screenRatio) : vpx(230*screenRatio)
+		height: aspectRatio === 43 ? vpx(165*screenRatio) : vpx(125*screenRatio)
 		color: "#EBEBEB"
                 border.color: theme.accent
 		border.width: aspectRatio === 43 ? vpx(1.5*screenRatio) : vpx(1*screenRatio)
@@ -2132,7 +2130,7 @@ import QtGraphicalEffects 1.12
 
 	Rectangle {
 		id: personal__center_layout_icon
-		width: aspectRatio === 43 ? vpx(80*screenRatio) : vpx(70*screenRatio)
+		width: aspectRatio === 43 ? vpx(95*screenRatio) : vpx(70*screenRatio)
 		height: width
 		color: "#FFFFFF"
                 border.color: focus ? theme.accent : "#2C2C2C"
@@ -2153,7 +2151,7 @@ import QtGraphicalEffects 1.12
 
 	Image {
 		id: personal__center_layout_icon_image
-		sourceSize.width: aspectRatio === 43 ? vpx(70*screenRatio) : vpx(60*screenRatio)
+		sourceSize.width: aspectRatio === 43 ? vpx(85*screenRatio) : vpx(60*screenRatio)
 		fillMode: Image.PreserveAspectFit
 		source: "../assets/icons/profile.png"
 		antialiasing: true
@@ -2166,13 +2164,13 @@ import QtGraphicalEffects 1.12
 }
 
 	anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? vpx(45*screenRatio) : vpx(50*screenRatio)
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(65*screenRatio) : vpx(50*screenRatio)
 		horizontalCenter: parent.horizontalCenter;
 	}
 
 	Image {
 		id: personal__center_layout_lace_image
-		sourceSize.height: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(20*screenRatio)
+		sourceSize.height: aspectRatio === 43 ? vpx(25*screenRatio) : vpx(20*screenRatio)
 		fillMode: Image.PreserveAspectFit
 		source: "../assets/icons/lace.png"
 		antialiasing: true
@@ -2244,7 +2242,7 @@ import QtGraphicalEffects 1.12
 
 	anchors {
 		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(10*screenRatio) : vpx(10*screenRatio)
-		bottom: parent.bottom; bottomMargin: aspectRatio === 43 ? vpx(22*screenRatio) : vpx(25*screenRatio)
+		bottom: parent.bottom; bottomMargin: aspectRatio === 43 ? vpx(35*screenRatio) : vpx(25*screenRatio)
 	}
 
 	Rectangle {
@@ -2324,8 +2322,8 @@ import QtGraphicalEffects 1.12
 }
 
 	anchors {
-		top: header.bottom; topMargin: aspectRatio === 43 ? vpx(55*screenRatio) : vpx(20*screenRatio);
-		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(210*screenRatio) : vpx(225*screenRatio);
+		top: header.bottom; topMargin: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(20*screenRatio);
+		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(175*screenRatio) : vpx(225*screenRatio);
 	}
 
 }

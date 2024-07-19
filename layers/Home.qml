@@ -89,8 +89,8 @@ import QtGraphicalEffects 1.12
 
 	Rectangle {
 		id: all_button
-		width: aspectRatio === 43 ? vpx(33*screenRatio) : vpx(31*screenRatio)
-		height: aspectRatio === 43 ? vpx(34*screenRatio) : vpx(32*screenRatio)
+		width: aspectRatio === 43 ? vpx(37*screenRatio) : vpx(31*screenRatio)
+		height: aspectRatio === 43 ? vpx(36*screenRatio) : vpx(32*screenRatio)
 		color: focus ? theme.select : theme.background
                 border.color: focus ? theme.accent : theme.background
                 border.width: aspectRatio === 43 ? vpx(1*screenRatio) : vpx(0.5*screenRatio)
@@ -117,12 +117,12 @@ import QtGraphicalEffects 1.12
 
 	Text {
 		id: all_button_label
-		height: aspectRatio === 43 ? vpx(34*screenRatio) : vpx(30*screenRatio)
+		height: aspectRatio === 43 ? vpx(36*screenRatio) : vpx(30*screenRatio)
 		text: "All"
 		color: theme.accent
 		font.family: font.bold ? titleFontBold.name : 0
 		font.bold: true
-		font.pixelSize: aspectRatio === 43 ? vpx(21*screenRatio) : vpx(19*screenRatio)
+		font.pixelSize: aspectRatio === 43 ? vpx(23*screenRatio) : vpx(19*screenRatio)
 
 	anchors {
 		centerIn: parent
@@ -130,7 +130,7 @@ import QtGraphicalEffects 1.12
 }
 
 	anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? vpx(26*screenRatio) : vpx(20*screenRatio)
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(24*screenRatio) : vpx(20*screenRatio)
 		left: profile_button.right; leftMargin: aspectRatio === 43 ? vpx(50*screenRatio) : vpx(50*screenRatio)
 	}
 
@@ -162,8 +162,8 @@ import QtGraphicalEffects 1.12
 
 	Rectangle {
 		id: favorite_button
-		width: aspectRatio === 43 ? vpx(79*screenRatio) : vpx(72*screenRatio)
-		height: aspectRatio === 43 ? vpx(34*screenRatio) : vpx(32*screenRatio)
+		width: aspectRatio === 43 ? vpx(88*screenRatio) : vpx(72*screenRatio)
+		height: aspectRatio === 43 ? vpx(36*screenRatio) : vpx(32*screenRatio)
 		color: focus ? theme.select : theme.background
                 border.color: focus ? theme.accent : theme.background
                 border.width: aspectRatio === 43 ? vpx(1*screenRatio) : vpx(0.5*screenRatio)
@@ -194,7 +194,7 @@ import QtGraphicalEffects 1.12
 		id: favorite_button_label
 		text: "Favorite"
 		color: theme.title
-		font.pixelSize: aspectRatio === 43 ? vpx(21*screenRatio) : vpx(19*screenRatio)
+		font.pixelSize: aspectRatio === 43 ? vpx(23*screenRatio) : vpx(19*screenRatio)
 
 	anchors {
 		centerIn: parent
@@ -203,7 +203,7 @@ import QtGraphicalEffects 1.12
 }
 
 	anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? vpx(26*screenRatio) : vpx(20*screenRatio)
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(24*screenRatio) : vpx(20*screenRatio)
 		left: all_button.right; leftMargin: aspectRatio === 43 ? vpx(10*screenRatio) : vpx(10*screenRatio)
 	}
 
@@ -237,8 +237,8 @@ import QtGraphicalEffects 1.12
 
 	Rectangle {
 		id: played_button
-		width: aspectRatio === 43 ? vpx(64*screenRatio) : vpx(57*screenRatio)
-		height: aspectRatio === 43 ? vpx(34*screenRatio) : vpx(32*screenRatio)
+		width: aspectRatio === 43 ? vpx(70*screenRatio) : vpx(57*screenRatio)
+		height: aspectRatio === 43 ? vpx(36*screenRatio) : vpx(32*screenRatio)
 		color: focus ? theme.select : theme.background
                 border.color: focus ? theme.accent : theme.background
                 border.width: aspectRatio === 43 ? vpx(1*screenRatio) : vpx(0.5*screenRatio)
@@ -265,7 +265,7 @@ import QtGraphicalEffects 1.12
 		id: played_button_label
 		text: "Played"
 		color: theme.title
-		font.pixelSize: aspectRatio === 43 ? vpx(21*screenRatio) : vpx(19*screenRatio)
+		font.pixelSize: aspectRatio === 43 ? vpx(23*screenRatio) : vpx(19*screenRatio)
 
 	anchors {
 		centerIn: parent
@@ -274,7 +274,7 @@ import QtGraphicalEffects 1.12
 }
 
 	anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? vpx(26*screenRatio) : vpx(20*screenRatio)
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(24*screenRatio) : vpx(20*screenRatio)
 		left: favorite_button.right; leftMargin: aspectRatio === 43 ? vpx(10*screenRatio) : vpx(10*screenRatio)
 	}
 
@@ -536,8 +536,8 @@ import QtGraphicalEffects 1.12
 
 	Rectangle {
 		id: personal__center_layout_up
-		width: aspectRatio === 43 ? vpx(240*screenRatio) : vpx(230*screenRatio)
-		height: aspectRatio === 43 ? vpx(230*screenRatio) : vpx(220*screenRatio)
+		width: aspectRatio === 43 ? vpx(300*screenRatio) : vpx(230*screenRatio)
+		height: aspectRatio === 43 ? vpx(290*screenRatio) : vpx(220*screenRatio)
 		color: "#2C2C2C"
                 border.color: theme.accent
 		border.width: aspectRatio === 43 ? vpx(1.5*screenRatio) : vpx(1*screenRatio)
@@ -565,10 +565,10 @@ import QtGraphicalEffects 1.12
 		text: "Personal Center"
 		color: "#FFFFFF"
 		font.bold: true
-		font.pixelSize: aspectRatio === 43 ? vpx(18*screenRatio) : vpx(16*screenRatio)
+		font.pixelSize: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(16*screenRatio)
 
 	anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? vpx(10*screenRatio) : vpx(10*screenRatio)
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(15*screenRatio) : vpx(10*screenRatio)
 		horizontalCenter: parent.horizontalCenter
 	}
 
@@ -576,8 +576,8 @@ import QtGraphicalEffects 1.12
 
 	Rectangle {
 		id: personal__center_layout_down
-		width: aspectRatio === 43 ? vpx(240*screenRatio) : vpx(230*screenRatio)
-		height: aspectRatio === 43 ? vpx(135*screenRatio) : vpx(125*screenRatio)
+		width: aspectRatio === 43 ? vpx(300*screenRatio) : vpx(230*screenRatio)
+		height: aspectRatio === 43 ? vpx(165*screenRatio) : vpx(125*screenRatio)
 		color: "#EBEBEB"
                 border.color: theme.accent
 		border.width: aspectRatio === 43 ? vpx(1.5*screenRatio) : vpx(1*screenRatio)
@@ -607,7 +607,7 @@ import QtGraphicalEffects 1.12
 
 	Rectangle {
 		id: personal__center_layout_icon
-		width: aspectRatio === 43 ? vpx(80*screenRatio) : vpx(70*screenRatio)
+		width: aspectRatio === 43 ? vpx(95*screenRatio) : vpx(70*screenRatio)
 		height: width
 		color: "#FFFFFF"
                 border.color: focus ? theme.accent : "#2C2C2C"
@@ -628,7 +628,7 @@ import QtGraphicalEffects 1.12
 
 	Image {
 		id: personal__center_layout_icon_image
-		sourceSize.width: aspectRatio === 43 ? vpx(70*screenRatio) : vpx(60*screenRatio)
+		sourceSize.width: aspectRatio === 43 ? vpx(85*screenRatio) : vpx(60*screenRatio)
 		fillMode: Image.PreserveAspectFit
 		source: "../assets/icons/profile.png"
 		antialiasing: true
@@ -641,13 +641,13 @@ import QtGraphicalEffects 1.12
 }
 
 	anchors {
-		top: parent.top; topMargin: aspectRatio === 43 ? vpx(45*screenRatio) : vpx(50*screenRatio)
+		top: parent.top; topMargin: aspectRatio === 43 ? vpx(65*screenRatio) : vpx(50*screenRatio)
 		horizontalCenter: parent.horizontalCenter;
 	}
 
 	Image {
 		id: personal__center_layout_lace_image
-		sourceSize.height: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(20*screenRatio)
+		sourceSize.height: aspectRatio === 43 ? vpx(25*screenRatio) : vpx(20*screenRatio)
 		fillMode: Image.PreserveAspectFit
 		source: "../assets/icons/lace.png"
 		antialiasing: true
@@ -711,7 +711,7 @@ import QtGraphicalEffects 1.12
 
 	anchors {
 		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(10*screenRatio) : vpx(10*screenRatio)
-		bottom: parent.bottom; bottomMargin: aspectRatio === 43 ? vpx(22*screenRatio) : vpx(25*screenRatio)
+		bottom: parent.bottom; bottomMargin: aspectRatio === 43 ? vpx(35*screenRatio) : vpx(25*screenRatio)
 	}
 
 	Rectangle {
@@ -791,8 +791,8 @@ import QtGraphicalEffects 1.12
 }
 
 	anchors {
-		top: header.bottom; topMargin: aspectRatio === 43 ? vpx(55*screenRatio) : vpx(20*screenRatio);
-		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(210*screenRatio) : vpx(225*screenRatio);
+		top: header.bottom; topMargin: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(20*screenRatio);
+		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(175*screenRatio) : vpx(225*screenRatio);
 	}
 
 }
