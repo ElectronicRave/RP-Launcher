@@ -45,7 +45,7 @@ import QtQuick 2.15
 }
 
 	anchors {
-		right: buttons.right; rightMargin: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(22*screenRatio)
+		right: buttons.right; rightMargin: aspectRatio === 43 ? vpx(22*screenRatio) : vpx(22*screenRatio)
 		verticalCenter: parent.verticalCenter
 
 	}

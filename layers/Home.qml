@@ -304,6 +304,12 @@ import QtGraphicalEffects 1.12
 
 }
 
+	//Wifi status
+
+	Wifi {
+		id: wifi
+	}
+
 	//Battery status
 
 	Battery {
