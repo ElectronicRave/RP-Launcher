@@ -87,7 +87,13 @@ import QtGraphicalEffects 1.12
 
 		onClicked:{
 
-		if (searchFocus) {
+		if (search_input.focus) {
+			searchValue = ''
+			search_input.text = 'Search'
+			search_layout.focus = true
+		}
+
+		else if (searchFocus) {
 			searchValue = ''
 			search_input.text = 'Search'
 			personal__center_layout_up.focus = true
@@ -196,6 +202,12 @@ import QtGraphicalEffects 1.12
 			api.memory.set('currentCollectionIndex', currentCollectionIndex);
 			navigate('Software');
 			gameView.visible = true
+		}
+
+		else if (search_input.focus) {
+			searchValue = ''
+			search_input.text = 'Search'
+			search_layout.focus = true
 		}
 
 		else if (personalFocus) {
@@ -309,6 +321,12 @@ import QtGraphicalEffects 1.12
 			navigate('Software')
 		}
 
+		else if (search_input.focus) {
+			searchValue = ''
+			search_input.text = 'Search'
+			search_layout.focus = true
+		}
+
 		else if (currentCollectionIndex === 0 && gameView.focus) {
 			game__settings_layout.focus = false
 			game__settings_layout_favorite_button.focus = false
@@ -414,6 +432,12 @@ import QtGraphicalEffects 1.12
 
 		if (personalFocus) {
 			navigate('Software')
+		}
+
+		else if (search_input.focus) {
+			searchValue = ''
+			search_input.text = 'Search'
+			search_layout.focus = true
 		}
 
 		else if (currentCollectionIndex === 1 && gameView.focus) {
@@ -1179,8 +1203,18 @@ import QtGraphicalEffects 1.12
 		anchors.fill: search_button_cancel
 
 		onClicked: {
+
+		if (search_input.focus) {
+			searchValue = ''
+			search_input.text = 'Search'
+			search_layout.focus = true
+		}
+
+		else {
 			searchValue = ' '
 			personal__center_layout_up.focus = true
+		}
+
 		}
 
 	}
@@ -1265,6 +1299,12 @@ import QtGraphicalEffects 1.12
 			navigate('Software');
 			gameView.visible = true
 			personal__center_layout_up.focus = true
+		}
+
+		else if (search_input.focus) {
+			searchValue = ''
+			search_input.text = 'Search'
+			search_layout.focus = true
 		}
 
 		else {

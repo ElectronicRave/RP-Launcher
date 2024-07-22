@@ -73,6 +73,12 @@ import QtGraphicalEffects 1.12
 			navigate('Software')
 		}
 
+		else if (search_input.focus) {
+			searchValue = ''
+			search_input.text = 'Search'
+			search_layout.focus = true
+		}
+
 		else if (searchFocus) {
 			searchValue = ''
 			search_input.text = 'Search'
