@@ -56,11 +56,7 @@ import QtGraphicalEffects 1.12
 
 		if (currentPage === 'Home') {
 
-		if (personal__center_layout_icon.focus) {
-			navigate('Home')
-		}
-
-		else if (personal__center_layout_down_button.focus) {
+		if (personalFocus) {
 			navigate('Home')
 		}
 
@@ -73,56 +69,19 @@ import QtGraphicalEffects 1.12
 
 		else if (currentPage === 'Software') {
 
-		if (search_layout.focus) {
-			profile_icon.focus = true
+		if (personalFocus) {
+			navigate('Software')
 		}
 
-		else if (search_input.focus) {
+		else if (searchFocus) {
 			searchValue = ''
 			search_input.text = 'Search'
-			profile_icon.focus = true
+			personal__center_layout_up.focus = true
 		}
 
-		else if (search_game_name_item_button.focus) {
-			profile_icon.focus = true
-		}
-
-		else if (search_file_name_item_button.focus) {
-			profile_icon.focus = true
-		}
-
-		else if (search_contain_item_button.focus) {
-			profile_icon.focus = true
-		}
-
-		else if (search_start_with_item_button.focus) {
-			profile_icon.focus = true
-		}
-
-		else if (search_button_cancel.focus) {
-			profile_icon.focus = true
-		}
-
-		else if (search_button_ok.focus) {
-			profile_icon.focus = true
-		}
-
-		else if (game__settings_layout.focus) {
+		else if (settingsFocus) {
 			game__settings_layout.focus = false
 			game__settings_layout_favorite_button.focus = false
-		}
-
-		else if (game__settings_layout_favorite_button.focus) {
-			game__settings_layout.focus = false
-			game__settings_layout_favorite_button.focus = false
-		}
-
-		else if (personal__center_layout_icon.focus) {
-			navigate('Software')
-		}
-
-		else if (personal__center_layout_down_button.focus) {
-			navigate('Software')
 		}
 
 		else {

@@ -67,11 +67,7 @@ import QtGraphicalEffects 1.12
 
 		onClicked:{
 
-		if (personal__center_layout_icon.focus) {
-			navigate('Home')
-		}
-
-		else if (personal__center_layout_down_button.focus) {
+		if (personalFocus) {
 			navigate('Home')
 		}
 
@@ -140,11 +136,7 @@ import QtGraphicalEffects 1.12
 
 		onClicked: {
 
-		if (personal__center_layout_icon.focus) {
-			navigate('Home')
-		}
-
-		else if (personal__center_layout_down_button.focus) {
+		if (personalFocus) {
 			navigate('Home')
 		}
 
@@ -217,11 +209,7 @@ import QtGraphicalEffects 1.12
 
 		onClicked: {
 
-		if (personal__center_layout_icon.focus) {
-			navigate('Home')
-		}
-
-		else if (personal__center_layout_down_button.focus) {
+		if (personalFocus) {
 			navigate('Home')
 		}
 
@@ -288,11 +276,7 @@ import QtGraphicalEffects 1.12
 
 		onClicked: {
 
-		if (personal__center_layout_icon.focus) {
-			navigate('Home')
-		}
-
-		else if (personal__center_layout_down_button.focus) {
+		if (personalFocus) {
 			navigate('Home')
 		}
 
@@ -466,11 +450,7 @@ import QtGraphicalEffects 1.12
 
 		onPressAndHold: {
 
-		if (personal__center_layout_icon.focus) {
-			navigate('Home')
-		}
-
-		else if (personal__center_layout_down_button.focus) {
+		if (personalFocus) {
 			navigate('Home')
 		}
 
@@ -492,11 +472,7 @@ import QtGraphicalEffects 1.12
 
 		onClicked: {
 
-		if (personal__center_layout_icon.focus) {
-			navigate('Home')
-		}
-
-		else if (personal__center_layout_down_button.focus) {
+		if (personalFocus) {
 			navigate('Home')
 		}
 
