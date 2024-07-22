@@ -110,7 +110,7 @@ import QtGraphicalEffects 1.12
 	Keys.onPressed: {
 		if (api.keys.isAccept(event)) {
 			event.accepted = true
-			all_button.focus;
+			all_button.focus = true;
 		}
 
 	}
@@ -148,8 +148,12 @@ import QtGraphicalEffects 1.12
 			navigate('Home')
 		}
 
+		else if (systemListView.focus) {
+			null
+		}
+
 		else {
-			all_button.focus;
+			profile_icon.focus = true
 		}
 
 		}
@@ -535,10 +539,6 @@ import QtGraphicalEffects 1.12
 
 }
 
-}
-
-}
-
 	//Personal center
 
 	Rectangle {
@@ -798,9 +798,12 @@ import QtGraphicalEffects 1.12
 }
 
 	anchors {
-		top: header.bottom; topMargin: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(20*screenRatio);
-		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(175*screenRatio) : vpx(225*screenRatio);
+		centerIn: parent
 	}
+
+}
+
+}
 
 }
 

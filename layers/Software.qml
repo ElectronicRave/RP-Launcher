@@ -185,7 +185,7 @@ import QtGraphicalEffects 1.12
 		}
 
 		else if (currentCollectionIndex === 2) {
-			all_button.focus = true
+			null
 		}
 
 		else {
@@ -233,6 +233,14 @@ import QtGraphicalEffects 1.12
 			api.memory.set('currentCollectionIndex', currentCollectionIndex);
 			navigate('Software');
 			gameView.visible = true
+		}
+
+		else if (currentCollectionIndex === 2 && gameView.focus) {
+			null
+		}
+
+		else if (currentCollectionIndex === 2) {
+			profile_icon.focus = true
 		}
 
 		else if (search_layout.focus) {
@@ -329,7 +337,7 @@ import QtGraphicalEffects 1.12
 			event.accepted = true
 
 		if (currentCollectionIndex === 0) {
-			favorite_button.focus = true
+			null
 		}
 
 		else {
@@ -370,7 +378,15 @@ import QtGraphicalEffects 1.12
 
 		onClicked: {
 
-		if (search_layout.focus) {
+		if (currentCollectionIndex === 0 && gameView.focus) {
+			null
+		}
+
+		else if (currentCollectionIndex === 0) {
+			profile_icon.focus = true
+		}
+
+		else if (search_layout.focus) {
 			profile_icon.focus = true
 		}
 
@@ -464,7 +480,7 @@ import QtGraphicalEffects 1.12
 			event.accepted = true
 
 		if (currentCollectionIndex === 1) {
-			played_button.focus = true
+			null
 		}
 
 		else {
@@ -505,7 +521,15 @@ import QtGraphicalEffects 1.12
 
 		onClicked: {
 
-		if (search_layout.focus) {
+		if (currentCollectionIndex === 1 && gameView.focus) {
+			null
+		}
+
+		else if (currentCollectionIndex === 1) {
+			profile_icon.focus = true
+		}
+
+		else if (search_layout.focus) {
 			profile_icon.focus = true
 		}
 
@@ -578,8 +602,8 @@ import QtGraphicalEffects 1.12
 		id: search_button
 		width: aspectRatio === 43 ? vpx(74*screenRatio) : vpx(60*screenRatio)
 		height: aspectRatio === 43 ? vpx(36*screenRatio) : vpx(32*screenRatio)
-		color: focus ? theme.select : theme.background
-                border.color: focus ? theme.accent : theme.background
+		color: focus || searchFocus ? theme.select : theme.background
+                border.color: focus || searchFocus ? theme.accent : theme.background
                 border.width: aspectRatio === 43 ? vpx(1*screenRatio) : vpx(0.5*screenRatio)
 
 	KeyNavigation.left: {
@@ -1418,6 +1442,7 @@ import QtGraphicalEffects 1.12
 			currentCollectionIndex = 2
 			navigate('Software');
 			gameView.visible = true
+			profile_icon.focus = true
 		}
 
 		else {
@@ -2060,8 +2085,6 @@ import QtGraphicalEffects 1.12
 
 }
 
-}
-
 	//Personal center
 
 	Rectangle {
@@ -2329,9 +2352,11 @@ import QtGraphicalEffects 1.12
 }
 
 	anchors {
-		top: header.bottom; topMargin: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(20*screenRatio);
-		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(175*screenRatio) : vpx(225*screenRatio);
+		centerIn: parent
 	}
+
+}
+
 
 }
 
