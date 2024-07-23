@@ -43,7 +43,7 @@ import QtGraphicalEffects 1.12
 		width: aspectRatio === 43 ? vpx(48*screenRatio) : vpx(35*screenRatio)
 		height: width
 		color: "#FFFFFF"
-                border.color: focus || personalFocus ? theme.accent : "#2C2C2C"
+                border.color: focus || personalFocus && none ? theme.accent : "#2C2C2C"
 		border.width: aspectRatio === 43 ? vpx(2*screenRatio) : vpx(1.5*screenRatio)
 		radius: aspectRatio === 43 ? vpx(100*screenRatio) : vpx(100*screenRatio)
 
@@ -57,6 +57,7 @@ import QtGraphicalEffects 1.12
 
 	Keys.onPressed: {
 		if (api.keys.isAccept(event)) {
+			event.accepted = true
 			personal__center_layout_icon.focus = true
 		}
 
@@ -1391,7 +1392,7 @@ import QtGraphicalEffects 1.12
 		property bool selected: gameView.focus && GridView.isCurrentItem
 		width: gameView.cellWidth - vpx(12*screenRatio)
 		height: width
-		scale: selected ? 1.07 : 1
+		scale: selected || personalFocus && none ? 1.07 : 1
 		visible: currentPage === 'Software' ? true : false
 
 	OpacityAnimator {
@@ -1658,10 +1659,10 @@ import QtGraphicalEffects 1.12
 		text: modelData.title
 		color: "#FFFFFF"
 		font.pixelSize: aspectRatio === 43 ? vpx(18*screenRatio) : vpx(13*screenRatio)
-		visible: selected ? game__title_name.truncated : 0
+		visible: selected || personalFocus && none ? game__title_name.truncated : 0
 
 	SequentialAnimation on x {
-		running: selected ? game__title_name.truncated : 0
+		running: selected || personalFocus && none ? game__title_name.truncated : 0
 		loops: Animation.Infinite
 
 	NumberAnimation {
@@ -1714,7 +1715,7 @@ import QtGraphicalEffects 1.12
 		border.color: theme.accent
 		border.width: aspectRatio === 43 ? vpx(3.5*screenRatio) : vpx(2.5*screenRatio)
 		radius: vpx(4*screenRatio)
-		opacity: selected ? 1 : 0
+		opacity: selected || personalFocus && none ? 1 : 0
 
 	anchors {
 		fill: parent
@@ -1958,20 +1959,20 @@ import QtGraphicalEffects 1.12
 	}
 
 	Keys.onUpPressed: {
-			profile_button.focus = true
-		}
+		profile_button.focus = true
+	}
 
 	Keys.onLeftPressed: {
-			profile_button.focus = true
-		}
+		profile_button.focus = true
+	}
 
 	Keys.onRightPressed: {
-			profile_button.focus = true
-		}
+		profile_button.focus = true
+	}
 
 	Keys.onDownPressed: {
-			profile_button.focus = true
-		}
+		profile_button.focus = true
+	}
 
 	Keys.onPressed: {
 		if (api.keys.isAccept(event)) {
@@ -2035,14 +2036,31 @@ import QtGraphicalEffects 1.12
 		border.width: aspectRatio === 43 ? vpx(3.5*screenRatio) : vpx(2.5*screenRatio)
 		radius: aspectRatio === 43 ? vpx(100*screenRatio) : vpx(100*screenRatio)
 
+	Keys.onUpPressed: {
+		null
+	}
+
+	Keys.onLeftPressed: {
+		null
+	}
+
+	Keys.onRightPressed: {
+		null
+	}
+
 	Keys.onDownPressed: {
-			personal__center_layout_down_button.focus = true
-		}
+		personal__center_layout_down_button.focus = true
+	}
 
 	Keys.onPressed: {
+		if (api.keys.isAccept(event)) {
+			event.accepted = true
+			null
+		}
+
 		if (api.keys.isCancel(event)) {
 			event.accepted = true
-			profile_button.focus = true
+			navigate('Software')
 		}
 
 	}
@@ -2105,6 +2123,18 @@ import QtGraphicalEffects 1.12
 			personal__center_layout_icon.focus = true
 		}
 
+	Keys.onLeftPressed: {
+		null
+	}
+
+	Keys.onRightPressed: {
+		null
+	}
+
+	Keys.onDownPressed: {
+		null
+	}
+
 	Keys.onPressed: {
 		if (api.keys.isAccept(event)) {
 			event.accepted = true
@@ -2118,7 +2148,7 @@ import QtGraphicalEffects 1.12
 
 		if (api.keys.isCancel(event)) {
 			event.accepted = true
-			profile_button.focus = true
+			navigate('Software')
 		}
 
 	}

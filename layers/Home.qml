@@ -4,7 +4,7 @@ import QtGraphicalEffects 1.12
 	Item {
 		id: home
 
-		property var personalFocus: personal__center_layout_up.focus || personal__center_layout_icon.focus || personal__center_layout_down_button.focus
+		property var personalFocus: personal__center_layout_icon.focus || personal__center_layout_down_button.focus
 
 	Rectangle {
 		id: header
@@ -23,7 +23,7 @@ import QtGraphicalEffects 1.12
 		width: aspectRatio === 43 ? vpx(48*screenRatio) : vpx(35*screenRatio)
 		height: width
 		color: "#FFFFFF"
-                border.color: focus || personalFocus ? theme.accent : "#2C2C2C"
+                border.color: focus || personalFocus && none ? theme.accent : "#2C2C2C"
 		border.width: aspectRatio === 43 ? vpx(2*screenRatio) : vpx(1.5*screenRatio)
 		radius: aspectRatio === 43 ? vpx(100*screenRatio) : vpx(100*screenRatio)
 
@@ -37,6 +37,7 @@ import QtGraphicalEffects 1.12
 
 	Keys.onPressed: {
 		if (api.keys.isAccept(event)) {
+			event.accepted = true
 			personal__center_layout_icon.focus = true
 		}
 
@@ -145,7 +146,7 @@ import QtGraphicalEffects 1.12
 		}
 
 		else {
-			profile_icon.focus = true
+			personal__center_layout_up.focus = true
 		}
 
 		}
@@ -397,7 +398,7 @@ import QtGraphicalEffects 1.12
 		color: theme.accent
 		font.pixelSize: aspectRatio === 43 ? vpx(24*screenRatio) : vpx(17*screenRatio)
 		font.bold: true
-		opacity: selected ? 1 : 0
+		opacity: selected || personalFocus && none ? 1 : 0
 
 	anchors {
 		horizontalCenter: system__item_container.horizontalCenter
@@ -499,7 +500,7 @@ import QtGraphicalEffects 1.12
 		border.color: theme.accent
 		border.width: aspectRatio === 43 ? vpx(3.5*screenRatio) : vpx(2.5*screenRatio)
 		radius: vpx(4*screenRatio)
-		opacity: selected ? 1 : 0
+		opacity: selected || personalFocus && none ? 1 : 0
 
 	anchors {
 		centerIn: system__logo
@@ -541,6 +542,30 @@ import QtGraphicalEffects 1.12
 		to: 0;
 		duration: 0
 		running: personal__center_layout_up.visible ? 0 : 1
+	}
+
+	Keys.onUpPressed: {
+		profile_button.focus = true
+	}
+
+	Keys.onLeftPressed: {
+		profile_button.focus = true
+	}
+
+	Keys.onRightPressed: {
+		profile_button.focus = true
+	}
+
+	Keys.onDownPressed: {
+		profile_button.focus = true
+	}
+
+	Keys.onPressed: {
+		if (api.keys.isAccept(event)) {
+			event.accepted = true
+			profile_button.focus = true
+		}
+
 	}
 
 	Text {
@@ -597,14 +622,31 @@ import QtGraphicalEffects 1.12
 		border.width: aspectRatio === 43 ? vpx(3.5*screenRatio) : vpx(2.5*screenRatio)
 		radius: aspectRatio === 43 ? vpx(100*screenRatio) : vpx(100*screenRatio)
 
+	Keys.onUpPressed: {
+		null
+	}
+
+	Keys.onLeftPressed: {
+		null
+	}
+
+	Keys.onRightPressed: {
+		null
+	}
+
 	Keys.onDownPressed: {
-			personal__center_layout_down_button.focus = true
-		}
+		personal__center_layout_down_button.focus = true
+	}
 
 	Keys.onPressed: {
+		if (api.keys.isAccept(event)) {
+			event.accepted = true
+			null
+		}
+
 		if (api.keys.isCancel(event)) {
 			event.accepted = true
-			profile_button.focus = true
+			navigate('Home')
 		}
 
 	}
@@ -664,8 +706,20 @@ import QtGraphicalEffects 1.12
 		border.width: aspectRatio === 43 ? vpx(1*screenRatio) : vpx(0.5*screenRatio)
 
 	Keys.onUpPressed: {
-			personal__center_layout_icon.focus = true
-		}
+		personal__center_layout_icon.focus = true
+	}
+
+	Keys.onLeftPressed: {
+		null
+	}
+
+	Keys.onRightPressed: {
+		null
+	}
+
+	Keys.onDownPressed: {
+		null
+	}
 
 	Keys.onPressed: {
 		if (api.keys.isAccept(event)) {
@@ -676,7 +730,7 @@ import QtGraphicalEffects 1.12
 
 		if (api.keys.isCancel(event)) {
 			event.accepted = true
-			profile_button.focus = true
+			navigate('Home')
 		}
 
 	}
