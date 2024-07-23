@@ -1901,7 +1901,7 @@ import QtGraphicalEffects 1.12
 }
 	anchors {
 		left: parent.left; leftMargin: aspectRatio === 43 ? vpx(2*screenRatio) : vpx(2*screenRatio);
-		bottom: parent.bottom; bottomMargin: aspectRatio === 43 ? vpx(28*screenRatio) : vpx(25*screenRatio);
+		bottom: parent.bottom; bottomMargin: aspectRatio === 43 ? vpx(28*screenRatio) : vpx(24*screenRatio);
 	}
 
 }
