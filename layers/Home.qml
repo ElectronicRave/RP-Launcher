@@ -189,8 +189,10 @@ import QtGraphicalEffects 1.12
 
 	Text {
 		id: favorite_button_label
+		height: aspectRatio === 43 ? vpx(27.4*screenRatio) : vpx(23*screenRatio)
 		text: "Favorite"
 		color: theme.title
+		font.family: global.fonts.sans
 		font.pixelSize: aspectRatio === 43 ? vpx(23*screenRatio) : vpx(19*screenRatio)
 
 	anchors {
@@ -256,8 +258,10 @@ import QtGraphicalEffects 1.12
 
 	Text {
 		id: played_button_label
+		height: aspectRatio === 43 ? vpx(27.4*screenRatio) : vpx(23*screenRatio)
 		text: "Played"
 		color: theme.title
+		font.family: global.fonts.sans
 		font.pixelSize: aspectRatio === 43 ? vpx(23*screenRatio) : vpx(19*screenRatio)
 
 	anchors {
