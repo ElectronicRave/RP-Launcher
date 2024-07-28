@@ -503,8 +503,7 @@ import QtGraphicalEffects 1.12
 			search_start_with_item.visible = false
 			searchValue = ''
 			search_input.text = 'Search'
-			currentCollectionIndex = currentCollectionIndex + ''
-			navigate('Software');
+			currentCollectionIndex = ''
 			search_layout.focus = true
 			gameView.visible = false
 		}
@@ -563,8 +562,7 @@ import QtGraphicalEffects 1.12
 			search_start_with_item.visible = false
 			searchValue = ''
 			search_input.text = 'Search'
-			currentCollectionIndex = currentCollectionIndex + ''
-			navigate('Software');
+			currentCollectionIndex = ''
 			search_layout.focus = true
 			gameView.visible = false
 		}
@@ -2141,7 +2139,7 @@ import QtGraphicalEffects 1.12
 			searchValue = ''
 			search_input.clear()
 			swapTheme();
-			currentCollectionIndex = currentCollectionIndex + ''
+			currentCollectionIndex = ''
 			navigate('Software');
 			gameView.visible = true
 		}
@@ -2161,7 +2159,7 @@ import QtGraphicalEffects 1.12
 			searchValue = ''
 			search_input.clear()
 			swapTheme();
-			currentCollectionIndex = currentCollectionIndex + ''
+			currentCollectionIndex = ''
 			navigate('Software');
 			gameView.visible = true
 		}
