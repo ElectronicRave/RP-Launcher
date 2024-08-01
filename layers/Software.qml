@@ -1756,7 +1756,7 @@ import QtGraphicalEffects 1.12
 
 	Rectangle {
 		id: game__settings_layout
-		width: aspectRatio === 43 ? vpx(290*screenRatio) : vpx(260*screenRatio)
+		width: aspectRatio === 43 ? vpx(310*screenRatio) : vpx(260*screenRatio)
 		height: aspectRatio === 43 ? vpx(150*screenRatio) : vpx(120*screenRatio)
 		color: theme.background
                 border.color: theme.accent
@@ -1849,7 +1849,7 @@ import QtGraphicalEffects 1.12
 
 	Rectangle {
 		id: game__settings_layout_favorite_button
-		width: aspectRatio === 43 ? vpx(286*screenRatio) : vpx(256*screenRatio)
+		width: aspectRatio === 43 ? vpx(306*screenRatio) : vpx(256*screenRatio)
 		height: aspectRatio === 43 ? vpx(42*screenRatio) : vpx(35*screenRatio)
 		color: focus ? theme.select : theme.background
                 border.color: focus ? theme.accent : "transparent"
