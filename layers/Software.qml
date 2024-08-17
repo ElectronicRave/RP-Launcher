@@ -562,7 +562,7 @@ import QtGraphicalEffects 1.12
 			search_start_with_item.visible = false
 			searchValue = ''
 			search_input.text = 'Search'
-			currentCollectionIndex = ''
+			currentCollectionIndex = currentCollectionIndex + ''
 			search_layout.focus = true
 			gameView.visible = false
 		}
