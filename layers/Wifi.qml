@@ -1,5 +1,5 @@
 import QtQuick 2.15
-import QtGraphicalEffects 1.12
+import QtGraphicalEffects 1.15
 
 	Rectangle {
 		width: aspectRatio === 43 ? vpx(24*screenRatio) : vpx(20*screenRatio)
