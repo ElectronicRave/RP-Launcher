@@ -610,9 +610,17 @@ import QtGraphicalEffects 1.15
 	Keys.onPressed: {
 		if (api.keys.isAccept(event)) {
 			event.accepted = true
+
+		if (searchValue) {
+			search_input.focus = true
+		}
+
+		else {
 			searchValue = ''
 			search_input.clear()
 			search_input.focus = true
+		}
+
 		}
 
 		if (api.keys.isCancel(event)) {
@@ -643,7 +651,6 @@ import QtGraphicalEffects 1.15
 		source: "../assets/icons/search.png"
 		layer.enabled: true
 		layer.effect: ColorOverlay { color: "#000000" }
-		antialiasing: true
 		smooth: true
 
 	anchors {
@@ -735,9 +742,17 @@ import QtGraphicalEffects 1.15
 		anchors.fill: search_input
 
 		onClicked: {
+
+		if (searchValue) {
+			search_input.focus = true
+		}
+
+		else {
 			searchValue = ''
 			search_input.clear()
 			search_input.focus = true
+		}
+
 		}
 
 	}
@@ -767,9 +782,17 @@ import QtGraphicalEffects 1.15
                 border.width: aspectRatio === 43 ? vpx(1.5*screenRatio) : vpx(1*screenRatio)
 
 	Keys.onUpPressed: {
-		searchValue = ''
-		search_input.clear()
-		search_input.focus = true
+
+		if (searchValue) {
+			search_input.focus = true
+		}
+
+		else {
+			searchValue = ''
+			search_input.clear()
+			search_input.focus = true
+		}
+
 	}
 
 	Keys.onRightPressed: {
@@ -859,9 +882,17 @@ import QtGraphicalEffects 1.15
                 border.width: aspectRatio === 43 ? vpx(1.5*screenRatio) : vpx(1*screenRatio)
 
 	Keys.onUpPressed: {
-		searchValue = ''
-		search_input.clear()
-		search_input.focus = true
+
+		if (searchValue) {
+			search_input.focus = true
+		}
+
+		else {
+			searchValue = ''
+			search_input.clear()
+			search_input.focus = true
+		}
+
 	}
 
 	Keys.onLeftPressed: {
