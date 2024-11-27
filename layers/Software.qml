@@ -651,6 +651,7 @@ import QtGraphicalEffects 1.15
 		source: "../assets/icons/search.png"
 		layer.enabled: true
 		layer.effect: ColorOverlay { color: "#000000" }
+		antialiasing: true
 		smooth: true
 
 	anchors {
@@ -1894,6 +1895,7 @@ import QtGraphicalEffects 1.15
 		source: "../assets/icons/favorite_menu.png"
 		layer.enabled: true
 		layer.effect: ColorOverlay { color: theme.text }
+		antialiasing: true
 		smooth: true
 
 	anchors {

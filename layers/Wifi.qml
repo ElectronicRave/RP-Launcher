@@ -14,6 +14,7 @@ import QtGraphicalEffects 1.15
 		source: "../assets/icons/wifi.png"
 		layer.enabled: true
 		layer.effect: ColorOverlay { color: theme.title }
+		antialiasing: true
 		smooth: true
 
 	anchors {

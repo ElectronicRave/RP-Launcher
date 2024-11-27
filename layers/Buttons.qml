@@ -1,5 +1,5 @@
 import QtQuick 2.12
-import QtGraphicalEffects 1.12
+import QtGraphicalEffects 1.15
 
 	Rectangle {
 		id: buttons
@@ -13,6 +13,7 @@ import QtGraphicalEffects 1.12
 		source: "../assets/icons/button_b.png"
 		layer.enabled: true
 		layer.effect: ColorOverlay { color: theme.title }
+		antialiasing: true
 		smooth: true
 
 	anchors {
@@ -73,6 +74,7 @@ import QtGraphicalEffects 1.12
 		source: "../assets/icons/button_a.png"
 		layer.enabled: true
 		layer.effect: ColorOverlay { color: theme.title }
+		antialiasing: true
 		smooth: true
 
 	anchors {

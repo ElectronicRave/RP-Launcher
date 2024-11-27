@@ -19,6 +19,7 @@ import QtGraphicalEffects 1.15
 		source: getBatteryIcon()
 		layer.enabled: true
 		layer.effect: ColorOverlay { color: theme.title }
+		antialiasing: true
 		smooth: true
 
 	anchors {
@@ -69,6 +70,7 @@ import QtGraphicalEffects 1.15
 			sourceSize.width: aspectRatio === 43 ? vpx(20*screenRatio) : vpx(15*screenRatio)
 			fillMode: Image.PreserveAspectFit
 			source: "../assets/icons/charge.png"
+			antialiasing: true
 			smooth: true
 			visible: chargingStatus && battery_icon.level < 100
                    
