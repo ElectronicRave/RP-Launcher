@@ -6,11 +6,23 @@
 
 ![RP Launcher Pegasus theme](assets/images/screenshots/game_light.png)
 
+![RP Launcher Pegasus theme](assets/images/screenshots/search_light.png)
+
+![RP Launcher Pegasus theme](assets/images/screenshots/settings_light.png)
+
+![RP Launcher Pegasus theme](assets/images/screenshots/personal_light.png)
+
 ![RP Launcher Pegasus theme](assets/images/screenshots/main_dark.png)
 
 ![RP Launcher Pegasus theme](assets/images/screenshots/software_dark.png)
 
 ![RP Launcher Pegasus theme](assets/images/screenshots/game_dark.png)
+
+![RP Launcher Pegasus theme](assets/images/screenshots/search_dark.png)
+
+![RP Launcher Pegasus theme](assets/images/screenshots/settings_dark.png)
+
+![RP Launcher Pegasus theme](assets/images/screenshots/personal_dark.png)
 
 Pegasus Frontend Theme optimized for Handheld. You need to have Pegasus installed in your handheld
 
