@@ -599,6 +599,28 @@ import QtGraphicalEffects 1.15
 		radius: vpx(3*screenRatio)
 		visible: searchFocus ? 1 : 0
 
+	SequentialAnimation {
+		id: search_layout_animation
+		running: search_layout.visible
+
+  	NumberAnimation {
+		target: search_layout;
+		property: "x";
+		from: aspectRatio === 43 ? vpx(160*screenRatio) : vpx(210*screenRatio);
+		to: aspectRatio === 43 ? vpx(160*screenRatio) : vpx(210*screenRatio);
+		duration: 0;
+	}
+
+  	NumberAnimation {
+		target: search_layout;
+		property: "y";
+		from: aspectRatio === 43 ? vpx(500*screenRatio) : vpx(450*screenRatio);
+		to: aspectRatio === 43 ? vpx(120*screenRatio) : vpx(90*screenRatio);
+		duration: 500;
+	}
+
+	}
+
 	Keys.onRightPressed: {
 		search_file_name_item_button.focus = true
 	}
@@ -1348,28 +1370,6 @@ import QtGraphicalEffects 1.15
 	}
 
 }
-
-	SequentialAnimation {
-		id: search_layout_animation
-		running: search_layout.visible
-
-  	NumberAnimation {
-		target: search_layout;
-		property: "x";
-		from: aspectRatio === 43 ? vpx(160*screenRatio) : vpx(210*screenRatio);
-		to: aspectRatio === 43 ? vpx(160*screenRatio) : vpx(210*screenRatio);
-		duration: 0;
-	}
-
-  	NumberAnimation {
-		target: search_layout;
-		property: "y";
-		from: aspectRatio === 43 ? vpx(500*screenRatio) : vpx(450*screenRatio);
-		to: aspectRatio === 43 ? vpx(120*screenRatio) : vpx(90*screenRatio);
-		duration: 500;
-	}
-
-	}
 
 }
 
