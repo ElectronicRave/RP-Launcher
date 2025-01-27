@@ -536,7 +536,7 @@ import QtGraphicalEffects 1.15
 		target: personal__center_layout_up;
 		from: 0;
 		to: 1;
-		duration: 200
+		duration: 300
 		running: personal__center_layout_up.visible ? 1 : 0
 	}
 
