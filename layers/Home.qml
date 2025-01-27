@@ -369,7 +369,7 @@ import QtGraphicalEffects 1.15
 		target: system__item_container;
 		from: -1;
 		to: 1;
-		duration: 150
+		duration: 200
 		running: system__item_container.visible ? 1 : 0
 	}
 

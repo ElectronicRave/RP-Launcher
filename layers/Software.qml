@@ -1366,7 +1366,7 @@ import QtGraphicalEffects 1.15
 		property: "y";
 		from: aspectRatio === 43 ? vpx(500*screenRatio) : vpx(450*screenRatio);
 		to: aspectRatio === 43 ? vpx(120*screenRatio) : vpx(90*screenRatio);
-		duration: 400;
+		duration: 500;
 	}
 
 	}
@@ -1429,7 +1429,7 @@ import QtGraphicalEffects 1.15
 		target: game__item_container;
 		from: -1;
 		to: 1;
-		duration: 150
+		duration: 200
 		running: game__item_container.visible ? 1 : 0
 	}
 
