@@ -1,8 +1,10 @@
 import QtQuick 2.12
 import QtGraphicalEffects 1.15
 
+	//Button Quit
+
 	Rectangle {
-		id: quit_button
+		id: button_quit_layout
 		width: aspectRatio === 43 ? vpx(60*screenRatio) : vpx(50*screenRatio)
 		height: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(28*screenRatio)
 		color: focus ? theme.select : theme.background
@@ -49,8 +51,8 @@ import QtGraphicalEffects 1.15
 	}
 
 	MouseArea {
-		id: quit_button_mouse
-		anchors.fill: quit_button
+		id: button_quit_mouse
+		anchors.fill: button_quit_layout
 
 		onClicked: {
 
@@ -101,7 +103,7 @@ import QtGraphicalEffects 1.15
 	}
 
 	Text {
-		id: quit_button_legend
+		id: button_quit_legend
 		text: "Quit"
 		color: theme.title
 		font.pixelSize: aspectRatio === 43 ? vpx(16*screenRatio) : vpx(13*screenRatio)
@@ -114,7 +116,7 @@ import QtGraphicalEffects 1.15
 }
 
 	Image {
-		id: quit_button_img
+		id: button_quit_img
 		sourceSize.width: aspectRatio === 43 ? vpx(25*screenRatio) : vpx(25*screenRatio)
 		fillMode: Image.PreserveAspectFit
 		source: "../assets/icons/quit.png"
