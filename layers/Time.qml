@@ -1,7 +1,9 @@
 import QtQuick 2.15
 
+	//Button Time
+
 	Rectangle {
-		id: time_button
+		id: button_time_layout
 		width: aspectRatio === 43 ? vpx(48*screenRatio) : vpx(43*screenRatio)
 		height: aspectRatio === 43 ? vpx(32*screenRatio) : vpx(26*screenRatio)
 		color: focus ? theme.select : theme.background
@@ -33,7 +35,7 @@ import QtQuick 2.15
 	}
 
 	Text {
-		id: time_button_legend
+		id: button_time_legend
 		text: Qt.formatTime(new Date(), "hh:mm")
 		color: theme.title
 		font.pixelSize: aspectRatio === 43 ? vpx(18*screenRatio) : vpx(14*screenRatio)
@@ -56,7 +58,7 @@ import QtQuick 2.15
 		running: true
 		repeat: true
 		triggeredOnStart: true
-		onTriggered: time_button_legend.text = Qt.formatTime(new Date(), "hh:mm")
+		onTriggered: button_time_legend.text = Qt.formatTime(new Date(), "hh:mm")
 	}
 
 }
