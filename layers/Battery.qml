@@ -3,7 +3,7 @@ import QtGraphicalEffects 1.15
 
 	Rectangle {
 		id: battery
-        	property real chargingPercent: api.device.batteryPercent*100
+       	property real chargingPercent: api.device.batteryPercent*100
 		property bool chargingStatus: api.device.batteryCharging
 		visible: api.device.batteryPercent ? 1 : 0
 
