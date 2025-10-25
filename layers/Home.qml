@@ -346,6 +346,10 @@ import QtGraphicalEffects 1.15
 
 	KeyNavigation.up: favorite_button;
 
+	KeyNavigation.left: profile_button;
+
+	KeyNavigation.right: time;
+
 	KeyNavigation.down: quit;
 
 	anchors {
