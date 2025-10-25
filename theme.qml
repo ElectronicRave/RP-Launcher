@@ -46,7 +46,7 @@ import "layers" as Layers
 
 	property var allCollectionsHome: {
 		const collections = api.collections.toVarArray()
-		collections.unshift ({"name": "ALL SELECT PLATFORM GAMES", "shortName": "all-games", "games": api.allGames})
+		collections.unshift ({"name": "ALL SELECT PLATFORM GAME", "shortName": "all-games", "games": api.allGames})
 		return collections
 	}
 
